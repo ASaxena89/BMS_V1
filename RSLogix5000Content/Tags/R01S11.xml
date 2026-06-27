@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Tag Name="R01S11" TagType="Base" DataType="Module_Diagnostics" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+  <Data Format="L5K"><![CDATA[[0,0,0,0]]]></Data>
+  <Data Format="Decorated">
+    <Structure DataType="Module_Diagnostics">
+      <DataValueMember Name="FaultCode" DataType="INT" Radix="Decimal" Value="0" />
+      <DataValueMember Name="FLT" DataType="BOOL" Value="0" />
+      <DataValueMember Name="Running" DataType="BOOL" Value="0" />
+      <DataValueMember Name="FaultInfo" DataType="DINT" Radix="Decimal" Value="0" />
+      <DataValueMember Name="EntryStatus" DataType="INT" Radix="Decimal" Value="0" />
+    </Structure>
+  </Data>
+</Tag>

@@ -1,0 +1,237 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Routine Name="Logic" Type="RLL">
+  <Description><![CDATA[Perform Alarm processing: delay, latch/reset, acknowledge, enable/disable, inhibit/uninhibit, suppress/unsuppress]]></Description>
+  <RLLContent>
+    <Rung Type="N">
+      <Comment><![CDATA[
+]]></Comment>
+      <Text><![CDATA[JMP(SkipText)LOWER(Cfg_Tag,Cfg_Cond)LOWER(HMI_Lib,HMI_Type);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[============================================================
+CONFIGURATION
+============================================================
+In the object containing this alarm, other configuration (such as not having
+any limit switches) may make this particular alarm meaningless.
+The Program Configuration "Allow Exist" is used to hide this alarm
+on the object's faceplate and other graphics, and forces the Cfg_Exist to 0.]]></Comment>
+      <Text><![CDATA[LBL(SkipText)XIO(PCfg_AllowExist)OTU(Cfg_Exists);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[
+This rung gets the Alarm Minimum ON Time Configuration
+and the Auto Unshelve Time Configuration
+values and sets the corresponding timer presets.
+If the Minimum ON Time Configuration results in a timer preset
+less than 5 seconds, the preset is set to 5 seconds.
+If the Auto Unshelve Time Configuration results in a negative
+timer preset, the preset is set to 28800 seconds (8 hours).
+Either bad Config is flagged (Err_Timer).
+Bad Config is also flagged if the Cfg_Severity is out of range (valid = 1..1000) (Err_Severity).]]></Comment>
+      <Text><![CDATA[XIC(Cfg_Exists)[[MUL(Cfg_AlmMinOnT,1000,Wrk_AlmMinOnT.PRE) LT(Wrk_AlmMinOnT.PRE,5000) MOVE(5,Cfg_AlmMinOnT) MOVE(5000,Wrk_AlmMinOnT.PRE) ,MUL(Cfg_MaxShelfT,60000,Wrk_ShelfT.PRE) XIC(Wrk_ShelfT.PRE.31) MOVE(480,Cfg_MaxShelfT) MOVE(28800000,Wrk_ShelfT.PRE) ] OTE(Err_Timer) ,LIMIT(1001,Cfg_Severity,0) MOVE(1000,Cfg_Severity) OTE(Err_Severity) ]OTE(Sts_Err);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[The Auto Ack time is ALWAYS five seconds.]]></Comment>
+      <Text><![CDATA[MOVE(5000,Wrk_AutoAckT.PRE);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[When the Alarm initially occurs, the Auto Ack timer is started.
+If this Alarm is set for "Ack Not Required", it is automatically 
+Acknowledged after the AutoAck time expires.
+
+This pulsing of the Ack bit OFF then ON allows the "Ack Not Required"
+configuration to be used with View 32, View ME and other legacy
+alarm systems that don't support optional ack.]]></Comment>
+      <Text><![CDATA[XIO(Ack)TON(Wrk_AutoAckT,?,?);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[If this alarm does not exist, set it to its default state (no alarm, acknowleded,
+uninhibited, unsuppressed, enabled) and clear any received commands.
+Then jump over the remainder of the Logic and return.]]></Comment>
+      <Text><![CDATA[XIO(Cfg_Exists)[XIC(Wrk_AutoAckT.DN) OTL(Ack) ,OTU(Wrk_Alm) OTU(Shelved) OTU(Wrk_Suppressed) OTU(Disabled) OTU(Sts_AlmInh) ,OTU(PCmd_Reset) OTU(PCmd_Ack) OTU(PCmd_Unshelve) OTU(PCmd_Suppress) OTU(PCmd_Unsuppress) ,OTU(OCmd_Reset) OTU(OCmd_Ack) OTU(OCmd_Shelve) OTU(OCmd_Unshelve) ,OTU(MCmd_Disable) OTU(MCmd_Enable) RES(Wrk_AlmMinOnT) RES(Wrk_ShelfT) ]JMP(End);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[============================================================
+COMMAND PROCESSING
+============================================================
+These rungs handle received Commands:
+Operator Commands (OCmd_xx) and Maintenance Commands
+(MCmd_xx) from the HMI and
+Program Command (PCmd_xx) from other objects.
+
+NOTE:  ALARM COMMANDS ARE ACCEPTED REGARDLESS OF MODE.
+
+This rung receives the Program Alarm Inhibit Command.
+If configured for EDGE, the Command is cleared.
+
+#####  V4.00.00  2018-06-07:  Deleted Cfg_PCmdClear; all Program Commands are now self-clearing.  #####]]></Comment>
+      <Text><![CDATA[XIC(PCmd_Suppress)OTU(PCmd_Suppress)OTL(Wrk_Suppressed)OTL(Com_AE.7)OTU(Com_AE.8);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[This rung receives the Program Alarm Unsuppress Command (Unsuppress wins over Suppress).
+If configured for LEVEL, Suppressed is cleared if PCmd_Suppress is cleared.
+
+#####  V4.00.00  2018-06-07:  Deleted Cfg_PCmdClear; all Program Commands are now self-clearing.  #####]]></Comment>
+      <Text><![CDATA[XIC(PCmd_Unsuppress)OTU(PCmd_Unsuppress)OTU(Wrk_Suppressed)OTU(Com_AE.7)OTL(Com_AE.8);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[This rung receives the Operator Shelve Command.
+If the command is received while shelved, the shelf timer starts over (reset).]]></Comment>
+      <Text><![CDATA[XIC(OCmd_Shelve)OTU(OCmd_Shelve)XIC(Cfg_AllowShelve)OTL(Shelved)OTL(Com_AE.4)OTU(Com_AE.5)RES(Wrk_ShelfT);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[This rung times how long the alarm has been shelved.
+If the Shelf Timer expires (and its preset > 0), automatically unshelve the alarm.]]></Comment>
+      <Text><![CDATA[XIC(Shelved)TON(Wrk_ShelfT,?,?);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[This rung receives the Operator Unshelve Command (Unshelve wins over Shelve)
+and the Program Unshelve Command
+Also Unshelve the alarm if the Shelf Timer expires (if preset > 0).
+
+NOTE: Shelved can also be set/cleared directly by the HMI (FTA&E support).]]></Comment>
+      <Text><![CDATA[[XIC(OCmd_Unshelve) OTU(OCmd_Unshelve) ,XIC(PCmd_Unshelve) OTU(PCmd_Unshelve) ,XIC(Wrk_ShelfT.DN) NE(Wrk_ShelfT.PRE,0) ,XIO(Cfg_AllowShelve) ]OTU(Shelved)OTU(Com_AE.4)OTL(Com_AE.5);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[This rung receives the Maintenance Alarm Disable Command.]]></Comment>
+      <Text><![CDATA[XIC(MCmd_Disable)OTU(MCmd_Disable)XIC(Cfg_AllowDisable)OTL(Disabled)OTL(Com_AE.10)OTU(Com_AE.11);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[This rung receives the Maintenance Alarm Enable Command (Enable wins over Disable)
+
+NOTE: Disabled can also be set/cleared directly by the HMI (FTA&E support).]]></Comment>
+      <Text><![CDATA[[XIC(MCmd_Enable) ,XIO(Cfg_AllowDisable) ]OTU(MCmd_Enable)OTU(Disabled)OTU(Com_AE.10)OTL(Com_AE.11);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[If the Alarm is Disabled (Maint), or Shelved (Oper),
+then post the "alarm inhibited" breadcrumb and do not
+allow a new alarm to be issued.
+
+NOTE:  If the Alarm is Suppressed (Prog), this is assumed to be "Suppressed by Design"
+(ANSI/ISA-18.2-2016) and NOT shown to the operator with an "inhibited"
+breadcrumb!  He just never sees the point as being In Alarm!
+
+@@@@@  Unlatch and Latch are used to avoid a verification  @@@@@
+@@@@@  warning in combination with Rung 2's OTU (above)!  @@@@@
+
+#####  V4.00.00  2018-06-07:  Modified to remove Suppressed from the conditions to show the "Inhibited" breadcrumb.  #####]]></Comment>
+      <Text><![CDATA[OTU(Sts_AlmInh)[XIC(Disabled) ,XIC(Shelved) ]OTL(Sts_AlmInh);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[This rung receives the Alarm Acknowledge Commands
+
+NOTE: Acknowledge can also be set/cleared directly by the HMI.]]></Comment>
+      <Text><![CDATA[[XIC(PCmd_Ack) OTU(PCmd_Ack) ,XIC(OCmd_Ack) OTU(OCmd_Ack) ,XIO(Wrk_AutoAckT.TT) XIO(Cfg_AckReqd) ]OTL(Ack);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[This rung receives the Alarm Reset Commands.
+
+If the Alarm Reset Command is received and, either, the Input condition has returned
+to normal, or the alarm is out of service, disabled, suppressed or shelved,
+the Alarm is CLEARED and ACKNOWLEDGED (to match ALMD behavior!!!).
+
+#####  Modified to remove Suppressed from the conditions to show the "Inhibited" breadcrumb.  #####
+#####  Added Inp_OoS for Out of Service from parent object's P_CmdSrc.  #####]]></Comment>
+      <Text><![CDATA[XIO(Wrk_AutoAckT.TT)[XIC(OCmd_Reset) OTU(OCmd_Reset) ,XIC(PCmd_Reset) OTU(PCmd_Reset) ,XIC(Inp_Reset) ][XIO(Inp) ,XIC(Sts_AlmInh) ,XIC(Wrk_Suppressed) ,XIC(Inp_OoS) ]OTL(Ack)OTU(Wrk_Alm);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[============================================================
+ALARM GENERATION
+============================================================
+This rung CLEARS the Alarm when the alarm condition clears and its
+Minimum On Time has expired, IF Reset is NOT Required.
+
+#####  Added Inp_OoS for Out of Service from parent object's P_CmdSrc.  #####]]></Comment>
+      <Text><![CDATA[[[XIO(Inp) ,XIC(Inp_OoS) ] XIO(Cfg_ResetReqd) XIO(Wrk_AlmMinOnT.TT) ,XIC(Disabled) XIO(Wrk_AutoAckT.TT) ]OTU(Wrk_Alm);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[If the Alarm Input (Inp) is true (inverted in EnableInFalse) and the alarm is (or becomes)
+In Service, Enabled, Unsuppressed and Unshelved, this rung sets the Alarm (Alm) bit.
+The Acknowledge (Ack) bit is cleared when the Alarm initially occurs.
+
+#####  Modified to remove Suppressed from the conditions to show the "Inhibited" breadcrumb.  #####
+#####  Added Inp_OoS for Out of Service from parent object's P_CmdSrc.  #####]]></Comment>
+      <Text><![CDATA[[XIC(Inp) XIO(Sts_AlmInh) XIO(Wrk_Suppressed) XIO(Inp_OoS) ,XIC(MCmd_Test) OTU(MCmd_Test) ][XIO(Wrk_Alm) OTU(Ack) ,OTL(Wrk_Alm) ];]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[============================================================
+OPERATOR COMMAND READIES
+============================================================
+This Alarm is ready for (requires) an Acknowledgement if the Alarm
+is not Acknowledged (an Acknowledge was Required when the alarm occurred).
+
+This Alarm is ready for (requires) a Reset if there is an Alarm, Reset is Required,
+and either the alarm condition has CLEARED or the alarm is 
+Out of Service, Shelved, Suppressed or Disabled.
+.
+If the Alarm is NOT Shelved, it is ready for Shelve.
+
+If the Alarm IS Shelved, it is ready for Unshelve.
+
+If the Alarm is NOT Disabled, it is ready for Disable.
+
+If the Alarm IS Disabled, it is ready for Enable.
+
+NOTE: This rung appears before the Values/Status rung because the Rdy_Reset
+condition is used to eliminate redundant logic in the rung below for Val_Notify.0.
+
+#####  V4.00.00  2018-06-07:  Aligned ready bit naming with command bit names.  #####
+#####  All OCmds/MCmds and ORdys/MRdys are now Local Tags.  #####
+#####  Added Sts_RdyAck and Sts_ResetReqd for use by containing objects.  #####
+#####  Modified to remove Suppressed from the conditions to show the "Inhibited" breadcrumb.  #####
+#####  Added Inp_OoS for Out of Service from parent object's P_CmdSrc.  #####]]></Comment>
+      <Text><![CDATA[LBL(End)XIC(Cfg_Exists)[XIO(Wrk_AutoAckT.TT) [XIO(Ack) OTE(ORdy_Ack) ,XIC(Wrk_Alm) XIC(Cfg_ResetReqd) [XIO(Inp) ,XIC(Sts_AlmInh) ,XIC(Wrk_Suppressed) ,XIC(Inp_OoS) ] OTE(ORdy_Reset) ] ,XIC(Cfg_AllowShelve) OTE(ORdy_Shelve) ,XIC(Shelved) OTE(ORdy_Unshelve) ,XIO(Disabled) XIC(Cfg_AllowDisable) OTE(MRdy_Disable) ,XIC(Disabled) OTE(MRdy_Enable) ,XIO(Wrk_Alm) OTE(MRdy_Test) ];]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[============================================================
+VALUE / STATUS GENERATION
+============================================================
+This rung copies the internal working status (Suppressed, In Alarm)
+to public Status bits.  Note that internal working bits are used so that
+outside objects cannot manipulate the state of this object
+by setting/clearing its Status and Alarm bits.
+
+Public Status is generated for:
+Alarm (with minimum ON time to be seen by polling)
+Alarm Suppressed
+Unsuppressed, Unshelved and Enabled are generated for HMI (FTVSE 7).
+
+(Ack, Shelved and Disabled can be set/cleared by the HMI directly.
+Note that these bits are "read/write" outputs in the parameter definition.)]]></Comment>
+      <Text><![CDATA[[XIC(Wrk_Alm) OTE(Alm) TON(Wrk_AlmMinOnT,?,?) ,XIC(Wrk_Suppressed) OTE(Suppressed) ];]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[Notify Level (color, blink) is determined here.
+@@@@@  Note how the bottom 3 bits of the Severity are shifted left 1 for Val_Notify.  @@@@@
+
+0 = Not in alarm, acknowledged
+1 = Not in alarm, unacknowledged or reset required
+2 = Low severity alarm, acknowledged
+3 = Low severity alarm, unacknowledged
+4 = Medium severity alarm, acknowledged
+5 = Medium severity alarm, unacknowledged
+6 = High severity alarm, acknowledged
+7 = High severity alarm, unacknowledged
+8 = Urgent severity alarm, acknowledged
+9 = Urgent severity alarm, unacknowledged
+
+NOTE that the alarm bell icon will blink, even though the alarm is Acknowledged,
+if an Alarm Reset is required (to get the Operator's attention).]]></Comment>
+      <Text><![CDATA[[[XIO(Ack) ,XIC(ORdy_Reset) ] OTE(Val_Notify.0) ,XIC(Wrk_Alm) [[LIMIT(1,Cfg_Severity,250) ,LIMIT(501,Cfg_Severity,750) ] OTE(Val_Notify.1) ,LIMIT(251,Cfg_Severity,750) OTE(Val_Notify.2) ,LIMIT(751,Cfg_Severity,1000) OTE(Val_Notify.3) ] ,OTU(Val_Notify.4) OTU(Val_Notify.5) OTU(Val_Notify.6) OTU(Val_Notify.7) ];]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[This rung calculates the number of seconds until this alarm "unshelves" itself.
+If the alarm is already unshelved, clear this number.
+
+#####  V4.00.00  2018-06-07:  Modified to optimize scan time.  ####]]></Comment>
+      <Text><![CDATA[XIO(Shelved)CLR(Val_MinToUnshelve)CLR(Val_SecToUnshelve);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[This rung takes the time remaining until the alarm will be automatically unshelved (milliseconds),
+converts it to seconds, then reports it in  minutes : seconds format for display on the HMI.
+
+#####  V4.00.00  2018-06-07:  Modified to optimize scan time.  ####]]></Comment>
+      <Text><![CDATA[XIC(Shelved)CPT(Wrk_SecToUnshelve,(Wrk_ShelfT.PRE-Wrk_ShelfT.ACC)/1000)DIV(Wrk_SecToUnshelve,60,Val_MinToUnshelve)MOD(Wrk_SecToUnshelve,60,Val_SecToUnshelve);]]></Text>
+    </Rung>
+  </RLLContent>
+</Routine>

@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DataType Name="MOXA_Interface_Object_Flags_v0" Family="NoFamily" Class="User">
+  <Description><![CDATA[reference to Ethernet Link object]]></Description>
+  <Members>
+    <Member Name="ZZZZZZZZZZMOXA_CIP_I0" DataType="SINT" Dimension="0" Radix="Decimal" Hidden="true" ExternalAccess="Read/Write" />
+    <Member Name="Link_Status" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZMOXA_CIP_I0" BitNumber="0" ExternalAccess="Read/Write">
+      <Description><![CDATA[0-inactive, 1-active]]></Description>
+    </Member>
+    <Member Name="Duplex" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZMOXA_CIP_I0" BitNumber="1" ExternalAccess="Read/Write">
+      <Description><![CDATA[0-half, 1-full]]></Description>
+    </Member>
+    <Member Name="Negotiation_Status_1" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZMOXA_CIP_I0" BitNumber="2" ExternalAccess="Read/Write" />
+    <Member Name="Negotiation_Status_2" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZMOXA_CIP_I0" BitNumber="3" ExternalAccess="Read/Write" />
+    <Member Name="Negotiation_Status_3" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZMOXA_CIP_I0" BitNumber="4" ExternalAccess="Read/Write" />
+    <Member Name="Manual_Setting_Requires_Reset" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZMOXA_CIP_I0" BitNumber="5" ExternalAccess="Read/Write" />
+    <Member Name="Local_Hardware_Fault" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZMOXA_CIP_I0" BitNumber="6" ExternalAccess="Read/Write" />
+  </Members>
+</DataType>

@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DataType Name="MOXA_Identity_Object_v0" Family="NoFamily" Class="User">
+  <Description><![CDATA[class 0x01]]></Description>
+  <Members>
+    <Member Name="Vendor_ID" DataType="INT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[ODVA Vendor ID. Moxa
+ = 991]]></Description>
+    </Member>
+    <Member Name="Device_Type" DataType="INT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[0x307, "Managed Ethernet Switch"]]></Description>
+    </Member>
+    <Member Name="Product_Code" DataType="INT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[EDS-405A=0x0006
+EDS-408A=0x0007]]></Description>
+    </Member>
+    <Member Name="Major_Revision" DataType="SINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Major revision of the item the Identity Object represents]]></Description>
+    </Member>
+    <Member Name="Minor_Revision" DataType="SINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Minor revision of the item the Identity Object represents]]></Description>
+    </Member>
+    <Member Name="Serial_Number" DataType="DINT" Dimension="0" Radix="Hex" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Serial number of device]]></Description>
+    </Member>
+    <Member Name="Product_Name" DataType="STRING" Dimension="0" Radix="NullType" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Human readable identification. Switch model number. Ex: EDS-508A]]></Description>
+    </Member>
+    <Member Name="Assigned_Name" DataType="MOXA_String_1024" Dimension="0" Radix="NullType" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[User assigned switch name.]]></Description>
+    </Member>
+    <Member Name="Geographic_Location" DataType="MOXA_String_1024" Dimension="0" Radix="NullType" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[This is the user assigned switch location.]]></Description>
+    </Member>
+  </Members>
+  <Dependencies>
+    <Dependency Type="DataType" Name="MOXA_String_1024" />
+    <Dependency Type="DataType" Name="MOXA_String_1024" />
+  </Dependencies>
+</DataType>

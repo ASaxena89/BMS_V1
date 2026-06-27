@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DataType Name="MOXA_System_Fault_v0" Family="NoFamily" Class="User">
+  <Description><![CDATA[reference to Switch object]]></Description>
+  <Members>
+    <Member Name="Fault" DataType="DINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write" />
+    <Member Name="ZZZZZZZZZZUDT_MOXA_S1" DataType="SINT" Dimension="0" Radix="Decimal" Hidden="true" ExternalAccess="Read/Write" />
+    <Member Name="Turbo_Ring_Turbo_Ring_2" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZUDT_MOXA_S1" BitNumber="0" ExternalAccess="Read/Write">
+      <Description><![CDATA[Reserved
+value 0: OK
+value 1: Fail]]></Description>
+    </Member>
+    <Member Name="Dongle_Configuration_Invalid" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZUDT_MOXA_S1" BitNumber="1" ExternalAccess="Read/Write">
+      <Description><![CDATA[Reserved
+value 0: OK
+value 1: Fail]]></Description>
+    </Member>
+    <Member Name="Port_Utilization_Alarm" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZUDT_MOXA_S1" BitNumber="2" ExternalAccess="Read/Write">
+      <Description><![CDATA[Value 0: no Alarm]]></Description>
+    </Member>
+    <Member Name="Port_Link_Up" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZUDT_MOXA_S1" BitNumber="3" ExternalAccess="Read/Write">
+      <Description><![CDATA[Value 0: no Alarm
+Value 1: Alarm]]></Description>
+    </Member>
+    <Member Name="Port_Link_Down" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZUDT_MOXA_S1" BitNumber="4" ExternalAccess="Read/Write">
+      <Description><![CDATA[Value 0: no Alarm
+Value 1: Alarm]]></Description>
+    </Member>
+    <Member Name="Turbo_Rinh_Break" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZUDT_MOXA_S1" BitNumber="5" ExternalAccess="Read/Write">
+      <Description><![CDATA[Ring Master Only
+Value 0: no Alarm
+Value 1: Alarm]]></Description>
+    </Member>
+    <Member Name="Power_Input_1_Fail" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZUDT_MOXA_S1" BitNumber="6" ExternalAccess="Read/Write">
+      <Description><![CDATA[Value 0: no Alarm
+Value 1: Alarm]]></Description>
+    </Member>
+    <Member Name="Power_Input_2_Fail" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZUDT_MOXA_S1" BitNumber="7" ExternalAccess="Read/Write">
+      <Description><![CDATA[Value 0: no Alarm
+Value 1: Alarm]]></Description>
+    </Member>
+    <Member Name="ZZZZZZZZZZUDT_MOXA_S10" DataType="SINT" Dimension="0" Radix="Decimal" Hidden="true" ExternalAccess="Read/Write" />
+    <Member Name="DI_1_Off" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZUDT_MOXA_S10" BitNumber="0" ExternalAccess="Read/Write">
+      <Description><![CDATA[Value 0: no Alarm
+Value 1: Alarm]]></Description>
+    </Member>
+    <Member Name="DI_1_On" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZUDT_MOXA_S10" BitNumber="1" ExternalAccess="Read/Write">
+      <Description><![CDATA[Value 0: no Alarm
+Value 1: Alarm]]></Description>
+    </Member>
+    <Member Name="DI_2_Off" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZUDT_MOXA_S10" BitNumber="2" ExternalAccess="Read/Write">
+      <Description><![CDATA[Value 0: no Alarm
+Value 1: Alarm]]></Description>
+    </Member>
+    <Member Name="DI_2_On" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZUDT_MOXA_S10" BitNumber="3" ExternalAccess="Read/Write">
+      <Description><![CDATA[Value 0: no Alarm
+Value 1: Alarm]]></Description>
+    </Member>
+    <Member Name="ABC_detect" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZUDT_MOXA_S10" BitNumber="4" ExternalAccess="Read/Write">
+      <Description><![CDATA[Value 0: no detect
+Value 1: detect]]></Description>
+    </Member>
+    <Member Name="Power_Supply_1" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZUDT_MOXA_S10" BitNumber="5" ExternalAccess="Read/Write">
+      <Description><![CDATA[Value 0: off
+Value 1: on]]></Description>
+    </Member>
+    <Member Name="Power_Supply_2" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZUDT_MOXA_S10" BitNumber="6" ExternalAccess="Read/Write">
+      <Description><![CDATA[Value 0: off
+Value 1: on]]></Description>
+    </Member>
+  </Members>
+</DataType>

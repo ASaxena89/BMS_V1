@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<AddOnInstructionDefinition Name="RUN_HRS" Revision="1.0" ExecutePrescan="false" ExecutePostscan="false" ExecuteEnableInFalse="false" CreatedDate="2025-06-25T04:57:48.487Z" CreatedBy="WIN-M9CLSPG9PQU\danish.ali" EditedDate="2025-06-25T11:29:47.836Z" EditedBy="WIN-M9CLSPG9PQU\danish.ali" SoftwareRevision="v37.00">
+  <Description><![CDATA[PUMP/MOTOR RUN HOURS]]></Description>
+  <RevisionNote><![CDATA[REV 0]]></RevisionNote>
+  <Parameters>
+    <Parameter Name="EnableIn" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read Only">
+      <Description><![CDATA[Enable Input - System Defined Parameter]]></Description>
+    </Parameter>
+    <Parameter Name="EnableOut" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read Only">
+      <Description><![CDATA[Enable Output - System Defined Parameter]]></Description>
+    </Parameter>
+    <Parameter Name="RunI" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="true" Visible="true" ExternalAccess="Read/Write">
+      <Description><![CDATA[MOTOR/PUMP RUN INDICATION]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="BOOL" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="PUMP_RESET_SEC" TagType="Base" DataType="REAL" Usage="Output" Radix="Float" Required="true" Visible="true" ExternalAccess="Read/Write">
+      <Description><![CDATA[PUMP RESETABLE SEC]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0.00000000e+000]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="REAL" Radix="Float" Value="0.0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="PUMP_RESET_RHR_CMD" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="true" Visible="true" ExternalAccess="Read/Write">
+      <Description><![CDATA[PUMP CMD TO RESET RUN HOURS]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="BOOL" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="PUMP_NRESET_SEC" TagType="Base" DataType="REAL" Usage="Output" Radix="Float" Required="true" Visible="true" ExternalAccess="Read/Write">
+      <Description><![CDATA[PUMP NON RESETABLE RHRS]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0.00000000e+000]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="REAL" Radix="Float" Value="0.0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="RESET_ALL" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="true" Visible="true" ExternalAccess="Read/Write">
+      <Description><![CDATA[RESET ALL RUN HOURS]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="BOOL" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </Parameter>
+  </Parameters>
+  <LocalTags>
+    <LocalTag Name="PUMP_1SEC_TMR" DataType="TIMER" ExternalAccess="None">
+      <Description><![CDATA[ 1 SEC TIMER TO CALCULATE RUN HOURS EVERY SECOND]]></Description>
+      <DefaultData Format="L5K"><![CDATA[[0,1000,9]]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <Structure DataType="TIMER">
+          <DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="1000" />
+          <DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="9" />
+          <DataValueMember Name="EN" DataType="BOOL" Value="0" />
+          <DataValueMember Name="TT" DataType="BOOL" Value="0" />
+          <DataValueMember Name="DN" DataType="BOOL" Value="0" />
+        </Structure>
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="PUMP_MOV_TMR" DataType="TIMER" ExternalAccess="None">
+      <Description><![CDATA[PUMP TIMER TO MOV 0 TO RESETABLE RHRS AND ADD PREVIOUS RHRS TO NON-RESETABLE RHRS]]></Description>
+      <DefaultData Format="L5K"><![CDATA[[0,1000,0]]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <Structure DataType="TIMER">
+          <DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="1000" />
+          <DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="0" />
+          <DataValueMember Name="EN" DataType="BOOL" Value="0" />
+          <DataValueMember Name="TT" DataType="BOOL" Value="0" />
+          <DataValueMember Name="DN" DataType="BOOL" Value="0" />
+        </Structure>
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="PUMP_NRESET_SEC_INTER" DataType="REAL" Radix="Float" ExternalAccess="None">
+      <Description><![CDATA[PUMP INTERMEDIATE BIT TO STORE PREVIOUS RHRS WHEN RESET IS DONE]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0.00000000e+000]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="REAL" Radix="Float" Value="0.0" />
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="PUMP_NRESET_SEC_STORAGE" DataType="REAL" Radix="Float" ExternalAccess="None">
+      <Description><![CDATA[STORAGE BIT TO STORE PREVIOUS RHRS]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0.00000000e+000]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="REAL" Radix="Float" Value="0.0" />
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="PUMP_NRESET_SEC_STORAGE1" DataType="DINT" Radix="Decimal" ExternalAccess="None">
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="DINT" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="StorageBit1" DataType="BOOL" Radix="Decimal" ExternalAccess="None">
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="BOOL" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="OutputBit1" DataType="BOOL" Radix="Decimal" ExternalAccess="None">
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="BOOL" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="StorageBit2" DataType="BOOL" Radix="Decimal" ExternalAccess="None">
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="BOOL" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="OutputBit2" DataType="BOOL" Radix="Decimal" ExternalAccess="None">
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="BOOL" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="M0" DataType="BOOL" Radix="Decimal" ExternalAccess="None">
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="BOOL" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="ONS1" DataType="BOOL" Radix="Decimal" ExternalAccess="None">
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="BOOL" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </LocalTag>
+  </LocalTags>
+  <Routines />
+</AddOnInstructionDefinition>

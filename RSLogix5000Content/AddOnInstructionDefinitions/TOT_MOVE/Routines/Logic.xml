@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Routine Name="Logic" Type="RLL">
+  <RLLContent>
+    <Rung Type="N">
+      <Text><![CDATA[EQ(Hour,0)EQ(Minutes,0)EQ(Seconds,1)ONS(ONS1)[COP(Array[0],Array1[0],29) ,COP(Array1[0],Array[1],29) ,MOVE(Yesterday_Tot,Array[0]) ];]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[EQ(Day,1)EQ(Hour,0)EQ(Minutes,0)EQ(Seconds,1)ONS(ONS2)[CPT(Last_Month,This_Month+Yesterday_Tot) ,MOVE(0,This_Month) ];]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[NE(Day,1)EQ(Hour,0)EQ(Minutes,0)EQ(Seconds,1)ONS(ONS3)CPT(This_Month,Yesterday_Tot+This_Month);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(Reset)[COP(Zero_Array[0],Array[0],30) ,MOVE(0,This_Month) ,MOVE(0,Last_Month) ];]]></Text>
+    </Rung>
+  </RLLContent>
+</Routine>

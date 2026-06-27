@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Routine Name="Logic" Type="FBD">
+  <FBDContent SheetSize="Tabloid - 11 x 17 in" SheetOrientation="Landscape">
+    <Sheet Number="1">
+      <Description><![CDATA[Totalization]]></Description>
+      <IRef ID="0" X="100" Y="480" Operand="0" HideDesc="false" />
+      <IRef ID="1" X="380" Y="260" Operand="0" HideDesc="false" />
+      <IRef ID="2" X="1000" Y="440" Operand="0" HideDesc="false" />
+      <IRef ID="3" X="1060" Y="580" Operand="0" HideDesc="false" />
+      <IRef ID="4" X="380" Y="280" Operand="1" HideDesc="false" />
+      <IRef ID="5" X="380" Y="300" Operand="1" HideDesc="false" />
+      <IRef ID="6" X="640" Y="620" Operand="1000" HideDesc="false" />
+      <IRef ID="7" X="1000" Y="420" Operand="2000" HideDesc="false" />
+      <IRef ID="8" X="1000" Y="940" Operand="Day" HideDesc="false" />
+      <IRef ID="9" X="100" Y="560" Operand="Hour" HideDesc="false" />
+      <IRef ID="10" X="1000" Y="820" Operand="Hour" HideDesc="false" />
+      <IRef ID="11" X="100" Y="700" Operand="Minutes" HideDesc="false" />
+      <IRef ID="12" X="1020" Y="860" Operand="Minutes" HideDesc="false" />
+      <IRef ID="13" X="280" Y="20" Operand="PV" HideDesc="false" />
+      <IRef ID="14" X="400" Y="400" Operand="Reset" HideDesc="false" />
+      <IRef ID="15" X="1000" Y="400" Operand="Reset" HideDesc="false" />
+      <IRef ID="16" X="1020" Y="1000" Operand="Reset" HideDesc="false" />
+      <IRef ID="17" X="1060" Y="640" Operand="Reset" HideDesc="false" />
+      <IRef ID="18" X="1280" Y="380" Operand="Reset" HideDesc="false" />
+      <IRef ID="19" X="120" Y="620" Operand="ResetHour" HideDesc="false" />
+      <IRef ID="20" X="100" Y="760" Operand="ResetMin" HideDesc="false" />
+      <IRef ID="21" X="100" Y="940" Operand="ResetSec" HideDesc="false" />
+      <IRef ID="22" X="80" Y="900" Operand="Seconds" HideDesc="false" />
+      <IRef ID="23" X="1020" Y="900" Operand="Seconds" HideDesc="false" />
+      <IRef ID="24" X="480" Y="220" Operand="TimeBase" HideDesc="false" />
+      <IRef ID="25" X="120" Y="440" Operand="Today_Tot" HideDesc="false" />
+      <IRef ID="26" X="680" Y="720" Operand="Today_Tot" HideDesc="false" />
+      <IRef ID="27" X="1020" Y="720" Operand="Today_Tot" HideDesc="false" />
+      <IRef ID="28" X="700" Y="780" Operand="Yesterday_Tot" HideDesc="false" />
+      <IRef ID="29" X="1040" Y="780" Operand="Yesterday_Tot" HideDesc="false" />
+      <ORef ID="30" X="1380" Y="780" Operand="Last_Month" HideDesc="false" />
+      <ORef ID="31" X="1470" Y="420" Operand="Reset" HideDesc="false" />
+      <ORef ID="32" X="1380" Y="760" Operand="This_Month" HideDesc="false" />
+      <ORef ID="33" X="920" Y="200" Operand="Today_Tot" HideDesc="false" />
+      <ORef ID="34" X="1250" Y="560" Operand="Yesterday_Tot" HideDesc="false" />
+      <Block Type="BAND" ID="35" X="360" Y="700" Operand="BAND_01" VisiblePins="In1 In2 In3 Out" HideDesc="false" />
+      <Block Type="BOR" ID="36" X="460" Y="340" Operand="BOR_04" VisiblePins="In1 In2 Out" HideDesc="false" />
+      <Block Type="EQ" ID="37" X="160" Y="520" Operand="EQU_01" VisiblePins="SourceA SourceB Dest" HideDesc="false" />
+      <Block Type="EQ" ID="38" X="160" Y="840" Operand="EQU_02" VisiblePins="SourceA SourceB Dest" HideDesc="false" />
+      <Block Type="EQ" ID="39" X="180" Y="380" Operand="EQU_03" VisiblePins="SourceA SourceB Dest" HideDesc="false" />
+      <Block Type="EQ" ID="40" X="160" Y="660" Operand="EQU_04" VisiblePins="SourceA SourceB Dest" HideDesc="false" />
+      <Block Type="RESD" ID="41" X="1320" Y="360" Operand="RESD_01" VisiblePins="Set Reset Out OutNot" HideDesc="false" />
+      <Block Type="RESD" ID="42" X="500" Y="480" Operand="RESD_02" VisiblePins="Set Reset Out OutNot" HideDesc="false" />
+      <Block Type="SEL" ID="43" X="1120" Y="500" Operand="SEL_Reset_01" VisiblePins="In1 In2 SelectorIn Out" HideDesc="false" />
+      <Block Type="SEL" ID="44" X="760" Y="700" Operand="SEL_THISMONTH1" VisiblePins="In1 In2 SelectorIn Out" HideDesc="false" />
+      <Block Type="TONR" ID="45" X="1060" Y="340" Operand="TONR_01" VisiblePins="TimerEnable PRE Reset ACC EN DN" HideDesc="false" />
+      <Block Type="TONR" ID="46" X="680" Y="440" Operand="TONR_02" VisiblePins="TimerEnable PRE Reset ACC DN" HideDesc="false" />
+      <Block Type="TOT" ID="47" X="660" Y="160" Operand="TOT_01" VisiblePins="In TimeBase ResetValue ProgProgReq ProgStartReq ProgResetReq Total OldTotal" HideDesc="false" />
+      <AddOnInstruction Name="TOT_MOVE" ID="48" X="1100" Y="720" Operand="TOT_MOVE_01" VisiblePins="Today_Tot Yesterday_Tot This_Month Last_Month Hour Minutes Seconds Day Reset" />
+      <Wire FromID="0" ToID="39" ToParam="SourceB" />
+      <Wire FromID="1" ToID="47" ToParam="ResetValue" />
+      <Wire FromID="2" ToID="45" ToParam="Reset" />
+      <Wire FromID="3" ToID="43" ToParam="In2" />
+      <Wire FromID="4" ToID="47" ToParam="ProgProgReq" />
+      <Wire FromID="5" ToID="47" ToParam="ProgStartReq" />
+      <Wire FromID="6" ToID="46" ToParam="PRE" />
+      <Wire FromID="7" ToID="45" ToParam="PRE" />
+      <Wire FromID="8" ToID="48" ToParam="Day" />
+      <Wire FromID="9" ToID="37" ToParam="SourceA" />
+      <Wire FromID="10" ToID="48" ToParam="Hour" />
+      <Wire FromID="11" ToID="40" ToParam="SourceA" />
+      <Wire FromID="12" ToID="48" ToParam="Minutes" />
+      <Wire FromID="13" ToID="47" ToParam="In" />
+      <Wire FromID="14" ToID="36" ToParam="In1" />
+      <Wire FromID="15" ToID="45" ToParam="TimerEnable" />
+      <Wire FromID="16" ToID="48" ToParam="Reset" />
+      <Wire FromID="17" ToID="43" ToParam="SelectorIn" />
+      <Wire FromID="18" ToID="41" ToParam="Set" />
+      <Wire FromID="19" ToID="37" ToParam="SourceB" />
+      <Wire FromID="20" ToID="40" ToParam="SourceB" />
+      <Wire FromID="21" ToID="38" ToParam="SourceB" />
+      <Wire FromID="22" ToID="38" ToParam="SourceA" />
+      <Wire FromID="23" ToID="48" ToParam="Seconds" />
+      <Wire FromID="24" ToID="47" ToParam="TimeBase" />
+      <Wire FromID="25" ToID="39" ToParam="SourceA" />
+      <Wire FromID="26" ToID="44" ToParam="In2" />
+      <Wire FromID="27" ToID="48" ToParam="Today_Tot" />
+      <Wire FromID="28" ToID="44" ToParam="In1" />
+      <Wire FromID="29" ToID="48" ToParam="Yesterday_Tot" />
+      <Wire FromID="35" FromParam="Out" ToID="42" ToParam="Set" />
+      <Wire FromID="35" FromParam="Out" ToID="44" ToParam="SelectorIn" />
+      <Wire FromID="36" FromParam="Out" ToID="47" ToParam="ProgResetReq" />
+      <Wire FromID="37" FromParam="Dest" ToID="35" ToParam="In1" />
+      <Wire FromID="38" FromParam="Dest" ToID="35" ToParam="In3" />
+      <Wire FromID="39" FromParam="Dest" ToID="42" ToParam="Reset" />
+      <Wire FromID="40" FromParam="Dest" ToID="35" ToParam="In2" />
+      <Wire FromID="41" FromParam="Out" ToID="31" />
+      <Wire FromID="42" FromParam="Out" ToID="46" ToParam="TimerEnable" />
+      <Wire FromID="43" FromParam="Out" ToID="34" />
+      <Wire FromID="44" FromParam="Out" ToID="43" ToParam="In1" />
+      <Wire FromID="45" FromParam="DN" ToID="41" ToParam="Reset" />
+      <Wire FromID="46" FromParam="DN" ToID="36" ToParam="In2" />
+      <Wire FromID="46" FromParam="DN" ToID="46" ToParam="Reset" />
+      <Wire FromID="47" FromParam="Total" ToID="33" />
+      <Wire FromID="48" FromParam="Last_Month" ToID="30" />
+      <Wire FromID="48" FromParam="This_Month" ToID="32" />
+    </Sheet>
+  </FBDContent>
+</Routine>

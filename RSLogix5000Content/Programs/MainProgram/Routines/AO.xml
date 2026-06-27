@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Routine Name="AO" Type="RLL">
+  <RLLContent>
+    <Rung Type="N">
+      <Text><![CDATA[IPA_CV(LY_101,PCS_IO_Rack02:7:I.Ch00.Data,LIC_101.Cfg_OutAction,PCS_IO_Rack02:7:I.Ch00.Data);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[IPA_CV(LY_102,LY_102.Inp_CV,LIC_102.Cfg_OutAction,PCS_IO_Rack02:7:I.Ch01.Data);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[IPA_CV(LY_103,LY_103.Inp_CV,LIC_103.Cfg_OutAction,PCS_IO_Rack02:7:I.Ch02.Data);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[IPA_CV(PY_102,PY_102.Inp_CV,PIC_102B.Cfg_OutAction,PCS_IO_Rack02:7:I.Ch03.Data);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[IPA_CV(LY_104,LY_104.Inp_CV,LIC_104.Cfg_OutAction,PCS_IO_Rack02:8:I.Ch00.Data);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[IPA_CV(LY_105,LY_105.Inp_CV,LIC_105.Cfg_OutAction,PCS_IO_Rack02:8:I.Ch01.Data);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[IPA_CV(TY_105A,TY_105A.Inp_CV,TIC_105.Cfg_OutAction,PCS_IO_Rack02:8:I.Ch02.Data);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[IPA_CV(LY_155,LY_155.Inp_CV,LIC_101.Cfg_OutAction,PCS_IO_Rack02:8:I.Ch03.Data);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[IPA_CV(PY_103,PY_103.Inp_CV,LIC_103.Cfg_OutAction,PCS_IO_Rack02:8:I.Ch04.Data);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[IPA_CV(TY_105B,TY_105B.Inp_CV,TIC_105.Cfg_OutAction,PCS_IO_Rack02:9:I.Ch00.Data);]]></Text>
+    </Rung>
+  </RLLContent>
+</Routine>

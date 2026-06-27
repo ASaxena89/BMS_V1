@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Tag Name="LY_105" TagType="Base" DataType="IPA_CV" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+  <Description><![CDATA[GLYCOL FLASH TANK RICH TEG LEVEL CONTROL]]></Description>
+  <Data Format="L5K"><![CDATA[[3,0.00000000e+000,0.00000000e+000,5000,5.00000000e+000,2.00000000e+004,4.00000000e+003,0.00000000e+000
+		,4.00000000e+003,[3,0.00000000e+000,0.00000000e+000,0.00000000e+000],[3,0.00000000e+000,0.00000000e+000
+		],[3,0.00000000e+000,5.00000000e+000],[3,0.00000000e+000,1.00000000e+002,0.00000000e+000,2.00000000e+004
+		,4.00000000e+003,1,4.00000000e+003,0,0.00000000e+000,1.00000000e+002,9.99999978e-003,4.00000000e+003
+		],[1,1,5000,0,0,0,0,0,0,0,0,1],[1,0.00000000e+000,0.00000000e+000,1,0.00000000e+000,5.60519386e-045],[0,1.00000000e+002
+		,0.00000000e+000,0.00000000e+000],[40,'GLYCOL FLASH TANK RICH TEG LEVEL CONTROL'],[7,'LCV-105$00$00$00$00$00$00$00$00$00$00$00$00$00'
+		],[6,'LY_105$00$00$00$00$00$00$00$00$00$00$00$00$00$00'],[1,'%$00$00$00$00$00$00$00'],2]]]></Data>
+  <Data Format="Decorated">
+    <Structure DataType="IPA_CV">
+      <DataValueMember Name="EnableIn" DataType="BOOL" Value="1" />
+      <DataValueMember Name="EnableOut" DataType="BOOL" Value="1" />
+      <DataValueMember Name="Inp_CV" DataType="REAL" Radix="Float" Value="0.0" />
+      <DataValueMember Name="Inp_Position" DataType="REAL" Radix="Float" Value="0.0" />
+      <DataValueMember Name="Cfg_OutAction" DataType="BOOL" Value="0" />
+      <DataValueMember Name="Cfg_ResponseTime" DataType="DINT" Radix="Decimal" Value="5000" />
+      <DataValueMember Name="Inp_DevSP" DataType="REAL" Radix="Float" Value="5.0" />
+      <DataValueMember Name="Alm_Dev" DataType="BOOL" Value="0" />
+      <DataValueMember Name="Cfg_AOMaxRaw" DataType="REAL" Radix="Float" Value="20000.0" />
+      <DataValueMember Name="Cfg_AOMinRaw" DataType="REAL" Radix="Float" Value="4000.0" />
+      <DataValueMember Name="Val_CVOut" DataType="REAL" Radix="Float" Value="0.0" />
+      <DataValueMember Name="Out_CV" DataType="REAL" Radix="Float" Value="4000.0" />
+    </Structure>
+  </Data>
+</Tag>

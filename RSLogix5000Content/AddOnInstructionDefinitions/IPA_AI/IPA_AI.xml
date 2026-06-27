@@ -1,0 +1,797 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<AddOnInstructionDefinition Name="IPA_AI" Revision="2.0" Vendor="INTECH Process Automation, Inc" ExecutePrescan="false" ExecutePostscan="false" ExecuteEnableInFalse="false" CreatedDate="2009-03-02T07:48:57.703Z" CreatedBy="INTECHWW\kmehmood" EditedDate="2025-07-16T11:53:04.994Z" EditedBy="WIN-M9CLSPG9PQU\danish.ali" SoftwareRevision="v37.00">
+  <CustomProperties>
+    <Provider ID="ACM" Ext="0">
+      <Header xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Maj="1" Min="0" OExt="-1" UExt="1">
+        <Libs>
+          <LibHdr CatalogNumber="AI_Object" Guid="91B565D6-A3BB-4EFA-BC53-9FD514BA80FF" />
+          <LibHdr CatalogNumber="PID_Object" Guid="8C954DBF-D716-4AE4-AB2A-9609964D4B10" />
+          <LibHdr CatalogNumber="GAP_Object" Guid="04EFC7E4-406E-4C70-BF3B-E2C909A3C850" />
+        </Libs>
+      </Header>
+    </Provider>
+    <Provider ID="ACM" Ext="1">
+      <Data xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Maj="3" Min="0" OExt="-1">
+        <Val><![CDATA[<DecoratedData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" MajorRev="1" MinorRev="0" CRC="ToDo">
+  <Private xsi:type="AoiPrivateData" Guid="91B565D6-A3BB-4EFA-BC53-9FD514BA80FF" ContentType="Routine">
+    <Attrib />
+    <Subs />
+  </Private>
+  <Private xsi:type="AoiPrivateData" Guid="8C954DBF-D716-4AE4-AB2A-9609964D4B10" ContentType="Routine">
+    <Attrib />
+    <Subs />
+  </Private>
+  <Private xsi:type="AoiPrivateData" Guid="04EFC7E4-406E-4C70-BF3B-E2C909A3C850" ContentType="Routine">
+    <Attrib />
+    <Subs />
+  </Private>
+</DecoratedData>]]></Val>
+      </Data>
+    </Provider>
+  </CustomProperties>
+  <Description><![CDATA[Object for Analog Input Signal]]></Description>
+  <RevisionNote><![CDATA[Version 2.0
+- ISA-18.2 Alarms]]></RevisionNote>
+  <Parameters>
+    <Parameter Name="EnableIn" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read Only">
+      <Description><![CDATA[Enable Input - System Defined Parameter]]></Description>
+    </Parameter>
+    <Parameter Name="EnableOut" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read Only">
+      <Description><![CDATA[Enable Output - System Defined Parameter]]></Description>
+    </Parameter>
+    <Parameter Name="OutOfRange" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read Only">
+      <Description><![CDATA[Out of Range Alarm Bit]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="BOOL" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="Alm_HiHi" TagType="Alias" Usage="Output" Radix="Decimal" AliasFor="HiHi.Alm" Required="false" Visible="true" ExternalAccess="Read/Write">
+      <Description><![CDATA[Hi Hi Alarm Latch Bit]]></Description>
+    </Parameter>
+    <Parameter Name="Alm_Hi" TagType="Alias" Usage="Output" Radix="Decimal" AliasFor="Hi.Alm" Required="false" Visible="true" ExternalAccess="Read/Write">
+      <Description><![CDATA[Hi Alarm Latch Bit]]></Description>
+    </Parameter>
+    <Parameter Name="Alm_LoLo" TagType="Alias" Usage="Output" Radix="Decimal" AliasFor="LoLo.Alm" Required="false" Visible="true" ExternalAccess="Read/Write">
+      <Description><![CDATA[Low Low Alarm Latch Bit]]></Description>
+    </Parameter>
+    <Parameter Name="Alm_Lo" TagType="Alias" Usage="Output" Radix="Decimal" AliasFor="Lo.Alm" Required="false" Visible="true" ExternalAccess="Read/Write">
+      <Description><![CDATA[Low Alarm Latch Bit]]></Description>
+    </Parameter>
+    <Parameter Name="Inp_PVBad" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="true" Visible="true" ExternalAccess="Read/Write">
+      <Description><![CDATA[Fault Bit of the Channel]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="BOOL" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="Cfg_AlmDB" TagType="Base" DataType="DINT" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Dead Band SP from HMI]]></Description>
+      <DefaultData Format="L5K"><![CDATA[2]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="DINT" Radix="Decimal" Value="2" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="Cfg_Debounce" TagType="Base" DataType="DINT" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Setpoint for Debounce Timer from HMI]]></Description>
+      <DefaultData Format="L5K"><![CDATA[2]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="DINT" Radix="Decimal" Value="2" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="Cfg_HiLim" TagType="Base" DataType="REAL" Usage="Input" Radix="Float" Required="false" Visible="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[High Alarm Setpoint]]></Description>
+      <DefaultData Format="L5K"><![CDATA[7.50000000e+001]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="REAL" Radix="Float" Value="75.0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="Cfg_LoLoLim" TagType="Base" DataType="REAL" Usage="Input" Radix="Float" Required="false" Visible="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Low Low Alarm Setpoint]]></Description>
+      <DefaultData Format="L5K"><![CDATA[1.50000000e+001]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="REAL" Radix="Float" Value="15.0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="Val" TagType="Base" DataType="REAL" Usage="Output" Radix="Float" Required="false" Visible="true" ExternalAccess="Read Only">
+      <Description><![CDATA[Analog Data (0 to 100% after scaling)]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0.00000000e+000]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="REAL" Radix="Float" Value="0.0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="Cfg_PVEUMax" TagType="Base" DataType="REAL" Usage="Input" Radix="Float" Required="false" Visible="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Max Engg Units (Span)]]></Description>
+      <DefaultData Format="L5K"><![CDATA[1.00000000e+002]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="REAL" Radix="Float" Value="100.0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="Cfg_PVEUMin" TagType="Base" DataType="REAL" Usage="Input" Radix="Float" Required="false" Visible="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Min Engg Units (Zero)]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0.00000000e+000]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="REAL" Radix="Float" Value="0.0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="Cfg_LoLim" TagType="Base" DataType="REAL" Usage="Input" Radix="Float" Required="false" Visible="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Low Alarm Setpoint]]></Description>
+      <DefaultData Format="L5K"><![CDATA[2.50000000e+001]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="REAL" Radix="Float" Value="25.0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="Cfg_HiHiLim" TagType="Base" DataType="REAL" Usage="Input" Radix="Float" Required="false" Visible="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[High-High Alarm Setpoint]]></Description>
+      <DefaultData Format="L5K"><![CDATA[8.50000000e+001]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="REAL" Radix="Float" Value="85.0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="Inp_PV" TagType="Base" DataType="REAL" Usage="Input" Radix="Float" Required="true" Visible="true" ExternalAccess="Read/Write">
+      <Description><![CDATA[Analog Input value from Sensor]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0.00000000e+000]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="REAL" Radix="Float" Value="0.0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="Alm_IOFault" TagType="Alias" Usage="Output" Radix="Decimal" AliasFor="IOFault.Alm" Required="false" Visible="true" ExternalAccess="Read/Write">
+      <Description><![CDATA[Diagnostic Alarm Latch Bit]]></Description>
+    </Parameter>
+    <Parameter Name="Program_Keyswitch" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="BOOL" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="H_Startup_Inhibit" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[High Startup Inhibit (Timed)]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="BOOL" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="L_Startup_Inhibit" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Low Startup Inhibit (Timed)]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="BOOL" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="Startup_Inhibit_PRE" TagType="Base" DataType="DINT" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Startup Inhibit Preset Time]]></Description>
+      <DefaultData Format="L5K"><![CDATA[5000]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="DINT" Radix="Decimal" Value="5000" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="Cfg_InpRawMin" TagType="Base" DataType="REAL" Usage="Input" Radix="Float" Required="false" Visible="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Min AI Channel Value]]></Description>
+      <DefaultData Format="L5K"><![CDATA[4.00000000e+000]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="REAL" Radix="Float" Value="4.0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="Cfg_InpRawMax" TagType="Base" DataType="REAL" Usage="Input" Radix="Float" Required="false" Visible="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Max AI Channel Value]]></Description>
+      <DefaultData Format="L5K"><![CDATA[2.00000000e+001]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="REAL" Radix="Float" Value="20.0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="Cfg_FailHiLim" TagType="Base" DataType="REAL" Usage="Input" Radix="Float" Required="false" Visible="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Max Out-Of-Range SP]]></Description>
+      <DefaultData Format="L5K"><![CDATA[2.05000000e+001]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="REAL" Radix="Float" Value="20.5" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="Cfg_FailLoLim" TagType="Base" DataType="REAL" Usage="Input" Radix="Float" Required="false" Visible="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Min Out-Of-Range SP]]></Description>
+      <DefaultData Format="L5K"><![CDATA[3.29999995e+000]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="REAL" Radix="Float" Value="3.3" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="OCmd_OoSOn" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[HMI Command to set the OOS Bit]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="BOOL" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="OCmd_OoSOff" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[HMI Command to reset the OOS Bit]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="BOOL" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="OoS" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Out of Service Status.  Alarms and Shutdowns are disabled if ON.]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="BOOL" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="OCmd_Reset" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="true" Visible="true" ExternalAccess="Read/Write">
+      <Description><![CDATA[Object Reset (From Reset)]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="BOOL" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="OCmd_ResetAckAll" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Operator Command to Reset and Acknowledge all Alarms]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="BOOL" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="OCmd_Ack" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="true" Visible="true" ExternalAccess="Read/Write">
+      <Description><![CDATA[Alarm Acknowledge Bit (From HMI)]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="BOOL" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="Sts_HiHi" TagType="Alias" Usage="Output" Radix="Decimal" AliasFor="HiHi.Inp" Required="false" Visible="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Alarm is Active]]></Description>
+    </Parameter>
+    <Parameter Name="Sts_Hi" TagType="Alias" Usage="Output" Radix="Decimal" AliasFor="Hi.Inp" Required="false" Visible="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Alarm is Active]]></Description>
+    </Parameter>
+    <Parameter Name="Sts_AlmInh" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[1=One or more Alarms Shelved or Disabled]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="BOOL" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="Sts_Lo" TagType="Alias" Usage="Output" Radix="Decimal" AliasFor="Lo.Inp" Required="false" Visible="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Alarm is Active]]></Description>
+    </Parameter>
+    <Parameter Name="Sts_LoLo" TagType="Alias" Usage="Output" Radix="Decimal" AliasFor="LoLo.Inp" Required="false" Visible="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Alarm is Active]]></Description>
+    </Parameter>
+    <Parameter Name="Sts_IOFault" TagType="Alias" Usage="Output" Radix="Decimal" AliasFor="IOFault.Inp" Required="false" Visible="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Alarm is Active]]></Description>
+    </Parameter>
+    <Parameter Name="OCmd_HiHiAck" TagType="Alias" Usage="Input" Radix="Decimal" AliasFor="HiHi.OCmd_Ack" Required="false" Visible="false" ExternalAccess="Read/Write" />
+    <Parameter Name="OCmd_HiAck" TagType="Alias" Usage="Input" Radix="Decimal" AliasFor="Hi.OCmd_Ack" Required="false" Visible="false" ExternalAccess="Read/Write" />
+    <Parameter Name="OCmd_LoAck" TagType="Alias" Usage="Input" Radix="Decimal" AliasFor="Lo.OCmd_Ack" Required="false" Visible="false" ExternalAccess="Read/Write" />
+    <Parameter Name="OCmd_LoLoAck" TagType="Alias" Usage="Input" Radix="Decimal" AliasFor="LoLo.OCmd_Ack" Required="false" Visible="false" ExternalAccess="Read/Write" />
+    <Parameter Name="OCmd_IOFaultAck" TagType="Alias" Usage="Input" Radix="Decimal" AliasFor="IOFault.OCmd_Ack" Required="false" Visible="false" ExternalAccess="Read/Write" />
+    <Parameter Name="Val_Fault" TagType="Base" DataType="DINT" Usage="Output" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Device Fault Status 0=none, 20=Lo, 21=Hi, 24=LoLo, 25=HiHi, 32=Fail]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="DINT" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="Val_Notify" TagType="Base" DataType="DINT" Usage="Output" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Highest Alarm prio and ack status this object only (enum)]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="DINT" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="Val_UnackAlmC" TagType="Base" DataType="DINT" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Count of Unacknowledged Alarms]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="DINT" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="Cfg_HasHiHiAlm" TagType="Alias" Usage="Input" Radix="Decimal" AliasFor="HiHi.Cfg_Exists" Required="false" Visible="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[1=High-High Alarm exists and will be checked]]></Description>
+    </Parameter>
+    <Parameter Name="Cfg_HasHiAlm" TagType="Alias" Usage="Input" Radix="Decimal" AliasFor="Hi.Cfg_Exists" Required="false" Visible="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[1=High Alarm exists and will be checked]]></Description>
+    </Parameter>
+    <Parameter Name="Cfg_HasLoAlm" TagType="Alias" Usage="Input" Radix="Decimal" AliasFor="Lo.Cfg_Exists" Required="false" Visible="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[1=Low Alarm exists and will be checked]]></Description>
+    </Parameter>
+    <Parameter Name="Cfg_HasLoLoAlm" TagType="Alias" Usage="Input" Radix="Decimal" AliasFor="LoLo.Cfg_Exists" Required="false" Visible="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[1=Low-Low Alarm exists and will be checked]]></Description>
+    </Parameter>
+    <Parameter Name="Cfg_HasIOFaultAlm" TagType="Alias" Usage="Input" Radix="Decimal" AliasFor="IOFault.Cfg_Exists" Required="false" Visible="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[1=Analog Input Failure Alarm exists and will be checked]]></Description>
+    </Parameter>
+    <Parameter Name="Cfg_HiHiSeverity" TagType="Alias" Usage="Input" Radix="Decimal" AliasFor="HiHi.Cfg_Severity" Required="false" Visible="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[High-High Alarm Severity: 1..250=Low, 251..500=Medium, 501..750=High, 751..1000=Urgent]]></Description>
+    </Parameter>
+    <Parameter Name="Cfg_HiSeverity" TagType="Alias" Usage="Input" Radix="Decimal" AliasFor="Hi.Cfg_Severity" Required="false" Visible="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[High Alarm Severity: 1..250=Low, 251..500=Medium, 501..750=High, 751..1000=Urgent]]></Description>
+    </Parameter>
+    <Parameter Name="Cfg_LoSeverity" TagType="Alias" Usage="Input" Radix="Decimal" AliasFor="Lo.Cfg_Severity" Required="false" Visible="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Low Alarm Severity: 1..250=Low, 251..500=Medium, 501..750=High, 751..1000=Urgent]]></Description>
+    </Parameter>
+    <Parameter Name="Cfg_LoLoSeverity" TagType="Alias" Usage="Input" Radix="Decimal" AliasFor="LoLo.Cfg_Severity" Required="false" Visible="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Low-Low Alarm Severity: 1..250=Low, 251..500=Medium, 501..750=High, 751..1000=Urgent]]></Description>
+    </Parameter>
+    <Parameter Name="Cfg_IOFaultSeverity" TagType="Alias" Usage="Input" Radix="Decimal" AliasFor="IOFault.Cfg_Severity" Required="false" Visible="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Failure Alarm Severity: 1..250=Low, 251..500=Medium, 501..750=High, 751..1000=Urgent]]></Description>
+    </Parameter>
+    <Parameter Name="Cfg_HiHiResetReqd" TagType="Alias" Usage="Input" Radix="Decimal" AliasFor="HiHi.Cfg_ResetReqd" Required="false" Visible="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[1=Reset required to clear High-High Alarm]]></Description>
+    </Parameter>
+    <Parameter Name="Cfg_HiResetReqd" TagType="Alias" Usage="Input" Radix="Decimal" AliasFor="Hi.Cfg_ResetReqd" Required="false" Visible="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[1=Reset required to clear High Alarm]]></Description>
+    </Parameter>
+    <Parameter Name="Cfg_LoResetReqd" TagType="Alias" Usage="Input" Radix="Decimal" AliasFor="Lo.Cfg_ResetReqd" Required="false" Visible="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[1=Reset required to clear Low Alarm]]></Description>
+    </Parameter>
+    <Parameter Name="Cfg_LoLoResetReqd" TagType="Alias" Usage="Input" Radix="Decimal" AliasFor="LoLo.Cfg_ResetReqd" Required="false" Visible="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[1=Reset required to clear Low-Low Alarm]]></Description>
+    </Parameter>
+    <Parameter Name="Cfg_IOFaultResetReqd" TagType="Alias" Usage="Input" Radix="Decimal" AliasFor="IOFault.Cfg_ResetReqd" Required="false" Visible="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[1=Reset required to clear Analog InputFailure Alarm]]></Description>
+    </Parameter>
+    <Parameter Name="Cfg_HiHiAckReqd" TagType="Alias" Usage="Input" Radix="Decimal" AliasFor="HiHi.Cfg_AckReqd" Required="false" Visible="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[1=Acknowledge required for High-High Alarm]]></Description>
+    </Parameter>
+    <Parameter Name="Cfg_HiAckReqd" TagType="Alias" Usage="Input" Radix="Decimal" AliasFor="Hi.Cfg_AckReqd" Required="false" Visible="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[1=Acknowledge required for High Alarm]]></Description>
+    </Parameter>
+    <Parameter Name="Cfg_LoAckReqd" TagType="Alias" Usage="Input" Radix="Decimal" AliasFor="Lo.Cfg_AckReqd" Required="false" Visible="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[1=Acknlowledge required for Low Alarm]]></Description>
+    </Parameter>
+    <Parameter Name="Cfg_LoLoAckReqd" TagType="Alias" Usage="Input" Radix="Decimal" AliasFor="LoLo.Cfg_AckReqd" Required="false" Visible="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[1=Acknowledge required for Low-Low Alarm]]></Description>
+    </Parameter>
+    <Parameter Name="Cfg_IOFaultAckReqd" TagType="Alias" Usage="Input" Radix="Decimal" AliasFor="IOFault.Cfg_AckReqd" Required="false" Visible="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[1=Acknowledge required for Analog Input Failure Alarm]]></Description>
+    </Parameter>
+    <Parameter Name="Val_NotifyAll" TagType="Base" DataType="DINT" Usage="Output" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Current Alarm Level and Acknowledgement (enumeration)]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="DINT" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </Parameter>
+  </Parameters>
+  <LocalTags>
+    <LocalTag Name="L_Alm_Flag" DataType="BOOL" Radix="Decimal" ExternalAccess="Read/Write">
+      <Description><![CDATA[Lo Alarm Flag Bit]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="BOOL" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="LL_Alm_Flag" DataType="BOOL" Radix="Decimal" ExternalAccess="Read/Write">
+      <Description><![CDATA[Lo Lo Alarm Flag Bit]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="BOOL" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="LL_Debounce" DataType="TIMER" ExternalAccess="Read/Write">
+      <DefaultData Format="L5K"><![CDATA[[0,3000,0]]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <Structure DataType="TIMER">
+          <DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="3000" />
+          <DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="0" />
+          <DataValueMember Name="EN" DataType="BOOL" Value="0" />
+          <DataValueMember Name="TT" DataType="BOOL" Value="0" />
+          <DataValueMember Name="DN" DataType="BOOL" Value="0" />
+        </Structure>
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="L_Debounce" DataType="TIMER" ExternalAccess="Read/Write">
+      <DefaultData Format="L5K"><![CDATA[[0,3000,0]]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <Structure DataType="TIMER">
+          <DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="3000" />
+          <DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="0" />
+          <DataValueMember Name="EN" DataType="BOOL" Value="0" />
+          <DataValueMember Name="TT" DataType="BOOL" Value="0" />
+          <DataValueMember Name="DN" DataType="BOOL" Value="0" />
+        </Structure>
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="H_Alm_Flag" DataType="BOOL" Radix="Decimal" ExternalAccess="Read/Write">
+      <Description><![CDATA[Hi Alarm Flag Bit]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="BOOL" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="HH_Alm_Flag" DataType="BOOL" Radix="Decimal" ExternalAccess="Read/Write">
+      <Description><![CDATA[Hi Hi Alarm Flag Bit]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="BOOL" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="HH_Debounce" DataType="TIMER" ExternalAccess="Read/Write">
+      <DefaultData Format="L5K"><![CDATA[[0,3000,0]]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <Structure DataType="TIMER">
+          <DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="3000" />
+          <DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="0" />
+          <DataValueMember Name="EN" DataType="BOOL" Value="0" />
+          <DataValueMember Name="TT" DataType="BOOL" Value="0" />
+          <DataValueMember Name="DN" DataType="BOOL" Value="0" />
+        </Structure>
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="InRange" DataType="BOOL" Radix="Decimal" ExternalAccess="Read/Write">
+      <Description><![CDATA[Out of Range Bit used in logic]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="BOOL" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="H_Alm_Debounce" DataType="TIMER" ExternalAccess="Read/Write">
+      <DefaultData Format="L5K"><![CDATA[[0,3000,0]]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <Structure DataType="TIMER">
+          <DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="3000" />
+          <DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="0" />
+          <DataValueMember Name="EN" DataType="BOOL" Value="0" />
+          <DataValueMember Name="TT" DataType="BOOL" Value="0" />
+          <DataValueMember Name="DN" DataType="BOOL" Value="0" />
+        </Structure>
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="DiagAlmFlag" DataType="BOOL" Radix="Decimal" ExternalAccess="Read/Write">
+      <Description><![CDATA[Diagnostic Fault Alarm Flag]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="BOOL" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="Diag_Debounce" DataType="TIMER" ExternalAccess="Read/Write">
+      <DefaultData Format="L5K"><![CDATA[[0,5000,0]]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <Structure DataType="TIMER">
+          <DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="5000" />
+          <DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="0" />
+          <DataValueMember Name="EN" DataType="BOOL" Value="0" />
+          <DataValueMember Name="TT" DataType="BOOL" Value="0" />
+          <DataValueMember Name="DN" DataType="BOOL" Value="0" />
+        </Structure>
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="Ack_ONS" DataType="BOOL" Radix="Decimal" ExternalAccess="Read/Write">
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="BOOL" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="H_Startup_Inhibit_TMR" DataType="TIMER" ExternalAccess="Read/Write">
+      <DefaultData Format="L5K"><![CDATA[[0,5000,0]]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <Structure DataType="TIMER">
+          <DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="5000" />
+          <DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="0" />
+          <DataValueMember Name="EN" DataType="BOOL" Value="0" />
+          <DataValueMember Name="TT" DataType="BOOL" Value="0" />
+          <DataValueMember Name="DN" DataType="BOOL" Value="0" />
+        </Structure>
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="L_Startup_Inhibit_TMR" DataType="TIMER" ExternalAccess="Read/Write">
+      <DefaultData Format="L5K"><![CDATA[[0,5000,0]]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <Structure DataType="TIMER">
+          <DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="5000" />
+          <DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="0" />
+          <DataValueMember Name="EN" DataType="BOOL" Value="0" />
+          <DataValueMember Name="TT" DataType="BOOL" Value="0" />
+          <DataValueMember Name="DN" DataType="BOOL" Value="0" />
+        </Structure>
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="Ack_Tmr" DataType="TIMER" ExternalAccess="None">
+      <DefaultData Format="L5K"><![CDATA[[0,2000,0]]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <Structure DataType="TIMER">
+          <DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="2000" />
+          <DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="0" />
+          <DataValueMember Name="EN" DataType="BOOL" Value="0" />
+          <DataValueMember Name="TT" DataType="BOOL" Value="0" />
+          <DataValueMember Name="DN" DataType="BOOL" Value="0" />
+        </Structure>
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="Cfg_EU" DataType="STRING_8" ExternalAccess="Read/Write">
+      <DefaultData Format="L5K"><![CDATA[[1,'%$00$00$00$00$00$00$00']]]></DefaultData>
+      <DefaultData Format="String" Length="1"><![CDATA['%']]></DefaultData>
+    </LocalTag>
+    <LocalTag Name="Cfg_Label" DataType="STRING_20" ExternalAccess="Read/Write">
+      <DefaultData Format="L5K"><![CDATA[[12,'Analog Input$00$00$00$00$00$00$00$00']]]></DefaultData>
+      <DefaultData Format="String" Length="12"><![CDATA['Analog Input']]></DefaultData>
+    </LocalTag>
+    <LocalTag Name="Cfg_Desc" DataType="STRING_40" ExternalAccess="Read/Write">
+      <DefaultData Format="L5K"><![CDATA[[11,'Description$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00']]]></DefaultData>
+      <DefaultData Format="String" Length="11"><![CDATA['Description']]></DefaultData>
+    </LocalTag>
+    <LocalTag Name="AlmDeadBand" DataType="DINT" Radix="Decimal" ExternalAccess="Read/Write">
+      <Description><![CDATA[Alarm Deadband Value]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="DINT" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="HiHi" DataType="IPA_Alarm" ExternalAccess="Read/Write">
+      <Description><![CDATA[High-High Alarm]]></Description>
+      <DefaultData Format="L5K"><![CDATA[[981,750,480,5,0,0,0,[0,5000,0],[0,5000,0],[0,0,0],0,2,[7,'P_Alarm$00$00$00$00$00$00$00$00$00$00$00$00$00'],[15,'Alarm Condition$00$00$00$00$00'],0,[6,'RA-BAS$00$00$00$00$00$00'],[7,'P_Alarm$00$00$00$00$00$00$00$00$00'],0]]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <Structure DataType="IPA_Alarm">
+          <DataValueMember Name="EnableIn" DataType="BOOL" Value="1" />
+          <DataValueMember Name="EnableOut" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Inp" DataType="BOOL" Value="1" />
+          <DataValueMember Name="Inp_OoS" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Inp_Reset" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Cfg_Exists" DataType="BOOL" Value="1" />
+          <DataValueMember Name="Cfg_ResetReqd" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Cfg_AckReqd" DataType="BOOL" Value="1" />
+          <DataValueMember Name="Cfg_AllowShelve" DataType="BOOL" Value="1" />
+          <DataValueMember Name="Cfg_AllowDisable" DataType="BOOL" Value="1" />
+          <DataValueMember Name="Cfg_Severity" DataType="DINT" Radix="Decimal" Value="750" />
+          <DataValueMember Name="Cfg_MaxShelfT" DataType="DINT" Radix="Decimal" Value="480" />
+          <DataValueMember Name="Cfg_AlmMinOnT" DataType="DINT" Radix="Decimal" Value="5" />
+          <DataValueMember Name="PCfg_AllowExist" DataType="BOOL" Value="1" />
+          <DataValueMember Name="PCmd_Reset" DataType="BOOL" Value="0" />
+          <DataValueMember Name="PCmd_Ack" DataType="BOOL" Value="0" />
+          <DataValueMember Name="PCmd_Suppress" DataType="BOOL" Value="0" />
+          <DataValueMember Name="PCmd_Unsuppress" DataType="BOOL" Value="0" />
+          <DataValueMember Name="PCmd_Unshelve" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Val_Notify" DataType="DINT" Radix="Decimal" Value="0" />
+          <DataValueMember Name="Val_SecToUnshelve" DataType="DINT" Radix="Decimal" Value="0" />
+          <DataValueMember Name="Val_MinToUnshelve" DataType="DINT" Radix="Decimal" Value="0" />
+          <DataValueMember Name="Alm" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Ack" DataType="BOOL" Value="1" />
+          <DataValueMember Name="Shelved" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Suppressed" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Disabled" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Sts_AlmInh" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Sts_RdyReset" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Sts_RdyAck" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Sts_Err" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Err_Timer" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Err_Severity" DataType="BOOL" Value="0" />
+          <DataValueMember Name="P_Alarm" DataType="BOOL" Value="0" />
+          <DataValueMember Name="OCmd_Ack" DataType="BOOL" Value="0" />
+          <DataValueMember Name="OCmd_Reset" DataType="BOOL" Value="0" />
+          <DataValueMember Name="OCmd_Shelve" DataType="BOOL" Value="0" />
+          <DataValueMember Name="OCmd_Unshelve" DataType="BOOL" Value="0" />
+        </Structure>
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="Wrk_Debounce" DataType="DINT" Radix="Decimal" ExternalAccess="None">
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="DINT" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="Hi" DataType="IPA_Alarm" ExternalAccess="Read/Write">
+      <Description><![CDATA[High Alarm]]></Description>
+      <DefaultData Format="L5K"><![CDATA[[981,750,480,5,0,0,0,[0,5000,0],[0,5000,0],[0,0,0],0,2,[7,'P_Alarm$00$00$00$00$00$00$00$00$00$00$00$00$00'],[15,'Alarm Condition$00$00$00$00$00'],0,[6,'RA-BAS$00$00$00$00$00$00'],[7,'P_Alarm$00$00$00$00$00$00$00$00$00'],0]]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <Structure DataType="IPA_Alarm">
+          <DataValueMember Name="EnableIn" DataType="BOOL" Value="1" />
+          <DataValueMember Name="EnableOut" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Inp" DataType="BOOL" Value="1" />
+          <DataValueMember Name="Inp_OoS" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Inp_Reset" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Cfg_Exists" DataType="BOOL" Value="1" />
+          <DataValueMember Name="Cfg_ResetReqd" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Cfg_AckReqd" DataType="BOOL" Value="1" />
+          <DataValueMember Name="Cfg_AllowShelve" DataType="BOOL" Value="1" />
+          <DataValueMember Name="Cfg_AllowDisable" DataType="BOOL" Value="1" />
+          <DataValueMember Name="Cfg_Severity" DataType="DINT" Radix="Decimal" Value="750" />
+          <DataValueMember Name="Cfg_MaxShelfT" DataType="DINT" Radix="Decimal" Value="480" />
+          <DataValueMember Name="Cfg_AlmMinOnT" DataType="DINT" Radix="Decimal" Value="5" />
+          <DataValueMember Name="PCfg_AllowExist" DataType="BOOL" Value="1" />
+          <DataValueMember Name="PCmd_Reset" DataType="BOOL" Value="0" />
+          <DataValueMember Name="PCmd_Ack" DataType="BOOL" Value="0" />
+          <DataValueMember Name="PCmd_Suppress" DataType="BOOL" Value="0" />
+          <DataValueMember Name="PCmd_Unsuppress" DataType="BOOL" Value="0" />
+          <DataValueMember Name="PCmd_Unshelve" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Val_Notify" DataType="DINT" Radix="Decimal" Value="0" />
+          <DataValueMember Name="Val_SecToUnshelve" DataType="DINT" Radix="Decimal" Value="0" />
+          <DataValueMember Name="Val_MinToUnshelve" DataType="DINT" Radix="Decimal" Value="0" />
+          <DataValueMember Name="Alm" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Ack" DataType="BOOL" Value="1" />
+          <DataValueMember Name="Shelved" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Suppressed" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Disabled" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Sts_AlmInh" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Sts_RdyReset" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Sts_RdyAck" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Sts_Err" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Err_Timer" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Err_Severity" DataType="BOOL" Value="0" />
+          <DataValueMember Name="P_Alarm" DataType="BOOL" Value="0" />
+          <DataValueMember Name="OCmd_Ack" DataType="BOOL" Value="0" />
+          <DataValueMember Name="OCmd_Reset" DataType="BOOL" Value="0" />
+          <DataValueMember Name="OCmd_Shelve" DataType="BOOL" Value="0" />
+          <DataValueMember Name="OCmd_Unshelve" DataType="BOOL" Value="0" />
+        </Structure>
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="Lo" DataType="IPA_Alarm" ExternalAccess="Read/Write">
+      <Description><![CDATA[Lo Alarm]]></Description>
+      <DefaultData Format="L5K"><![CDATA[[981,750,480,5,0,0,0,[0,5000,0],[0,5000,0],[0,0,0],0,2,[7,'P_Alarm$00$00$00$00$00$00$00$00$00$00$00$00$00'],[15,'Alarm Condition$00$00$00$00$00'],0,[6,'RA-BAS$00$00$00$00$00$00'],[7,'P_Alarm$00$00$00$00$00$00$00$00$00'],0]]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <Structure DataType="IPA_Alarm">
+          <DataValueMember Name="EnableIn" DataType="BOOL" Value="1" />
+          <DataValueMember Name="EnableOut" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Inp" DataType="BOOL" Value="1" />
+          <DataValueMember Name="Inp_OoS" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Inp_Reset" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Cfg_Exists" DataType="BOOL" Value="1" />
+          <DataValueMember Name="Cfg_ResetReqd" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Cfg_AckReqd" DataType="BOOL" Value="1" />
+          <DataValueMember Name="Cfg_AllowShelve" DataType="BOOL" Value="1" />
+          <DataValueMember Name="Cfg_AllowDisable" DataType="BOOL" Value="1" />
+          <DataValueMember Name="Cfg_Severity" DataType="DINT" Radix="Decimal" Value="750" />
+          <DataValueMember Name="Cfg_MaxShelfT" DataType="DINT" Radix="Decimal" Value="480" />
+          <DataValueMember Name="Cfg_AlmMinOnT" DataType="DINT" Radix="Decimal" Value="5" />
+          <DataValueMember Name="PCfg_AllowExist" DataType="BOOL" Value="1" />
+          <DataValueMember Name="PCmd_Reset" DataType="BOOL" Value="0" />
+          <DataValueMember Name="PCmd_Ack" DataType="BOOL" Value="0" />
+          <DataValueMember Name="PCmd_Suppress" DataType="BOOL" Value="0" />
+          <DataValueMember Name="PCmd_Unsuppress" DataType="BOOL" Value="0" />
+          <DataValueMember Name="PCmd_Unshelve" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Val_Notify" DataType="DINT" Radix="Decimal" Value="0" />
+          <DataValueMember Name="Val_SecToUnshelve" DataType="DINT" Radix="Decimal" Value="0" />
+          <DataValueMember Name="Val_MinToUnshelve" DataType="DINT" Radix="Decimal" Value="0" />
+          <DataValueMember Name="Alm" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Ack" DataType="BOOL" Value="1" />
+          <DataValueMember Name="Shelved" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Suppressed" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Disabled" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Sts_AlmInh" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Sts_RdyReset" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Sts_RdyAck" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Sts_Err" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Err_Timer" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Err_Severity" DataType="BOOL" Value="0" />
+          <DataValueMember Name="P_Alarm" DataType="BOOL" Value="0" />
+          <DataValueMember Name="OCmd_Ack" DataType="BOOL" Value="0" />
+          <DataValueMember Name="OCmd_Reset" DataType="BOOL" Value="0" />
+          <DataValueMember Name="OCmd_Shelve" DataType="BOOL" Value="0" />
+          <DataValueMember Name="OCmd_Unshelve" DataType="BOOL" Value="0" />
+        </Structure>
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="LoLo" DataType="IPA_Alarm" ExternalAccess="Read/Write">
+      <Description><![CDATA[LoLo Alarm]]></Description>
+      <DefaultData Format="L5K"><![CDATA[[981,750,480,5,0,0,0,[0,5000,0],[0,5000,0],[0,0,0],0,2,[7,'P_Alarm$00$00$00$00$00$00$00$00$00$00$00$00$00'],[15,'Alarm Condition$00$00$00$00$00'],0,[6,'RA-BAS$00$00$00$00$00$00'],[7,'P_Alarm$00$00$00$00$00$00$00$00$00'],0]]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <Structure DataType="IPA_Alarm">
+          <DataValueMember Name="EnableIn" DataType="BOOL" Value="1" />
+          <DataValueMember Name="EnableOut" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Inp" DataType="BOOL" Value="1" />
+          <DataValueMember Name="Inp_OoS" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Inp_Reset" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Cfg_Exists" DataType="BOOL" Value="1" />
+          <DataValueMember Name="Cfg_ResetReqd" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Cfg_AckReqd" DataType="BOOL" Value="1" />
+          <DataValueMember Name="Cfg_AllowShelve" DataType="BOOL" Value="1" />
+          <DataValueMember Name="Cfg_AllowDisable" DataType="BOOL" Value="1" />
+          <DataValueMember Name="Cfg_Severity" DataType="DINT" Radix="Decimal" Value="750" />
+          <DataValueMember Name="Cfg_MaxShelfT" DataType="DINT" Radix="Decimal" Value="480" />
+          <DataValueMember Name="Cfg_AlmMinOnT" DataType="DINT" Radix="Decimal" Value="5" />
+          <DataValueMember Name="PCfg_AllowExist" DataType="BOOL" Value="1" />
+          <DataValueMember Name="PCmd_Reset" DataType="BOOL" Value="0" />
+          <DataValueMember Name="PCmd_Ack" DataType="BOOL" Value="0" />
+          <DataValueMember Name="PCmd_Suppress" DataType="BOOL" Value="0" />
+          <DataValueMember Name="PCmd_Unsuppress" DataType="BOOL" Value="0" />
+          <DataValueMember Name="PCmd_Unshelve" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Val_Notify" DataType="DINT" Radix="Decimal" Value="0" />
+          <DataValueMember Name="Val_SecToUnshelve" DataType="DINT" Radix="Decimal" Value="0" />
+          <DataValueMember Name="Val_MinToUnshelve" DataType="DINT" Radix="Decimal" Value="0" />
+          <DataValueMember Name="Alm" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Ack" DataType="BOOL" Value="1" />
+          <DataValueMember Name="Shelved" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Suppressed" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Disabled" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Sts_AlmInh" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Sts_RdyReset" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Sts_RdyAck" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Sts_Err" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Err_Timer" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Err_Severity" DataType="BOOL" Value="0" />
+          <DataValueMember Name="P_Alarm" DataType="BOOL" Value="0" />
+          <DataValueMember Name="OCmd_Ack" DataType="BOOL" Value="0" />
+          <DataValueMember Name="OCmd_Reset" DataType="BOOL" Value="0" />
+          <DataValueMember Name="OCmd_Shelve" DataType="BOOL" Value="0" />
+          <DataValueMember Name="OCmd_Unshelve" DataType="BOOL" Value="0" />
+        </Structure>
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="IOFault" DataType="IPA_Alarm" ExternalAccess="Read/Write">
+      <Description><![CDATA[IO Fault]]></Description>
+      <DefaultData Format="L5K"><![CDATA[[981,750,480,5,0,0,0,[0,5000,0],[0,5000,0],[0,0,0],0,2,[7,'P_Alarm$00$00$00$00$00$00$00$00$00$00$00$00$00'],[15,'Alarm Condition$00$00$00$00$00'],0,[6,'RA-BAS$00$00$00$00$00$00'],[7,'P_Alarm$00$00$00$00$00$00$00$00$00'],0]]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <Structure DataType="IPA_Alarm">
+          <DataValueMember Name="EnableIn" DataType="BOOL" Value="1" />
+          <DataValueMember Name="EnableOut" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Inp" DataType="BOOL" Value="1" />
+          <DataValueMember Name="Inp_OoS" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Inp_Reset" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Cfg_Exists" DataType="BOOL" Value="1" />
+          <DataValueMember Name="Cfg_ResetReqd" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Cfg_AckReqd" DataType="BOOL" Value="1" />
+          <DataValueMember Name="Cfg_AllowShelve" DataType="BOOL" Value="1" />
+          <DataValueMember Name="Cfg_AllowDisable" DataType="BOOL" Value="1" />
+          <DataValueMember Name="Cfg_Severity" DataType="DINT" Radix="Decimal" Value="750" />
+          <DataValueMember Name="Cfg_MaxShelfT" DataType="DINT" Radix="Decimal" Value="480" />
+          <DataValueMember Name="Cfg_AlmMinOnT" DataType="DINT" Radix="Decimal" Value="5" />
+          <DataValueMember Name="PCfg_AllowExist" DataType="BOOL" Value="1" />
+          <DataValueMember Name="PCmd_Reset" DataType="BOOL" Value="0" />
+          <DataValueMember Name="PCmd_Ack" DataType="BOOL" Value="0" />
+          <DataValueMember Name="PCmd_Suppress" DataType="BOOL" Value="0" />
+          <DataValueMember Name="PCmd_Unsuppress" DataType="BOOL" Value="0" />
+          <DataValueMember Name="PCmd_Unshelve" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Val_Notify" DataType="DINT" Radix="Decimal" Value="0" />
+          <DataValueMember Name="Val_SecToUnshelve" DataType="DINT" Radix="Decimal" Value="0" />
+          <DataValueMember Name="Val_MinToUnshelve" DataType="DINT" Radix="Decimal" Value="0" />
+          <DataValueMember Name="Alm" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Ack" DataType="BOOL" Value="1" />
+          <DataValueMember Name="Shelved" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Suppressed" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Disabled" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Sts_AlmInh" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Sts_RdyReset" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Sts_RdyAck" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Sts_Err" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Err_Timer" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Err_Severity" DataType="BOOL" Value="0" />
+          <DataValueMember Name="P_Alarm" DataType="BOOL" Value="0" />
+          <DataValueMember Name="OCmd_Ack" DataType="BOOL" Value="0" />
+          <DataValueMember Name="OCmd_Reset" DataType="BOOL" Value="0" />
+          <DataValueMember Name="OCmd_Shelve" DataType="BOOL" Value="0" />
+          <DataValueMember Name="OCmd_Unshelve" DataType="BOOL" Value="0" />
+        </Structure>
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="Wrk_Fault" DataType="DINT" Radix="Decimal" ExternalAccess="None">
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="DINT" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="Wrk_Notify" DataType="DINT" Radix="Decimal" ExternalAccess="None">
+      <Description><![CDATA[Buffer for building Val_Notify]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="DINT" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="Wrk_UnackAlmC" DataType="DINT" Radix="Decimal" ExternalAccess="None">
+      <Description><![CDATA[Buffer for building Val_UnackAlmC]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="DINT" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="Cfg_Tag" DataType="STRING_20" ExternalAccess="Read/Write">
+      <DefaultData Format="L5K"><![CDATA[[6,'AI Tag$00$00$00$00$00$00$00$00$00$00$00$00$00$00']]]></DefaultData>
+      <DefaultData Format="String" Length="6"><![CDATA['AI Tag']]></DefaultData>
+    </LocalTag>
+    <LocalTag Name="Cfg_PVDecPlcs" DataType="DINT" Radix="Decimal" ExternalAccess="Read/Write">
+      <Description><![CDATA[Number of Decimal Places in PV]]></Description>
+      <DefaultData Format="L5K"><![CDATA[2]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="DINT" Radix="Decimal" Value="2" />
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="Cfg_EU_1" DataType="STRING_8" ExternalAccess="None">
+      <DefaultData Format="L5K"><![CDATA[[0,'$00$00$00$00$00$00$00$00']]]></DefaultData>
+      <DefaultData Format="String" Length="0"><![CDATA['']]></DefaultData>
+    </LocalTag>
+  </LocalTags>
+  <Routines />
+  <Dependencies>
+    <Dependency Type="DataType" Name="STRING_40" />
+    <Dependency Type="DataType" Name="STRING_8" />
+    <Dependency Type="DataType" Name="STRING_20" />
+    <Dependency Type="AddOnInstructionDefinition" Name="IPA_Alarm" />
+  </Dependencies>
+</AddOnInstructionDefinition>

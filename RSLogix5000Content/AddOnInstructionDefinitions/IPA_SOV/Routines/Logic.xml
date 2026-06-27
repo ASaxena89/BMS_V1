@@ -1,0 +1,161 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Routine Name="Logic" Type="RLL">
+  <RLLContent>
+    <Rung Type="N">
+      <Text><![CDATA[JMP(SkipText)LOWER(Cfg_Desc,Cfg_Label)LOWER(Cfg_Tag,Cfg_Tag);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[
+Rung to Put the Bypass ON and OFF For ZSC and ZSO
+ 
+]]></Comment>
+      <Text><![CDATA[LBL(SkipText)XIO(Cfg_HasClosedLS)OTE(Sts_ClosedLSNExists);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIO(Cfg_HasOpenLS)OTE(Sts_OpenLSNExits);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(OCmd_Prog)[OTL(Sts_Prog) ,OTU(Sts_Oper) ,OTU(OCmd_Prog) ];]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(OCmd_Oper)[OTL(Sts_Oper) ,OTU(Sts_Prog) ,OTU(OCmd_Oper) ];]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[
+ Check for All Permissives and Interlocks
+ 
+]]></Comment>
+      <Text><![CDATA[[XIC(Cfg_FailClose) [XIC(Inp_ClosedLS) ,XIC(Sts_ClosedLSNExists) ] [XIO(Inp_OpenLS) ,XIC(Sts_OpenLSNExits) ] ,XIO(Cfg_FailClose) [XIO(Inp_ClosedLS) ,XIC(Sts_ClosedLSNExists) ] [XIC(Inp_OpenLS) ,XIC(Sts_OpenLSNExits) ] ]XIO(Out)OTE(Latch);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(Latch)XIO(Alm_FailOpen)XIO(Alm_FailClose)XIC(Inp_IntlkOK)XIC(Inp_PermOK)OTE(Sts_Ready);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[[XIC(Alm_FailOpen) ,XIC(Alm_FailClose) ,XIO(Inp_IntlkOK) ,XIO(Inp_PermOK) ,XIC(Inp_ClosedLS) XIC(Inp_OpenLS) ]OTE(Sts_NotRdy);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[
+Valve Open and Close Control
+ 
+]]></Comment>
+      <Text><![CDATA[[XIC(Cfg_FailClose) XIC(Sts_Oper) [XIC(OCmd_Open) XIC(Sts_Ready) ,XIC(Out) ] XIO(OCmd_Close) XIO(Alm_FailOpen) ,XIO(Cfg_FailClose) XIC(Sts_Oper) [XIC(OCmd_Close) XIC(Sts_Ready) ,XIC(Out) ] XIO(OCmd_Open) XIO(Alm_FailClose) ,XIC(Cfg_FailClose) XIC(Sts_Prog) [XIC(PCmd_Open) XIC(Sts_Ready) ,XIC(Out) ] XIO(PCmd_Close) XIO(Alm_FailOpen) ,XIO(Cfg_FailClose) XIC(Sts_Prog) [XIC(PCmd_Close) XIC(Sts_Ready) ,XIC(Out) ] XIO(PCmd_Open) XIO(Alm_FailClose) ,XIO(Inp_IntlkOK) XIC(Interlock_Inv) ][XIC(Inp_IntlkOK) ,XIC(Interlock_Inv) ]OTE(Out);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[[XIC(Cfg_FailClose) XIC(Out) ,XIO(Cfg_FailClose) XIO(Out) ][OTL(OpenLatch) ,OTU(CloseLatch) ];]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[MUL(Cfg_FailOpenT,1000,FO_Timer.PRE);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[
+ Generation of FO Alarm
+]]></Comment>
+      <Text><![CDATA[[XIC(OpenLatch) ,XIC(FO_Timer.TT) XIO(OCmd_Close) ][XIO(Inp_OpenLS) XIC(Cfg_HasOpenLS) ,XIC(Inp_ClosedLS) XIC(Cfg_HasClosedLS) ]TON(FO_Timer,?,?);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(FO_Timer.DN)[OTE(Sts_FailOpen) ,XIC(Cfg_FailClose) OTU(OpenLatch) ];]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIO(Cfg_FailClose)XIC(Sts_FailOpen)[XIC(Inp_OpenLS) ,XIC(Sts_OpenLSNExits) ]XIC(OpenLatch)OTU(OpenLatch);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[IPA_Alarm(FailOpen);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[
+
+]]></Comment>
+      <Text><![CDATA[[XIC(Cfg_FailClose) XIO(Out) ,XIO(Cfg_FailClose) XIC(Out) ][OTL(CloseLatch) ,OTU(OpenLatch) ];]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[MUL(Cfg_FailCloseT,1000,FC_Timer.PRE);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[
+ Generation of FC Alarm
+]]></Comment>
+      <Text><![CDATA[[XIC(CloseLatch) ,XIC(FC_Timer.TT) XIO(OCmd_Open) ][XIO(Inp_ClosedLS) XIC(Cfg_HasClosedLS) ,XIC(Inp_OpenLS) XIC(Cfg_HasOpenLS) ]TON(FC_Timer,?,?);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(FC_Timer.DN)[OTE(Sts_FailClose) ,XIO(Cfg_FailClose) OTU(CloseLatch) ];]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(Cfg_FailClose)XIC(Sts_FailClose)[XIC(Inp_ClosedLS) ,XIC(Sts_ClosedLSNExists) ]XIC(CloseLatch)OTU(CloseLatch);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[IPA_Alarm(FailClose);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[If ANY alarm is Disabled, Inhibited or Suppressed, set the Alarm Inhibit
+summary status bit (which puts the "I" box on the graphic symbol).]]></Comment>
+      <Text><![CDATA[[XIC(FailClose.Sts_AlmInh) ,XIC(FailOpen.Sts_AlmInh) ]OTE(Sts_AlmInh);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[
+ Unlatching of Open and Close Commands from HMI
+]]></Comment>
+      <Text><![CDATA[[XIC(OCmd_Open) ,XIC(OCmd_Close) ,XIC(PCmd_Close) ,XIC(PCmd_Open) ][OTU(OCmd_Open) ,OTU(OCmd_Close) ,OTU(PCmd_Open) ,OTU(PCmd_Close) ];]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[============================================================
+ALARM RESET COMMAND HANDLING
+============================================================
+This rung handles the Alarm Reset Input and Commands]]></Comment>
+      <Text><![CDATA[[XIC(OCmd_Reset) ,XIC(OCmd_ResetAckAll) ][OTL(FailClose.OCmd_Reset) ,OTL(FailOpen.OCmd_Reset) ,TON(Reset_TMR,?,?) ,XIC(Reset_TMR.DN) OTU(OCmd_Reset) OTU(OCmd_ResetAckAll) ];]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[[XIC(OCmd_Ack) ,XIC(OCmd_ResetAckAll) ][OTL(OCmd_FailOpenAck) ,OTL(OCmd_FailCloseAck) ,TON(Ack_Tmr,?,?) ,XIC(Ack_Tmr.DN) OTU(OCmd_Ack) OTU(OCmd_ResetAckAll) ];]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[
+
+Status Bit Generation for HMI
+
+ZSO = 0 and ZSC = 1; Valve Closed]]></Comment>
+      <Text><![CDATA[[XIC(Cfg_HasClosedLS) XIC(Cfg_HasOpenLS) XIO(Inp_OpenLS) XIC(Inp_ClosedLS) ,XIO(Cfg_HasClosedLS) XIO(Inp_OpenLS) ,XIO(Cfg_HasOpenLS) XIC(Inp_ClosedLS) ,XIO(Cfg_HasClosedLS) XIO(Cfg_HasOpenLS) XIO(Cfg_FailClose) XIC(Out) ,XIO(Cfg_HasClosedLS) XIO(Cfg_HasOpenLS) XIC(Cfg_FailClose) XIO(Out) ]MOVE(0,Val_Sts);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[
+
+ZSO = 1 and ZSC = 0; Valve Opened
+]]></Comment>
+      <Text><![CDATA[[XIC(Cfg_HasClosedLS) XIC(Cfg_HasOpenLS) XIC(Inp_OpenLS) XIO(Inp_ClosedLS) ,XIO(Cfg_HasClosedLS) XIC(Inp_OpenLS) ,XIO(Cfg_HasOpenLS) XIO(Inp_ClosedLS) ,XIO(Cfg_HasClosedLS) XIO(Cfg_HasOpenLS) XIO(Cfg_FailClose) XIO(Out) ,XIO(Cfg_HasClosedLS) XIO(Cfg_HasOpenLS) XIC(Cfg_FailClose) XIC(Out) ]MOVE(1,Val_Sts);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[
+
+ZSO = 0 and ZSC = 0; Valve in Travelling
+ 
+ 
+]]></Comment>
+      <Text><![CDATA[XIC(Cfg_HasClosedLS)XIC(Cfg_HasOpenLS)XIO(Inp_OpenLS)XIO(Inp_ClosedLS)MOVE(2,Val_Sts);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[
+
+ZSO = 1 and ZSC = 1; Error
+]]></Comment>
+      <Text><![CDATA[XIC(Inp_OpenLS)XIC(Inp_ClosedLS)MOVE(3,Val_Sts);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[============================================================
+NOTIFICATION VALUE
+============================================================
+Indicate the current alarm notification level as the max of any of the alarms,
+and set the low-order bit for reset or ack required:
+0 = Not in alarm, acknowledged
+1 = Not in alarm, unacknowledged or reset required
+2 = Low severity alarm, acknowledged
+3 = Low severity alarm, unacknowledged
+4 = Medium severity alarm, acknowledged
+5 = Medium severity alarm, unacknowledged
+6 = High severity alarm, acknowledged
+7 = High severity alarm, unacknowledged
+8 = Urgent severity alarm, acknowledged
+9 = Urgent severity alarm, unacknowledged
+#####  V4.00.00  2018-07-16:  Added Val_NotifyAll and Val_UnackAlmC to roll up alarm  #####
+#####  priority / ack status and unack. alarm count.  #####]]></Comment>
+      <Text><![CDATA[[CLR(Wrk_Notify) CLR(Wrk_UnackAlmC) ,GT(FailClose.Val_Notify,Wrk_Notify) MOVE(FailClose.Val_Notify,Wrk_Notify) ,GT(FailOpen.Val_Notify,Wrk_Notify) MOVE(FailOpen.Val_Notify,Wrk_Notify) ,[XIC(FailClose.Val_Notify.0) ADD(Wrk_UnackAlmC,1,Wrk_UnackAlmC) ,XIC(FailOpen.Val_Notify.0) ADD(Wrk_UnackAlmC,1,Wrk_UnackAlmC) ] OTE(Wrk_Notify.0) ,MOVE(Wrk_Notify,Val_Notify) MOVE(Wrk_Notify,Val_NotifyAll) MOVE(Wrk_UnackAlmC,Val_UnackAlmC) ];]]></Text>
+    </Rung>
+  </RLLContent>
+</Routine>

@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Routine Name="Logic" Type="RLL">
+  <RLLContent>
+    <Rung Type="N">
+      <Text><![CDATA[JMP(SkipText)LOWER(Cfg_Desc,Cfg_Label)LOWER(Cfg_Tag,Cfg_Tag);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[LBL(SkipText)XIC(OCmd_Prog)[OTL(Sts_Prog) ,OTU(Sts_Oper) ,OTU(OCmd_Prog) ];]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(OCmd_Oper)[OTL(Sts_Oper) ,OTU(Sts_Prog) ,OTU(OCmd_Oper) ];]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(Inp_IntlkOK)XIC(Inp_PermOK)OTE(Sts_Ready);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[[XIO(Inp_IntlkOK) ,XIO(Inp_PermOK) ]OTE(Sts_NotRdy);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[============================================================
+MANUAL OUTPUT OPERATION COMMANDS
+============================================================]]></Comment>
+      <Text><![CDATA[XIC(Sts_Oper)XIO(Sts_Prog)[XIC(OCmd_On) XIC(Sts_Ready) OTL(Wrk_Q) OTU(OCmd_On) ,[XIC(OCmd_Off) ,XIO(Inp_IntlkOK) ] OTU(Wrk_Q) OTU(OCmd_Off) ];]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[============================================================
+AUTOMATIC OPERATION
+============================================================]]></Comment>
+      <Text><![CDATA[XIC(Sts_Prog)XIO(Sts_Oper)[XIC(PCmd_On) XIC(Sts_Ready) OTL(Wrk_Q) OTU(PCmd_On) ,[XIC(PCmd_Off) ,XIO(Inp_IntlkOK) ] OTU(Wrk_Q) OTU(PCmd_Off) ];]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[============================================================
+STATUS AND OUTPUT GENERATION
+============================================================]]></Comment>
+      <Text><![CDATA[[XIC(Wrk_Q) OTE(Out_Q) ,XIO(Wrk_Q) OTE(Out_Qnot) ];]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[ALARM GENERATION
+]]></Comment>
+      <Text><![CDATA[[XIC(Out_Q) XIC(Cfg_Alm) ,XIO(Cfg_Alm) XIO(Out_Q) ]OTE(Out_Alarm);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[IPA_Alarm(Alm);]]></Text>
+    </Rung>
+  </RLLContent>
+</Routine>

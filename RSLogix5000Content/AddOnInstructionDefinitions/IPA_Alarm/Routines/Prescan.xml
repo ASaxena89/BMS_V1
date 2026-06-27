@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Routine Name="Prescan" Type="RLL">
+  <Description><![CDATA[Clear "lurking" Commands]]></Description>
+  <RLLContent>
+    <Rung Type="N">
+      <Comment><![CDATA[============================================================
+PRESCAN (POWERUP) HANDLING
+============================================================
+On Prescan, clear any "lurking" Commands.
+Unshelve and Unsuppress all alarms, but
+only Enable alarms for which Disable is not allowed.
+(Let Maintenance Disable persist through a power cycle...)
+
+#####  V4.00.00  2018-06-07:  Deleted Cfg_PCmdClear; all Program Commands are now self-clearing.  #####]]></Comment>
+      <Text><![CDATA[[OTU(PCmd_Reset) OTU(PCmd_Ack) OTU(PCmd_Suppress) OTU(PCmd_Unsuppress) OTU(PCmd_Unshelve) ,OTU(OCmd_Reset) OTU(OCmd_Ack) OTU(OCmd_Shelve) OTU(OCmd_Unshelve) ,OTU(MCmd_Disable) OTU(MCmd_Enable) ,OTU(Shelved) OTU(Com_AE.4) OTL(Com_AE.5) ,OTU(Wrk_Suppressed) OTU(Suppressed) OTU(Com_AE.7) OTL(Com_AE.8) ,XIO(Cfg_AllowDisable) OTU(Disabled) OTU(Com_AE.10) OTL(Com_AE.11) ];]]></Text>
+    </Rung>
+  </RLLContent>
+</Routine>

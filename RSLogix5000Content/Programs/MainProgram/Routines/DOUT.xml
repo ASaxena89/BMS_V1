@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Routine Name="DOUT" Type="RLL">
+  <RLLContent>
+    <Rung Type="N">
+      <Text><![CDATA[IPA_DO(P100A_SD);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(P100A_SD.Out_Q)OTE(PCS_IO_Rack01:5:O.Pt00.Data);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[IPA_DO(P101A_CTRL);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(P101A_CTRL.Out_Q)OTE(PCS_IO_Rack01:5:O.Pt01.Data);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[IPA_DO(P101A_SD);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(P101A_SD.Out_Q)OTE(PCS_IO_Rack01:5:O.Pt02.Data);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[IPA_DO(E101_SD);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(E101_SD.Out_Q)OTE(PCS_IO_Rack01:5:O.Pt03.Data);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[IPA_DO(_7318_SD939);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(_7318_SD939.Out_Q)OTE(PCS_IO_Rack01:5:O.Pt04.Data);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[IPA_DO(P100B_SD);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(P100B_SD.Out_Q)OTE(PCS_IO_Rack01:6:O.Pt00.Data);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[IPA_DO(P101B_CTRL);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(P101B_CTRL.Out_Q)OTE(PCS_IO_Rack01:6:O.Pt01.Data);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[IPA_DO(P101B_SD);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(P101B_SD.Out_Q)OTE(PCS_IO_Rack01:6:O.Pt02.Data);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[IPA_DO(E102_SD);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(E102_SD.Out_Q)OTE(PCS_IO_Rack01:6:O.Pt03.Data);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[IPA_DO(BMS105_SD);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(BMS105_SD.Out_Q)OTE(PCS_IO_Rack01:6:O.Pt04.Data);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[IPA_DO(XA_103);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(XA_103.Out_Q)OTE(PCS_IO_Rack01:7:O.Pt00.Data);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[IPA_DO(SD_CMD_V101_INLET);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(SD_CMD_V101_INLET.Out_Q)OTE(PCS_IO_Rack01:7:O.Pt01.Data);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[IPA_SOV(SYV_154,PCS_IO_Rack01:8:I.Pt00.Data,SYV_154_CloseFdbk,SYV_154_OpenFdbk);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(PCS_IO_Rack01:8:I.Pt00.Data)OTE(SYV_154_OpenFdbk);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIO(PCS_IO_Rack01:8:I.Pt00.Data)OTE(SYV_154_CloseFdbk);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[IPA_SOV(SYV_102,PCS_IO_Rack01:7:I.Pt02.Data,SYV_102_CloseFdbk,SYV_102_OpenFdbk);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(PCS_IO_Rack01:7:I.Pt02.Data)OTE(SYV_102_OpenFdbk);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIO(PCS_IO_Rack01:7:I.Pt02.Data)OTE(SYV_102_CloseFdbk);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[IPA_SOV(SYV_103,PCS_IO_Rack01:7:I.Pt03.Data,SYV_103_CloseFdbk,SYV_103_OpenFdbk);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(PCS_IO_Rack01:7:I.Pt03.Data)OTE(SYV_103_OpenFdbk);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIO(PCS_IO_Rack01:7:I.Pt03.Data)OTE(SYV_103_CloseFdbk);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[IPA_DO(_7318_XA2201);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(_7318_XA2201.Out_Q)OTE(PCS_IO_Rack01:8:O.Pt01.Data);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[IPA_DO(Sample_DO);]]></Text>
+    </Rung>
+  </RLLContent>
+</Routine>

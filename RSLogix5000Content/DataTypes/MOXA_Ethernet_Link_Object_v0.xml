@@ -1,0 +1,203 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DataType Name="MOXA_Ethernet_Link_Object_v0" Family="NoFamily" Class="User">
+  <Description><![CDATA[class 0xf6]]></Description>
+  <Members>
+    <Member Name="Interface_Speed" DataType="DINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Interface speed currently in 
+use. Speed in Mbps (e.g., 
+0, 10, 100, 1000, 
+etc.)]]></Description>
+    </Member>
+    <Member Name="Interface_Flags" DataType="MOXA_Interface_Object_Flags_v0" Dimension="0" Radix="NullType" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Interface status flags]]></Description>
+    </Member>
+    <Member Name="Physical_Address" DataType="SINT" Dimension="6" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[MAC layer address]]></Description>
+    </Member>
+    <Member Name="InOctets" DataType="DINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Octets received on the 
+interface]]></Description>
+    </Member>
+    <Member Name="InUcastPackets" DataType="DINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Unicast packets received on 
+the interface]]></Description>
+    </Member>
+    <Member Name="InNucastPackets" DataType="DINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Non-unicast packets received 
+on the interface]]></Description>
+    </Member>
+    <Member Name="InDiscards" DataType="DINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Inbound packets received on 
+the interface but discarded]]></Description>
+    </Member>
+    <Member Name="InErrors" DataType="DINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Inbound packets that contain 
+errors (does not include In 
+Discards)]]></Description>
+    </Member>
+    <Member Name="OutOctets" DataType="DINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Octets sent on the interface]]></Description>
+    </Member>
+    <Member Name="OutUcastPackets" DataType="DINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Unicast packets sent on the 
+interface]]></Description>
+    </Member>
+    <Member Name="OutNucastPackets" DataType="DINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Non-unicast packets sent on 
+the interface]]></Description>
+    </Member>
+    <Member Name="OutDiscards" DataType="DINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Outbound packets discarded]]></Description>
+    </Member>
+    <Member Name="OutErrors" DataType="DINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Outbound packets that contain 
+errors]]></Description>
+    </Member>
+    <Member Name="Alignment_Errors" DataType="DINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Frames received that are not 
+an integral number of octets in 
+length]]></Description>
+    </Member>
+    <Member Name="FCS_Errors" DataType="DINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Frames received that do not 
+pass  the FCS check]]></Description>
+    </Member>
+    <Member Name="Single_Collisions" DataType="DINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Successfully transmitted 
+frames which experienced 
+exactly one collision]]></Description>
+    </Member>
+    <Member Name="Multiple_Collisions" DataType="DINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Successfully transmitted 
+frames which experienced 
+more than one collision]]></Description>
+    </Member>
+    <Member Name="SQE_Test_Errors" DataType="DINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Number of times SQE test 
+error message is generated]]></Description>
+    </Member>
+    <Member Name="Deferred_Transmissions" DataType="DINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Frames for which first 
+transmission attempt is 
+delayed because the medium 
+is busy]]></Description>
+    </Member>
+    <Member Name="Late_Collisions" DataType="DINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Number  of times a collision is 
+detected later than 512 bit-
+times into the transmission of 
+a packet]]></Description>
+    </Member>
+    <Member Name="Excessive_Collisions" DataType="DINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Frames for which 
+transmission fails due to 
+excessive collisions]]></Description>
+    </Member>
+    <Member Name="MAC_Transmit_Errors" DataType="DINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Frames for which 
+transmission fails due to an 
+internal MAC sublayer 
+transmit error]]></Description>
+    </Member>
+    <Member Name="Carrier_Sense_Errors" DataType="DINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Times that the carrier sense 
+condition was lost or never 
+asserted when attempting to 
+transmit a frame]]></Description>
+    </Member>
+    <Member Name="Frame_Too_Long" DataType="DINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Frames received that exceed 
+the maximum permitted frame
+size]]></Description>
+    </Member>
+    <Member Name="MAC_Receive_Errors" DataType="DINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Frames for which reception on 
+an interface fails due to an 
+internal MAC sublayer 
+receive error]]></Description>
+    </Member>
+    <Member Name="Control_Bits" DataType="INT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[0 Auto-negotiate 0 indicates 802.3 link auto-negotiation is disabled.  1 indicates auto-negotiation is enabled.]]></Description>
+    </Member>
+    <Member Name="Forced_Interface_Speed" DataType="INT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Speed at which the interface 
+shall be forced to operate. Speed in Mbps (10, 
+100, 1000, etc.)]]></Description>
+    </Member>
+    <Member Name="Interface_Label" DataType="STRING" Dimension="0" Radix="NullType" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Label like "TX5"]]></Description>
+    </Member>
+    <Member Name="Interface_Port_Index" DataType="DINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[port index]]></Description>
+    </Member>
+    <Member Name="Interface_Port_Description" DataType="STRING" Dimension="0" Radix="NullType" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Port description]]></Description>
+    </Member>
+    <Member Name="Broascast_Storm_Protection" DataType="SINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Only BCM]]></Description>
+    </Member>
+    <Member Name="Interface_Utilization" DataType="SINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Percentage of entire interface bandwidth being used (0-100)]]></Description>
+    </Member>
+    <Member Name="Utilization_Alarm_Upper_Threshold" DataType="SINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Upper percentage at which to declare a utilization alarm (0-100).]]></Description>
+    </Member>
+    <Member Name="Utilization_Alarm_Lower_Threshold" DataType="SINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Lower percentage at which to 
+declare a utilization alarm (0-100).]]></Description>
+    </Member>
+    <Member Name="Port_Link_Alarm" DataType="SINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[0: Ignore
+1:On (Relay 1)
+2:On (Relay 2)
+3:Off (Relay1)
+4:Off (Relay2)]]></Description>
+    </Member>
+    <Member Name="Port_TrafficOverload_Alarm" DataType="SINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[0:Disable
+1:Enable(Relay 1)
+2:Enable(Relay 2)]]></Description>
+    </Member>
+    <Member Name="Tx_Unicast_Packet_Rate" DataType="DINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[number of TX unicast packets per second.]]></Description>
+    </Member>
+    <Member Name="Rx_Unicast_Packet_Rate" DataType="DINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[number of RX unicast packets per second.]]></Description>
+    </Member>
+    <Member Name="Tx_Multicast_Packet_Rate" DataType="DINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[number of TX multicast packets per second.]]></Description>
+    </Member>
+    <Member Name="Rx_Multicast_Packet_Rate" DataType="DINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[number of RX multicast packets per second.]]></Description>
+    </Member>
+    <Member Name="Tx_Broadcast_Packet_Rate" DataType="DINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[number of TX broadcast packets per second.]]></Description>
+    </Member>
+    <Member Name="Rx_Broadcast_Packet_Rate" DataType="DINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[number of RX broadcast packets per second.]]></Description>
+    </Member>
+    <Member Name="Tx_Multicast_Packet" DataType="DINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Total number of Tx multicast packets]]></Description>
+    </Member>
+    <Member Name="Rx_Multicast_Packet" DataType="DINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Total number of Rx multicast packets]]></Description>
+    </Member>
+    <Member Name="Tx_Broadcast_Packet" DataType="DINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Totalnumber of Tx Multicast packets]]></Description>
+    </Member>
+    <Member Name="Rx_Broadcast_Packet" DataType="DINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Total number of Rx broadcast packets]]></Description>
+    </Member>
+    <Member Name="Redundant_Port_Status" DataType="DINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Bit 0 = Disable, 
+Bit 1 =Not Red. port,
+Bit 2 = Link down, 
+Bit 3 = Blocking,
+Bit 4 = Learning,
+Bit 5 = Forwarding]]></Description>
+    </Member>
+  </Members>
+  <Dependencies>
+    <Dependency Type="DataType" Name="MOXA_Interface_Object_Flags_v0" />
+  </Dependencies>
+</DataType>

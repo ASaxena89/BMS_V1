@@ -1,0 +1,329 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<AddOnInstructionDefinition Name="IPA_Intlk" Revision="4.10" RevisionExtension=".01 Release" Vendor="Rockwell Automation" ExecutePrescan="false" ExecutePostscan="false" ExecuteEnableInFalse="false" CreatedDate="2008-04-02T16:58:50.551Z" CreatedBy="Not Available" EditedDate="2021-03-18T07:32:15.104Z" EditedBy="INTECHWW\Omer.Khan" SoftwareRevision="v31.01">
+  <Description><![CDATA[Interlocks]]></Description>
+  <RevisionNote><![CDATA[See Instruction Help for a summary of changes, and see 4.10 Release Notes for details.]]></RevisionNote>
+  <AdditionalHelpText><![CDATA[Copyright © Rockwell Automation, Inc.  All Rights Reserved.
+
+This Instruction monitors up to 16 Interlock conditions.  It provides these features:
+
+*  The "OK" state of each Interlock Input is configurable.  By default,
+    each Input is 1 to trip, 0 when OK to run.
+*  Interlocks may be configured as Latched.  Latched Interlocks
+    require a Reset Command to clear.  The latching function can be
+    inhibited via a Latch Defeat input, for example, to avoid latching
+    Interlocks for a stopped motor.
+*  Interlocks may be configured as Bypassable; Non-Bypassable
+    Interlocks are reported separately so the destination object can
+    decide whether to bypass (ignore) bypassable interlocks, such
+    as in Maintenance Mode.
+*  First-Out reporting indicates the first condition that caused the
+    running equipment to be tripped.
+*  For each Interlock condition, a Tag may be defined for navigation.
+    Clicking the Interlock description will call up the associated Tag's
+    Faceplate.
+
+SUMMARY OF CHANGES FROM PREVIOUS VERSION (4.10.00)
+See 4.10 Release Notes for details.
+* Modified conditions for clearing first-out status and text.
+
+SUMMARY OF CHANGES FROM PREVIOUS VERSION (4.00.00)
+See 4.10 Release Notes for details.
+* Changed type of Val_FirstOutTxt to STRING_Cond.
+* Corrected Scan Mode selection to execute Prescan logic.
+* Added Cfg_HasMoreObj.
+
+SUMMARY OF CHANGES FROM PREVIOUS VERSION (3.5-05)
+See 4.00 Release Notes for details.
+* Changed Inf_ items to HMI_, and added Cfg_Area for security.
+* Added Val_FirstOutTxt string (Local, read-only) for use in
+   IntlkTrip alarm message  (ref: KnowledgeBase answer ID 672568).
+* Deleted Cfg_PCmdClear; all Program Commands are now self-clearing.
+* All OCmds/MCmds and ORdys/MRdys are now Local Tags.
+* Added Sts_RdyReset for use by external objects.]]></AdditionalHelpText>
+  <Parameters>
+    <Parameter Name="EnableIn" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read Only">
+      <Description><![CDATA[Enable Input - System Defined Parameter]]></Description>
+    </Parameter>
+    <Parameter Name="EnableOut" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read Only">
+      <Description><![CDATA[Enable Output - System Defined Parameter]]></Description>
+    </Parameter>
+    <Parameter Name="Inp_Intlk00" TagType="Alias" Usage="Input" Radix="Decimal" AliasFor="Wrk_Inp.0" Required="false" Visible="true" ExternalAccess="Read/Write">
+      <Description><![CDATA[Interlock Cond. 00, Stop if not in configured OK state]]></Description>
+    </Parameter>
+    <Parameter Name="Inp_Intlk01" TagType="Alias" Usage="Input" Radix="Decimal" AliasFor="Wrk_Inp.1" Required="false" Visible="true" ExternalAccess="Read/Write">
+      <Description><![CDATA[Interlock Cond. 01, Stop if not in configured OK state]]></Description>
+    </Parameter>
+    <Parameter Name="Inp_Intlk02" TagType="Alias" Usage="Input" Radix="Decimal" AliasFor="Wrk_Inp.2" Required="false" Visible="true" ExternalAccess="Read/Write">
+      <Description><![CDATA[Interlock Cond. 02, Stop if not in configured OK state]]></Description>
+    </Parameter>
+    <Parameter Name="Inp_Intlk03" TagType="Alias" Usage="Input" Radix="Decimal" AliasFor="Wrk_Inp.3" Required="false" Visible="true" ExternalAccess="Read/Write">
+      <Description><![CDATA[Interlock Cond. 03, Stop if not in configured OK state]]></Description>
+    </Parameter>
+    <Parameter Name="Inp_Intlk04" TagType="Alias" Usage="Input" Radix="Decimal" AliasFor="Wrk_Inp.4" Required="false" Visible="true" ExternalAccess="Read/Write">
+      <Description><![CDATA[Interlock Cond. 04, Stop if not in configured OK state]]></Description>
+    </Parameter>
+    <Parameter Name="Inp_Intlk05" TagType="Alias" Usage="Input" Radix="Decimal" AliasFor="Wrk_Inp.5" Required="false" Visible="true" ExternalAccess="Read/Write">
+      <Description><![CDATA[Interlock Cond. 05, Stop if not in configured OK state]]></Description>
+    </Parameter>
+    <Parameter Name="Inp_Intlk06" TagType="Alias" Usage="Input" Radix="Decimal" AliasFor="Wrk_Inp.6" Required="false" Visible="true" ExternalAccess="Read/Write">
+      <Description><![CDATA[Interlock Cond. 06, Stop if not in configured OK state]]></Description>
+    </Parameter>
+    <Parameter Name="Inp_Intlk07" TagType="Alias" Usage="Input" Radix="Decimal" AliasFor="Wrk_Inp.7" Required="false" Visible="true" ExternalAccess="Read/Write">
+      <Description><![CDATA[Interlock Cond. 07, Stop if not in configured OK state]]></Description>
+    </Parameter>
+    <Parameter Name="Inp_Intlk08" TagType="Alias" Usage="Input" Radix="Decimal" AliasFor="Wrk_Inp.8" Required="false" Visible="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Interlock Cond. 08, Stop if not in configured OK state]]></Description>
+    </Parameter>
+    <Parameter Name="Inp_Intlk09" TagType="Alias" Usage="Input" Radix="Decimal" AliasFor="Wrk_Inp.9" Required="false" Visible="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Interlock Cond. 09, Stop if not in configured OK state]]></Description>
+    </Parameter>
+    <Parameter Name="Inp_Intlk10" TagType="Alias" Usage="Input" Radix="Decimal" AliasFor="Wrk_Inp.10" Required="false" Visible="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Interlock Cond. 10, Stop if not in configured OK state]]></Description>
+    </Parameter>
+    <Parameter Name="Inp_Intlk11" TagType="Alias" Usage="Input" Radix="Decimal" AliasFor="Wrk_Inp.11" Required="false" Visible="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Interlock Cond. 11, Stop if not in configured OK state]]></Description>
+    </Parameter>
+    <Parameter Name="Inp_Intlk12" TagType="Alias" Usage="Input" Radix="Decimal" AliasFor="Wrk_Inp.12" Required="false" Visible="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Interlock Cond. 12, Stop if not in configured OK state]]></Description>
+    </Parameter>
+    <Parameter Name="Inp_Intlk13" TagType="Alias" Usage="Input" Radix="Decimal" AliasFor="Wrk_Inp.13" Required="false" Visible="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Interlock Cond. 13, Stop if not in configured OK state]]></Description>
+    </Parameter>
+    <Parameter Name="Inp_Intlk14" TagType="Alias" Usage="Input" Radix="Decimal" AliasFor="Wrk_Inp.14" Required="false" Visible="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Interlock Cond. 14, Stop if not in configured OK state]]></Description>
+    </Parameter>
+    <Parameter Name="Inp_Intlk15" TagType="Alias" Usage="Input" Radix="Decimal" AliasFor="Wrk_Inp.15" Required="false" Visible="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Interlock Cond. 15, Stop if not in configured OK state]]></Description>
+    </Parameter>
+    <Parameter Name="Inp_Reset" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="true" ExternalAccess="Read/Write">
+      <Description><![CDATA[1=Reset Latched Interlocks and First-Out]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="BOOL" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="Cfg_OKState" TagType="Base" DataType="INT" Usage="Input" Radix="Binary" Required="false" Visible="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Bits indicate which state (0 or 1) of each input is OK to run]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="INT" Radix="Binary" Value="2#0000_0000_0000_0000" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="Sts_IntlkOK" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="true" ExternalAccess="Read Only">
+      <Description><![CDATA[Overall Interlock Status (1=OK to run, 0=Stop)]]></Description>
+      <DefaultData Format="L5K"><![CDATA[1]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="BOOL" Radix="Decimal" Value="1" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="Sts_Intlk" TagType="Base" DataType="INT" Usage="Output" Radix="Binary" Required="false" Visible="true" ExternalAccess="Read Only">
+      <Description><![CDATA[Individual Interlock Status (1=Stop, 0=OK)]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="INT" Radix="Binary" Value="2#0000_0000_0000_0000" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="Sts_FirstOut" TagType="Base" DataType="INT" Usage="Output" Radix="Binary" Required="false" Visible="true" ExternalAccess="Read Only">
+      <Description><![CDATA[Interlock First Out Status (bit 1 is First Not-OK condition)]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="INT" Radix="Binary" Value="2#0000_0000_0000_0000" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="OCmd_Reset" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Operator Command to Reset Latched Interlocks]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="BOOL" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </Parameter>
+  </Parameters>
+  <LocalTags>
+    <LocalTag Name="Cfg_CondTxt" DataType="STRING_Cond" Dimensions="16" ExternalAccess="Read/Write">
+      <Description><![CDATA[Short HMI description of Interlock Conditions]]></Description>
+      <DefaultData Format="L5K"><![CDATA[[[3,'ESD$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00'],[0,'$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00'],[0,'$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00'],[0,'$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00'],[0,'$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00'],[0,'$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00'],[0,'$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00'],[0,'$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00'],[0,'$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00'],[0,'$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00'],[0,'$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00'],[0,'$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00'],[0,'$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00'],[0,'$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00'],[0,'$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00'],[0,'$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00']]]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <Array DataType="STRING_Cond" Dimensions="16">
+          <Element Index="[0]">
+            <Structure DataType="STRING_Cond">
+              <DataValueMember Name="LEN" DataType="DINT" Radix="Decimal" Value="3" />
+              <DataValueMember Name="DATA" DataType="STRING_Cond" Radix="ASCII"><![CDATA['ESD']]></DataValueMember>
+            </Structure>
+          </Element>
+          <Element Index="[1]">
+            <Structure DataType="STRING_Cond">
+              <DataValueMember Name="LEN" DataType="DINT" Radix="Decimal" Value="0" />
+              <DataValueMember Name="DATA" DataType="STRING_Cond" Radix="ASCII"><![CDATA[]]></DataValueMember>
+            </Structure>
+          </Element>
+          <Element Index="[2]">
+            <Structure DataType="STRING_Cond">
+              <DataValueMember Name="LEN" DataType="DINT" Radix="Decimal" Value="0" />
+              <DataValueMember Name="DATA" DataType="STRING_Cond" Radix="ASCII"><![CDATA[]]></DataValueMember>
+            </Structure>
+          </Element>
+          <Element Index="[3]">
+            <Structure DataType="STRING_Cond">
+              <DataValueMember Name="LEN" DataType="DINT" Radix="Decimal" Value="0" />
+              <DataValueMember Name="DATA" DataType="STRING_Cond" Radix="ASCII"><![CDATA[]]></DataValueMember>
+            </Structure>
+          </Element>
+          <Element Index="[4]">
+            <Structure DataType="STRING_Cond">
+              <DataValueMember Name="LEN" DataType="DINT" Radix="Decimal" Value="0" />
+              <DataValueMember Name="DATA" DataType="STRING_Cond" Radix="ASCII"><![CDATA[]]></DataValueMember>
+            </Structure>
+          </Element>
+          <Element Index="[5]">
+            <Structure DataType="STRING_Cond">
+              <DataValueMember Name="LEN" DataType="DINT" Radix="Decimal" Value="0" />
+              <DataValueMember Name="DATA" DataType="STRING_Cond" Radix="ASCII"><![CDATA[]]></DataValueMember>
+            </Structure>
+          </Element>
+          <Element Index="[6]">
+            <Structure DataType="STRING_Cond">
+              <DataValueMember Name="LEN" DataType="DINT" Radix="Decimal" Value="0" />
+              <DataValueMember Name="DATA" DataType="STRING_Cond" Radix="ASCII"><![CDATA[]]></DataValueMember>
+            </Structure>
+          </Element>
+          <Element Index="[7]">
+            <Structure DataType="STRING_Cond">
+              <DataValueMember Name="LEN" DataType="DINT" Radix="Decimal" Value="0" />
+              <DataValueMember Name="DATA" DataType="STRING_Cond" Radix="ASCII"><![CDATA[]]></DataValueMember>
+            </Structure>
+          </Element>
+          <Element Index="[8]">
+            <Structure DataType="STRING_Cond">
+              <DataValueMember Name="LEN" DataType="DINT" Radix="Decimal" Value="0" />
+              <DataValueMember Name="DATA" DataType="STRING_Cond" Radix="ASCII"><![CDATA[]]></DataValueMember>
+            </Structure>
+          </Element>
+          <Element Index="[9]">
+            <Structure DataType="STRING_Cond">
+              <DataValueMember Name="LEN" DataType="DINT" Radix="Decimal" Value="0" />
+              <DataValueMember Name="DATA" DataType="STRING_Cond" Radix="ASCII"><![CDATA[]]></DataValueMember>
+            </Structure>
+          </Element>
+          <Element Index="[10]">
+            <Structure DataType="STRING_Cond">
+              <DataValueMember Name="LEN" DataType="DINT" Radix="Decimal" Value="0" />
+              <DataValueMember Name="DATA" DataType="STRING_Cond" Radix="ASCII"><![CDATA[]]></DataValueMember>
+            </Structure>
+          </Element>
+          <Element Index="[11]">
+            <Structure DataType="STRING_Cond">
+              <DataValueMember Name="LEN" DataType="DINT" Radix="Decimal" Value="0" />
+              <DataValueMember Name="DATA" DataType="STRING_Cond" Radix="ASCII"><![CDATA[]]></DataValueMember>
+            </Structure>
+          </Element>
+          <Element Index="[12]">
+            <Structure DataType="STRING_Cond">
+              <DataValueMember Name="LEN" DataType="DINT" Radix="Decimal" Value="0" />
+              <DataValueMember Name="DATA" DataType="STRING_Cond" Radix="ASCII"><![CDATA[]]></DataValueMember>
+            </Structure>
+          </Element>
+          <Element Index="[13]">
+            <Structure DataType="STRING_Cond">
+              <DataValueMember Name="LEN" DataType="DINT" Radix="Decimal" Value="0" />
+              <DataValueMember Name="DATA" DataType="STRING_Cond" Radix="ASCII"><![CDATA[]]></DataValueMember>
+            </Structure>
+          </Element>
+          <Element Index="[14]">
+            <Structure DataType="STRING_Cond">
+              <DataValueMember Name="LEN" DataType="DINT" Radix="Decimal" Value="0" />
+              <DataValueMember Name="DATA" DataType="STRING_Cond" Radix="ASCII"><![CDATA[]]></DataValueMember>
+            </Structure>
+          </Element>
+          <Element Index="[15]">
+            <Structure DataType="STRING_Cond">
+              <DataValueMember Name="LEN" DataType="DINT" Radix="Decimal" Value="0" />
+              <DataValueMember Name="DATA" DataType="STRING_Cond" Radix="ASCII"><![CDATA[]]></DataValueMember>
+            </Structure>
+          </Element>
+        </Array>
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="Wrk_Inp" DataType="INT" Radix="Binary" ExternalAccess="Read/Write">
+      <Description><![CDATA[Collection copy of Inp_IntlkXXs]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="INT" Radix="Binary" Value="2#0000_0000_0000_0000" />
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="Wrk_FirstOut" DataType="INT" Radix="Binary" ExternalAccess="None">
+      <Description><![CDATA[Working register for First Out logic]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="INT" Radix="Binary" Value="2#0000_0000_0000_0000" />
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="Wrk_Sts" DataType="INT" Radix="Binary" ExternalAccess="None">
+      <Description><![CDATA[Working register for generating Interlock status]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="INT" Radix="Binary" Value="2#0000_0000_0000_0000" />
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="Wrk_PrevSts" DataType="INT" Radix="Binary" ExternalAccess="None">
+      <Description><![CDATA[Interlock Status previous scan]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="INT" Radix="Binary" Value="2#0000_0000_0000_0000" />
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="Wrk_InpInv" DataType="INT" Radix="Binary" ExternalAccess="None">
+      <Description><![CDATA[Input states after inversion based on Cfg_OKState]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="INT" Radix="Binary" Value="2#0000_0000_0000_0000" />
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="Cfg_Label" DataType="STRING_20" ExternalAccess="Read/Write">
+      <Description><![CDATA[Label for graphic symbol displayed on HMI]]></Description>
+      <DefaultData Format="L5K"><![CDATA[[10,'Interlocks$00$00$00$00$00$00$00$00$00$00']]]></DefaultData>
+      <DefaultData Format="String" Length="10"><![CDATA['Interlocks']]></DefaultData>
+    </LocalTag>
+    <LocalTag Name="Cfg_Tag" DataType="STRING_20" ExternalAccess="Read/Write">
+      <Description><![CDATA[Tagname for display on HMI]]></Description>
+      <DefaultData Format="L5K"><![CDATA[[7,'P_Intlk$00$00$00$00$00$00$00$00$00$00$00$00$00']]]></DefaultData>
+      <DefaultData Format="String" Length="7"><![CDATA['P_Intlk']]></DefaultData>
+    </LocalTag>
+    <LocalTag Name="Cfg_Desc" DataType="STRING_40" ExternalAccess="Read/Write">
+      <Description><![CDATA[Description for display on HMI]]></Description>
+      <DefaultData Format="L5K"><![CDATA[[25,'Interlocks with First Out$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00']]]></DefaultData>
+      <DefaultData Format="String" Length="25"><![CDATA['Interlocks with First Out']]></DefaultData>
+    </LocalTag>
+    <LocalTag Name="Val_FirstOutTxt" DataType="STRING_Cond" ExternalAccess="Read Only">
+      <Description><![CDATA[Text Description of First-Out Condition]]></Description>
+      <DefaultData Format="L5K"><![CDATA[[0,'$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00']]]></DefaultData>
+      <DefaultData Format="String" Length="0"><![CDATA['']]></DefaultData>
+    </LocalTag>
+    <LocalTag Name="Wrk_NonIntlkStop" DataType="BOOL" Radix="Decimal" ExternalAccess="None">
+      <Description><![CDATA[One-Shot store: Stop OTHER than Interlock Stop occurred.]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="BOOL" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="Wrk_SetFirstOut" DataType="BOOL" Radix="Decimal" ExternalAccess="None">
+      <Description><![CDATA[One-Shot store: First Out update triggered]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="BOOL" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="Cfg_AutoReset" DataType="BOOL" Radix="Decimal" ExternalAccess="Read/Write">
+      <Description><![CDATA[Auto Reset Bit]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="BOOL" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </LocalTag>
+  </LocalTags>
+  <Routines />
+  <Dependencies>
+    <Dependency Type="DataType" Name="STRING_Cond" />
+    <Dependency Type="DataType" Name="STRING_40" />
+    <Dependency Type="DataType" Name="STRING_20" />
+  </Dependencies>
+</AddOnInstructionDefinition>

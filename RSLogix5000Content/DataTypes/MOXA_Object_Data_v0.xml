@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DataType Name="MOXA_Object_Data_v0" Family="NoFamily" Class="User">
+  <Description><![CDATA[This UDT contains various information that appears on an HMI display. Some information applies to the switch, and some applies to the selected port (copied, or derived from, the port Ethernet_Link data) because FactoryTalk can not access array elements.]]></Description>
+  <Members>
+    <Member Name="IP_Address" DataType="MOXA_String_32" Dimension="0" Radix="NullType" Hidden="false" ExternalAccess="Read/Write" />
+    <Member Name="Network_Mask" DataType="MOXA_String_32" Dimension="0" Radix="NullType" Hidden="false" ExternalAccess="Read/Write" />
+    <Member Name="Control_Bits" DataType="INT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write" />
+    <Member Name="Port_Speed" DataType="DINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[1=10/half, 2=10/full, 3=100/half, 4=100/Full,
+100=auto negotiate,]]></Description>
+    </Member>
+    <Member Name="Port_Interface_Flag" DataType="MOXA_Interface_Object_Flags_v0" Dimension="0" Radix="NullType" Hidden="false" ExternalAccess="Read/Write" />
+    <Member Name="MAC_Address" DataType="MOXA_String_32" Dimension="0" Radix="NullType" Hidden="false" ExternalAccess="Read/Write" />
+    <Member Name="Error_Counter" DataType="DINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write" />
+    <Member Name="Port_Index" DataType="DINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write" />
+    <Member Name="TX_Unicast_Packet_Rate" DataType="DINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[begin port specific data]]></Description>
+    </Member>
+    <Member Name="RX_Unicast_Packet_Rate" DataType="DINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write" />
+    <Member Name="TX_Multicast_Packet_Rate" DataType="DINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write" />
+    <Member Name="RX_Multicast_Packet_Rate" DataType="DINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write" />
+    <Member Name="TX_Broadcast_Packet_Rate" DataType="DINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write" />
+    <Member Name="RX_Broadcast_Packet_Rate" DataType="DINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write" />
+    <Member Name="Redundant_Port_Role" DataType="DINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[redundant port role]]></Description>
+    </Member>
+    <Member Name="System_Fault" DataType="MOXA_System_Fault_v0" Dimension="0" Radix="NullType" Hidden="false" ExternalAccess="Read/Write" />
+    <Member Name="CPU_Usage" DataType="SINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write" />
+    <Member Name="Redundant_Port_Status" DataType="DINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[bit 0: Disable
+Bit 1: Not Redundant
+Bit 2: Link down
+Bit 3: Blocking
+Bit 4: Learning
+Bit 5: Forwarding]]></Description>
+    </Member>
+    <Member Name="Software_Version" DataType="STRING" Dimension="0" Radix="NullType" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Show software version]]></Description>
+    </Member>
+    <Member Name="Port" DataType="INT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write" />
+    <Member Name="Interface_Utilization" DataType="SINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write" />
+    <Member Name="Tx_Packet_Error" DataType="DINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write" />
+    <Member Name="Rx_Packet_Error" DataType="DINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write" />
+  </Members>
+  <Dependencies>
+    <Dependency Type="DataType" Name="MOXA_String_32" />
+    <Dependency Type="DataType" Name="MOXA_String_32" />
+    <Dependency Type="DataType" Name="MOXA_Interface_Object_Flags_v0" />
+    <Dependency Type="DataType" Name="MOXA_String_32" />
+    <Dependency Type="DataType" Name="MOXA_System_Fault_v0" />
+  </Dependencies>
+</DataType>

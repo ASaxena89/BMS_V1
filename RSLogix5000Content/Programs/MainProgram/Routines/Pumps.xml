@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Routine Name="Pumps" Type="RLL">
+  <RLLContent>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(ESD_C)[OTE(P100A_IntlK.Inp_Intlk00) ,OTE(P100A_IntlK.Inp_Intlk01) ,OTE(P100B_IntlK.Inp_Intlk00) ,OTE(P100B_IntlK.Inp_Intlk01) ];]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[[XIO(P100A_IntlK.Inp_Intlk00) ,XIO(P100A_IntlK.Inp_Intlk01) ]OTE(P100A.Inp_IntlkOK);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[[XIO(P100B_IntlK.Inp_Intlk00) ,XIO(P100B_IntlK.Inp_Intlk01) ]OTE(P100B.Inp_IntlkOK);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[IPA_Intlk(P100A_IntlK);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[IPA_MOT(P100A,P100A_SD.Out_Q,P100A_RS,P100A_AM);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[IPA_MOT(P200A,P200A_Cmd,P200A_RS,P200A_AM);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[IPA_Intlk(P200A_IntlK);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[IPA_MOT(P100B,P100B_SD.Out_Q,P100B_RS,P100B_AM);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[IPA_Intlk(P100B_IntlK);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(PCS_IO_Rack01:2:I.Pt00.Data)OTE(E101_RS);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[IPA_MOT(E101,E101_Cmd,E101_RS,E101_AM);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(PCS_IO_Rack01:2:I.Pt01.Data)OTE(E102_RS);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[IPA_MOT(E102,E101_Cmd,E102_RS,E102_AM);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[IPA_MOT(P101A,P101A_CTRL.Out_Q,P101A_RS,P101A_AM);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[IPA_MOT(P101B,P101B_CTRL.Out_Q,P101B_RS,P101B_AM);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[P-100A HIGH PRESSURE CONDENSATE PUMP RUN HOURS]]></Comment>
+      <Text><![CDATA[RUN_HRS(P100A_RHRS,P100A_RS,P100A_RESET_SEC,P100A_RHS_RESET,P100A_NRESET_SEC,TESTBIT);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[P-100B HIGH PRESSURE CONDENSATE PUMP RUN HOURS]]></Comment>
+      <Text><![CDATA[RUN_HRS(P100B_RHRS,P100B_RS,P100B_RESET_SEC,P100B_RHS_RESET,P100B_NRESET_SEC,TESTBIT);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[
+ P-101A GLYCOL INJECTION PUMP RUN HOURS]]></Comment>
+      <Text><![CDATA[RUN_HRS(P101A_RHRS,P101A_RS,P101A_RESET_SEC,P101A_RHS_RESET,P101A_NRESET_SEC,TESTBIT);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[
+ P-101B GLYCOL INJECTION PUMP RUN HOURS]]></Comment>
+      <Text><![CDATA[RUN_HRS(P101B_RHRS,P101B_RS,P101B_RESET_SEC,P101B_RHS_RESET,P101B_NRESET_SEC,TESTBIT);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[
+E_101 INLET COOLER MOTOR RUN HOURS]]></Comment>
+      <Text><![CDATA[RUN_HRS(E101_RHRS,E101_RS,E101_RESET_SEC,E101_RHS_RESET,E101_NRESET_SEC,TESTBIT);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[
+E_102 INLET COOLER MOTOR RUN HOURS]]></Comment>
+      <Text><![CDATA[RUN_HRS(E102_RHRS,E101_RS,E102_RESET_SEC,E102_RHS_RESET,E102_NRESET_SEC,TESTBIT);]]></Text>
+    </Rung>
+  </RLLContent>
+</Routine>

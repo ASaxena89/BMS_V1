@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Routine Name="Logic" Type="FBD">
+  <FBDContent SheetSize="Letter - 8.5 x 11 in" SheetOrientation="Landscape">
+    <Sheet Number="1">
+      <Description><![CDATA[Comparing the position]]></Description>
+      <IRef ID="0" X="80" Y="240" Operand="100" HideDesc="false" />
+      <IRef ID="1" X="100" Y="100" Operand="Cfg_OutAction" HideDesc="false" />
+      <IRef ID="2" X="560" Y="780" Operand="Cfg_ResponseTime" HideDesc="false" />
+      <IRef ID="3" X="120" Y="380" Operand="Inp_CV" HideDesc="false" />
+      <IRef ID="4" X="440" Y="100" Operand="Inp_CV" HideDesc="false" />
+      <IRef ID="5" X="380" Y="720" Operand="Inp_DevSP" HideDesc="false" />
+      <IRef ID="6" X="260" Y="560" Operand="Inp_Position" HideDesc="false" />
+      <ORef ID="7" X="970" Y="660" Operand="Alm_Dev" HideDesc="false" />
+      <ORef ID="8" X="720" Y="240" Operand="Val_CVOut" HideDesc="false" />
+      <OCon ID="9" X="60" Y="480" Name="UnscaledCV" />
+      <Block Type="ABS" ID="10" X="580" Y="440" Operand="ABS_01" VisiblePins="Source Dest" HideDesc="false" />
+      <Block Type="GE" ID="11" X="500" Y="600" Operand="GEQ_01" VisiblePins="SourceA SourceB Dest" HideDesc="false" />
+      <Block Type="SEL" ID="12" X="500" Y="180" Operand="SEL_Compare" VisiblePins="In1 In2 SelectorIn Out" HideDesc="false" />
+      <Block Type="SUB" ID="13" X="380" Y="440" Operand="SUB_01" VisiblePins="SourceA SourceB Dest" HideDesc="false" />
+      <Block Type="SUB" ID="14" X="200" Y="200" Operand="SUB_REV" VisiblePins="EnableIn SourceA SourceB Dest" HideDesc="false" />
+      <Block Type="TONR" ID="15" X="720" Y="600" Operand="TONR_01" VisiblePins="TimerEnable PRE DN" HideDesc="false" />
+      <Wire FromID="0" ToID="14" ToParam="SourceA" />
+      <Wire FromID="1" ToID="12" ToParam="SelectorIn" />
+      <Wire FromID="1" ToID="14" ToParam="EnableIn" />
+      <Wire FromID="2" ToID="15" ToParam="PRE" />
+      <Wire FromID="3" ToID="9" />
+      <Wire FromID="3" ToID="14" ToParam="SourceB" />
+      <Wire FromID="4" ToID="12" ToParam="In1" />
+      <Wire FromID="5" ToID="11" ToParam="SourceB" />
+      <Wire FromID="6" ToID="13" ToParam="SourceB" />
+      <Wire FromID="10" FromParam="Dest" ToID="11" ToParam="SourceA" />
+      <Wire FromID="11" FromParam="Dest" ToID="15" ToParam="TimerEnable" />
+      <Wire FromID="12" FromParam="Out" ToID="8" />
+      <Wire FromID="12" FromParam="Out" ToID="13" ToParam="SourceA" />
+      <Wire FromID="13" FromParam="Dest" ToID="10" ToParam="Source" />
+      <Wire FromID="14" FromParam="Dest" ToID="12" ToParam="In2" />
+      <Wire FromID="15" FromParam="DN" ToID="7" />
+    </Sheet>
+    <Sheet Number="2">
+      <Description><![CDATA[Scaling the output]]></Description>
+      <IRef ID="16" X="380" Y="260" Operand="0" HideDesc="false" />
+      <IRef ID="17" X="380" Y="320" Operand="1" HideDesc="false" />
+      <IRef ID="18" X="200" Y="240" Operand="100" HideDesc="false" />
+      <IRef ID="19" X="240" Y="280" Operand="Cfg_AOMaxRaw" HideDesc="false" />
+      <IRef ID="20" X="240" Y="300" Operand="Cfg_AOMinRaw" HideDesc="false" />
+      <ORef ID="21" X="620" Y="220" Operand="Out_CV" HideDesc="false" />
+      <ICon ID="22" X="360" Y="200" Name="UnscaledCV" />
+      <Block Type="SCL" ID="23" X="460" Y="160" Operand="SCL_OUT" VisiblePins="In InRawMax InRawMin InEUMax InEUMin Limiting Out" HideDesc="false" />
+      <Wire FromID="16" ToID="23" ToParam="InRawMin" />
+      <Wire FromID="17" ToID="23" ToParam="Limiting" />
+      <Wire FromID="18" ToID="23" ToParam="InRawMax" />
+      <Wire FromID="19" ToID="23" ToParam="InEUMax" />
+      <Wire FromID="20" ToID="23" ToParam="InEUMin" />
+      <Wire FromID="22" ToID="23" ToParam="In" />
+      <Wire FromID="23" FromParam="Out" ToID="21" />
+    </Sheet>
+  </FBDContent>
+</Routine>

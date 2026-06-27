@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Routine Name="Totalizer" Type="RLL">
+  <RLLContent>
+    <Rung Type="N">
+      <Comment><![CDATA[ACCESS SYSTEM TIME]]></Comment>
+      <Text><![CDATA[GSV(WallClockTime,,LocalDateTime,System_DateTime[0]);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[ACCESSING SYSTEM HOURS]]></Comment>
+      <Text><![CDATA[MOVE(System_DateTime[3],Date_AND_Time.Hours);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[ACCESSING SYSTEM MINS]]></Comment>
+      <Text><![CDATA[MOVE(System_DateTime[4],Date_AND_Time.Min);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[CONTRACT HOUR]]></Comment>
+      <Text><![CDATA[EQ(Date_AND_Time.Hours,8.0)EQ(Date_AND_Time.Min,0.0)ONS(TONS)OTL(CONTRACT_HOUR);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[TOT_PULSE(FQS_101_TOT,Date_AND_Time.Hours,Date_AND_Time.Min,test,FQS_101_6D_AGO,FQS_101_1D_AGO,FQS_101_PC_TODAY,FQS_101_7D_AGO,FQS_101_5D_AGO,FQS_101_4D_AGO,FQS_101_3D_AGO,FQS_101_2D_AGO,FQS_101_2D_RAWPULSECNT,6,54,Date_AND_Time.Day,Date_AND_Time.Month);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[TOT_PULSE(FQS_102_TOT,Date_AND_Time.Hours,Date_AND_Time.Min,test,FQS_102_6D_AGO,FQS_102_1D_AGO,FQS_102_PC_TODAY,FQS_102_7D_AGO,FQS_102_5D_AGO,FQS_102_4D_AGO,FQS_102_3D_AGO,FQS_102_2D_AGO,FQS_102_2D_RAWPULSECNT,9,42,Date_AND_Time.Day,Date_AND_Time.Month);]]></Text>
+    </Rung>
+  </RLLContent>
+</Routine>

@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DataType Name="MOXA_Switch_Parameter" Family="NoFamily" Class="User">
+  <Members>
+    <Member Name="Switch_Input" DataType="MOXA_Switch_EDS408_In_v0" Dimension="0" Radix="NullType" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[recieve message from switch]]></Description>
+    </Member>
+    <Member Name="Switch_Output" DataType="DINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[send message from switch]]></Description>
+    </Member>
+    <Member Name="Switch_Idnetity" DataType="MOXA_Identity_Object_v0" Dimension="0" Radix="NullType" Hidden="false" ExternalAccess="Read/Write" />
+    <Member Name="Switch_TCPIP" DataType="MOXA_TCPIP_Interface_Object_v0" Dimension="0" Radix="NullType" Hidden="false" ExternalAccess="Read/Write" />
+    <Member Name="Switch_Vendor" DataType="MOXA_Vendor_Object_v0" Dimension="0" Radix="NullType" Hidden="false" ExternalAccess="Read/Write" />
+    <Member Name="Switch_Ethernet_Link" DataType="MOXA_Ethernet_Link_Object_v0" Dimension="11" Radix="NullType" Hidden="false" ExternalAccess="Read/Write" />
+    <Member Name="Switch_Data" DataType="MOXA_Object_Data_v0" Dimension="0" Radix="NullType" Hidden="false" ExternalAccess="Read/Write" />
+    <Member Name="Switch_HMI_Set" DataType="MOXA_HMI_Set_Object_v0" Dimension="0" Radix="NullType" Hidden="false" ExternalAccess="Read/Write" />
+  </Members>
+  <Dependencies>
+    <Dependency Type="DataType" Name="MOXA_Switch_EDS408_In_v0" />
+    <Dependency Type="DataType" Name="MOXA_Identity_Object_v0" />
+    <Dependency Type="DataType" Name="MOXA_TCPIP_Interface_Object_v0" />
+    <Dependency Type="DataType" Name="MOXA_Vendor_Object_v0" />
+    <Dependency Type="DataType" Name="MOXA_Ethernet_Link_Object_v0" />
+    <Dependency Type="DataType" Name="MOXA_Object_Data_v0" />
+    <Dependency Type="DataType" Name="MOXA_HMI_Set_Object_v0" />
+  </Dependencies>
+</DataType>

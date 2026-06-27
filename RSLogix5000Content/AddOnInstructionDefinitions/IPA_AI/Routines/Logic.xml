@@ -1,0 +1,175 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Routine Name="Logic" Type="RLL">
+  <RLLContent>
+    <Rung Type="N">
+      <Text><![CDATA[JMP(SkipText)CONCAT(Cfg_Desc,Cfg_Label,Cfg_Tag)LOWER(Cfg_EU,Cfg_EU)LOWER(Cfg_EU_1,Cfg_EU_1);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[LBL(SkipText)[LT(Cfg_AlmDB,0.0) CLR(Cfg_AlmDB) ,LIMIT(7,Cfg_PVDecPlcs,-1) MOVE(2,Cfg_PVDecPlcs) ];]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[The following two rungs handle the out of Service Command from the HMI]]></Comment>
+      <Text><![CDATA[XIC(OCmd_OoSOn)[OTL(OoS) ,OTU(OCmd_OoSOn) ,XIC(OoS) OTE(IOFault.Inp_OoS) ,XIC(OoS) OTE(HiHi.Inp_OoS) ,XIC(OoS) OTE(Hi.Inp_OoS) ,XIC(OoS) OTE(Lo.Inp_OoS) ,XIC(OoS) OTE(LoLo.Inp_OoS) ];]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(OCmd_OoSOff)[OTU(OoS) ,OTU(OCmd_OoSOff) ];]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[============================================================
+ALARM RESET COMMAND HANDLING
+============================================================
+This rung handles the Alarm Reset Input and Commands
+and the "Reset and Ack All" Operator Command.]]></Comment>
+      <Text><![CDATA[[XIC(OCmd_Reset) OTU(OCmd_Reset) ,XIC(OCmd_ResetAckAll) OTU(OCmd_ResetAckAll) [OTL(OCmd_HiHiAck) ,OTL(OCmd_HiAck) ,OTL(OCmd_LoAck) ,OTL(OCmd_LoLoAck) ,OTL(OCmd_IOFaultAck) ] ]OTL(HiHi.OCmd_Reset)OTL(Hi.OCmd_Reset)OTL(Lo.OCmd_Reset)OTL(LoLo.OCmd_Reset)OTL(IOFault.OCmd_Reset);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[[XIC(OCmd_Ack) ,XIC(OCmd_ResetAckAll) ][ONS(Ack_ONS) [OTL(OCmd_HiHiAck) ,OTL(OCmd_HiAck) ,OTL(OCmd_LoAck) ,OTL(OCmd_LoLoAck) ,OTL(OCmd_IOFaultAck) ] ,TON(Ack_Tmr,?,?) ,XIC(Ack_Tmr.DN) OTU(OCmd_Ack) OTU(OCmd_ResetAckAll) ];]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[Analog Input Object
+This rung scales the Analog input.  It assumes the signal is 4.0 to 20.0 and uses the .MinEU and .MaxEU from the AnalogInput Tag that is given to the subroutine as the range.]]></Comment>
+      <Text><![CDATA[CPT(Val,(Cfg_PVEUMax-Cfg_PVEUMin)*((Inp_PV-Cfg_InpRawMin)/(Cfg_InpRawMax-Cfg_InpRawMin))+Cfg_PVEUMin);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[MOVE(Startup_Inhibit_PRE,H_Startup_Inhibit_TMR.PRE);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(H_Startup_Inhibit)TOF(H_Startup_Inhibit_TMR,?,?);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(L_Startup_Inhibit)TOF(L_Startup_Inhibit_TMR,?,?);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[These two rungs determine when the actual analog input falls below 3.5 or above 20.5 mA and sets the .OutOfRange bit of the AnalogInput Typed Tag.]]></Comment>
+      <Text><![CDATA[LIMIT(Cfg_FailLoLim,Inp_PV,Cfg_FailHiLim)OTE(InRange);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIO(InRange)XIO(OoS)XIO(Inp_PVBad)OTE(OutOfRange);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[Converting Alarm Deadband Percentage into Engg. Values]]></Comment>
+      <Text><![CDATA[CPT(AlmDeadBand,(Cfg_PVEUMax-Cfg_PVEUMin)*(Cfg_AlmDB/100));]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[[CPT(Wrk_Debounce,Cfg_Debounce*1000) ,MOVE(Wrk_Debounce,HH_Debounce.PRE) ,MOVE(Wrk_Debounce,H_Alm_Debounce.PRE) ,MOVE(Wrk_Debounce,L_Debounce.PRE) ,MOVE(Wrk_Debounce,LL_Debounce.PRE) ,MOVE(Wrk_Debounce,Diag_Debounce.PRE) ];]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIO(Cfg_HasHiHiAlm)MOVE(Cfg_PVEUMax,Cfg_HiHiLim);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIO(Cfg_HasHiAlm)MOVE(Cfg_HiHiLim,Cfg_HiLim);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIO(Cfg_HasLoAlm)MOVE(Cfg_LoLoLim,Cfg_LoLim);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIO(Cfg_HasLoLoAlm)MOVE(Cfg_PVEUMin,Cfg_LoLoLim);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[**************************************************************************
+HH Alarm Handling
+***************************************************************************]]></Comment>
+      <Text><![CDATA[[GT(Val,Cfg_HiHiLim) XIO(H_Startup_Inhibit_TMR.DN) ,CMP(Val>(Cfg_HiHiLim-AlmDeadBand)) XIC(HH_Alm_Flag) ]XIO(OoS)OTE(HH_Alm_Flag);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(HH_Alm_Flag)TON(HH_Debounce,?,?);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(HH_Debounce.DN)OTE(Sts_HiHi);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[IPA_Alarm(HiHi);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[**************************************************************************
+H Alarm Handling
+***************************************************************************]]></Comment>
+      <Text><![CDATA[[GT(Val,Cfg_HiLim) XIO(H_Startup_Inhibit_TMR.DN) ,CMP(Val>(Cfg_HiLim-AlmDeadBand)) XIC(H_Alm_Flag) ]XIO(OoS)OTE(H_Alm_Flag);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(H_Alm_Flag)TON(H_Alm_Debounce,?,?);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(H_Alm_Debounce.DN)OTE(Sts_Hi);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[IPA_Alarm(Hi);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[[LT(Val,Cfg_LoLim) XIO(L_Startup_Inhibit_TMR.DN) ,CMP(Val<(Cfg_LoLim+AlmDeadBand)) XIC(L_Alm_Flag) ]XIO(OoS)OTE(L_Alm_Flag);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(L_Alm_Flag)TON(L_Debounce,?,?);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(L_Debounce.DN)OTE(Sts_Lo);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[IPA_Alarm(Lo);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[[LT(Val,Cfg_LoLoLim) XIO(L_Startup_Inhibit_TMR.DN) ,CMP(Val<(Cfg_LoLoLim+AlmDeadBand)) XIC(LL_Alm_Flag) ]XIO(OoS)OTE(LL_Alm_Flag);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(LL_Alm_Flag)TON(LL_Debounce,?,?);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(LL_Debounce.DN)OTE(Sts_LoLo);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[IPA_Alarm(LoLo);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[**************************************************************************
+Diagnostic Trip Handling
+***************************************************************************]]></Comment>
+      <Text><![CDATA[[XIC(Program_Keyswitch) ,XIC(OutOfRange) ]XIO(OoS)XIO(L_Startup_Inhibit_TMR.DN)XIO(H_Startup_Inhibit_TMR.DN)OTE(DiagAlmFlag);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(DiagAlmFlag)TON(Diag_Debounce,?,?);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(Diag_Debounce.DN)OTE(Sts_IOFault);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[IPA_Alarm(IOFault);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[If ANY alarm is Disabled or Inhibited, set the Alarm Inhibit
+summary status bit (which puts the "I" box on the graphic symbol).]]></Comment>
+      <Text><![CDATA[[XIC(HiHi.Sts_AlmInh) ,XIC(Hi.Sts_AlmInh) ,XIC(Lo.Sts_AlmInh) ,XIC(LoLo.Sts_AlmInh) ,XIC(IOFault.Sts_AlmInh) ]OTE(Sts_AlmInh);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[This rung generates the enumerated Device Fault Status:
+0 = none
+20 = Lo
+21 = Hi
+24 = Lo-Lo
+25 = Hi-Hi
+32 = Failed (I/O fault or out of range)
+34 = Config Error]]></Comment>
+      <Text><![CDATA[[CLR(Wrk_Fault) ,XIC(Sts_Lo) MOVE(20,Wrk_Fault) ,XIC(Sts_Hi) MOVE(21,Wrk_Fault) ,XIC(Sts_LoLo) MOVE(24,Wrk_Fault) ,XIC(Sts_HiHi) MOVE(25,Wrk_Fault) ,XIC(Sts_IOFault) MOVE(32,Wrk_Fault) ,MOVE(Wrk_Fault,Val_Fault) ];]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[============================================================
+NOTIFICATION VALUE
+============================================================
+Indicate the current alarm notification level as the max of any of the alarms,
+and set the low-order bit for reset or ack required:
+0 = Not in alarm, acknowledged
+1 = Not in alarm, unacknowledged or reset required
+2 = Low severity alarm, acknowledged
+3 = Low severity alarm, unacknowledged
+4 = Medium severity alarm, acknowledged
+5 = Medium severity alarm, unacknowledged
+6 = High severity alarm, acknowledged
+7 = High severity alarm, unacknowledged
+8 = Urgent severity alarm, acknowledged
+9 = Urgent severity alarm, unacknowledged
+
+#####  V4.00.00  2018-06-25:  Added Val_NotifyAll and Val_UnackAlmC to roll up alarm  #####
+#####  priority / ack status and unack. alarm count including attached Channel object.  #####]]></Comment>
+      <Text><![CDATA[[CLR(Wrk_Notify) CLR(Wrk_UnackAlmC) OTU(Wrk_Notify.0) ,GT(HiHi.Val_Notify,Wrk_Notify) MOVE(HiHi.Val_Notify,Wrk_Notify) ,GT(Hi.Val_Notify,Wrk_Notify) MOVE(Hi.Val_Notify,Wrk_Notify) ,GT(Lo.Val_Notify,Wrk_Notify) MOVE(Lo.Val_Notify,Wrk_Notify) ,GT(LoLo.Val_Notify,Wrk_Notify) MOVE(LoLo.Val_Notify,Wrk_Notify) ,GT(IOFault.Val_Notify,Wrk_Notify) MOVE(IOFault.Val_Notify,Wrk_Notify) ,[XIC(HiHi.Val_Notify.0) ADD(Wrk_UnackAlmC,1,Wrk_UnackAlmC) ,XIC(Hi.Val_Notify.0) ADD(Wrk_UnackAlmC,1,Wrk_UnackAlmC) ,XIC(Lo.Val_Notify.0) ADD(Wrk_UnackAlmC,1,Wrk_UnackAlmC) ,XIC(LoLo.Val_Notify.0) ADD(Wrk_UnackAlmC,1,Wrk_UnackAlmC) ,XIC(IOFault.Val_Notify.0) ADD(Wrk_UnackAlmC,1,Wrk_UnackAlmC) ] OTL(Wrk_Notify.0) ,MOVE(Wrk_Notify,Val_Notify) MOVE(Wrk_UnackAlmC,Val_UnackAlmC) MOVE(Wrk_Notify,Val_NotifyAll) ];]]></Text>
+    </Rung>
+  </RLLContent>
+</Routine>

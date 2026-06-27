@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Routine Name="AI" Type="RLL">
+  <Description><![CDATA[Analog Inputs]]></Description>
+  <RLLContent>
+    <Rung Type="N">
+      <Text><![CDATA[IPA_AI(LIT_101,PCS_IO_Rack02:1:I.Ch00.Fault,PCS_IO_Rack02:1:I.Ch00.Data,HMI_RESET,Global_Ack);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[IPA_AI(PIT_101,PCS_IO_Rack02:1:I.Ch01.Fault,PCS_IO_Rack02:1:I.Ch01.Data,HMI_RESET,Global_Ack);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[IPA_AI(TIT_101A,PCS_IO_Rack02:1:I.Ch02.Fault,PCS_IO_Rack02:1:I.Ch02.Data,HMI_RESET,Global_Ack);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[IPA_AI(LIT_102,PCS_IO_Rack02:1:I.Ch03.Fault,PCS_IO_Rack02:1:I.Ch03.Data,HMI_RESET,Global_Ack);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[IPA_AI(PIT_102A,PCS_IO_Rack02:1:I.Ch04.Fault,PCS_IO_Rack02:1:I.Ch04.Data,HMI_RESET,Global_Ack);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[IPA_AI(FIT_152,PCS_IO_Rack02:1:I.Ch05.Fault,PCS_IO_Rack02:1:I.Ch05.Data,HMI_RESET,Global_Ack);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[IPA_AI(TIT_102A,PCS_IO_Rack02:2:I.Ch00.Fault,PCS_IO_Rack02:2:I.Ch00.Data,HMI_RESET,Global_Ack);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[IPA_AI(LIT_103,PCS_IO_Rack02:2:I.Ch01.Fault,PCS_IO_Rack02:2:I.Ch01.Data,HMI_RESET,Global_Ack);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[IPA_AI(AIT_101,PCS_IO_Rack02:2:I.Ch02.Fault,PCS_IO_Rack02:2:I.Ch02.Data,HMI_RESET,Global_Ack);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[IPA_AI(FIT_102,PCS_IO_Rack02:2:I.Ch03.Fault,PCS_IO_Rack02:2:I.Ch03.Data,HMI_RESET,Global_Ack);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[IPA_AI(_7318_MC_921,PCS_IO_Rack02:2:I.Ch04.Fault,PCS_IO_Rack02:2:I.Ch04.Data,HMI_RESET,Global_Ack);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[IPA_AI(_7318_SD939A,PCS_IO_Rack02:2:I.Ch05.Fault,PCS_IO_Rack02:2:I.Ch05.Data,HMI_RESET,Global_Ack);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[IPA_AI(_7318_SD939B,PCS_IO_Rack02:2:I.Ch06.Fault,PCS_IO_Rack02:2:I.Ch06.Data,HMI_RESET,Global_Ack);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[IPA_AI(PIT_102B,PCS_IO_Rack02:3:I.Ch00.Fault,PCS_IO_Rack02:3:I.Ch00.Data,HMI_RESET,Global_Ack);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[IPA_AI(TIT_102B,PCS_IO_Rack02:3:I.Ch01.Fault,PCS_IO_Rack02:3:I.Ch01.Data,HMI_RESET,Global_Ack);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[IPA_AI(TIT_102D,PCS_IO_Rack02:3:I.Ch02.Fault,PCS_IO_Rack02:3:I.Ch02.Data,HMI_RESET,Global_Ack);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[IPA_AI(DPIT_101,PCS_IO_Rack02:3:I.Ch03.Fault,PCS_IO_Rack02:3:I.Ch03.Data,HMI_RESET,Global_Ack);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[IPA_AI(_2201_PCS_001_TIT,PCS_IO_Rack02:3:I.Ch04.Fault,PCS_IO_Rack02:3:I.Ch04.Data,HMI_RESET,Global_Ack);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[IPA_AI(FQIT_101,PCS_IO_Rack02:4:I.Ch00.Fault,PCS_IO_Rack02:4:I.Ch00.Data,HMI_RESET,Global_Ack);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[IPA_AI(DPIT_102,PCS_IO_Rack02:4:I.Ch01.Fault,PCS_IO_Rack02:4:I.Ch01.Data,HMI_RESET,Global_Ack);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[IPA_AI(FQIT_102,PCS_IO_Rack02:4:I.Ch02.Fault,PCS_IO_Rack02:4:I.Ch02.Data,HMI_RESET,Global_Ack);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[IPA_AI(PIT_103,PCS_IO_Rack02:4:I.Ch03.Fault,PCS_IO_Rack02:4:I.Ch03.Data,HMI_RESET,Global_Ack);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[IPA_AI(TIT_103,PCS_IO_Rack02:4:I.Ch04.Fault,PCS_IO_Rack02:4:I.Ch04.Data,HMI_RESET,Global_Ack);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[IPA_AI(PIT_102C,PCS_IO_Rack02:4:I.Ch05.Fault,PCS_IO_Rack02:4:I.Ch05.Data,HMI_RESET,Global_Ack);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[IPA_AI(LIT_104,PCS_IO_Rack02:5:I.Ch00.Fault,PCS_IO_Rack02:5:I.Ch00.Data,HMI_RESET,Global_Ack);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[IPA_AI(LIT_105,PCS_IO_Rack02:5:I.Ch01.Fault,PCS_IO_Rack02:5:I.Ch01.Data,HMI_RESET,Global_Ack);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[IPA_AI(TIT_104,PCS_IO_Rack02:5:I.Ch02.Fault,PCS_IO_Rack02:5:I.Ch02.Data,HMI_RESET,Global_Ack);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[IPA_AI(TIT_105,PCS_IO_Rack02:5:I.Ch03.Fault,PCS_IO_Rack02:5:I.Ch03.Data,HMI_RESET,Global_Ack);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[IPA_AI(LIT_106,PCS_IO_Rack02:5:I.Ch04.Fault,PCS_IO_Rack02:5:I.Ch04.Data,HMI_RESET,Global_Ack);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[IPA_TOT(LIT_101_TOT,LIT_101.Inp_PV,0,5,5,5,5,0);]]></Text>
+    </Rung>
+  </RLLContent>
+</Routine>

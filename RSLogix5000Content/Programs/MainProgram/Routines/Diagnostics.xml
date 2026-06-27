@@ -1,0 +1,358 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Routine Name="Diagnostics" Type="RLL">
+  <RLLContent>
+    <Rung Type="N">
+      <Text><![CDATA[AOI_MOXA_SWITCH_10P_v1_1_0(ENETSW1,ENETSW1:I.Data,ENETSW1:O.Data,ENETSW1_moxa_param,ENETSW1_MOXA_GETMSG,ENETSW1_MOXA_SETMSG,ENETSW1_MOXA_allstorage,ENETSW1_MOXA_SETDATA,ENETSW1_MOXA_GETsingle,ENETSW1_MOXA_singlestorage);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[AOI_MOXA_SWITCH_10P_v1_1_0(ENETSW2,ENETSW2:I.Data,ENETSW2:O.Data,ENETSW2_moxa_param,ENETSW2_MOXA_GETMSG,ENETSW2_MOXA_SETMSG,ENETSW2_MOXA_allstorage,ENETSW2_MOXA_SETDATA,ENETSW2_MOXA_GETsingle,ENETSW2_MOXA_singlestorage);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[AOI_MOXA_SWITCH_10P_v1_1_0(ENETSW1R,ENETSW1R:I.Data,ENETSW1R:O.Data,ENETSW1R_moxa_param,ENETSW1R_MOXA_GETMSG,ENETSW1R_MOXA_SETMSG,ENETSW1R_MOXA_allstorage,ENETSW1R_MOXA_SETDATA,ENETSW1R_MOXA_GETsingle,ENETSW1R_MOXA_singlestorage);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[AOI_MOXA_SWITCH_10P_v1_1_0(ENETSW2R,ENETSW2R:I.Data,ENETSW2R:O.Data,ENETSW2R_moxa_param,ENETSW2R_MOXA_GETMSG,ENETSW2R_MOXA_SETMSG,ENETSW2R_MOXA_allstorage,ENETSW2R_MOXA_SETDATA,ENETSW2R_MOXA_GETsingle,ENETSW2R_MOXA_singlestorage);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[CONTROLLER DIAGNOSTICS]]></Comment>
+      <Text><![CDATA[GSV(ControllerDevice,,Status,MK_PCS.Status);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(MK_PCS.Status.4)XIO(MK_PCS.Status.5)XIC(MK_PCS.Status.6)XIO(MK_PCS.Status.7)OTE(MK_PCS.Fault);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIO(MK_PCS.Status.4)XIC(MK_PCS.Status.5)XIC(MK_PCS.Status.6)XIO(MK_PCS.Status.7)OTE(MK_PCS.Run);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(MK_PCS.Status.4)XIC(MK_PCS.Status.5)XIC(MK_PCS.Status.6)XIO(MK_PCS.Status.7)OTE(MK_PCS.Program);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIO(MK_PCS.Status.4)XIC(MK_PCS.Status.5)XIC(MK_PCS.Status.6)XIO(MK_PCS.Status.7)XIO(MK_PCS.Status.14)XIC(MK_PCS.Status.15)OTE(MK_PCS.Test);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(MK_PCS.Status.12)XIO(MK_PCS.Status.13)OTE(MK_PCS.KeySwitchRun);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIO(MK_PCS.Status.12)XIC(MK_PCS.Status.13)OTE(MK_PCS.KeySwitchProgram);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(MK_PCS.Status.12)XIC(MK_PCS.Status.13)OTE(MK_PCS.KeySwitchRemote);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[[XIC(MK_PCS.Status.8) XIO(MK_PCS.Status.9) XIO(MK_PCS.Status.10) XIO(MK_PCS.Status.11) ,XIO(MK_PCS.Status.8) XIC(MK_PCS.Status.9) XIO(MK_PCS.Status.10) XIO(MK_PCS.Status.11) ]OTE(MK_PCS.MinorFault);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(MK_PCS.Status.8)XIO(MK_PCS.Status.9)XIO(MK_PCS.Status.10)XIO(MK_PCS.Status.11)OTE(MK_PCS.RMinorFault);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIO(MK_PCS.Status.8)XIC(MK_PCS.Status.9)XIO(MK_PCS.Status.10)XIO(MK_PCS.Status.11)OTE(MK_PCS.UMinorFault);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[[XIO(MK_PCS.Status.8) XIO(MK_PCS.Status.9) XIC(MK_PCS.Status.10) XIO(MK_PCS.Status.11) ,XIO(MK_PCS.Status.8) XIO(MK_PCS.Status.9) XIO(MK_PCS.Status.10) XIC(MK_PCS.Status.11) ]OTE(MK_PCS.MajorFault);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIO(MK_PCS.Status.8)XIO(MK_PCS.Status.9)XIC(MK_PCS.Status.10)XIO(MK_PCS.Status.11)OTE(MK_PCS.RMajorFault);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIO(MK_PCS.Status.8)XIO(MK_PCS.Status.9)XIO(MK_PCS.Status.10)XIC(MK_PCS.Status.11)OTE(MK_PCS.UMajorFault);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[GSV(Controller,,Name,MK_PCS.Name);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[GSV(Controller,,AuditValue,MK_PCS.AuditValueDINT);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[GSV(Module,,LedStatus,MK_PCS.IOLEDStatus);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[EQ(MK_PCS.IOLEDStatus,0)OTE(MK_PCS.IOLED_Off);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[EQ(MK_PCS.IOLEDStatus,1)OTE(MK_PCS.IOLED_FlashRed);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[EQ(MK_PCS.IOLEDStatus,2)OTE(MK_PCS.IOLED_FlashGreen);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[EQ(MK_PCS.IOLEDStatus,3)OTE(MK_PCS.IOLED_Green);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[GSV(FaultLog,,MinorFaultBits,MK_PCS.MinorFaultBits);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[GSV(FaultLog,,MajorFaultBits,MK_PCS.MajorFaultBits);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[EQ(MK_PCS.MinorFaultBits,10)OTE(MK_PCS.BatteryMinorFlt);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[EQ(MK_PCS.MajorFaultBits,1)OTE(MK_PCS.BatteryMajorFlt);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[[XIC(MK_PCS.BatteryMinorFlt) ,XIC(MK_PCS.BatteryMajorFlt) ]OTE(MK_PCS.BatteryFault);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(MK_PCS.Run)XIO(MK_PCS.Fault)XIO(MK_PCS.BatteryFault)XIC(MK_PCS.IOLED_Green)XIO(MK_PCS.MinorFault)XIO(MK_PCS.MajorFault)OTE(MK_PCS.OK);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[GSV(Program,MainProgram,LastScanTime,MK_PCS.MainPrgLastScanTime);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[GSV(Task,MainTask,LastScanTime,MK_PCS.MainTskLastScanTime);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[GSV(Redundancy,,PhysicalChassisID,MK_PCS.ChassisID_INT);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[EQ(MK_PCS.ChassisID_INT,1)OTE(MK_PCS.ChassisID);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[GSV(Controller,,RedundancyEnabled,MK_PCS.RedundancyStat);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[GSV(Module,,ForceStatus,MK_PCS.ForceStatus);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(MK_PCS.ForceStatus.0)OTE(MK_PCS.ForcesInstalled);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(MK_PCS.ForceStatus.1)OTE(MK_PCS.ForcesEnabled);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[GSV(Redundancy,,ModuleRedundancyState,MK_PCS.PrimaryModuleRedun);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[EQ(MK_PCS.PrimaryModuleRedun,2)OTE(MK_PCS.Primary_QualifiedSec);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[EQ(MK_PCS.PrimaryModuleRedun,3)OTE(MK_PCS.Primary_DisqualifiedSec);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[EQ(MK_PCS.PrimaryModuleRedun,4)OTE(MK_PCS.Primary_NoSecondary);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[EQ(MK_PCS.PrimaryModuleRedun,6)OTE(MK_PCS.Primary_QualifyingSec);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[GSV(Redundancy,,PartnerModuleRedundancyState,MK_PCS.PartnerModuleRedun);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[EQ(MK_PCS.PartnerModuleRedun,7)OTE(MK_PCS.Partner_QualifyingSec);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[EQ(MK_PCS.PartnerModuleRedun,8)OTE(MK_PCS.Partner_QualifiedSec);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[EQ(MK_PCS.PartnerModuleRedun,9)OTE(MK_PCS.Partner_DisQualifiedSec);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[GSV(Redundancy,,ChassisRedundancyState,MK_PCS.ChassisRedundancy);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[GSV(Redundancy,,PartnerChassisRedundancyState,MK_PCS.PartnerChassisRedundancy);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[MSG(ExecConfigMaskGet);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[MOVE(ExecConfigState,check);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[GSV(Controller,,ControllerLogExecutionModificationCount,COUNTTEST);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[GSV(WallClockTime,,LocalDateTime,MK_PCS.Time[0]);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[MOVE(MK_PCS.Time[0],MK_PCS.ClockYear);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[MOVE(MK_PCS.Time[1],MK_PCS.ClockMonth);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[MOVE(MK_PCS.Time[2],MK_PCS.ClockDay);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[MOVE(MK_PCS.Time[3],MK_PCS.ClockHour);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[MOVE(MK_PCS.Time[4],MK_PCS.ClockMinute);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[MOVE(MK_PCS.Time[5],MK_PCS.ClockSecond);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(MK_PCS_SetTime)ONS(MK_PCS_SetTime_ONS)SSV(WallClockTime,,LocalDateTime,MK_PCS.SetTime[0]);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(MK_PCS_SetTime)[TON(MK_PCS_SetTimeTMR,?,?) ,XIC(MK_PCS_SetTimeTMR.DN) OTU(MK_PCS_SetTime) ];]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[MSG(Memory_Sts);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[COP(INT_Array[3],MK_PCS.Free_IOMemory,1);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[COP(INT_Array[5],MK_PCS.Free_DataMemory,1);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[COP(INT_Array[11],MK_PCS.Total_IOMemory,1);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[COP(INT_Array[13],MK_PCS.Total_DataMemory,1);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[CPT(MK_PCS.InUseIOMemory,MK_PCS.Total_IOMemory*4-(MK_PCS.Free_IOMemory*4));]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[CPT(MK_PCS.InUseDataMemory,MK_PCS.Total_DataMemory*4-(MK_PCS.Free_DataMemory*4));]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[CPT(MK_PCS.InUsePrcntIOMem,MK_PCS.InUseIOMemory*4/(MK_PCS.Total_IOMemory*4)*100);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[CPT(MK_PCS.InUsePrcntDataMem,MK_PCS.InUseDataMemory/MK_PCS.Total_DataMemory*100);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[MODULE DIAGNOSTICS]]></Comment>
+      <Text><![CDATA[GSV(Module,R01S01,FaultCode,R01S01.FaultCode);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[NE(R01S01.FaultCode,0)OTE(R01S01.FLT);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[GSV(Module,R01S02,FaultCode,R01S02.FaultCode);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[NE(R01S02.FaultCode,0)OTE(R01S02.FLT);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[GSV(Module,R01S03,FaultCode,R01S03.FaultCode);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[NE(R01S03.FaultCode,0)OTE(R01S03.FLT);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[GSV(Module,R01S04,FaultCode,R01S04.FaultCode);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[NE(R01S04.FaultCode,0)OTE(R01S04.FLT);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[GSV(Module,R01S05,FaultCode,R01S05.FaultCode);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[NE(R01S05.FaultCode,0)OTE(R01S05.FLT);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[GSV(Module,R01S06,FaultCode,R01S06.FaultCode);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[NE(R01S06.FaultCode,0)OTE(R01S06.FLT);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[GSV(Module,R01S07,FaultCode,R01S07.FaultCode);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[NE(R01S07.FaultCode,0)OTE(R01S07.FLT);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[GSV(Module,R01S08,FaultCode,R01S08.FaultCode);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[NE(R01S08.FaultCode,0)OTE(R01S08.FLT);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[GSV(Module,R01S09,FaultCode,R01S09.FaultCode);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[NE(R01S09.FaultCode,0)OTE(R01S09.FLT);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[GSV(Module,R01S10,FaultCode,R01S10.FaultCode);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[NE(R01S10.FaultCode,0)OTE(R01S10.FLT);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[GSV(Module,R01S11,FaultCode,R01S11.FaultCode);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[NE(R01S11.FaultCode,0)OTE(R01S11.FLT);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[GSV(Module,R02S01,FaultCode,R02S01.FaultCode);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[NE(R02S01.FaultCode,0)OTE(R02S01.FLT);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[GSV(Module,R02S02,FaultCode,R02S02.FaultCode);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[NE(R02S02.FaultCode,0)OTE(R02S02.FLT);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[GSV(Module,R02S03,FaultCode,R02S03.FaultCode);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[NE(R02S03.FaultCode,0)OTE(R02S03.FLT);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[GSV(Module,R02S04,FaultCode,R02S04.FaultCode);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[NE(R02S04.FaultCode,0)OTE(R02S04.FLT);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[GSV(Module,R02S05,FaultCode,R02S05.FaultCode);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[NE(R02S05.FaultCode,0)OTE(R02S05.FLT);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[GSV(Module,R02S06,FaultCode,R02S06.FaultCode);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[NE(R02S06.FaultCode,0)OTE(R02S06.FLT);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[GSV(Module,R02S07,FaultCode,R02S07.FaultCode);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[NE(R02S07.FaultCode,0)OTE(R02S07.FLT);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[GSV(Module,R02S08,FaultCode,R02S08.FaultCode);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[NE(R02S08.FaultCode,0)OTE(R02S08.FLT);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[GSV(Module,R02S09,FaultCode,R02S09.FaultCode);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[NE(R02S09.FaultCode,0)OTE(R02S09.FLT);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[GSV(Module,R02S10,FaultCode,R02S10.FaultCode);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[NE(R02S10.FaultCode,0)OTE(R02S10.FLT);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[GSV(Module,DLINK,FaultCode,CNTRLRACK_S1.FaultCode);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[NE(CNTRLRACK_S1.FaultCode,0)OTE(CNTRLRACK_S1.FLT);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[GSV(Module,ULINK,FaultCode,CNTRLRACK_S2.FaultCode);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[NE(CNTRLRACK_S2.FaultCode,0)OTE(CNTRLRACK_S2.FLT);]]></Text>
+    </Rung>
+  </RLLContent>
+</Routine>

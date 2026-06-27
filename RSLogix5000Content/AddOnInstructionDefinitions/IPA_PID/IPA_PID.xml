@@ -1,0 +1,716 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<AddOnInstructionDefinition Name="IPA_PID" Revision="2.0" Vendor="INTECH Process Automation, Inc." ExecutePrescan="false" ExecutePostscan="false" ExecuteEnableInFalse="false" CreatedDate="2009-08-19T06:39:58.585Z" CreatedBy="INTECHWW\safroze" EditedDate="2025-05-12T09:43:42.533Z" EditedBy="WIN-M9CLSPG9PQU\danish.ali" SoftwareRevision="v37.00">
+  <CustomProperties>
+    <Provider ID="ACM" Ext="0">
+      <Header xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Maj="1" Min="0" OExt="-1" UExt="1">
+        <Libs>
+          <LibHdr CatalogNumber="PID_Object" Guid="8C954DBF-D716-4AE4-AB2A-9609964D4B10" />
+        </Libs>
+      </Header>
+    </Provider>
+    <Provider ID="ACM" Ext="1">
+      <Data xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Maj="3" Min="0" OExt="-1">
+        <Val><![CDATA[<DecoratedData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" MajorRev="1" MinorRev="0" CRC="ToDo">
+  <Private xsi:type="AoiPrivateData" Guid="8C954DBF-D716-4AE4-AB2A-9609964D4B10" ContentType="Routine">
+    <Attrib />
+    <Subs />
+  </Private>
+</DecoratedData>]]></Val>
+      </Data>
+    </Provider>
+  </CustomProperties>
+  <Description><![CDATA[Object for Simple PID Loop]]></Description>
+  <RevisionNote><![CDATA[Version 2.0
+- ISA-18.2 Alarms]]></RevisionNote>
+  <Parameters>
+    <Parameter Name="EnableIn" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read Only" />
+    <Parameter Name="EnableOut" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read Only" />
+    <Parameter Name="OCmd_Auto" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="BOOL" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="OCmd_Man" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="BOOL" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="Cfg_CtrlAction" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[1=Direct acting (E=PV-SP), 0=Reverse acting (E=SP-PV)]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="BOOL" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="Inp_PV" TagType="Base" DataType="REAL" Usage="Input" Radix="Float" Required="true" Visible="true" ExternalAccess="Read/Write">
+      <Description><![CDATA[Process Variable (PVEU)]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0.00000000e+000]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="REAL" Radix="Float" Value="0.0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="Out_CV" TagType="Base" DataType="REAL" Usage="Input" Radix="Float" Required="false" Visible="true" ExternalAccess="Read/Write">
+      <Description><![CDATA[CV to final control element (IO Channel Raw Units)]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0.00000000e+000]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="REAL" Radix="Float" Value="0.0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="Val_CVPercent" TagType="Base" DataType="REAL" Usage="Output" Radix="Float" Required="true" Visible="true" ExternalAccess="Read Only">
+      <Description><![CDATA[Loop CV (percent of span)]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0.00000000e+000]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="REAL" Radix="Float" Value="0.0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="OSet_SP" TagType="Base" DataType="REAL" Usage="Input" Radix="Float" Required="false" Visible="true" ExternalAccess="Read/Write">
+      <Description><![CDATA[Operator Setting for Setpoint (loop Auto) (PVEU)]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0.00000000e+000]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="REAL" Radix="Float" Value="0.0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="Cfg_CVEUMax" TagType="Base" DataType="REAL" Usage="Input" Radix="Float" Required="false" Visible="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[CV Engineering Units Maximum Value (CVEU)]]></Description>
+      <DefaultData Format="L5K"><![CDATA[1.00000000e+002]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="REAL" Radix="Float" Value="100.0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="Cfg_CVEUMin" TagType="Base" DataType="REAL" Usage="Input" Radix="Float" Required="false" Visible="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[CV Engineering Units Minimum Value (CVEU)]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0.00000000e+000]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="REAL" Radix="Float" Value="0.0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="Cfg_PGain" TagType="Base" DataType="REAL" Usage="Input" Radix="Float" Required="false" Visible="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Proportional (independent) or Loop (dependent) Gain (unitless)]]></Description>
+      <DefaultData Format="L5K"><![CDATA[1.00000000e+000]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="REAL" Radix="Float" Value="1.0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="Cfg_IGain" TagType="Base" DataType="REAL" Usage="Input" Radix="Float" Required="false" Visible="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Integral Gain (1/min independent or min/repeat dependent)]]></Description>
+      <DefaultData Format="L5K"><![CDATA[1.00000000e+000]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="REAL" Radix="Float" Value="1.0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="Cfg_DGain" TagType="Base" DataType="REAL" Usage="Input" Radix="Float" Required="false" Visible="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Derivative Gain (min)]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0.00000000e+000]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="REAL" Radix="Float" Value="0.0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="Sts_Auto" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="true" ExternalAccess="Read Only">
+      <Description><![CDATA[Auto Control Mode]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="BOOL" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="Sts_Man" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="true" ExternalAccess="Read Only">
+      <Description><![CDATA[Manual Control Mode]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="BOOL" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="Cfg_PVEUMax" TagType="Base" DataType="REAL" Usage="Input" Radix="Float" Required="true" Visible="true" ExternalAccess="Read/Write">
+      <Description><![CDATA[PV Engineering Units Maximum Value (PVEU)]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0.00000000e+000]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="REAL" Radix="Float" Value="0.0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="Cfg_PVEUMin" TagType="Base" DataType="REAL" Usage="Input" Radix="Float" Required="true" Visible="true" ExternalAccess="Read/Write">
+      <Description><![CDATA[PV Engineering Units Mimimum Value (PVEU)]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0.00000000e+000]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="REAL" Radix="Float" Value="0.0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="Cfg_PVTrack" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[1=SP tracks PV in Manual, 0=no PV tracking]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="BOOL" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="Inp_PVBad" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="true" ExternalAccess="Read/Write">
+      <Description><![CDATA[1=PV quality or PV I/O Comms Status Bad, 0=OK]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="BOOL" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="Cfg_MaxSP" TagType="Base" DataType="REAL" Usage="Input" Radix="Float" Required="false" Visible="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Maximum allowed Setpoint (SP) (PVEU)]]></Description>
+      <DefaultData Format="L5K"><![CDATA[1.00000000e+002]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="REAL" Radix="Float" Value="100.0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="Cfg_MinSP" TagType="Base" DataType="REAL" Usage="Input" Radix="Float" Required="false" Visible="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Minimum allowed Setpoint (SP) (PVEU)]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0.00000000e+000]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="REAL" Radix="Float" Value="0.0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="Cfg_DevSP" TagType="Base" DataType="REAL" Usage="Input" Radix="Float" Required="false" Visible="false" ExternalAccess="Read/Write">
+      <DefaultData Format="L5K"><![CDATA[1.00000000e+001]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="REAL" Radix="Float" Value="10.0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="Cfg_OutAction" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[0=Valve is Fail Close
+1=Valve is Fail Open]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="BOOL" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="OSet_CV" TagType="Base" DataType="REAL" Usage="Input" Radix="Float" Required="false" Visible="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Operator CV when in Manual Mode]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0.00000000e+000]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="REAL" Radix="Float" Value="0.0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="Alm_DevHi" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="BOOL" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="Alm_DevLo" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="BOOL" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="Val_CVOut" TagType="Base" DataType="REAL" Usage="Output" Radix="Float" Required="false" Visible="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Value of CV Output (after ramping and clamping (CVEU)]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0.00000000e+000]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="REAL" Radix="Float" Value="0.0" />
+      </DefaultData>
+    </Parameter>
+  </Parameters>
+  <LocalTags>
+    <LocalTag Name="AutoHMI" DataType="BOOL" Radix="Decimal" ExternalAccess="Read/Write">
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="BOOL" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="ManHMI" DataType="BOOL" Radix="Decimal" ExternalAccess="Read/Write">
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="BOOL" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="TONR_01" DataType="FBD_TIMER" ExternalAccess="Read/Write">
+      <DefaultData Format="L5K"><![CDATA[[1,0,0,0,0,0,0,0,0,4,0,0]]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <Structure DataType="FBD_TIMER">
+          <DataValueMember Name="EnableIn" DataType="BOOL" Value="1" />
+          <DataValueMember Name="TimerEnable" DataType="BOOL" Value="0" />
+          <DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="0" />
+          <DataValueMember Name="Reset" DataType="BOOL" Value="0" />
+          <DataValueMember Name="EnableOut" DataType="BOOL" Value="0" />
+          <DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="0" />
+          <DataValueMember Name="EN" DataType="BOOL" Value="0" />
+          <DataValueMember Name="TT" DataType="BOOL" Value="0" />
+          <DataValueMember Name="DN" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Status" DataType="DINT" Radix="Hex" Value="16#0000_0000" />
+          <DataValueMember Name="InstructFault" DataType="BOOL" Value="0" />
+          <DataValueMember Name="PresetInv" DataType="BOOL" Value="0" />
+        </Structure>
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="TONR_02" DataType="FBD_TIMER" ExternalAccess="Read/Write">
+      <DefaultData Format="L5K"><![CDATA[[1,0,0,0,0,0,0,0,0,4,0,0]]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <Structure DataType="FBD_TIMER">
+          <DataValueMember Name="EnableIn" DataType="BOOL" Value="1" />
+          <DataValueMember Name="TimerEnable" DataType="BOOL" Value="0" />
+          <DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="0" />
+          <DataValueMember Name="Reset" DataType="BOOL" Value="0" />
+          <DataValueMember Name="EnableOut" DataType="BOOL" Value="0" />
+          <DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="0" />
+          <DataValueMember Name="EN" DataType="BOOL" Value="0" />
+          <DataValueMember Name="TT" DataType="BOOL" Value="0" />
+          <DataValueMember Name="DN" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Status" DataType="DINT" Radix="Hex" Value="16#0000_0000" />
+          <DataValueMember Name="InstructFault" DataType="BOOL" Value="0" />
+          <DataValueMember Name="PresetInv" DataType="BOOL" Value="0" />
+        </Structure>
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="PIDE_CALC" DataType="PID_ENHANCED" ExternalAccess="Read/Write">
+      <DefaultData Format="L5K"><![CDATA[[1,8192,0.00000000e+000,1.00000000e+002,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,1.00000000e+002,0.00000000e+000,1.00000000e+000,1.00000000e+000,1.00000000e+000,1.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,1.00000000e+002,0.00000000e+000,1.00000000e+002,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,3.40282347e+038,3.40282347e+038,-3.40282347e+038,-3.40282347e+038,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,3.40282347e+038,3.40282347e+038,3.40282347e+038,3.40282347e+038,0.00000000e+000,0,0.00000000e+000,1,0,0,0,0,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0,0,0,5.60519386e-045,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000]]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <Structure DataType="PID_ENHANCED">
+          <DataValueMember Name="EnableIn" DataType="BOOL" Radix="Decimal" Value="1" />
+          <DataValueMember Name="PV" DataType="REAL" Radix="Float" Value="0.0" />
+          <DataValueMember Name="PVFault" DataType="BOOL" Value="0" />
+          <DataValueMember Name="PVEUMax" DataType="REAL" Radix="Float" Value="100.0" />
+          <DataValueMember Name="PVEUMin" DataType="REAL" Radix="Float" Value="0.0" />
+          <DataValueMember Name="SPProg" DataType="REAL" Radix="Float" Value="0.0" />
+          <DataValueMember Name="SPOper" DataType="REAL" Radix="Float" Value="0.0" />
+          <DataValueMember Name="SPCascade" DataType="REAL" Radix="Float" Value="0.0" />
+          <DataValueMember Name="SPHLimit" DataType="REAL" Radix="Float" Value="100.0" />
+          <DataValueMember Name="SPLLimit" DataType="REAL" Radix="Float" Value="0.0" />
+          <DataValueMember Name="UseRatio" DataType="BOOL" Value="0" />
+          <DataValueMember Name="RatioProg" DataType="REAL" Radix="Float" Value="1.0" />
+          <DataValueMember Name="RatioOper" DataType="REAL" Radix="Float" Value="1.0" />
+          <DataValueMember Name="RatioHLimit" DataType="REAL" Radix="Float" Value="1.0" />
+          <DataValueMember Name="RatioLLimit" DataType="REAL" Radix="Float" Value="1.0" />
+          <DataValueMember Name="CVFault" DataType="BOOL" Value="0" />
+          <DataValueMember Name="CVInitReq" DataType="BOOL" Value="0" />
+          <DataValueMember Name="CVInitValue" DataType="REAL" Radix="Float" Value="0.0" />
+          <DataValueMember Name="CVProg" DataType="REAL" Radix="Float" Value="0.0" />
+          <DataValueMember Name="CVOper" DataType="REAL" Radix="Float" Value="0.0" />
+          <DataValueMember Name="CVOverride" DataType="REAL" Radix="Float" Value="0.0" />
+          <DataValueMember Name="CVPrevious" DataType="REAL" Radix="Float" Value="0.0" />
+          <DataValueMember Name="CVSetPrevious" DataType="BOOL" Value="0" />
+          <DataValueMember Name="CVManLimiting" DataType="BOOL" Value="0" />
+          <DataValueMember Name="CVEUMax" DataType="REAL" Radix="Float" Value="100.0" />
+          <DataValueMember Name="CVEUMin" DataType="REAL" Radix="Float" Value="0.0" />
+          <DataValueMember Name="CVHLimit" DataType="REAL" Radix="Float" Value="100.0" />
+          <DataValueMember Name="CVLLimit" DataType="REAL" Radix="Float" Value="0.0" />
+          <DataValueMember Name="CVROCLimit" DataType="REAL" Radix="Float" Value="0.0" />
+          <DataValueMember Name="FF" DataType="REAL" Radix="Float" Value="0.0" />
+          <DataValueMember Name="FFPrevious" DataType="REAL" Radix="Float" Value="0.0" />
+          <DataValueMember Name="FFSetPrevious" DataType="BOOL" Value="0" />
+          <DataValueMember Name="HandFB" DataType="REAL" Radix="Float" Value="0.0" />
+          <DataValueMember Name="HandFBFault" DataType="BOOL" Value="0" />
+          <DataValueMember Name="WindupHIn" DataType="BOOL" Value="0" />
+          <DataValueMember Name="WindupLIn" DataType="BOOL" Value="0" />
+          <DataValueMember Name="ControlAction" DataType="BOOL" Value="0" />
+          <DataValueMember Name="DependIndepend" DataType="BOOL" Value="0" />
+          <DataValueMember Name="PGain" DataType="REAL" Radix="Float" Value="0.0" />
+          <DataValueMember Name="IGain" DataType="REAL" Radix="Float" Value="0.0" />
+          <DataValueMember Name="DGain" DataType="REAL" Radix="Float" Value="0.0" />
+          <DataValueMember Name="PVEProportional" DataType="BOOL" Value="0" />
+          <DataValueMember Name="PVEDerivative" DataType="BOOL" Value="1" />
+          <DataValueMember Name="DSmoothing" DataType="BOOL" Value="0" />
+          <DataValueMember Name="PVTracking" DataType="BOOL" Value="0" />
+          <DataValueMember Name="ZCDeadband" DataType="REAL" Radix="Float" Value="0.0" />
+          <DataValueMember Name="ZCOff" DataType="BOOL" Value="0" />
+          <DataValueMember Name="PVHHLimit" DataType="REAL" Radix="Float" Value="3.40282347e+038" />
+          <DataValueMember Name="PVHLimit" DataType="REAL" Radix="Float" Value="3.40282347e+038" />
+          <DataValueMember Name="PVLLimit" DataType="REAL" Radix="Float" Value="-3.40282347e+038" />
+          <DataValueMember Name="PVLLLimit" DataType="REAL" Radix="Float" Value="-3.40282347e+038" />
+          <DataValueMember Name="PVDeadband" DataType="REAL" Radix="Float" Value="0.0" />
+          <DataValueMember Name="PVROCPosLimit" DataType="REAL" Radix="Float" Value="0.0" />
+          <DataValueMember Name="PVROCNegLimit" DataType="REAL" Radix="Float" Value="0.0" />
+          <DataValueMember Name="PVROCPeriod" DataType="REAL" Radix="Float" Value="0.0" />
+          <DataValueMember Name="DevHHLimit" DataType="REAL" Radix="Float" Value="3.40282347e+038" />
+          <DataValueMember Name="DevHLimit" DataType="REAL" Radix="Float" Value="3.40282347e+038" />
+          <DataValueMember Name="DevLLimit" DataType="REAL" Radix="Float" Value="3.40282347e+038" />
+          <DataValueMember Name="DevLLLimit" DataType="REAL" Radix="Float" Value="3.40282347e+038" />
+          <DataValueMember Name="DevDeadband" DataType="REAL" Radix="Float" Value="0.0" />
+          <DataValueMember Name="AllowCasRat" DataType="BOOL" Value="0" />
+          <DataValueMember Name="ManualAfterInit" DataType="BOOL" Value="0" />
+          <DataValueMember Name="ProgProgReq" DataType="BOOL" Value="0" />
+          <DataValueMember Name="ProgOperReq" DataType="BOOL" Value="0" />
+          <DataValueMember Name="ProgCasRatReq" DataType="BOOL" Value="0" />
+          <DataValueMember Name="ProgAutoReq" DataType="BOOL" Value="0" />
+          <DataValueMember Name="ProgManualReq" DataType="BOOL" Value="0" />
+          <DataValueMember Name="ProgOverrideReq" DataType="BOOL" Value="0" />
+          <DataValueMember Name="ProgHandReq" DataType="BOOL" Value="0" />
+          <DataValueMember Name="OperProgReq" DataType="BOOL" Value="0" />
+          <DataValueMember Name="OperOperReq" DataType="BOOL" Value="0" />
+          <DataValueMember Name="OperCasRatReq" DataType="BOOL" Value="0" />
+          <DataValueMember Name="OperAutoReq" DataType="BOOL" Value="0" />
+          <DataValueMember Name="OperManualReq" DataType="BOOL" Value="0" />
+          <DataValueMember Name="ProgValueReset" DataType="BOOL" Value="0" />
+          <DataValueMember Name="TimingMode" DataType="DINT" Radix="Decimal" Value="0" />
+          <DataValueMember Name="OversampleDT" DataType="REAL" Radix="Float" Value="0.0" />
+          <DataValueMember Name="RTSTime" DataType="DINT" Radix="Decimal" Value="1" />
+          <DataValueMember Name="RTSTimeStamp" DataType="DINT" Radix="Decimal" Value="0" />
+          <DataValueMember Name="AtuneAcquire" DataType="BOOL" Value="0" />
+          <DataValueMember Name="AtuneStart" DataType="BOOL" Value="0" />
+          <DataValueMember Name="AtuneUseGains" DataType="BOOL" Value="0" />
+          <DataValueMember Name="AtuneAbort" DataType="BOOL" Value="0" />
+          <DataValueMember Name="AtuneUnacquire" DataType="BOOL" Value="0" />
+          <DataValueMember Name="EnableOut" DataType="BOOL" Radix="Decimal" Value="0" />
+          <DataValueMember Name="CVEU" DataType="REAL" Radix="Float" Value="0.0" />
+          <DataValueMember Name="CV" DataType="REAL" Radix="Float" Value="0.0" />
+          <DataValueMember Name="CVInitializing" DataType="BOOL" Value="0" />
+          <DataValueMember Name="CVHAlarm" DataType="BOOL" Value="0" />
+          <DataValueMember Name="CVLAlarm" DataType="BOOL" Value="0" />
+          <DataValueMember Name="CVROCAlarm" DataType="BOOL" Value="0" />
+          <DataValueMember Name="SP" DataType="REAL" Radix="Float" Value="0.0" />
+          <DataValueMember Name="SPPercent" DataType="REAL" Radix="Float" Value="0.0" />
+          <DataValueMember Name="SPHAlarm" DataType="BOOL" Value="0" />
+          <DataValueMember Name="SPLAlarm" DataType="BOOL" Value="0" />
+          <DataValueMember Name="PVPercent" DataType="REAL" Radix="Float" Value="0.0" />
+          <DataValueMember Name="E" DataType="REAL" Radix="Float" Value="0.0" />
+          <DataValueMember Name="EPercent" DataType="REAL" Radix="Float" Value="0.0" />
+          <DataValueMember Name="InitPrimary" DataType="BOOL" Value="0" />
+          <DataValueMember Name="WindupHOut" DataType="BOOL" Value="0" />
+          <DataValueMember Name="WindupLOut" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Ratio" DataType="REAL" Radix="Float" Value="0.0" />
+          <DataValueMember Name="RatioHAlarm" DataType="BOOL" Value="0" />
+          <DataValueMember Name="RatioLAlarm" DataType="BOOL" Value="0" />
+          <DataValueMember Name="ZCDeadbandOn" DataType="BOOL" Value="0" />
+          <DataValueMember Name="PVHHAlarm" DataType="BOOL" Value="0" />
+          <DataValueMember Name="PVHAlarm" DataType="BOOL" Value="0" />
+          <DataValueMember Name="PVLAlarm" DataType="BOOL" Value="0" />
+          <DataValueMember Name="PVLLAlarm" DataType="BOOL" Value="0" />
+          <DataValueMember Name="PVROCPosAlarm" DataType="BOOL" Value="0" />
+          <DataValueMember Name="PVROCNegAlarm" DataType="BOOL" Value="0" />
+          <DataValueMember Name="DevHHAlarm" DataType="BOOL" Value="0" />
+          <DataValueMember Name="DevHAlarm" DataType="BOOL" Value="0" />
+          <DataValueMember Name="DevLAlarm" DataType="BOOL" Value="0" />
+          <DataValueMember Name="DevLLAlarm" DataType="BOOL" Value="0" />
+          <DataValueMember Name="ProgOper" DataType="BOOL" Value="0" />
+          <DataValueMember Name="CasRat" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Auto" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Manual" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Override" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Hand" DataType="BOOL" Value="0" />
+          <DataValueMember Name="DeltaT" DataType="REAL" Radix="Float" Value="0.0" />
+          <DataValueMember Name="AtuneReady" DataType="BOOL" Value="0" />
+          <DataValueMember Name="AtuneOn" DataType="BOOL" Value="0" />
+          <DataValueMember Name="AtuneDone" DataType="BOOL" Value="0" />
+          <DataValueMember Name="AtuneAborted" DataType="BOOL" Value="0" />
+          <DataValueMember Name="AtuneBusy" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Status1" DataType="DINT" Radix="Hex" Value="16#0000_0000" />
+          <DataValueMember Name="Status2" DataType="DINT" Radix="Hex" Value="16#0000_0000" />
+          <DataValueMember Name="InstructFault" DataType="BOOL" Value="0" />
+          <DataValueMember Name="PVFaulted" DataType="BOOL" Value="0" />
+          <DataValueMember Name="CVFaulted" DataType="BOOL" Value="0" />
+          <DataValueMember Name="HandFBFaulted" DataType="BOOL" Value="0" />
+          <DataValueMember Name="PVSpanInv" DataType="BOOL" Value="0" />
+          <DataValueMember Name="SPProgInv" DataType="BOOL" Value="0" />
+          <DataValueMember Name="SPOperInv" DataType="BOOL" Value="0" />
+          <DataValueMember Name="SPCascadeInv" DataType="BOOL" Value="0" />
+          <DataValueMember Name="SPLimitsInv" DataType="BOOL" Value="0" />
+          <DataValueMember Name="RatioProgInv" DataType="BOOL" Value="0" />
+          <DataValueMember Name="RatioOperInv" DataType="BOOL" Value="0" />
+          <DataValueMember Name="RatioLimitsInv" DataType="BOOL" Value="0" />
+          <DataValueMember Name="CVProgInv" DataType="BOOL" Value="0" />
+          <DataValueMember Name="CVOperInv" DataType="BOOL" Value="0" />
+          <DataValueMember Name="CVOverrideInv" DataType="BOOL" Value="0" />
+          <DataValueMember Name="CVPreviousInv" DataType="BOOL" Value="0" />
+          <DataValueMember Name="CVEUSpanInv" DataType="BOOL" Value="0" />
+          <DataValueMember Name="CVLimitsInv" DataType="BOOL" Value="0" />
+          <DataValueMember Name="CVROCLimitInv" DataType="BOOL" Value="0" />
+          <DataValueMember Name="FFInv" DataType="BOOL" Value="0" />
+          <DataValueMember Name="FFPreviousInv" DataType="BOOL" Value="0" />
+          <DataValueMember Name="HandFBInv" DataType="BOOL" Value="0" />
+          <DataValueMember Name="PGainInv" DataType="BOOL" Value="0" />
+          <DataValueMember Name="IGainInv" DataType="BOOL" Value="0" />
+          <DataValueMember Name="DGainInv" DataType="BOOL" Value="0" />
+          <DataValueMember Name="ZCDeadbandInv" DataType="BOOL" Value="0" />
+          <DataValueMember Name="PVDeadbandInv" DataType="BOOL" Value="0" />
+          <DataValueMember Name="PVROCLimitsInv" DataType="BOOL" Value="0" />
+          <DataValueMember Name="DevHLLimitsInv" DataType="BOOL" Value="0" />
+          <DataValueMember Name="DevDeadbandInv" DataType="BOOL" Value="0" />
+          <DataValueMember Name="AtuneDataInv" DataType="BOOL" Value="0" />
+          <DataValueMember Name="TimingModeInv" DataType="BOOL" Value="0" />
+          <DataValueMember Name="RTSMissed" DataType="BOOL" Value="0" />
+          <DataValueMember Name="RTSTimeInv" DataType="BOOL" Value="0" />
+          <DataValueMember Name="RTSTimeStampInv" DataType="BOOL" Value="0" />
+          <DataValueMember Name="DeltaTInv" DataType="BOOL" Value="0" />
+        </Structure>
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="SEL_03" DataType="SELECT" ExternalAccess="Read/Write">
+      <DefaultData Format="L5K"><![CDATA[[1,0.00000000e+000,0.00000000e+000,0,0.00000000e+000,5.60519386e-045]]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <Structure DataType="SELECT">
+          <DataValueMember Name="EnableIn" DataType="BOOL" Value="1" />
+          <DataValueMember Name="In1" DataType="REAL" Radix="Float" Value="0.0" />
+          <DataValueMember Name="In2" DataType="REAL" Radix="Float" Value="0.0" />
+          <DataValueMember Name="SelectorIn" DataType="BOOL" Value="0" />
+          <DataValueMember Name="EnableOut" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Out" DataType="REAL" Radix="Float" Value="0.0" />
+        </Structure>
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="BOR_03" DataType="FBD_BOOLEAN_OR" ExternalAccess="Read/Write">
+      <DefaultData Format="L5K"><![CDATA[[1,0,5.60519386e-045]]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <Structure DataType="FBD_BOOLEAN_OR">
+          <DataValueMember Name="EnableIn" DataType="BOOL" Value="1" />
+          <DataValueMember Name="In1" DataType="BOOL" Value="0" />
+          <DataValueMember Name="In2" DataType="BOOL" Value="0" />
+          <DataValueMember Name="In3" DataType="BOOL" Value="0" />
+          <DataValueMember Name="In4" DataType="BOOL" Value="0" />
+          <DataValueMember Name="In5" DataType="BOOL" Value="0" />
+          <DataValueMember Name="In6" DataType="BOOL" Value="0" />
+          <DataValueMember Name="In7" DataType="BOOL" Value="0" />
+          <DataValueMember Name="In8" DataType="BOOL" Value="0" />
+          <DataValueMember Name="EnableOut" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Out" DataType="BOOL" Value="0" />
+        </Structure>
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="Cfg_CVMaxRaw" DataType="REAL" Radix="Float" ExternalAccess="Read/Write">
+      <Description><![CDATA[CV Output Units Maximum Value of IO Channel (CVRaw, for scaling)]]></Description>
+      <DefaultData Format="L5K"><![CDATA[1.00000000e+002]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="REAL" Radix="Float" Value="100.0" />
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="Cfg_CVMinRaw" DataType="REAL" Radix="Float" ExternalAccess="Read/Write">
+      <Description><![CDATA[CV Output Units Minimum Value of IO Channel (CVRaw, for scaling)]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0.00000000e+000]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="REAL" Radix="Float" Value="0.0" />
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="AUTO_COMMAND" DataType="DOMINANT_RESET" ExternalAccess="None">
+      <DefaultData Format="L5K"><![CDATA[[1,0,5.60519386e-045]]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <Structure DataType="DOMINANT_RESET">
+          <DataValueMember Name="EnableIn" DataType="BOOL" Value="1" />
+          <DataValueMember Name="Set" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Reset" DataType="BOOL" Value="0" />
+          <DataValueMember Name="EnableOut" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Out" DataType="BOOL" Value="0" />
+          <DataValueMember Name="OutNot" DataType="BOOL" Value="0" />
+        </Structure>
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="BOR_04" DataType="FBD_BOOLEAN_OR" ExternalAccess="None">
+      <DefaultData Format="L5K"><![CDATA[[1,0,5.60519386e-045]]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <Structure DataType="FBD_BOOLEAN_OR">
+          <DataValueMember Name="EnableIn" DataType="BOOL" Value="1" />
+          <DataValueMember Name="In1" DataType="BOOL" Value="0" />
+          <DataValueMember Name="In2" DataType="BOOL" Value="0" />
+          <DataValueMember Name="In3" DataType="BOOL" Value="0" />
+          <DataValueMember Name="In4" DataType="BOOL" Value="0" />
+          <DataValueMember Name="In5" DataType="BOOL" Value="0" />
+          <DataValueMember Name="In6" DataType="BOOL" Value="0" />
+          <DataValueMember Name="In7" DataType="BOOL" Value="0" />
+          <DataValueMember Name="In8" DataType="BOOL" Value="0" />
+          <DataValueMember Name="EnableOut" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Out" DataType="BOOL" Value="0" />
+        </Structure>
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="OSRI_03" DataType="FBD_ONESHOT" ExternalAccess="None">
+      <DefaultData Format="L5K"><![CDATA[[1,0,5.60519386e-045]]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <Structure DataType="FBD_ONESHOT">
+          <DataValueMember Name="EnableIn" DataType="BOOL" Value="1" />
+          <DataValueMember Name="InputBit" DataType="BOOL" Value="0" />
+          <DataValueMember Name="EnableOut" DataType="BOOL" Value="0" />
+          <DataValueMember Name="OutputBit" DataType="BOOL" Value="0" />
+        </Structure>
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="MANUAL_COMMAND" DataType="DOMINANT_RESET" ExternalAccess="None">
+      <DefaultData Format="L5K"><![CDATA[[1,0,5.60519386e-045]]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <Structure DataType="DOMINANT_RESET">
+          <DataValueMember Name="EnableIn" DataType="BOOL" Value="1" />
+          <DataValueMember Name="Set" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Reset" DataType="BOOL" Value="0" />
+          <DataValueMember Name="EnableOut" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Out" DataType="BOOL" Value="0" />
+          <DataValueMember Name="OutNot" DataType="BOOL" Value="0" />
+        </Structure>
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="OSRI_02" DataType="FBD_ONESHOT" ExternalAccess="None">
+      <DefaultData Format="L5K"><![CDATA[[1,0,5.60519386e-045]]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <Structure DataType="FBD_ONESHOT">
+          <DataValueMember Name="EnableIn" DataType="BOOL" Value="1" />
+          <DataValueMember Name="InputBit" DataType="BOOL" Value="0" />
+          <DataValueMember Name="EnableOut" DataType="BOOL" Value="0" />
+          <DataValueMember Name="OutputBit" DataType="BOOL" Value="0" />
+        </Structure>
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="BOR_07" DataType="FBD_BOOLEAN_OR" ExternalAccess="None">
+      <DefaultData Format="L5K"><![CDATA[[1,0,5.60519386e-045]]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <Structure DataType="FBD_BOOLEAN_OR">
+          <DataValueMember Name="EnableIn" DataType="BOOL" Value="1" />
+          <DataValueMember Name="In1" DataType="BOOL" Value="0" />
+          <DataValueMember Name="In2" DataType="BOOL" Value="0" />
+          <DataValueMember Name="In3" DataType="BOOL" Value="0" />
+          <DataValueMember Name="In4" DataType="BOOL" Value="0" />
+          <DataValueMember Name="In5" DataType="BOOL" Value="0" />
+          <DataValueMember Name="In6" DataType="BOOL" Value="0" />
+          <DataValueMember Name="In7" DataType="BOOL" Value="0" />
+          <DataValueMember Name="In8" DataType="BOOL" Value="0" />
+          <DataValueMember Name="EnableOut" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Out" DataType="BOOL" Value="0" />
+        </Structure>
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="BOR_08" DataType="FBD_BOOLEAN_OR" ExternalAccess="None">
+      <DefaultData Format="L5K"><![CDATA[[1,0,5.60519386e-045]]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <Structure DataType="FBD_BOOLEAN_OR">
+          <DataValueMember Name="EnableIn" DataType="BOOL" Value="1" />
+          <DataValueMember Name="In1" DataType="BOOL" Value="0" />
+          <DataValueMember Name="In2" DataType="BOOL" Value="0" />
+          <DataValueMember Name="In3" DataType="BOOL" Value="0" />
+          <DataValueMember Name="In4" DataType="BOOL" Value="0" />
+          <DataValueMember Name="In5" DataType="BOOL" Value="0" />
+          <DataValueMember Name="In6" DataType="BOOL" Value="0" />
+          <DataValueMember Name="In7" DataType="BOOL" Value="0" />
+          <DataValueMember Name="In8" DataType="BOOL" Value="0" />
+          <DataValueMember Name="EnableOut" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Out" DataType="BOOL" Value="0" />
+        </Structure>
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="Cfg_Desc" DataType="STRING_40" ExternalAccess="Read/Write">
+      <DefaultData Format="L5K"><![CDATA[[11,'Description$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00']]]></DefaultData>
+      <DefaultData Format="String" Length="11"><![CDATA['Description']]></DefaultData>
+    </LocalTag>
+    <LocalTag Name="Cfg_EU" DataType="STRING_8" ExternalAccess="Read/Write">
+      <DefaultData Format="L5K"><![CDATA[[6,'Inches$00$00']]]></DefaultData>
+      <DefaultData Format="String" Length="6"><![CDATA['Inches']]></DefaultData>
+    </LocalTag>
+    <LocalTag Name="Cfg_Label" DataType="STRING_20" ExternalAccess="Read/Write">
+      <DefaultData Format="L5K"><![CDATA[[8,'PID Loop$00$00$00$00$00$00$00$00$00$00$00$00']]]></DefaultData>
+      <DefaultData Format="String" Length="8"><![CDATA['PID Loop']]></DefaultData>
+    </LocalTag>
+    <LocalTag Name="Cfg_Tag" DataType="STRING" ExternalAccess="Read/Write">
+      <DefaultData Format="L5K"><![CDATA[[8,'PID Loop$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00']]]></DefaultData>
+      <DefaultData Format="String" Length="8"><![CDATA['PID Loop']]></DefaultData>
+    </LocalTag>
+    <LocalTag Name="OSRI_01" DataType="FBD_ONESHOT" ExternalAccess="Read/Write">
+      <DefaultData Format="L5K"><![CDATA[[1,0,5.60519386e-045]]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <Structure DataType="FBD_ONESHOT">
+          <DataValueMember Name="EnableIn" DataType="BOOL" Value="1" />
+          <DataValueMember Name="InputBit" DataType="BOOL" Value="0" />
+          <DataValueMember Name="EnableOut" DataType="BOOL" Value="0" />
+          <DataValueMember Name="OutputBit" DataType="BOOL" Value="0" />
+        </Structure>
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="BAND_02" DataType="FBD_BOOLEAN_AND" ExternalAccess="Read/Write">
+      <DefaultData Format="L5K"><![CDATA[[511,0,5.60519386e-045]]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <Structure DataType="FBD_BOOLEAN_AND">
+          <DataValueMember Name="EnableIn" DataType="BOOL" Value="1" />
+          <DataValueMember Name="In1" DataType="BOOL" Value="1" />
+          <DataValueMember Name="In2" DataType="BOOL" Value="1" />
+          <DataValueMember Name="In3" DataType="BOOL" Value="1" />
+          <DataValueMember Name="In4" DataType="BOOL" Value="1" />
+          <DataValueMember Name="In5" DataType="BOOL" Value="1" />
+          <DataValueMember Name="In6" DataType="BOOL" Value="1" />
+          <DataValueMember Name="In7" DataType="BOOL" Value="1" />
+          <DataValueMember Name="In8" DataType="BOOL" Value="1" />
+          <DataValueMember Name="EnableOut" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Out" DataType="BOOL" Value="0" />
+        </Structure>
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="Cfg_CVDecPlcs" DataType="DINT" Radix="Decimal" ExternalAccess="Read/Write">
+      <Description><![CDATA[Number of decimal places for display of CV]]></Description>
+      <DefaultData Format="L5K"><![CDATA[2]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="DINT" Radix="Decimal" Value="2" />
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="Cfg_CVEU" DataType="STRING_8" ExternalAccess="Read/Write">
+      <DefaultData Format="L5K"><![CDATA[[1,'%$00$00$00$00$00$00$00']]]></DefaultData>
+      <DefaultData Format="String" Length="1"><![CDATA['%']]></DefaultData>
+    </LocalTag>
+    <LocalTag Name="PV_Fault" DataType="BOOL" Radix="Decimal" ExternalAccess="Read Only">
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="BOOL" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="SEL_SCALE_OUT11" DataType="SELECT" ExternalAccess="Read/Write">
+      <DefaultData Format="L5K"><![CDATA[[1,0.00000000e+000,0.00000000e+000,0,0.00000000e+000,5.60519386e-045]]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <Structure DataType="SELECT">
+          <DataValueMember Name="EnableIn" DataType="BOOL" Value="1" />
+          <DataValueMember Name="In1" DataType="REAL" Radix="Float" Value="0.0" />
+          <DataValueMember Name="In2" DataType="REAL" Radix="Float" Value="0.0" />
+          <DataValueMember Name="SelectorIn" DataType="BOOL" Value="0" />
+          <DataValueMember Name="EnableOut" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Out" DataType="REAL" Radix="Float" Value="0.0" />
+        </Structure>
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="SUB_REV11" DataType="FBD_MATH" ExternalAccess="Read/Write">
+      <DefaultData Format="L5K"><![CDATA[[1,0.00000000e+000,0.00000000e+000,0.00000000e+000]]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <Structure DataType="FBD_MATH">
+          <DataValueMember Name="EnableIn" DataType="BOOL" Value="1" />
+          <DataValueMember Name="SourceA" DataType="REAL" Radix="Float" Value="0.0" />
+          <DataValueMember Name="SourceB" DataType="REAL" Radix="Float" Value="0.0" />
+          <DataValueMember Name="EnableOut" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Dest" DataType="REAL" Radix="Float" Value="0.0" />
+        </Structure>
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="ADD_03" DataType="FBD_MATH" ExternalAccess="Read/Write">
+      <DefaultData Format="L5K"><![CDATA[[1,0.00000000e+000,0.00000000e+000,0.00000000e+000]]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <Structure DataType="FBD_MATH">
+          <DataValueMember Name="EnableIn" DataType="BOOL" Value="1" />
+          <DataValueMember Name="SourceA" DataType="REAL" Radix="Float" Value="0.0" />
+          <DataValueMember Name="SourceB" DataType="REAL" Radix="Float" Value="0.0" />
+          <DataValueMember Name="EnableOut" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Dest" DataType="REAL" Radix="Float" Value="0.0" />
+        </Structure>
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="SUB_03" DataType="FBD_MATH" ExternalAccess="Read/Write">
+      <DefaultData Format="L5K"><![CDATA[[1,0.00000000e+000,0.00000000e+000,0.00000000e+000]]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <Structure DataType="FBD_MATH">
+          <DataValueMember Name="EnableIn" DataType="BOOL" Value="1" />
+          <DataValueMember Name="SourceA" DataType="REAL" Radix="Float" Value="0.0" />
+          <DataValueMember Name="SourceB" DataType="REAL" Radix="Float" Value="0.0" />
+          <DataValueMember Name="EnableOut" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Dest" DataType="REAL" Radix="Float" Value="0.0" />
+        </Structure>
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="SCL_OUT1" DataType="SCALE" ExternalAccess="Read/Write">
+      <DefaultData Format="L5K"><![CDATA[[1,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0,0.00000000e+000,0,5.60519386e-045,0.00000000e+000,0.00000000e+000,0.00000000e+000]]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <Structure DataType="SCALE">
+          <DataValueMember Name="EnableIn" DataType="BOOL" Value="1" />
+          <DataValueMember Name="In" DataType="REAL" Radix="Float" Value="0.0" />
+          <DataValueMember Name="InRawMax" DataType="REAL" Radix="Float" Value="0.0" />
+          <DataValueMember Name="InRawMin" DataType="REAL" Radix="Float" Value="0.0" />
+          <DataValueMember Name="InEUMax" DataType="REAL" Radix="Float" Value="0.0" />
+          <DataValueMember Name="InEUMin" DataType="REAL" Radix="Float" Value="0.0" />
+          <DataValueMember Name="Limiting" DataType="BOOL" Value="0" />
+          <DataValueMember Name="EnableOut" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Out" DataType="REAL" Radix="Float" Value="0.0" />
+          <DataValueMember Name="MaxAlarm" DataType="BOOL" Value="0" />
+          <DataValueMember Name="MinAlarm" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Status" DataType="DINT" Radix="Hex" Value="16#0000_0000" />
+          <DataValueMember Name="InstructFault" DataType="BOOL" Value="0" />
+          <DataValueMember Name="InRawRangeInv" DataType="BOOL" Value="0" />
+        </Structure>
+      </DefaultData>
+    </LocalTag>
+  </LocalTags>
+  <Routines />
+  <Dependencies>
+    <Dependency Type="DataType" Name="STRING_8" />
+    <Dependency Type="DataType" Name="STRING_40" />
+    <Dependency Type="DataType" Name="STRING_20" />
+  </Dependencies>
+</AddOnInstructionDefinition>

@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Routine Name="Logic" Type="RLL">
+  <RLLContent>
+    <Rung Type="N">
+      <Comment><![CDATA[CONTRACT HOUR]]></Comment>
+      <Text><![CDATA[EQ(SYSTEM_HOUR,HOUR_Inp)EQ(SYSTEM_MIN,MINS_Inp)OSR(StorageBit1,OutputBit1)XIC(OutputBit1)OTL(OutputBit1);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[FQI-101
+]]></Comment>
+      <Text><![CDATA[XIC(TOT_INP)ONS(TOT_1)[CTU(TOT_COUNTER,?,?) ,XIC(TOT_COUNTER.DN) RES(TOT_COUNTER) ];]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[MOVE(TOT_COUNTER.ACC,TOT_ACCUM_PULSE);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(OutputBit1)ONS(TOT_2)[MOVE(TOT_6D_AGO,TOT_7D_AGO) ,MOVE(TOT_5D_AGO,TOT_6D_AGO) ,MOVE(TOT_4D_AGO,TOT_5D_AGO) ,MOVE(TOT_3D_AGO,TOT_4D_AGO) ,MOVE(TOT_2D_AGO,TOT_3D_AGO) ,MOVE(TOT_1D_AGO,TOT_2D_AGO) ,MOVE(TOT_ACCUMPULS_TDAY,TOT_1D_AGO) ];]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[FQI_101_PAR FQI-101
+TOTAL PULSES
+ACCUMULATED
+UP TO LAST
+CONTRACT HOUR]]></Comment>
+      <Text><![CDATA[XIC(OutputBit1)ONS(TOT_3)MOVE(TOT_ACCUM_PULSE,TOT_ACCUM_PULSE_LASTCTRCT_HR);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[FQI_101 RAW PULSE COUNT  >>>> TODAY ACCUMULATED PULSES]]></Comment>
+      <Text><![CDATA[GE(TOT_ACCUM_PULSE,TOT_ACCUM_PULSE_LASTCTRCT_HR)SUB(TOT_ACCUM_PULSE,TOT_ACCUM_PULSE_LASTCTRCT_HR,TOT_ACCUMPULS_TDAY);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[FQI_101 RAW PULSE COUNT  >>>> PULSES ACCUMULATED HOLDING REGISTER]]></Comment>
+      <Text><![CDATA[LT(TOT_ACCUM_PULSE,TOT_ACCUM_PULSE_LASTCTRCT_HR)[SUB(30000,TOT_ACCUM_PULSE_LASTCTRCT_HR,TOT_PAHR) ,ADD(TOT_PAHR,TOT_ACCUM_PULSE,TOT_ACCUMPULS_TDAY) ];]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[OTU(OutputBit1);]]></Text>
+    </Rung>
+  </RLLContent>
+</Routine>

@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Routine Name="SplitRangeScale" Type="FBD">
+  <FBDContent SheetSize="B - 11 x 17 in" SheetOrientation="Landscape">
+    <Sheet Number="1">
+      <IRef ID="0" X="200" Y="260" Operand="LIC_101_Output" HideDesc="false" />
+      <ORef ID="1" X="560" Y="300" Operand="LY_101.Inp_CV" HideDesc="false" />
+      <ORef ID="2" X="540" Y="420" Operand="LY_155.Inp_CV" HideDesc="false" />
+      <Block Type="SCL" ID="3" X="360" Y="260" Operand="SCL_03" VisiblePins="In Out" HideDesc="false" />
+      <Block Type="SCL" ID="4" X="360" Y="360" Operand="SCL_04" VisiblePins="In Out" HideDesc="false" />
+      <Wire FromID="0" ToID="3" ToParam="In" />
+      <Wire FromID="0" ToID="4" ToParam="In" />
+      <Wire FromID="3" FromParam="Out" ToID="1" />
+      <Wire FromID="4" FromParam="Out" ToID="2" />
+    </Sheet>
+  </FBDContent>
+</Routine>

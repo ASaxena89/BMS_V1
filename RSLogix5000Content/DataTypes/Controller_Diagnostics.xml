@@ -1,0 +1,273 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DataType Name="Controller_Diagnostics" Family="NoFamily" Class="User">
+  <Description><![CDATA[Controller Diagnostics]]></Description>
+  <Members>
+    <Member Name="ZZZZZZZZZZController0" DataType="SINT" Dimension="0" Radix="Decimal" Hidden="true" ExternalAccess="Read/Write" />
+    <Member Name="Fault" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZController0" BitNumber="0" ExternalAccess="Read/Write">
+      <Description><![CDATA[FAULT mode indication]]></Description>
+    </Member>
+    <Member Name="Run" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZController0" BitNumber="1" ExternalAccess="Read/Write">
+      <Description><![CDATA[RUN mode indication]]></Description>
+    </Member>
+    <Member Name="Program" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZController0" BitNumber="2" ExternalAccess="Read/Write">
+      <Description><![CDATA[PROGRAM mode indication]]></Description>
+    </Member>
+    <Member Name="MinorFault" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZController0" BitNumber="3" ExternalAccess="Read/Write">
+      <Description><![CDATA[Minor Fault]]></Description>
+    </Member>
+    <Member Name="MajorFault" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZController0" BitNumber="4" ExternalAccess="Read/Write">
+      <Description><![CDATA[Major Fault]]></Description>
+    </Member>
+    <Member Name="KeySwitchRun" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZController0" BitNumber="5" ExternalAccess="Read/Write">
+      <Description><![CDATA[Keyswitch in RUN position]]></Description>
+    </Member>
+    <Member Name="KeySwitchProgram" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZController0" BitNumber="6" ExternalAccess="Read/Write">
+      <Description><![CDATA[Keyswitch in PROGRAM position]]></Description>
+    </Member>
+    <Member Name="KeySwitchRemote" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZController0" BitNumber="7" ExternalAccess="Read/Write">
+      <Description><![CDATA[Keyswitch in REMOTE position]]></Description>
+    </Member>
+    <Member Name="ZZZZZZZZZZController9" DataType="SINT" Dimension="0" Radix="Decimal" Hidden="true" ExternalAccess="Read/Write" />
+    <Member Name="ForcesInstalled" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZController9" BitNumber="0" ExternalAccess="Read/Write">
+      <Description><![CDATA[I/O forces installed]]></Description>
+    </Member>
+    <Member Name="ForcesEnabled" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZController9" BitNumber="1" ExternalAccess="Read/Write">
+      <Description><![CDATA[I/O forces enabled]]></Description>
+    </Member>
+    <Member Name="IOLED_Off" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZController9" BitNumber="2" ExternalAccess="Read/Write">
+      <Description><![CDATA[I/O LED is OFF]]></Description>
+    </Member>
+    <Member Name="IOLED_FlashRed" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZController9" BitNumber="3" ExternalAccess="Read/Write">
+      <Description><![CDATA[I/O LED is Flashing Red]]></Description>
+    </Member>
+    <Member Name="IOLED_FlashGreen" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZController9" BitNumber="4" ExternalAccess="Read/Write">
+      <Description><![CDATA[I/O LED is Flashing Green]]></Description>
+    </Member>
+    <Member Name="IOLED_Green" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZController9" BitNumber="5" ExternalAccess="Read/Write">
+      <Description><![CDATA[I/O LED is Green]]></Description>
+    </Member>
+    <Member Name="Primary_Poweredup" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZController9" BitNumber="6" ExternalAccess="Read/Write">
+      <Description><![CDATA[Primary Poweredup]]></Description>
+    </Member>
+    <Member Name="Primary_QualifiedSec" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZController9" BitNumber="7" ExternalAccess="Read/Write">
+      <Description><![CDATA[Primary Qualified Secondary]]></Description>
+    </Member>
+    <Member Name="ZZZZZZZZZZController18" DataType="SINT" Dimension="0" Radix="Decimal" Hidden="true" ExternalAccess="Read/Write" />
+    <Member Name="Primary_DisqualifiedSec" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZController18" BitNumber="0" ExternalAccess="Read/Write">
+      <Description><![CDATA[Primary Disqualified Secondary]]></Description>
+    </Member>
+    <Member Name="Primary_NoSecondary" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZController18" BitNumber="1" ExternalAccess="Read/Write">
+      <Description><![CDATA[Primary No Secondary]]></Description>
+    </Member>
+    <Member Name="Primary_QualifyingSec" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZController18" BitNumber="2" ExternalAccess="Read/Write">
+      <Description><![CDATA[Primary Qualifying Secondary]]></Description>
+    </Member>
+    <Member Name="Qualifying_Secondary" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZController18" BitNumber="3" ExternalAccess="Read/Write">
+      <Description><![CDATA[Qualifying Secondary]]></Description>
+    </Member>
+    <Member Name="Qualified_Secondary" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZController18" BitNumber="4" ExternalAccess="Read/Write">
+      <Description><![CDATA[Qualified Secondary]]></Description>
+    </Member>
+    <Member Name="Disqualified_Sec_Primary" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZController18" BitNumber="5" ExternalAccess="Read/Write">
+      <Description><![CDATA[Disqualified Secondary Primary]]></Description>
+    </Member>
+    <Member Name="PartnerKeySwitchUnknown" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZController18" BitNumber="6" ExternalAccess="Read/Write">
+      <Description><![CDATA[Partner Keyswitch unknown]]></Description>
+    </Member>
+    <Member Name="PartnerKeySwitchRun" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZController18" BitNumber="7" ExternalAccess="Read/Write">
+      <Description><![CDATA[Partner Keyswitch in RUN position]]></Description>
+    </Member>
+    <Member Name="ZZZZZZZZZZController27" DataType="SINT" Dimension="0" Radix="Decimal" Hidden="true" ExternalAccess="Read/Write" />
+    <Member Name="PartnerKeySwitchProgram" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZController27" BitNumber="0" ExternalAccess="Read/Write">
+      <Description><![CDATA[Partner Keyswitch in PROGRAM position]]></Description>
+    </Member>
+    <Member Name="PartnerKeySwitchRemote" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZController27" BitNumber="1" ExternalAccess="Read/Write">
+      <Description><![CDATA[Partner Keyswitch in REMOTE position]]></Description>
+    </Member>
+    <Member Name="PartnerPowerup" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZController27" BitNumber="2" ExternalAccess="Read/Write">
+      <Description><![CDATA[PartnerPowerup]]></Description>
+    </Member>
+    <Member Name="PartnerProgram" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZController27" BitNumber="3" ExternalAccess="Read/Write">
+      <Description><![CDATA[Partner PROGRAM mode indication]]></Description>
+    </Member>
+    <Member Name="PartnerRun" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZController27" BitNumber="4" ExternalAccess="Read/Write">
+      <Description><![CDATA[Partner RUN mode indication]]></Description>
+    </Member>
+    <Member Name="PartnerTest" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZController27" BitNumber="5" ExternalAccess="Read/Write">
+      <Description><![CDATA[Partner TEST mode (debug) indication]]></Description>
+    </Member>
+    <Member Name="PartnerFault" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZController27" BitNumber="6" ExternalAccess="Read/Write">
+      <Description><![CDATA[Partner FAULT mode indication]]></Description>
+    </Member>
+    <Member Name="BatteryFault" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZController27" BitNumber="7" ExternalAccess="Read/Write">
+      <Description><![CDATA[Battery or energy storage module fault]]></Description>
+    </Member>
+    <Member Name="PrimaryModuleRedun" DataType="INT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Primary Module Redundancy State]]></Description>
+    </Member>
+    <Member Name="PartnerModuleRedun" DataType="INT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Partner Module Redundancy State]]></Description>
+    </Member>
+    <Member Name="ChassisID_INT" DataType="INT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Physical Chassis ID Value]]></Description>
+    </Member>
+    <Member Name="Status" DataType="INT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Controller Status]]></Description>
+    </Member>
+    <Member Name="ForceStatus" DataType="INT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Force Status]]></Description>
+    </Member>
+    <Member Name="IOLEDStatus" DataType="INT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[I/O LED status]]></Description>
+    </Member>
+    <Member Name="Prog01_ScanTime" DataType="DINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Prog01_ScanTime]]></Description>
+    </Member>
+    <Member Name="Prog02_ScanTime" DataType="DINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Prog02_ScanTime]]></Description>
+    </Member>
+    <Member Name="PartnerKeySwitch" DataType="DINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Partner KeySwitch]]></Description>
+    </Member>
+    <Member Name="MinorFaultBits" DataType="DINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Minor Fault Bits]]></Description>
+    </Member>
+    <Member Name="PartnerMode" DataType="DINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Partner Mode]]></Description>
+    </Member>
+    <Member Name="ZZZZZZZZZZController47" DataType="SINT" Dimension="0" Radix="Decimal" Hidden="true" ExternalAccess="Read/Write" />
+    <Member Name="Partner_QualifyingSec" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZController47" BitNumber="0" ExternalAccess="Read/Write">
+      <Description><![CDATA[Partner Qualifying Secondary]]></Description>
+    </Member>
+    <Member Name="Partner_QualifiedSec" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZController47" BitNumber="1" ExternalAccess="Read/Write">
+      <Description><![CDATA[Partner Qualified Secondary]]></Description>
+    </Member>
+    <Member Name="Partner_DisQualifiedSec" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZController47" BitNumber="2" ExternalAccess="Read/Write">
+      <Description><![CDATA[Partner DisQualified Secondary]]></Description>
+    </Member>
+    <Member Name="ClockHour" DataType="DINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Wall clock time hour]]></Description>
+    </Member>
+    <Member Name="ClockMinute" DataType="DINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Wall clock time minute]]></Description>
+    </Member>
+    <Member Name="ClockSecond" DataType="DINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Wall clock time second]]></Description>
+    </Member>
+    <Member Name="ClockMonth" DataType="DINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Wall clock time month]]></Description>
+    </Member>
+    <Member Name="ClockDay" DataType="DINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Wall clock time day]]></Description>
+    </Member>
+    <Member Name="ClockYear" DataType="DINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Wall clock time year]]></Description>
+    </Member>
+    <Member Name="AuditValueDINT" DataType="DINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Audit Value]]></Description>
+    </Member>
+    <Member Name="Free_DataMemory" DataType="DINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Free data memory]]></Description>
+    </Member>
+    <Member Name="Free_IOMemory" DataType="DINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Free I/O memory]]></Description>
+    </Member>
+    <Member Name="Total_DataMemory" DataType="DINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Total data memory]]></Description>
+    </Member>
+    <Member Name="Total_IOMemory" DataType="DINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Total I/O memory]]></Description>
+    </Member>
+    <Member Name="InUseDataMemory" DataType="DINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Usage data memory]]></Description>
+    </Member>
+    <Member Name="InUseIOMemory" DataType="DINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Usage I/O memory]]></Description>
+    </Member>
+    <Member Name="ZZZZZZZZZZController64" DataType="SINT" Dimension="0" Radix="Decimal" Hidden="true" ExternalAccess="Read/Write" />
+    <Member Name="ChassisID" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZController64" BitNumber="0" ExternalAccess="Read/Write">
+      <Description><![CDATA[Chassis ID]]></Description>
+    </Member>
+    <Member Name="Time" DataType="DINT" Dimension="7" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Wall clock time]]></Description>
+    </Member>
+    <Member Name="MainPrgLastScanTime" DataType="DINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[MainProgram last scan time (miliseconds)]]></Description>
+    </Member>
+    <Member Name="InUsePrcntDataMem" DataType="REAL" Dimension="0" Radix="Float" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[% usage data memory]]></Description>
+    </Member>
+    <Member Name="InUsePrcntIOMem" DataType="REAL" Dimension="0" Radix="Float" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[% usage I/O memory]]></Description>
+    </Member>
+    <Member Name="MainTskLastScanTime" DataType="DINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[MainTask last scan time (miliseconds)]]></Description>
+    </Member>
+    <Member Name="RedundancyStat" DataType="SINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Redundancy status]]></Description>
+    </Member>
+    <Member Name="ZZZZZZZZZZController72" DataType="SINT" Dimension="0" Radix="Decimal" Hidden="true" ExternalAccess="Read/Write" />
+    <Member Name="RMinorFault" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZController72" BitNumber="0" ExternalAccess="Read/Write">
+      <Description><![CDATA[Recoverable minor fault]]></Description>
+    </Member>
+    <Member Name="UMinorFault" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZController72" BitNumber="1" ExternalAccess="Read/Write">
+      <Description><![CDATA[Unrecoverable minor fault]]></Description>
+    </Member>
+    <Member Name="RMajorFault" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZController72" BitNumber="2" ExternalAccess="Read/Write">
+      <Description><![CDATA[Recoverable major fault]]></Description>
+    </Member>
+    <Member Name="UMajorFault" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZController72" BitNumber="3" ExternalAccess="Read/Write">
+      <Description><![CDATA[Unrecoverable major fault]]></Description>
+    </Member>
+    <Member Name="Test" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZController72" BitNumber="4" ExternalAccess="Read/Write">
+      <Description><![CDATA[TEST mode (debug) indication]]></Description>
+    </Member>
+    <Member Name="Serial" DataType="DINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Serial number of controller]]></Description>
+    </Member>
+    <Member Name="Name" DataType="STRING" Dimension="0" Radix="NullType" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Name of project file loaded in Controller]]></Description>
+    </Member>
+    <Member Name="ZZZZZZZZZZController80" DataType="SINT" Dimension="0" Radix="Decimal" Hidden="true" ExternalAccess="Read/Write" />
+    <Member Name="BatteryMajorFlt" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZController80" BitNumber="0" ExternalAccess="Read/Write">
+      <Description><![CDATA[Battery Major Fault]]></Description>
+    </Member>
+    <Member Name="MajorFaultBits" DataType="DINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Major Fault Bits]]></Description>
+    </Member>
+    <Member Name="ZZZZZZZZZZController83" DataType="SINT" Dimension="0" Radix="Decimal" Hidden="true" ExternalAccess="Read/Write" />
+    <Member Name="BatteryMinorFlt" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZController83" BitNumber="0" ExternalAccess="Read/Write">
+      <Description><![CDATA[Battery Minor Fault]]></Description>
+    </Member>
+    <Member Name="OK" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZController83" BitNumber="1" ExternalAccess="Read/Write">
+      <Description><![CDATA[General OK status]]></Description>
+    </Member>
+    <Member Name="SetTime" DataType="DINT" Dimension="7" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Set PLC Time]]></Description>
+    </Member>
+    <Member Name="SetHour" DataType="DINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Set PLC Time Hour]]></Description>
+    </Member>
+    <Member Name="SetDay" DataType="DINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Set PLC Time Day]]></Description>
+    </Member>
+    <Member Name="SetYear" DataType="DINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Set PLC Time Year]]></Description>
+    </Member>
+    <Member Name="SetMonth" DataType="DINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Set PLC Time Month]]></Description>
+    </Member>
+    <Member Name="SetMinute" DataType="DINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Set PLC Time Minute]]></Description>
+    </Member>
+    <Member Name="SetSecond" DataType="DINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Set PLC Time Second]]></Description>
+    </Member>
+    <Member Name="ZZZZZZZZZZController93" DataType="SINT" Dimension="0" Radix="Decimal" Hidden="true" ExternalAccess="Read/Write" />
+    <Member Name="UpdateTime" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZController93" BitNumber="0" ExternalAccess="Read/Write">
+      <Description><![CDATA[Update PLC Time]]></Description>
+    </Member>
+    <Member Name="ChassisRedundancy" DataType="DINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write" />
+    <Member Name="PartnerChassisRedundancy" DataType="DINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write" />
+  </Members>
+</DataType>

@@ -1,0 +1,1020 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Tag Name="ENETSW2R_moxa_param" TagType="Base" DataType="MOXA_Switch_Parameter" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+  <Data Format="L5K"><![CDATA[[[[0,0,0],0,0,0,0,0,0,0,0,0,0,0,0],0,[0,0,0,0,0,0,[0,'$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00'
+		],[0,'$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00'
+		],[0,'$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00'
+		]],[0,0,0,0,0,0,0,0,0,0,0,[0,'$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00'
+		],[0,'$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00'
+		]],[0,0,0,[0,0],[0,0],[0,0],0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[[0,[0],[0,0,0,0,0,0],0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,[0,'$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00'
+		],0,[0,'$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00'
+		],0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,[0],[0,0,0,0,0,0],0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,[0,'$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00'
+		],0,[0,'$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00'
+		],0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,[0],[0,0,0,0,0,0],0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,[0,'$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00'
+		],0,[0,'$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00'
+		],0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,[0],[0,0,0,0,0,0],0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,[0,'$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00'
+		],0,[0,'$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00'
+		],0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,[0],[0,0,0,0,0,0],0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,[0,'$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00'
+		],0,[0,'$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00'
+		],0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,[0],[0,0,0,0,0,0],0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,[0,'$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00'
+		],0,[0,'$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00'
+		],0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,[0],[0,0,0,0,0,0],0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,[0,'$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00'
+		],0,[0,'$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00'
+		],0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,[0],[0,0,0,0,0,0],0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,[0,'$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00'
+		],0,[0,'$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00'
+		],0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,[0],[0,0,0,0,0,0],0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,[0,'$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00'
+		],0,[0,'$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00'
+		],0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,[0],[0,0,0,0,0,0],0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,[0,'$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00'
+		],0,[0,'$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00'
+		],0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,[0],[0,0,0,0,0,0],0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,[0,'$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00'
+		],0,[0,'$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00'
+		],0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]],[[0,'$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00'
+		],[0,'$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00'
+		],0,0,[0],[0,'$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00'
+		],0,0,0,0,0,0,0,0,0,[0,0,0],0,0,[0,'$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00'
+		],0,0,0,0],[0,0,0,0,0,0,1,0]]]]></Data>
+  <Data Format="Decorated">
+    <Structure DataType="MOXA_Switch_Parameter">
+      <StructureMember Name="Switch_Input" DataType="MOXA_Switch_EDS408_In_v0">
+        <StructureMember Name="System_Fault" DataType="MOXA_System_Fault_v0">
+          <DataValueMember Name="Fault" DataType="DINT" Radix="Decimal" Value="0" />
+          <DataValueMember Name="Turbo_Ring_Turbo_Ring_2" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Dongle_Configuration_Invalid" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Port_Utilization_Alarm" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Port_Link_Up" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Port_Link_Down" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Turbo_Rinh_Break" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Power_Input_1_Fail" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Power_Input_2_Fail" DataType="BOOL" Value="0" />
+          <DataValueMember Name="DI_1_Off" DataType="BOOL" Value="0" />
+          <DataValueMember Name="DI_1_On" DataType="BOOL" Value="0" />
+          <DataValueMember Name="DI_2_Off" DataType="BOOL" Value="0" />
+          <DataValueMember Name="DI_2_On" DataType="BOOL" Value="0" />
+          <DataValueMember Name="ABC_detect" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Power_Supply_1" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Power_Supply_2" DataType="BOOL" Value="0" />
+        </StructureMember>
+        <DataValueMember Name="Link_Status" DataType="DINT" Radix="Decimal" Value="0" />
+        <DataValueMember Name="Link_Status_TX1" DataType="BOOL" Value="0" />
+        <DataValueMember Name="Link_Status_TX2" DataType="BOOL" Value="0" />
+        <DataValueMember Name="Link_Status_TX3" DataType="BOOL" Value="0" />
+        <DataValueMember Name="Link_Status_TX4" DataType="BOOL" Value="0" />
+        <DataValueMember Name="Link_Status_TX5" DataType="BOOL" Value="0" />
+        <DataValueMember Name="Link_Status_TX6" DataType="BOOL" Value="0" />
+        <DataValueMember Name="Link_Status_TX7" DataType="BOOL" Value="0" />
+        <DataValueMember Name="Link_Status_TX8" DataType="BOOL" Value="0" />
+        <DataValueMember Name="CPU_Utilization" DataType="SINT" Radix="Decimal" Value="0" />
+        <DataValueMember Name="Port_Exist" DataType="DINT" Radix="Decimal" Value="0" />
+        <DataValueMember Name="Port_Exist_1" DataType="DINT" Radix="Decimal" Value="0" />
+        <DataValueMember Name="Port_Exist_2" DataType="DINT" Radix="Decimal" Value="0" />
+        <DataValueMember Name="Port_Exist_3" DataType="DINT" Radix="Decimal" Value="0" />
+        <DataValueMember Name="Port_Exist_4" DataType="DINT" Radix="Decimal" Value="0" />
+        <DataValueMember Name="Port_Exist_5" DataType="DINT" Radix="Decimal" Value="0" />
+        <DataValueMember Name="Port_Exist_6" DataType="DINT" Radix="Decimal" Value="0" />
+        <DataValueMember Name="Port_Exist_7" DataType="DINT" Radix="Decimal" Value="0" />
+        <DataValueMember Name="Port_Exist_8" DataType="DINT" Radix="Decimal" Value="0" />
+      </StructureMember>
+      <DataValueMember Name="Switch_Output" DataType="DINT" Radix="Decimal" Value="0" />
+      <StructureMember Name="Switch_Idnetity" DataType="MOXA_Identity_Object_v0">
+        <DataValueMember Name="Vendor_ID" DataType="INT" Radix="Decimal" Value="0" />
+        <DataValueMember Name="Device_Type" DataType="INT" Radix="Decimal" Value="0" />
+        <DataValueMember Name="Product_Code" DataType="INT" Radix="Decimal" Value="0" />
+        <DataValueMember Name="Major_Revision" DataType="SINT" Radix="Decimal" Value="0" />
+        <DataValueMember Name="Minor_Revision" DataType="SINT" Radix="Decimal" Value="0" />
+        <DataValueMember Name="Serial_Number" DataType="DINT" Radix="Hex" Value="16#0000_0000" />
+        <StructureMember Name="Product_Name" DataType="STRING">
+          <DataValueMember Name="LEN" DataType="DINT" Radix="Decimal" Value="0" />
+          <DataValueMember Name="DATA" DataType="STRING" Radix="ASCII"><![CDATA[]]></DataValueMember>
+        </StructureMember>
+        <StructureMember Name="Assigned_Name" DataType="MOXA_String_1024">
+          <DataValueMember Name="LEN" DataType="DINT" Radix="Decimal" Value="0" />
+          <DataValueMember Name="DATA" DataType="MOXA_String_1024" Radix="ASCII"><![CDATA[]]></DataValueMember>
+        </StructureMember>
+        <StructureMember Name="Geographic_Location" DataType="MOXA_String_1024">
+          <DataValueMember Name="LEN" DataType="DINT" Radix="Decimal" Value="0" />
+          <DataValueMember Name="DATA" DataType="MOXA_String_1024" Radix="ASCII"><![CDATA[]]></DataValueMember>
+        </StructureMember>
+      </StructureMember>
+      <StructureMember Name="Switch_TCPIP" DataType="MOXA_TCPIP_Interface_Object_v0">
+        <DataValueMember Name="Status" DataType="DINT" Radix="Decimal" Value="0" />
+        <DataValueMember Name="Configuration_Capability" DataType="DINT" Radix="Decimal" Value="0" />
+        <DataValueMember Name="Configuration_Control" DataType="DINT" Radix="Decimal" Value="0" />
+        <DataValueMember Name="Path_Size" DataType="INT" Radix="Decimal" Value="0" />
+        <DataValueMember Name="Object_Path_1" DataType="INT" Radix="Decimal" Value="0" />
+        <DataValueMember Name="Object_Path_2" DataType="INT" Radix="Decimal" Value="0" />
+        <DataValueMember Name="IP_Address" DataType="DINT" Radix="Decimal" Value="0" />
+        <DataValueMember Name="Network_Mask" DataType="DINT" Radix="Decimal" Value="0" />
+        <DataValueMember Name="Gateway_Address" DataType="DINT" Radix="Decimal" Value="0" />
+        <DataValueMember Name="Name_Server_1" DataType="DINT" Radix="Hex" Value="16#0000_0000" />
+        <DataValueMember Name="Name_Server_2" DataType="DINT" Radix="Hex" Value="16#0000_0000" />
+        <StructureMember Name="Domain_Name" DataType="STRING">
+          <DataValueMember Name="LEN" DataType="DINT" Radix="Decimal" Value="0" />
+          <DataValueMember Name="DATA" DataType="STRING" Radix="ASCII"><![CDATA[]]></DataValueMember>
+        </StructureMember>
+        <StructureMember Name="Host_Name" DataType="STRING">
+          <DataValueMember Name="LEN" DataType="DINT" Radix="Decimal" Value="0" />
+          <DataValueMember Name="DATA" DataType="STRING" Radix="ASCII"><![CDATA[]]></DataValueMember>
+        </StructureMember>
+      </StructureMember>
+      <StructureMember Name="Switch_Vendor" DataType="MOXA_Vendor_Object_v0">
+        <DataValueMember Name="System_Firmware_Version" DataType="DINT" Radix="Decimal" Value="0" />
+        <DataValueMember Name="System_Fault_Status" DataType="DINT" Radix="Decimal" Value="0" />
+        <DataValueMember Name="Switch_Port_Number" DataType="SINT" Radix="Decimal" Value="0" />
+        <ArrayMember Name="Port_Exist" DataType="DINT" Dimensions="2" Radix="Decimal">
+          <Element Index="[0]" Value="0" />
+          <Element Index="[1]" Value="0" />
+        </ArrayMember>
+        <ArrayMember Name="Port_Enbale" DataType="DINT" Dimensions="2" Radix="Decimal">
+          <Element Index="[0]" Value="0" />
+          <Element Index="[1]" Value="0" />
+        </ArrayMember>
+        <ArrayMember Name="Port_Link_Status" DataType="DINT" Dimensions="2" Radix="Decimal">
+          <Element Index="[0]" Value="0" />
+          <Element Index="[1]" Value="0" />
+        </ArrayMember>
+        <DataValueMember Name="IGMP_Snooping" DataType="SINT" Radix="Decimal" Value="0" />
+        <DataValueMember Name="Query_Interval" DataType="DINT" Radix="Decimal" Value="0" />
+        <DataValueMember Name="IGMP_Enhanced_Mode" DataType="SINT" Radix="Decimal" Value="0" />
+        <DataValueMember Name="Relay_1" DataType="SINT" Radix="Decimal" Value="0" />
+        <DataValueMember Name="Relay_2" DataType="SINT" Radix="Decimal" Value="0" />
+        <DataValueMember Name="Power_1_Relay_Warning" DataType="SINT" Radix="Decimal" Value="0" />
+        <DataValueMember Name="Power_2_Relay_Warning" DataType="SINT" Radix="Decimal" Value="0" />
+        <DataValueMember Name="DI_1_Off_Relay_Warning" DataType="SINT" Radix="Decimal" Value="0" />
+        <DataValueMember Name="DI_1_On_Relay_Warning" DataType="SINT" Radix="Decimal" Value="0" />
+        <DataValueMember Name="DI_2_Off_Relay_Warning" DataType="SINT" Radix="Decimal" Value="0" />
+        <DataValueMember Name="DI_2_On_Relay_Warning" DataType="SINT" Radix="Decimal" Value="0" />
+        <DataValueMember Name="Turbo_Ring_Break_Relay_Warning" DataType="SINT" Radix="Decimal" Value="0" />
+        <DataValueMember Name="CPU_Usage" DataType="SINT" Radix="Decimal" Value="0" />
+        <DataValueMember Name="Device_Up_Time" DataType="DINT" Radix="Decimal" Value="0" />
+        <DataValueMember Name="Reset_Mib_Counter" DataType="SINT" Radix="Decimal" Value="0" />
+        <DataValueMember Name="Redundant_Device_Mode" DataType="DINT" Radix="Decimal" Value="0" />
+      </StructureMember>
+      <ArrayMember Name="Switch_Ethernet_Link" DataType="MOXA_Ethernet_Link_Object_v0" Dimensions="11">
+        <Element Index="[0]">
+          <Structure DataType="MOXA_Ethernet_Link_Object_v0">
+            <DataValueMember Name="Interface_Speed" DataType="DINT" Radix="Decimal" Value="0" />
+            <StructureMember Name="Interface_Flags" DataType="MOXA_Interface_Object_Flags_v0">
+              <DataValueMember Name="Link_Status" DataType="BOOL" Value="0" />
+              <DataValueMember Name="Duplex" DataType="BOOL" Value="0" />
+              <DataValueMember Name="Negotiation_Status_1" DataType="BOOL" Value="0" />
+              <DataValueMember Name="Negotiation_Status_2" DataType="BOOL" Value="0" />
+              <DataValueMember Name="Negotiation_Status_3" DataType="BOOL" Value="0" />
+              <DataValueMember Name="Manual_Setting_Requires_Reset" DataType="BOOL" Value="0" />
+              <DataValueMember Name="Local_Hardware_Fault" DataType="BOOL" Value="0" />
+            </StructureMember>
+            <ArrayMember Name="Physical_Address" DataType="SINT" Dimensions="6" Radix="Decimal">
+              <Element Index="[0]" Value="0" />
+              <Element Index="[1]" Value="0" />
+              <Element Index="[2]" Value="0" />
+              <Element Index="[3]" Value="0" />
+              <Element Index="[4]" Value="0" />
+              <Element Index="[5]" Value="0" />
+            </ArrayMember>
+            <DataValueMember Name="InOctets" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="InUcastPackets" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="InNucastPackets" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="InDiscards" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="InErrors" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="OutOctets" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="OutUcastPackets" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="OutNucastPackets" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="OutDiscards" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="OutErrors" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Alignment_Errors" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="FCS_Errors" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Single_Collisions" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Multiple_Collisions" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="SQE_Test_Errors" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Deferred_Transmissions" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Late_Collisions" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Excessive_Collisions" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="MAC_Transmit_Errors" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Carrier_Sense_Errors" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Frame_Too_Long" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="MAC_Receive_Errors" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Control_Bits" DataType="INT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Forced_Interface_Speed" DataType="INT" Radix="Decimal" Value="0" />
+            <StructureMember Name="Interface_Label" DataType="STRING">
+              <DataValueMember Name="LEN" DataType="DINT" Radix="Decimal" Value="0" />
+              <DataValueMember Name="DATA" DataType="STRING" Radix="ASCII"><![CDATA[]]></DataValueMember>
+            </StructureMember>
+            <DataValueMember Name="Interface_Port_Index" DataType="DINT" Radix="Decimal" Value="0" />
+            <StructureMember Name="Interface_Port_Description" DataType="STRING">
+              <DataValueMember Name="LEN" DataType="DINT" Radix="Decimal" Value="0" />
+              <DataValueMember Name="DATA" DataType="STRING" Radix="ASCII"><![CDATA[]]></DataValueMember>
+            </StructureMember>
+            <DataValueMember Name="Broascast_Storm_Protection" DataType="SINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Interface_Utilization" DataType="SINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Utilization_Alarm_Upper_Threshold" DataType="SINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Utilization_Alarm_Lower_Threshold" DataType="SINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Port_Link_Alarm" DataType="SINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Port_TrafficOverload_Alarm" DataType="SINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Tx_Unicast_Packet_Rate" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Rx_Unicast_Packet_Rate" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Tx_Multicast_Packet_Rate" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Rx_Multicast_Packet_Rate" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Tx_Broadcast_Packet_Rate" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Rx_Broadcast_Packet_Rate" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Tx_Multicast_Packet" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Rx_Multicast_Packet" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Tx_Broadcast_Packet" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Rx_Broadcast_Packet" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Redundant_Port_Status" DataType="DINT" Radix="Decimal" Value="0" />
+          </Structure>
+        </Element>
+        <Element Index="[1]">
+          <Structure DataType="MOXA_Ethernet_Link_Object_v0">
+            <DataValueMember Name="Interface_Speed" DataType="DINT" Radix="Decimal" Value="0" />
+            <StructureMember Name="Interface_Flags" DataType="MOXA_Interface_Object_Flags_v0">
+              <DataValueMember Name="Link_Status" DataType="BOOL" Value="0" />
+              <DataValueMember Name="Duplex" DataType="BOOL" Value="0" />
+              <DataValueMember Name="Negotiation_Status_1" DataType="BOOL" Value="0" />
+              <DataValueMember Name="Negotiation_Status_2" DataType="BOOL" Value="0" />
+              <DataValueMember Name="Negotiation_Status_3" DataType="BOOL" Value="0" />
+              <DataValueMember Name="Manual_Setting_Requires_Reset" DataType="BOOL" Value="0" />
+              <DataValueMember Name="Local_Hardware_Fault" DataType="BOOL" Value="0" />
+            </StructureMember>
+            <ArrayMember Name="Physical_Address" DataType="SINT" Dimensions="6" Radix="Decimal">
+              <Element Index="[0]" Value="0" />
+              <Element Index="[1]" Value="0" />
+              <Element Index="[2]" Value="0" />
+              <Element Index="[3]" Value="0" />
+              <Element Index="[4]" Value="0" />
+              <Element Index="[5]" Value="0" />
+            </ArrayMember>
+            <DataValueMember Name="InOctets" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="InUcastPackets" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="InNucastPackets" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="InDiscards" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="InErrors" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="OutOctets" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="OutUcastPackets" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="OutNucastPackets" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="OutDiscards" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="OutErrors" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Alignment_Errors" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="FCS_Errors" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Single_Collisions" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Multiple_Collisions" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="SQE_Test_Errors" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Deferred_Transmissions" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Late_Collisions" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Excessive_Collisions" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="MAC_Transmit_Errors" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Carrier_Sense_Errors" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Frame_Too_Long" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="MAC_Receive_Errors" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Control_Bits" DataType="INT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Forced_Interface_Speed" DataType="INT" Radix="Decimal" Value="0" />
+            <StructureMember Name="Interface_Label" DataType="STRING">
+              <DataValueMember Name="LEN" DataType="DINT" Radix="Decimal" Value="0" />
+              <DataValueMember Name="DATA" DataType="STRING" Radix="ASCII"><![CDATA[]]></DataValueMember>
+            </StructureMember>
+            <DataValueMember Name="Interface_Port_Index" DataType="DINT" Radix="Decimal" Value="0" />
+            <StructureMember Name="Interface_Port_Description" DataType="STRING">
+              <DataValueMember Name="LEN" DataType="DINT" Radix="Decimal" Value="0" />
+              <DataValueMember Name="DATA" DataType="STRING" Radix="ASCII"><![CDATA[]]></DataValueMember>
+            </StructureMember>
+            <DataValueMember Name="Broascast_Storm_Protection" DataType="SINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Interface_Utilization" DataType="SINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Utilization_Alarm_Upper_Threshold" DataType="SINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Utilization_Alarm_Lower_Threshold" DataType="SINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Port_Link_Alarm" DataType="SINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Port_TrafficOverload_Alarm" DataType="SINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Tx_Unicast_Packet_Rate" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Rx_Unicast_Packet_Rate" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Tx_Multicast_Packet_Rate" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Rx_Multicast_Packet_Rate" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Tx_Broadcast_Packet_Rate" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Rx_Broadcast_Packet_Rate" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Tx_Multicast_Packet" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Rx_Multicast_Packet" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Tx_Broadcast_Packet" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Rx_Broadcast_Packet" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Redundant_Port_Status" DataType="DINT" Radix="Decimal" Value="0" />
+          </Structure>
+        </Element>
+        <Element Index="[2]">
+          <Structure DataType="MOXA_Ethernet_Link_Object_v0">
+            <DataValueMember Name="Interface_Speed" DataType="DINT" Radix="Decimal" Value="0" />
+            <StructureMember Name="Interface_Flags" DataType="MOXA_Interface_Object_Flags_v0">
+              <DataValueMember Name="Link_Status" DataType="BOOL" Value="0" />
+              <DataValueMember Name="Duplex" DataType="BOOL" Value="0" />
+              <DataValueMember Name="Negotiation_Status_1" DataType="BOOL" Value="0" />
+              <DataValueMember Name="Negotiation_Status_2" DataType="BOOL" Value="0" />
+              <DataValueMember Name="Negotiation_Status_3" DataType="BOOL" Value="0" />
+              <DataValueMember Name="Manual_Setting_Requires_Reset" DataType="BOOL" Value="0" />
+              <DataValueMember Name="Local_Hardware_Fault" DataType="BOOL" Value="0" />
+            </StructureMember>
+            <ArrayMember Name="Physical_Address" DataType="SINT" Dimensions="6" Radix="Decimal">
+              <Element Index="[0]" Value="0" />
+              <Element Index="[1]" Value="0" />
+              <Element Index="[2]" Value="0" />
+              <Element Index="[3]" Value="0" />
+              <Element Index="[4]" Value="0" />
+              <Element Index="[5]" Value="0" />
+            </ArrayMember>
+            <DataValueMember Name="InOctets" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="InUcastPackets" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="InNucastPackets" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="InDiscards" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="InErrors" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="OutOctets" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="OutUcastPackets" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="OutNucastPackets" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="OutDiscards" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="OutErrors" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Alignment_Errors" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="FCS_Errors" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Single_Collisions" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Multiple_Collisions" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="SQE_Test_Errors" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Deferred_Transmissions" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Late_Collisions" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Excessive_Collisions" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="MAC_Transmit_Errors" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Carrier_Sense_Errors" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Frame_Too_Long" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="MAC_Receive_Errors" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Control_Bits" DataType="INT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Forced_Interface_Speed" DataType="INT" Radix="Decimal" Value="0" />
+            <StructureMember Name="Interface_Label" DataType="STRING">
+              <DataValueMember Name="LEN" DataType="DINT" Radix="Decimal" Value="0" />
+              <DataValueMember Name="DATA" DataType="STRING" Radix="ASCII"><![CDATA[]]></DataValueMember>
+            </StructureMember>
+            <DataValueMember Name="Interface_Port_Index" DataType="DINT" Radix="Decimal" Value="0" />
+            <StructureMember Name="Interface_Port_Description" DataType="STRING">
+              <DataValueMember Name="LEN" DataType="DINT" Radix="Decimal" Value="0" />
+              <DataValueMember Name="DATA" DataType="STRING" Radix="ASCII"><![CDATA[]]></DataValueMember>
+            </StructureMember>
+            <DataValueMember Name="Broascast_Storm_Protection" DataType="SINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Interface_Utilization" DataType="SINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Utilization_Alarm_Upper_Threshold" DataType="SINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Utilization_Alarm_Lower_Threshold" DataType="SINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Port_Link_Alarm" DataType="SINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Port_TrafficOverload_Alarm" DataType="SINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Tx_Unicast_Packet_Rate" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Rx_Unicast_Packet_Rate" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Tx_Multicast_Packet_Rate" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Rx_Multicast_Packet_Rate" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Tx_Broadcast_Packet_Rate" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Rx_Broadcast_Packet_Rate" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Tx_Multicast_Packet" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Rx_Multicast_Packet" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Tx_Broadcast_Packet" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Rx_Broadcast_Packet" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Redundant_Port_Status" DataType="DINT" Radix="Decimal" Value="0" />
+          </Structure>
+        </Element>
+        <Element Index="[3]">
+          <Structure DataType="MOXA_Ethernet_Link_Object_v0">
+            <DataValueMember Name="Interface_Speed" DataType="DINT" Radix="Decimal" Value="0" />
+            <StructureMember Name="Interface_Flags" DataType="MOXA_Interface_Object_Flags_v0">
+              <DataValueMember Name="Link_Status" DataType="BOOL" Value="0" />
+              <DataValueMember Name="Duplex" DataType="BOOL" Value="0" />
+              <DataValueMember Name="Negotiation_Status_1" DataType="BOOL" Value="0" />
+              <DataValueMember Name="Negotiation_Status_2" DataType="BOOL" Value="0" />
+              <DataValueMember Name="Negotiation_Status_3" DataType="BOOL" Value="0" />
+              <DataValueMember Name="Manual_Setting_Requires_Reset" DataType="BOOL" Value="0" />
+              <DataValueMember Name="Local_Hardware_Fault" DataType="BOOL" Value="0" />
+            </StructureMember>
+            <ArrayMember Name="Physical_Address" DataType="SINT" Dimensions="6" Radix="Decimal">
+              <Element Index="[0]" Value="0" />
+              <Element Index="[1]" Value="0" />
+              <Element Index="[2]" Value="0" />
+              <Element Index="[3]" Value="0" />
+              <Element Index="[4]" Value="0" />
+              <Element Index="[5]" Value="0" />
+            </ArrayMember>
+            <DataValueMember Name="InOctets" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="InUcastPackets" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="InNucastPackets" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="InDiscards" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="InErrors" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="OutOctets" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="OutUcastPackets" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="OutNucastPackets" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="OutDiscards" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="OutErrors" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Alignment_Errors" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="FCS_Errors" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Single_Collisions" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Multiple_Collisions" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="SQE_Test_Errors" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Deferred_Transmissions" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Late_Collisions" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Excessive_Collisions" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="MAC_Transmit_Errors" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Carrier_Sense_Errors" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Frame_Too_Long" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="MAC_Receive_Errors" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Control_Bits" DataType="INT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Forced_Interface_Speed" DataType="INT" Radix="Decimal" Value="0" />
+            <StructureMember Name="Interface_Label" DataType="STRING">
+              <DataValueMember Name="LEN" DataType="DINT" Radix="Decimal" Value="0" />
+              <DataValueMember Name="DATA" DataType="STRING" Radix="ASCII"><![CDATA[]]></DataValueMember>
+            </StructureMember>
+            <DataValueMember Name="Interface_Port_Index" DataType="DINT" Radix="Decimal" Value="0" />
+            <StructureMember Name="Interface_Port_Description" DataType="STRING">
+              <DataValueMember Name="LEN" DataType="DINT" Radix="Decimal" Value="0" />
+              <DataValueMember Name="DATA" DataType="STRING" Radix="ASCII"><![CDATA[]]></DataValueMember>
+            </StructureMember>
+            <DataValueMember Name="Broascast_Storm_Protection" DataType="SINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Interface_Utilization" DataType="SINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Utilization_Alarm_Upper_Threshold" DataType="SINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Utilization_Alarm_Lower_Threshold" DataType="SINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Port_Link_Alarm" DataType="SINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Port_TrafficOverload_Alarm" DataType="SINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Tx_Unicast_Packet_Rate" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Rx_Unicast_Packet_Rate" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Tx_Multicast_Packet_Rate" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Rx_Multicast_Packet_Rate" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Tx_Broadcast_Packet_Rate" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Rx_Broadcast_Packet_Rate" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Tx_Multicast_Packet" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Rx_Multicast_Packet" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Tx_Broadcast_Packet" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Rx_Broadcast_Packet" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Redundant_Port_Status" DataType="DINT" Radix="Decimal" Value="0" />
+          </Structure>
+        </Element>
+        <Element Index="[4]">
+          <Structure DataType="MOXA_Ethernet_Link_Object_v0">
+            <DataValueMember Name="Interface_Speed" DataType="DINT" Radix="Decimal" Value="0" />
+            <StructureMember Name="Interface_Flags" DataType="MOXA_Interface_Object_Flags_v0">
+              <DataValueMember Name="Link_Status" DataType="BOOL" Value="0" />
+              <DataValueMember Name="Duplex" DataType="BOOL" Value="0" />
+              <DataValueMember Name="Negotiation_Status_1" DataType="BOOL" Value="0" />
+              <DataValueMember Name="Negotiation_Status_2" DataType="BOOL" Value="0" />
+              <DataValueMember Name="Negotiation_Status_3" DataType="BOOL" Value="0" />
+              <DataValueMember Name="Manual_Setting_Requires_Reset" DataType="BOOL" Value="0" />
+              <DataValueMember Name="Local_Hardware_Fault" DataType="BOOL" Value="0" />
+            </StructureMember>
+            <ArrayMember Name="Physical_Address" DataType="SINT" Dimensions="6" Radix="Decimal">
+              <Element Index="[0]" Value="0" />
+              <Element Index="[1]" Value="0" />
+              <Element Index="[2]" Value="0" />
+              <Element Index="[3]" Value="0" />
+              <Element Index="[4]" Value="0" />
+              <Element Index="[5]" Value="0" />
+            </ArrayMember>
+            <DataValueMember Name="InOctets" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="InUcastPackets" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="InNucastPackets" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="InDiscards" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="InErrors" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="OutOctets" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="OutUcastPackets" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="OutNucastPackets" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="OutDiscards" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="OutErrors" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Alignment_Errors" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="FCS_Errors" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Single_Collisions" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Multiple_Collisions" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="SQE_Test_Errors" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Deferred_Transmissions" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Late_Collisions" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Excessive_Collisions" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="MAC_Transmit_Errors" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Carrier_Sense_Errors" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Frame_Too_Long" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="MAC_Receive_Errors" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Control_Bits" DataType="INT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Forced_Interface_Speed" DataType="INT" Radix="Decimal" Value="0" />
+            <StructureMember Name="Interface_Label" DataType="STRING">
+              <DataValueMember Name="LEN" DataType="DINT" Radix="Decimal" Value="0" />
+              <DataValueMember Name="DATA" DataType="STRING" Radix="ASCII"><![CDATA[]]></DataValueMember>
+            </StructureMember>
+            <DataValueMember Name="Interface_Port_Index" DataType="DINT" Radix="Decimal" Value="0" />
+            <StructureMember Name="Interface_Port_Description" DataType="STRING">
+              <DataValueMember Name="LEN" DataType="DINT" Radix="Decimal" Value="0" />
+              <DataValueMember Name="DATA" DataType="STRING" Radix="ASCII"><![CDATA[]]></DataValueMember>
+            </StructureMember>
+            <DataValueMember Name="Broascast_Storm_Protection" DataType="SINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Interface_Utilization" DataType="SINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Utilization_Alarm_Upper_Threshold" DataType="SINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Utilization_Alarm_Lower_Threshold" DataType="SINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Port_Link_Alarm" DataType="SINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Port_TrafficOverload_Alarm" DataType="SINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Tx_Unicast_Packet_Rate" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Rx_Unicast_Packet_Rate" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Tx_Multicast_Packet_Rate" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Rx_Multicast_Packet_Rate" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Tx_Broadcast_Packet_Rate" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Rx_Broadcast_Packet_Rate" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Tx_Multicast_Packet" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Rx_Multicast_Packet" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Tx_Broadcast_Packet" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Rx_Broadcast_Packet" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Redundant_Port_Status" DataType="DINT" Radix="Decimal" Value="0" />
+          </Structure>
+        </Element>
+        <Element Index="[5]">
+          <Structure DataType="MOXA_Ethernet_Link_Object_v0">
+            <DataValueMember Name="Interface_Speed" DataType="DINT" Radix="Decimal" Value="0" />
+            <StructureMember Name="Interface_Flags" DataType="MOXA_Interface_Object_Flags_v0">
+              <DataValueMember Name="Link_Status" DataType="BOOL" Value="0" />
+              <DataValueMember Name="Duplex" DataType="BOOL" Value="0" />
+              <DataValueMember Name="Negotiation_Status_1" DataType="BOOL" Value="0" />
+              <DataValueMember Name="Negotiation_Status_2" DataType="BOOL" Value="0" />
+              <DataValueMember Name="Negotiation_Status_3" DataType="BOOL" Value="0" />
+              <DataValueMember Name="Manual_Setting_Requires_Reset" DataType="BOOL" Value="0" />
+              <DataValueMember Name="Local_Hardware_Fault" DataType="BOOL" Value="0" />
+            </StructureMember>
+            <ArrayMember Name="Physical_Address" DataType="SINT" Dimensions="6" Radix="Decimal">
+              <Element Index="[0]" Value="0" />
+              <Element Index="[1]" Value="0" />
+              <Element Index="[2]" Value="0" />
+              <Element Index="[3]" Value="0" />
+              <Element Index="[4]" Value="0" />
+              <Element Index="[5]" Value="0" />
+            </ArrayMember>
+            <DataValueMember Name="InOctets" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="InUcastPackets" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="InNucastPackets" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="InDiscards" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="InErrors" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="OutOctets" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="OutUcastPackets" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="OutNucastPackets" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="OutDiscards" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="OutErrors" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Alignment_Errors" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="FCS_Errors" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Single_Collisions" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Multiple_Collisions" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="SQE_Test_Errors" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Deferred_Transmissions" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Late_Collisions" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Excessive_Collisions" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="MAC_Transmit_Errors" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Carrier_Sense_Errors" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Frame_Too_Long" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="MAC_Receive_Errors" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Control_Bits" DataType="INT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Forced_Interface_Speed" DataType="INT" Radix="Decimal" Value="0" />
+            <StructureMember Name="Interface_Label" DataType="STRING">
+              <DataValueMember Name="LEN" DataType="DINT" Radix="Decimal" Value="0" />
+              <DataValueMember Name="DATA" DataType="STRING" Radix="ASCII"><![CDATA[]]></DataValueMember>
+            </StructureMember>
+            <DataValueMember Name="Interface_Port_Index" DataType="DINT" Radix="Decimal" Value="0" />
+            <StructureMember Name="Interface_Port_Description" DataType="STRING">
+              <DataValueMember Name="LEN" DataType="DINT" Radix="Decimal" Value="0" />
+              <DataValueMember Name="DATA" DataType="STRING" Radix="ASCII"><![CDATA[]]></DataValueMember>
+            </StructureMember>
+            <DataValueMember Name="Broascast_Storm_Protection" DataType="SINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Interface_Utilization" DataType="SINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Utilization_Alarm_Upper_Threshold" DataType="SINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Utilization_Alarm_Lower_Threshold" DataType="SINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Port_Link_Alarm" DataType="SINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Port_TrafficOverload_Alarm" DataType="SINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Tx_Unicast_Packet_Rate" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Rx_Unicast_Packet_Rate" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Tx_Multicast_Packet_Rate" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Rx_Multicast_Packet_Rate" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Tx_Broadcast_Packet_Rate" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Rx_Broadcast_Packet_Rate" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Tx_Multicast_Packet" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Rx_Multicast_Packet" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Tx_Broadcast_Packet" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Rx_Broadcast_Packet" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Redundant_Port_Status" DataType="DINT" Radix="Decimal" Value="0" />
+          </Structure>
+        </Element>
+        <Element Index="[6]">
+          <Structure DataType="MOXA_Ethernet_Link_Object_v0">
+            <DataValueMember Name="Interface_Speed" DataType="DINT" Radix="Decimal" Value="0" />
+            <StructureMember Name="Interface_Flags" DataType="MOXA_Interface_Object_Flags_v0">
+              <DataValueMember Name="Link_Status" DataType="BOOL" Value="0" />
+              <DataValueMember Name="Duplex" DataType="BOOL" Value="0" />
+              <DataValueMember Name="Negotiation_Status_1" DataType="BOOL" Value="0" />
+              <DataValueMember Name="Negotiation_Status_2" DataType="BOOL" Value="0" />
+              <DataValueMember Name="Negotiation_Status_3" DataType="BOOL" Value="0" />
+              <DataValueMember Name="Manual_Setting_Requires_Reset" DataType="BOOL" Value="0" />
+              <DataValueMember Name="Local_Hardware_Fault" DataType="BOOL" Value="0" />
+            </StructureMember>
+            <ArrayMember Name="Physical_Address" DataType="SINT" Dimensions="6" Radix="Decimal">
+              <Element Index="[0]" Value="0" />
+              <Element Index="[1]" Value="0" />
+              <Element Index="[2]" Value="0" />
+              <Element Index="[3]" Value="0" />
+              <Element Index="[4]" Value="0" />
+              <Element Index="[5]" Value="0" />
+            </ArrayMember>
+            <DataValueMember Name="InOctets" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="InUcastPackets" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="InNucastPackets" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="InDiscards" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="InErrors" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="OutOctets" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="OutUcastPackets" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="OutNucastPackets" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="OutDiscards" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="OutErrors" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Alignment_Errors" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="FCS_Errors" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Single_Collisions" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Multiple_Collisions" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="SQE_Test_Errors" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Deferred_Transmissions" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Late_Collisions" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Excessive_Collisions" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="MAC_Transmit_Errors" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Carrier_Sense_Errors" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Frame_Too_Long" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="MAC_Receive_Errors" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Control_Bits" DataType="INT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Forced_Interface_Speed" DataType="INT" Radix="Decimal" Value="0" />
+            <StructureMember Name="Interface_Label" DataType="STRING">
+              <DataValueMember Name="LEN" DataType="DINT" Radix="Decimal" Value="0" />
+              <DataValueMember Name="DATA" DataType="STRING" Radix="ASCII"><![CDATA[]]></DataValueMember>
+            </StructureMember>
+            <DataValueMember Name="Interface_Port_Index" DataType="DINT" Radix="Decimal" Value="0" />
+            <StructureMember Name="Interface_Port_Description" DataType="STRING">
+              <DataValueMember Name="LEN" DataType="DINT" Radix="Decimal" Value="0" />
+              <DataValueMember Name="DATA" DataType="STRING" Radix="ASCII"><![CDATA[]]></DataValueMember>
+            </StructureMember>
+            <DataValueMember Name="Broascast_Storm_Protection" DataType="SINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Interface_Utilization" DataType="SINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Utilization_Alarm_Upper_Threshold" DataType="SINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Utilization_Alarm_Lower_Threshold" DataType="SINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Port_Link_Alarm" DataType="SINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Port_TrafficOverload_Alarm" DataType="SINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Tx_Unicast_Packet_Rate" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Rx_Unicast_Packet_Rate" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Tx_Multicast_Packet_Rate" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Rx_Multicast_Packet_Rate" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Tx_Broadcast_Packet_Rate" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Rx_Broadcast_Packet_Rate" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Tx_Multicast_Packet" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Rx_Multicast_Packet" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Tx_Broadcast_Packet" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Rx_Broadcast_Packet" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Redundant_Port_Status" DataType="DINT" Radix="Decimal" Value="0" />
+          </Structure>
+        </Element>
+        <Element Index="[7]">
+          <Structure DataType="MOXA_Ethernet_Link_Object_v0">
+            <DataValueMember Name="Interface_Speed" DataType="DINT" Radix="Decimal" Value="0" />
+            <StructureMember Name="Interface_Flags" DataType="MOXA_Interface_Object_Flags_v0">
+              <DataValueMember Name="Link_Status" DataType="BOOL" Value="0" />
+              <DataValueMember Name="Duplex" DataType="BOOL" Value="0" />
+              <DataValueMember Name="Negotiation_Status_1" DataType="BOOL" Value="0" />
+              <DataValueMember Name="Negotiation_Status_2" DataType="BOOL" Value="0" />
+              <DataValueMember Name="Negotiation_Status_3" DataType="BOOL" Value="0" />
+              <DataValueMember Name="Manual_Setting_Requires_Reset" DataType="BOOL" Value="0" />
+              <DataValueMember Name="Local_Hardware_Fault" DataType="BOOL" Value="0" />
+            </StructureMember>
+            <ArrayMember Name="Physical_Address" DataType="SINT" Dimensions="6" Radix="Decimal">
+              <Element Index="[0]" Value="0" />
+              <Element Index="[1]" Value="0" />
+              <Element Index="[2]" Value="0" />
+              <Element Index="[3]" Value="0" />
+              <Element Index="[4]" Value="0" />
+              <Element Index="[5]" Value="0" />
+            </ArrayMember>
+            <DataValueMember Name="InOctets" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="InUcastPackets" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="InNucastPackets" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="InDiscards" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="InErrors" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="OutOctets" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="OutUcastPackets" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="OutNucastPackets" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="OutDiscards" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="OutErrors" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Alignment_Errors" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="FCS_Errors" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Single_Collisions" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Multiple_Collisions" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="SQE_Test_Errors" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Deferred_Transmissions" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Late_Collisions" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Excessive_Collisions" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="MAC_Transmit_Errors" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Carrier_Sense_Errors" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Frame_Too_Long" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="MAC_Receive_Errors" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Control_Bits" DataType="INT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Forced_Interface_Speed" DataType="INT" Radix="Decimal" Value="0" />
+            <StructureMember Name="Interface_Label" DataType="STRING">
+              <DataValueMember Name="LEN" DataType="DINT" Radix="Decimal" Value="0" />
+              <DataValueMember Name="DATA" DataType="STRING" Radix="ASCII"><![CDATA[]]></DataValueMember>
+            </StructureMember>
+            <DataValueMember Name="Interface_Port_Index" DataType="DINT" Radix="Decimal" Value="0" />
+            <StructureMember Name="Interface_Port_Description" DataType="STRING">
+              <DataValueMember Name="LEN" DataType="DINT" Radix="Decimal" Value="0" />
+              <DataValueMember Name="DATA" DataType="STRING" Radix="ASCII"><![CDATA[]]></DataValueMember>
+            </StructureMember>
+            <DataValueMember Name="Broascast_Storm_Protection" DataType="SINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Interface_Utilization" DataType="SINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Utilization_Alarm_Upper_Threshold" DataType="SINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Utilization_Alarm_Lower_Threshold" DataType="SINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Port_Link_Alarm" DataType="SINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Port_TrafficOverload_Alarm" DataType="SINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Tx_Unicast_Packet_Rate" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Rx_Unicast_Packet_Rate" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Tx_Multicast_Packet_Rate" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Rx_Multicast_Packet_Rate" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Tx_Broadcast_Packet_Rate" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Rx_Broadcast_Packet_Rate" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Tx_Multicast_Packet" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Rx_Multicast_Packet" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Tx_Broadcast_Packet" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Rx_Broadcast_Packet" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Redundant_Port_Status" DataType="DINT" Radix="Decimal" Value="0" />
+          </Structure>
+        </Element>
+        <Element Index="[8]">
+          <Structure DataType="MOXA_Ethernet_Link_Object_v0">
+            <DataValueMember Name="Interface_Speed" DataType="DINT" Radix="Decimal" Value="0" />
+            <StructureMember Name="Interface_Flags" DataType="MOXA_Interface_Object_Flags_v0">
+              <DataValueMember Name="Link_Status" DataType="BOOL" Value="0" />
+              <DataValueMember Name="Duplex" DataType="BOOL" Value="0" />
+              <DataValueMember Name="Negotiation_Status_1" DataType="BOOL" Value="0" />
+              <DataValueMember Name="Negotiation_Status_2" DataType="BOOL" Value="0" />
+              <DataValueMember Name="Negotiation_Status_3" DataType="BOOL" Value="0" />
+              <DataValueMember Name="Manual_Setting_Requires_Reset" DataType="BOOL" Value="0" />
+              <DataValueMember Name="Local_Hardware_Fault" DataType="BOOL" Value="0" />
+            </StructureMember>
+            <ArrayMember Name="Physical_Address" DataType="SINT" Dimensions="6" Radix="Decimal">
+              <Element Index="[0]" Value="0" />
+              <Element Index="[1]" Value="0" />
+              <Element Index="[2]" Value="0" />
+              <Element Index="[3]" Value="0" />
+              <Element Index="[4]" Value="0" />
+              <Element Index="[5]" Value="0" />
+            </ArrayMember>
+            <DataValueMember Name="InOctets" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="InUcastPackets" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="InNucastPackets" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="InDiscards" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="InErrors" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="OutOctets" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="OutUcastPackets" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="OutNucastPackets" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="OutDiscards" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="OutErrors" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Alignment_Errors" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="FCS_Errors" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Single_Collisions" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Multiple_Collisions" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="SQE_Test_Errors" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Deferred_Transmissions" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Late_Collisions" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Excessive_Collisions" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="MAC_Transmit_Errors" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Carrier_Sense_Errors" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Frame_Too_Long" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="MAC_Receive_Errors" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Control_Bits" DataType="INT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Forced_Interface_Speed" DataType="INT" Radix="Decimal" Value="0" />
+            <StructureMember Name="Interface_Label" DataType="STRING">
+              <DataValueMember Name="LEN" DataType="DINT" Radix="Decimal" Value="0" />
+              <DataValueMember Name="DATA" DataType="STRING" Radix="ASCII"><![CDATA[]]></DataValueMember>
+            </StructureMember>
+            <DataValueMember Name="Interface_Port_Index" DataType="DINT" Radix="Decimal" Value="0" />
+            <StructureMember Name="Interface_Port_Description" DataType="STRING">
+              <DataValueMember Name="LEN" DataType="DINT" Radix="Decimal" Value="0" />
+              <DataValueMember Name="DATA" DataType="STRING" Radix="ASCII"><![CDATA[]]></DataValueMember>
+            </StructureMember>
+            <DataValueMember Name="Broascast_Storm_Protection" DataType="SINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Interface_Utilization" DataType="SINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Utilization_Alarm_Upper_Threshold" DataType="SINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Utilization_Alarm_Lower_Threshold" DataType="SINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Port_Link_Alarm" DataType="SINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Port_TrafficOverload_Alarm" DataType="SINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Tx_Unicast_Packet_Rate" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Rx_Unicast_Packet_Rate" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Tx_Multicast_Packet_Rate" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Rx_Multicast_Packet_Rate" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Tx_Broadcast_Packet_Rate" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Rx_Broadcast_Packet_Rate" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Tx_Multicast_Packet" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Rx_Multicast_Packet" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Tx_Broadcast_Packet" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Rx_Broadcast_Packet" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Redundant_Port_Status" DataType="DINT" Radix="Decimal" Value="0" />
+          </Structure>
+        </Element>
+        <Element Index="[9]">
+          <Structure DataType="MOXA_Ethernet_Link_Object_v0">
+            <DataValueMember Name="Interface_Speed" DataType="DINT" Radix="Decimal" Value="0" />
+            <StructureMember Name="Interface_Flags" DataType="MOXA_Interface_Object_Flags_v0">
+              <DataValueMember Name="Link_Status" DataType="BOOL" Value="0" />
+              <DataValueMember Name="Duplex" DataType="BOOL" Value="0" />
+              <DataValueMember Name="Negotiation_Status_1" DataType="BOOL" Value="0" />
+              <DataValueMember Name="Negotiation_Status_2" DataType="BOOL" Value="0" />
+              <DataValueMember Name="Negotiation_Status_3" DataType="BOOL" Value="0" />
+              <DataValueMember Name="Manual_Setting_Requires_Reset" DataType="BOOL" Value="0" />
+              <DataValueMember Name="Local_Hardware_Fault" DataType="BOOL" Value="0" />
+            </StructureMember>
+            <ArrayMember Name="Physical_Address" DataType="SINT" Dimensions="6" Radix="Decimal">
+              <Element Index="[0]" Value="0" />
+              <Element Index="[1]" Value="0" />
+              <Element Index="[2]" Value="0" />
+              <Element Index="[3]" Value="0" />
+              <Element Index="[4]" Value="0" />
+              <Element Index="[5]" Value="0" />
+            </ArrayMember>
+            <DataValueMember Name="InOctets" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="InUcastPackets" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="InNucastPackets" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="InDiscards" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="InErrors" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="OutOctets" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="OutUcastPackets" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="OutNucastPackets" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="OutDiscards" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="OutErrors" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Alignment_Errors" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="FCS_Errors" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Single_Collisions" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Multiple_Collisions" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="SQE_Test_Errors" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Deferred_Transmissions" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Late_Collisions" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Excessive_Collisions" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="MAC_Transmit_Errors" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Carrier_Sense_Errors" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Frame_Too_Long" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="MAC_Receive_Errors" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Control_Bits" DataType="INT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Forced_Interface_Speed" DataType="INT" Radix="Decimal" Value="0" />
+            <StructureMember Name="Interface_Label" DataType="STRING">
+              <DataValueMember Name="LEN" DataType="DINT" Radix="Decimal" Value="0" />
+              <DataValueMember Name="DATA" DataType="STRING" Radix="ASCII"><![CDATA[]]></DataValueMember>
+            </StructureMember>
+            <DataValueMember Name="Interface_Port_Index" DataType="DINT" Radix="Decimal" Value="0" />
+            <StructureMember Name="Interface_Port_Description" DataType="STRING">
+              <DataValueMember Name="LEN" DataType="DINT" Radix="Decimal" Value="0" />
+              <DataValueMember Name="DATA" DataType="STRING" Radix="ASCII"><![CDATA[]]></DataValueMember>
+            </StructureMember>
+            <DataValueMember Name="Broascast_Storm_Protection" DataType="SINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Interface_Utilization" DataType="SINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Utilization_Alarm_Upper_Threshold" DataType="SINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Utilization_Alarm_Lower_Threshold" DataType="SINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Port_Link_Alarm" DataType="SINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Port_TrafficOverload_Alarm" DataType="SINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Tx_Unicast_Packet_Rate" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Rx_Unicast_Packet_Rate" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Tx_Multicast_Packet_Rate" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Rx_Multicast_Packet_Rate" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Tx_Broadcast_Packet_Rate" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Rx_Broadcast_Packet_Rate" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Tx_Multicast_Packet" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Rx_Multicast_Packet" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Tx_Broadcast_Packet" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Rx_Broadcast_Packet" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Redundant_Port_Status" DataType="DINT" Radix="Decimal" Value="0" />
+          </Structure>
+        </Element>
+        <Element Index="[10]">
+          <Structure DataType="MOXA_Ethernet_Link_Object_v0">
+            <DataValueMember Name="Interface_Speed" DataType="DINT" Radix="Decimal" Value="0" />
+            <StructureMember Name="Interface_Flags" DataType="MOXA_Interface_Object_Flags_v0">
+              <DataValueMember Name="Link_Status" DataType="BOOL" Value="0" />
+              <DataValueMember Name="Duplex" DataType="BOOL" Value="0" />
+              <DataValueMember Name="Negotiation_Status_1" DataType="BOOL" Value="0" />
+              <DataValueMember Name="Negotiation_Status_2" DataType="BOOL" Value="0" />
+              <DataValueMember Name="Negotiation_Status_3" DataType="BOOL" Value="0" />
+              <DataValueMember Name="Manual_Setting_Requires_Reset" DataType="BOOL" Value="0" />
+              <DataValueMember Name="Local_Hardware_Fault" DataType="BOOL" Value="0" />
+            </StructureMember>
+            <ArrayMember Name="Physical_Address" DataType="SINT" Dimensions="6" Radix="Decimal">
+              <Element Index="[0]" Value="0" />
+              <Element Index="[1]" Value="0" />
+              <Element Index="[2]" Value="0" />
+              <Element Index="[3]" Value="0" />
+              <Element Index="[4]" Value="0" />
+              <Element Index="[5]" Value="0" />
+            </ArrayMember>
+            <DataValueMember Name="InOctets" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="InUcastPackets" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="InNucastPackets" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="InDiscards" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="InErrors" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="OutOctets" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="OutUcastPackets" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="OutNucastPackets" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="OutDiscards" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="OutErrors" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Alignment_Errors" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="FCS_Errors" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Single_Collisions" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Multiple_Collisions" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="SQE_Test_Errors" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Deferred_Transmissions" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Late_Collisions" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Excessive_Collisions" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="MAC_Transmit_Errors" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Carrier_Sense_Errors" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Frame_Too_Long" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="MAC_Receive_Errors" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Control_Bits" DataType="INT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Forced_Interface_Speed" DataType="INT" Radix="Decimal" Value="0" />
+            <StructureMember Name="Interface_Label" DataType="STRING">
+              <DataValueMember Name="LEN" DataType="DINT" Radix="Decimal" Value="0" />
+              <DataValueMember Name="DATA" DataType="STRING" Radix="ASCII"><![CDATA[]]></DataValueMember>
+            </StructureMember>
+            <DataValueMember Name="Interface_Port_Index" DataType="DINT" Radix="Decimal" Value="0" />
+            <StructureMember Name="Interface_Port_Description" DataType="STRING">
+              <DataValueMember Name="LEN" DataType="DINT" Radix="Decimal" Value="0" />
+              <DataValueMember Name="DATA" DataType="STRING" Radix="ASCII"><![CDATA[]]></DataValueMember>
+            </StructureMember>
+            <DataValueMember Name="Broascast_Storm_Protection" DataType="SINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Interface_Utilization" DataType="SINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Utilization_Alarm_Upper_Threshold" DataType="SINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Utilization_Alarm_Lower_Threshold" DataType="SINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Port_Link_Alarm" DataType="SINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Port_TrafficOverload_Alarm" DataType="SINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Tx_Unicast_Packet_Rate" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Rx_Unicast_Packet_Rate" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Tx_Multicast_Packet_Rate" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Rx_Multicast_Packet_Rate" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Tx_Broadcast_Packet_Rate" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Rx_Broadcast_Packet_Rate" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Tx_Multicast_Packet" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Rx_Multicast_Packet" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Tx_Broadcast_Packet" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Rx_Broadcast_Packet" DataType="DINT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Redundant_Port_Status" DataType="DINT" Radix="Decimal" Value="0" />
+          </Structure>
+        </Element>
+      </ArrayMember>
+      <StructureMember Name="Switch_Data" DataType="MOXA_Object_Data_v0">
+        <StructureMember Name="IP_Address" DataType="MOXA_String_32">
+          <DataValueMember Name="LEN" DataType="DINT" Radix="Decimal" Value="0" />
+          <DataValueMember Name="DATA" DataType="MOXA_String_32" Radix="ASCII"><![CDATA[]]></DataValueMember>
+        </StructureMember>
+        <StructureMember Name="Network_Mask" DataType="MOXA_String_32">
+          <DataValueMember Name="LEN" DataType="DINT" Radix="Decimal" Value="0" />
+          <DataValueMember Name="DATA" DataType="MOXA_String_32" Radix="ASCII"><![CDATA[]]></DataValueMember>
+        </StructureMember>
+        <DataValueMember Name="Control_Bits" DataType="INT" Radix="Decimal" Value="0" />
+        <DataValueMember Name="Port_Speed" DataType="DINT" Radix="Decimal" Value="0" />
+        <StructureMember Name="Port_Interface_Flag" DataType="MOXA_Interface_Object_Flags_v0">
+          <DataValueMember Name="Link_Status" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Duplex" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Negotiation_Status_1" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Negotiation_Status_2" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Negotiation_Status_3" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Manual_Setting_Requires_Reset" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Local_Hardware_Fault" DataType="BOOL" Value="0" />
+        </StructureMember>
+        <StructureMember Name="MAC_Address" DataType="MOXA_String_32">
+          <DataValueMember Name="LEN" DataType="DINT" Radix="Decimal" Value="0" />
+          <DataValueMember Name="DATA" DataType="MOXA_String_32" Radix="ASCII"><![CDATA[]]></DataValueMember>
+        </StructureMember>
+        <DataValueMember Name="Error_Counter" DataType="DINT" Radix="Decimal" Value="0" />
+        <DataValueMember Name="Port_Index" DataType="DINT" Radix="Decimal" Value="0" />
+        <DataValueMember Name="TX_Unicast_Packet_Rate" DataType="DINT" Radix="Decimal" Value="0" />
+        <DataValueMember Name="RX_Unicast_Packet_Rate" DataType="DINT" Radix="Decimal" Value="0" />
+        <DataValueMember Name="TX_Multicast_Packet_Rate" DataType="DINT" Radix="Decimal" Value="0" />
+        <DataValueMember Name="RX_Multicast_Packet_Rate" DataType="DINT" Radix="Decimal" Value="0" />
+        <DataValueMember Name="TX_Broadcast_Packet_Rate" DataType="DINT" Radix="Decimal" Value="0" />
+        <DataValueMember Name="RX_Broadcast_Packet_Rate" DataType="DINT" Radix="Decimal" Value="0" />
+        <DataValueMember Name="Redundant_Port_Role" DataType="DINT" Radix="Decimal" Value="0" />
+        <StructureMember Name="System_Fault" DataType="MOXA_System_Fault_v0">
+          <DataValueMember Name="Fault" DataType="DINT" Radix="Decimal" Value="0" />
+          <DataValueMember Name="Turbo_Ring_Turbo_Ring_2" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Dongle_Configuration_Invalid" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Port_Utilization_Alarm" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Port_Link_Up" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Port_Link_Down" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Turbo_Rinh_Break" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Power_Input_1_Fail" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Power_Input_2_Fail" DataType="BOOL" Value="0" />
+          <DataValueMember Name="DI_1_Off" DataType="BOOL" Value="0" />
+          <DataValueMember Name="DI_1_On" DataType="BOOL" Value="0" />
+          <DataValueMember Name="DI_2_Off" DataType="BOOL" Value="0" />
+          <DataValueMember Name="DI_2_On" DataType="BOOL" Value="0" />
+          <DataValueMember Name="ABC_detect" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Power_Supply_1" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Power_Supply_2" DataType="BOOL" Value="0" />
+        </StructureMember>
+        <DataValueMember Name="CPU_Usage" DataType="SINT" Radix="Decimal" Value="0" />
+        <DataValueMember Name="Redundant_Port_Status" DataType="DINT" Radix="Decimal" Value="0" />
+        <StructureMember Name="Software_Version" DataType="STRING">
+          <DataValueMember Name="LEN" DataType="DINT" Radix="Decimal" Value="0" />
+          <DataValueMember Name="DATA" DataType="STRING" Radix="ASCII"><![CDATA[]]></DataValueMember>
+        </StructureMember>
+        <DataValueMember Name="Port" DataType="INT" Radix="Decimal" Value="0" />
+        <DataValueMember Name="Interface_Utilization" DataType="SINT" Radix="Decimal" Value="0" />
+        <DataValueMember Name="Tx_Packet_Error" DataType="DINT" Radix="Decimal" Value="0" />
+        <DataValueMember Name="Rx_Packet_Error" DataType="DINT" Radix="Decimal" Value="0" />
+      </StructureMember>
+      <StructureMember Name="Switch_HMI_Set" DataType="MOXA_HMI_Set_Object_v0">
+        <DataValueMember Name="Control_Bits" DataType="INT" Radix="Decimal" Value="0" />
+        <DataValueMember Name="Speed_Duplex" DataType="SINT" Radix="Decimal" Value="0" />
+        <DataValueMember Name="Port_Enable" DataType="SINT" Radix="Decimal" Value="0" />
+        <DataValueMember Name="Enter_Port_Enable" DataType="BOOL" Value="0" />
+        <DataValueMember Name="Reset_mib_counter" DataType="SINT" Radix="Decimal" Value="0" />
+        <DataValueMember Name="Reset_to_default" DataType="SINT" Radix="Decimal" Value="0" />
+        <DataValueMember Name="Select_Port" DataType="INT" Radix="Decimal" Value="1" />
+        <DataValueMember Name="Enter_Port_Setting" DataType="BOOL" Value="0" />
+        <DataValueMember Name="Enter_Reset_Setting" DataType="BOOL" Value="0" />
+      </StructureMember>
+    </Structure>
+  </Data>
+</Tag>

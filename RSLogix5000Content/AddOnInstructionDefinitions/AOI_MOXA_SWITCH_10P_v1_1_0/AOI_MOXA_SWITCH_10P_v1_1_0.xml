@@ -1,0 +1,452 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<AddOnInstructionDefinition Name="AOI_MOXA_SWITCH_10P_v1_1_0" Revision="1.1" Vendor="MOXA Corporation" ExecutePrescan="false" ExecutePostscan="false" ExecuteEnableInFalse="false" CreatedDate="2011-12-23T03:34:18.062Z" CreatedBy="Not Available" EditedDate="2017-07-05T22:50:21.634Z" EditedBy="JAYYAN-NB\T430S" SoftwareRevision="v20.01">
+  <Description><![CDATA[the AOI of MOXA switch
+Copyright MOXA Corp. 2017
+Version: 1.1.0
+Date: July 5, 2017]]></Description>
+  <Parameters>
+    <Parameter Name="EnableIn" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read Only">
+      <Description><![CDATA[Enable Input - System Defined Parameter]]></Description>
+    </Parameter>
+    <Parameter Name="EnableOut" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read Only">
+      <Description><![CDATA[Enable Output - System Defined Parameter]]></Description>
+    </Parameter>
+    <Parameter Name="Switch_Input" TagType="Base" DataType="DINT" Dimensions="5" Usage="InOut" Radix="Decimal" Required="true" Visible="true" Constant="false">
+      <Description><![CDATA[The module defined array representing the input assembly]]></Description>
+    </Parameter>
+    <Parameter Name="Switch_Output" TagType="Base" DataType="DINT" Dimensions="1" Usage="InOut" Radix="Decimal" Required="true" Visible="true" Constant="false">
+      <Description><![CDATA[The module defined array representing the output assembly]]></Description>
+    </Parameter>
+    <Parameter Name="Switch_Parameter" TagType="Base" DataType="MOXA_Switch_Parameter" Usage="InOut" Required="true" Visible="true" Constant="false" />
+    <Parameter Name="Get_AllMessage" TagType="Base" DataType="MESSAGE" Usage="InOut" Required="true" Visible="true">
+      <Description><![CDATA[Message to retrieve parameters from CIP object what service is get all]]></Description>
+    </Parameter>
+    <Parameter Name="Set_Message" TagType="Base" DataType="MESSAGE" Usage="InOut" Required="true" Visible="true">
+      <Description><![CDATA[Message to send parameters from CIP object]]></Description>
+    </Parameter>
+    <Parameter Name="storage" TagType="Base" DataType="SINT" Dimensions="200" Usage="InOut" Radix="Decimal" Required="true" Visible="true" Constant="false">
+      <Description><![CDATA[Internal use: storage for explicit messaging responses]]></Description>
+    </Parameter>
+    <Parameter Name="Set_Data" TagType="Base" DataType="INT" Dimensions="2" Usage="InOut" Radix="Decimal" Required="true" Visible="true" Constant="false" />
+    <Parameter Name="Get_SingMessage" TagType="Base" DataType="MESSAGE" Usage="InOut" Required="true" Visible="true">
+      <Description><![CDATA[Message to retrieve parameters from CIP object what service is get single]]></Description>
+    </Parameter>
+    <Parameter Name="storage_single" TagType="Base" DataType="SINT" Dimensions="70" Usage="InOut" Radix="Decimal" Required="true" Visible="true" Constant="false" />
+  </Parameters>
+  <LocalTags>
+    <LocalTag Name="copyTimer" DataType="TIMER" ExternalAccess="None">
+      <Description><![CDATA[for loop every 5 sec]]></Description>
+      <DefaultData Format="L5K"><![CDATA[[0,5000,0]]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <Structure DataType="TIMER">
+          <DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="5000" />
+          <DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="0" />
+          <DataValueMember Name="EN" DataType="BOOL" Value="0" />
+          <DataValueMember Name="TT" DataType="BOOL" Value="0" />
+          <DataValueMember Name="DN" DataType="BOOL" Value="0" />
+        </Structure>
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="timer_io" DataType="TIMER" ExternalAccess="None">
+      <DefaultData Format="L5K"><![CDATA[[0,50,0]]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <Structure DataType="TIMER">
+          <DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="50" />
+          <DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="0" />
+          <DataValueMember Name="EN" DataType="BOOL" Value="0" />
+          <DataValueMember Name="TT" DataType="BOOL" Value="0" />
+          <DataValueMember Name="DN" DataType="BOOL" Value="0" />
+        </Structure>
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="SelectCounter" DataType="COUNTER" ExternalAccess="None">
+      <DefaultData Format="L5K"><![CDATA[[0,141,0]]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <Structure DataType="COUNTER">
+          <DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="141" />
+          <DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="0" />
+          <DataValueMember Name="CU" DataType="BOOL" Value="0" />
+          <DataValueMember Name="CD" DataType="BOOL" Value="0" />
+          <DataValueMember Name="DN" DataType="BOOL" Value="0" />
+          <DataValueMember Name="OV" DataType="BOOL" Value="0" />
+          <DataValueMember Name="UN" DataType="BOOL" Value="0" />
+        </Structure>
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="port_index" DataType="DINT" Radix="Decimal" ExternalAccess="None">
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="DINT" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="IP_Address_StringArray" DataType="STRING" Dimensions="4" ExternalAccess="None">
+      <DefaultData Format="L5K"><![CDATA[[[0,'$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00'],[0,'$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00'],[0,'$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00'],[0,'$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00']]]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <Array DataType="STRING" Dimensions="4">
+          <Element Index="[0]">
+            <Structure DataType="STRING">
+              <DataValueMember Name="LEN" DataType="DINT" Radix="Decimal" Value="0" />
+              <DataValueMember Name="DATA" DataType="STRING" Radix="ASCII"><![CDATA[]]></DataValueMember>
+            </Structure>
+          </Element>
+          <Element Index="[1]">
+            <Structure DataType="STRING">
+              <DataValueMember Name="LEN" DataType="DINT" Radix="Decimal" Value="0" />
+              <DataValueMember Name="DATA" DataType="STRING" Radix="ASCII"><![CDATA[]]></DataValueMember>
+            </Structure>
+          </Element>
+          <Element Index="[2]">
+            <Structure DataType="STRING">
+              <DataValueMember Name="LEN" DataType="DINT" Radix="Decimal" Value="0" />
+              <DataValueMember Name="DATA" DataType="STRING" Radix="ASCII"><![CDATA[]]></DataValueMember>
+            </Structure>
+          </Element>
+          <Element Index="[3]">
+            <Structure DataType="STRING">
+              <DataValueMember Name="LEN" DataType="DINT" Radix="Decimal" Value="0" />
+              <DataValueMember Name="DATA" DataType="STRING" Radix="ASCII"><![CDATA[]]></DataValueMember>
+            </Structure>
+          </Element>
+        </Array>
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="Network_Mask_StringArray" DataType="STRING" Dimensions="4" ExternalAccess="None">
+      <DefaultData Format="L5K"><![CDATA[[[0,'$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00'],[0,'$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00'],[0,'$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00'],[0,'$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00']]]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <Array DataType="STRING" Dimensions="4">
+          <Element Index="[0]">
+            <Structure DataType="STRING">
+              <DataValueMember Name="LEN" DataType="DINT" Radix="Decimal" Value="0" />
+              <DataValueMember Name="DATA" DataType="STRING" Radix="ASCII"><![CDATA[]]></DataValueMember>
+            </Structure>
+          </Element>
+          <Element Index="[1]">
+            <Structure DataType="STRING">
+              <DataValueMember Name="LEN" DataType="DINT" Radix="Decimal" Value="0" />
+              <DataValueMember Name="DATA" DataType="STRING" Radix="ASCII"><![CDATA[]]></DataValueMember>
+            </Structure>
+          </Element>
+          <Element Index="[2]">
+            <Structure DataType="STRING">
+              <DataValueMember Name="LEN" DataType="DINT" Radix="Decimal" Value="0" />
+              <DataValueMember Name="DATA" DataType="STRING" Radix="ASCII"><![CDATA[]]></DataValueMember>
+            </Structure>
+          </Element>
+          <Element Index="[3]">
+            <Structure DataType="STRING">
+              <DataValueMember Name="LEN" DataType="DINT" Radix="Decimal" Value="0" />
+              <DataValueMember Name="DATA" DataType="STRING" Radix="ASCII"><![CDATA[]]></DataValueMember>
+            </Structure>
+          </Element>
+        </Array>
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="IP_Address_OctetArray" DataType="DINT" Dimensions="4" Radix="Decimal" ExternalAccess="None">
+      <DefaultData Format="L5K"><![CDATA[[0,0,0,0]]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <Array DataType="DINT" Dimensions="4" Radix="Decimal">
+          <Element Index="[0]" Value="0" />
+          <Element Index="[1]" Value="0" />
+          <Element Index="[2]" Value="0" />
+          <Element Index="[3]" Value="0" />
+        </Array>
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="Network_Mask_OctetArray" DataType="DINT" Dimensions="4" Radix="Decimal" ExternalAccess="None">
+      <DefaultData Format="L5K"><![CDATA[[0,0,0,0]]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <Array DataType="DINT" Dimensions="4" Radix="Decimal">
+          <Element Index="[0]" Value="0" />
+          <Element Index="[1]" Value="0" />
+          <Element Index="[2]" Value="0" />
+          <Element Index="[3]" Value="0" />
+        </Array>
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="MAC_OctetArray" DataType="DINT" Dimensions="12" Radix="Decimal" ExternalAccess="None">
+      <DefaultData Format="L5K"><![CDATA[[0,0,0,0,0,0,0,0,0,0,0,0]]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <Array DataType="DINT" Dimensions="12" Radix="Decimal">
+          <Element Index="[0]" Value="0" />
+          <Element Index="[1]" Value="0" />
+          <Element Index="[2]" Value="0" />
+          <Element Index="[3]" Value="0" />
+          <Element Index="[4]" Value="0" />
+          <Element Index="[5]" Value="0" />
+          <Element Index="[6]" Value="0" />
+          <Element Index="[7]" Value="0" />
+          <Element Index="[8]" Value="0" />
+          <Element Index="[9]" Value="0" />
+          <Element Index="[10]" Value="0" />
+          <Element Index="[11]" Value="0" />
+        </Array>
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="MAC_StringArray" DataType="STRING" Dimensions="12" ExternalAccess="None">
+      <DefaultData Format="L5K"><![CDATA[[[0,'$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00'],[0,'$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00'],[0,'$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00'],[0,'$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00'],[0,'$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00'],[0,'$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00'],[0,'$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00'],[0,'$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00'],[0,'$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00'],[0,'$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00'],[0,'$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00'],[0,'$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00']]]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <Array DataType="STRING" Dimensions="12">
+          <Element Index="[0]">
+            <Structure DataType="STRING">
+              <DataValueMember Name="LEN" DataType="DINT" Radix="Decimal" Value="0" />
+              <DataValueMember Name="DATA" DataType="STRING" Radix="ASCII"><![CDATA[]]></DataValueMember>
+            </Structure>
+          </Element>
+          <Element Index="[1]">
+            <Structure DataType="STRING">
+              <DataValueMember Name="LEN" DataType="DINT" Radix="Decimal" Value="0" />
+              <DataValueMember Name="DATA" DataType="STRING" Radix="ASCII"><![CDATA[]]></DataValueMember>
+            </Structure>
+          </Element>
+          <Element Index="[2]">
+            <Structure DataType="STRING">
+              <DataValueMember Name="LEN" DataType="DINT" Radix="Decimal" Value="0" />
+              <DataValueMember Name="DATA" DataType="STRING" Radix="ASCII"><![CDATA[]]></DataValueMember>
+            </Structure>
+          </Element>
+          <Element Index="[3]">
+            <Structure DataType="STRING">
+              <DataValueMember Name="LEN" DataType="DINT" Radix="Decimal" Value="0" />
+              <DataValueMember Name="DATA" DataType="STRING" Radix="ASCII"><![CDATA[]]></DataValueMember>
+            </Structure>
+          </Element>
+          <Element Index="[4]">
+            <Structure DataType="STRING">
+              <DataValueMember Name="LEN" DataType="DINT" Radix="Decimal" Value="0" />
+              <DataValueMember Name="DATA" DataType="STRING" Radix="ASCII"><![CDATA[]]></DataValueMember>
+            </Structure>
+          </Element>
+          <Element Index="[5]">
+            <Structure DataType="STRING">
+              <DataValueMember Name="LEN" DataType="DINT" Radix="Decimal" Value="0" />
+              <DataValueMember Name="DATA" DataType="STRING" Radix="ASCII"><![CDATA[]]></DataValueMember>
+            </Structure>
+          </Element>
+          <Element Index="[6]">
+            <Structure DataType="STRING">
+              <DataValueMember Name="LEN" DataType="DINT" Radix="Decimal" Value="0" />
+              <DataValueMember Name="DATA" DataType="STRING" Radix="ASCII"><![CDATA[]]></DataValueMember>
+            </Structure>
+          </Element>
+          <Element Index="[7]">
+            <Structure DataType="STRING">
+              <DataValueMember Name="LEN" DataType="DINT" Radix="Decimal" Value="0" />
+              <DataValueMember Name="DATA" DataType="STRING" Radix="ASCII"><![CDATA[]]></DataValueMember>
+            </Structure>
+          </Element>
+          <Element Index="[8]">
+            <Structure DataType="STRING">
+              <DataValueMember Name="LEN" DataType="DINT" Radix="Decimal" Value="0" />
+              <DataValueMember Name="DATA" DataType="STRING" Radix="ASCII"><![CDATA[]]></DataValueMember>
+            </Structure>
+          </Element>
+          <Element Index="[9]">
+            <Structure DataType="STRING">
+              <DataValueMember Name="LEN" DataType="DINT" Radix="Decimal" Value="0" />
+              <DataValueMember Name="DATA" DataType="STRING" Radix="ASCII"><![CDATA[]]></DataValueMember>
+            </Structure>
+          </Element>
+          <Element Index="[10]">
+            <Structure DataType="STRING">
+              <DataValueMember Name="LEN" DataType="DINT" Radix="Decimal" Value="0" />
+              <DataValueMember Name="DATA" DataType="STRING" Radix="ASCII"><![CDATA[]]></DataValueMember>
+            </Structure>
+          </Element>
+          <Element Index="[11]">
+            <Structure DataType="STRING">
+              <DataValueMember Name="LEN" DataType="DINT" Radix="Decimal" Value="0" />
+              <DataValueMember Name="DATA" DataType="STRING" Radix="ASCII"><![CDATA[]]></DataValueMember>
+            </Structure>
+          </Element>
+        </Array>
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="timer_explicit" DataType="TIMER" ExternalAccess="None">
+      <DefaultData Format="L5K"><![CDATA[[0,100,0]]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <Structure DataType="TIMER">
+          <DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="100" />
+          <DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="0" />
+          <DataValueMember Name="EN" DataType="BOOL" Value="0" />
+          <DataValueMember Name="TT" DataType="BOOL" Value="0" />
+          <DataValueMember Name="DN" DataType="BOOL" Value="0" />
+        </Structure>
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="Update_flag" DataType="BOOL" Radix="Decimal" ExternalAccess="None">
+      <Description><![CDATA[Update flag. start to read MSG]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="BOOL" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="punctuation_marks" DataType="STRING" ExternalAccess="None">
+      <DefaultData Format="L5K"><![CDATA[[0,'$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00']]]></DefaultData>
+      <DefaultData Format="String" Length="0"><![CDATA['']]></DefaultData>
+    </LocalTag>
+    <LocalTag Name="String_Len" DataType="DINT" Radix="Decimal" ExternalAccess="Read/Write">
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="DINT" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="GetVendorObject" DataType="INT" Radix="Decimal" ExternalAccess="Read/Write">
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="INT" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="portnum_index" DataType="SINT" Radix="Decimal" ExternalAccess="Read/Write">
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="SINT" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="Port_Enable_setting" DataType="INT" Radix="Decimal" ExternalAccess="None">
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="INT" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="AttriSelectCounter" DataType="INT" Radix="Decimal" ExternalAccess="None">
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="INT" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="Firmware_Version_Object" DataType="DINT" Radix="Decimal" ExternalAccess="Read/Write">
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="DINT" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="ons_getall" DataType="BOOL" Radix="Decimal" ExternalAccess="None">
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="BOOL" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="ons_getsingle" DataType="BOOL" Radix="Decimal" ExternalAccess="None">
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="BOOL" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="Debug" DataType="DINT" Radix="Decimal" ExternalAccess="None">
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="DINT" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="timer_ethernet" DataType="TIMER" ExternalAccess="None">
+      <DefaultData Format="L5K"><![CDATA[[0,200,0]]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <Structure DataType="TIMER">
+          <DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="200" />
+          <DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="0" />
+          <DataValueMember Name="EN" DataType="BOOL" Value="0" />
+          <DataValueMember Name="TT" DataType="BOOL" Value="0" />
+          <DataValueMember Name="DN" DataType="BOOL" Value="0" />
+        </Structure>
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="temp_data" DataType="DINT" Radix="Decimal" ExternalAccess="Read/Write">
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="DINT" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="MAC_Counter" DataType="DINT" Radix="Decimal" ExternalAccess="None">
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="DINT" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="b_SetPortMSG" DataType="BOOL" Radix="Decimal" ExternalAccess="None">
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="BOOL" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="b_SetMibMSG" DataType="BOOL" Radix="Decimal" ExternalAccess="None">
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="BOOL" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="b_SetResetMSG" DataType="BOOL" Radix="Decimal" ExternalAccess="None">
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="BOOL" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="Software_Version_temp" DataType="SINT" Dimensions="2" Radix="Decimal" ExternalAccess="None">
+      <DefaultData Format="L5K"><![CDATA[[0,0]]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <Array DataType="SINT" Dimensions="2" Radix="Decimal">
+          <Element Index="[0]" Value="0" />
+          <Element Index="[1]" Value="0" />
+        </Array>
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="Software_Version_String" DataType="STRING" Dimensions="2" ExternalAccess="None">
+      <DefaultData Format="L5K"><![CDATA[[[0,'$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00'],[0,'$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00']]]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <Array DataType="STRING" Dimensions="2">
+          <Element Index="[0]">
+            <Structure DataType="STRING">
+              <DataValueMember Name="LEN" DataType="DINT" Radix="Decimal" Value="0" />
+              <DataValueMember Name="DATA" DataType="STRING" Radix="ASCII"><![CDATA[]]></DataValueMember>
+            </Structure>
+          </Element>
+          <Element Index="[1]">
+            <Structure DataType="STRING">
+              <DataValueMember Name="LEN" DataType="DINT" Radix="Decimal" Value="0" />
+              <DataValueMember Name="DATA" DataType="STRING" Radix="ASCII"><![CDATA[]]></DataValueMember>
+            </Structure>
+          </Element>
+        </Array>
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="b_SetPortEnable" DataType="BOOL" Radix="Decimal" ExternalAccess="None">
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="BOOL" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="b_SetPortDuplex" DataType="BOOL" Radix="Decimal" ExternalAccess="None">
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="BOOL" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="InterfaceControlBit" DataType="INT" Radix="Decimal" ExternalAccess="None">
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="INT" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="InterfaceSpeedDuplex" DataType="INT" Radix="Decimal" ExternalAccess="None">
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="INT" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="b_SetMSG" DataType="BOOL" Radix="Decimal" ExternalAccess="None">
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="BOOL" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="InterfacePortEnable" DataType="INT" Radix="Decimal" ExternalAccess="None">
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="INT" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </LocalTag>
+  </LocalTags>
+  <Routines />
+  <Dependencies>
+    <Dependency Type="DataType" Name="MOXA_Switch_Parameter" />
+  </Dependencies>
+</AddOnInstructionDefinition>

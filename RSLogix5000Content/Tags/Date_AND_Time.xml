@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Tag Name="Date_AND_Time" TagType="Base" DataType="Date_Time" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+  <Data Format="L5K"><![CDATA[[0,0,0,3,39,0,0]]]></Data>
+  <Data Format="Decorated">
+    <Structure DataType="Date_Time">
+      <DataValueMember Name="Year" DataType="DINT" Radix="Decimal" Value="0" />
+      <DataValueMember Name="Month" DataType="DINT" Radix="Decimal" Value="0" />
+      <DataValueMember Name="Day" DataType="DINT" Radix="Decimal" Value="0" />
+      <DataValueMember Name="Hours" DataType="DINT" Radix="Decimal" Value="3" />
+      <DataValueMember Name="Min" DataType="DINT" Radix="Decimal" Value="39" />
+      <DataValueMember Name="Secs" DataType="DINT" Radix="Decimal" Value="0" />
+      <DataValueMember Name="MiliSec" DataType="DINT" Radix="Decimal" Value="0" />
+    </Structure>
+  </Data>
+</Tag>

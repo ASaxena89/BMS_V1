@@ -1,0 +1,402 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<AddOnInstructionDefinition Name="IPA_TOT" Revision="1.0" ExecutePrescan="false" ExecutePostscan="false" ExecuteEnableInFalse="false" CreatedDate="2007-05-15T09:28:32.078Z" CreatedBy="INTECHWW\ikhan" EditedDate="2024-07-29T10:11:03.182Z" EditedBy="DESKTOP-J05O7QG\Omer" SoftwareRevision="v35.00">
+  <Description><![CDATA[Totalizer]]></Description>
+  <Parameters>
+    <Parameter Name="EnableIn" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read Only">
+      <Description><![CDATA[Enable Input - System Defined Parameter]]></Description>
+    </Parameter>
+    <Parameter Name="EnableOut" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read Only">
+      <Description><![CDATA[Enable Output - System Defined Parameter]]></Description>
+    </Parameter>
+    <Parameter Name="PV" TagType="Base" DataType="REAL" Usage="Input" Radix="Float" Required="true" Visible="true" ExternalAccess="Read Only">
+      <Description><![CDATA[Proces Value Input]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0.00000000e+000]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="REAL" Radix="Float" Value="0.0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="TimeBase" TagType="Base" DataType="DINT" Usage="Input" Radix="Decimal" Required="true" Visible="true" ExternalAccess="Read/Write">
+      <Description><![CDATA[Select Time Base:
+0 ---> Sec
+1 ---> Min
+2 ---> Hours
+3 ---> Days]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="DINT" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="Today_Tot" TagType="Base" DataType="REAL" Usage="Output" Radix="Float" Required="false" Visible="true" ExternalAccess="Read Only">
+      <Description><![CDATA[Today's Total]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0.00000000e+000]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="REAL" Radix="Float" Value="0.0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="Yesterday_Tot" TagType="Base" DataType="REAL" Usage="Output" Radix="Float" Required="false" Visible="true" ExternalAccess="Read Only">
+      <Description><![CDATA[Yesterday's Total]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0.00000000e+000]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="REAL" Radix="Float" Value="0.0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="This_Month" TagType="Base" DataType="REAL" Usage="Output" Radix="Float" Required="false" Visible="true" ExternalAccess="Read Only">
+      <Description><![CDATA[This Month Total]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0.00000000e+000]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="REAL" Radix="Float" Value="0.0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="Last_Month" TagType="Base" DataType="REAL" Usage="Output" Radix="Float" Required="false" Visible="true" ExternalAccess="Read Only">
+      <Description><![CDATA[Last Month Total]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0.00000000e+000]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="REAL" Radix="Float" Value="0.0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="Day" TagType="Base" DataType="DINT" Usage="Input" Radix="Decimal" Required="true" Visible="true" ExternalAccess="Read/Write">
+      <Description><![CDATA[Day]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="DINT" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="Hour" TagType="Base" DataType="DINT" Usage="Input" Radix="Decimal" Required="true" Visible="true" ExternalAccess="Read/Write">
+      <Description><![CDATA[Hour]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="DINT" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="Minutes" TagType="Base" DataType="DINT" Usage="Input" Radix="Decimal" Required="true" Visible="true" ExternalAccess="Read/Write">
+      <Description><![CDATA[Minute]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="DINT" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="Seconds" TagType="Base" DataType="DINT" Usage="Input" Radix="Decimal" Required="true" Visible="true" ExternalAccess="Read/Write">
+      <Description><![CDATA[Second]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="DINT" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="ResetHour" TagType="Base" DataType="DINT" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Reset Hour Preset]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="DINT" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="ResetMin" TagType="Base" DataType="DINT" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Reset Minutes Preset]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="DINT" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="ResetSec" TagType="Base" DataType="DINT" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Reset Seconds Preset]]></Description>
+      <DefaultData Format="L5K"><![CDATA[59]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="DINT" Radix="Decimal" Value="59" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="Reset" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="true" Visible="true" ExternalAccess="Read/Write">
+      <Description><![CDATA[Reset Command]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="BOOL" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </Parameter>
+  </Parameters>
+  <LocalTags>
+    <LocalTag Name="EQU_01" DataType="FBD_COMPARE" ExternalAccess="None">
+      <DefaultData Format="L5K"><![CDATA[[1,0.00000000e+000,0.00000000e+000]]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <Structure DataType="FBD_COMPARE">
+          <DataValueMember Name="EnableIn" DataType="BOOL" Value="1" />
+          <DataValueMember Name="SourceA" DataType="REAL" Radix="Float" Value="0.0" />
+          <DataValueMember Name="SourceB" DataType="REAL" Radix="Float" Value="0.0" />
+          <DataValueMember Name="EnableOut" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Dest" DataType="BOOL" Value="0" />
+        </Structure>
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="EQU_04" DataType="FBD_COMPARE" ExternalAccess="None">
+      <DefaultData Format="L5K"><![CDATA[[1,0.00000000e+000,0.00000000e+000]]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <Structure DataType="FBD_COMPARE">
+          <DataValueMember Name="EnableIn" DataType="BOOL" Value="1" />
+          <DataValueMember Name="SourceA" DataType="REAL" Radix="Float" Value="0.0" />
+          <DataValueMember Name="SourceB" DataType="REAL" Radix="Float" Value="0.0" />
+          <DataValueMember Name="EnableOut" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Dest" DataType="BOOL" Value="0" />
+        </Structure>
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="BOR_04" DataType="FBD_BOOLEAN_OR" ExternalAccess="None">
+      <DefaultData Format="L5K"><![CDATA[[1,0,5.60519386e-045]]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <Structure DataType="FBD_BOOLEAN_OR">
+          <DataValueMember Name="EnableIn" DataType="BOOL" Value="1" />
+          <DataValueMember Name="In1" DataType="BOOL" Value="0" />
+          <DataValueMember Name="In2" DataType="BOOL" Value="0" />
+          <DataValueMember Name="In3" DataType="BOOL" Value="0" />
+          <DataValueMember Name="In4" DataType="BOOL" Value="0" />
+          <DataValueMember Name="In5" DataType="BOOL" Value="0" />
+          <DataValueMember Name="In6" DataType="BOOL" Value="0" />
+          <DataValueMember Name="In7" DataType="BOOL" Value="0" />
+          <DataValueMember Name="In8" DataType="BOOL" Value="0" />
+          <DataValueMember Name="EnableOut" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Out" DataType="BOOL" Value="0" />
+        </Structure>
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="TOT_01" DataType="TOTALIZER" ExternalAccess="None">
+      <DefaultData Format="L5K"><![CDATA[[1,0.00000000e+000,0,1.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0,0.00000000e+000,1,0,0,0.00000000e+000,0.00000000e+000,0.00000000e+000,0,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,5.60519386e-045,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000]]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <Structure DataType="TOTALIZER">
+          <DataValueMember Name="EnableIn" DataType="BOOL" Value="1" />
+          <DataValueMember Name="In" DataType="REAL" Radix="Float" Value="0.0" />
+          <DataValueMember Name="InFault" DataType="BOOL" Value="0" />
+          <DataValueMember Name="TimeBase" DataType="DINT" Radix="Decimal" Value="0" />
+          <DataValueMember Name="Gain" DataType="REAL" Radix="Float" Value="1.0" />
+          <DataValueMember Name="ResetValue" DataType="REAL" Radix="Float" Value="0.0" />
+          <DataValueMember Name="Target" DataType="REAL" Radix="Float" Value="0.0" />
+          <DataValueMember Name="TargetDev1" DataType="REAL" Radix="Float" Value="0.0" />
+          <DataValueMember Name="TargetDev2" DataType="REAL" Radix="Float" Value="0.0" />
+          <DataValueMember Name="LowInCutoff" DataType="REAL" Radix="Float" Value="0.0" />
+          <DataValueMember Name="ProgProgReq" DataType="BOOL" Value="0" />
+          <DataValueMember Name="ProgOperReq" DataType="BOOL" Value="0" />
+          <DataValueMember Name="ProgStartReq" DataType="BOOL" Value="0" />
+          <DataValueMember Name="ProgStopReq" DataType="BOOL" Value="0" />
+          <DataValueMember Name="ProgResetReq" DataType="BOOL" Value="0" />
+          <DataValueMember Name="OperProgReq" DataType="BOOL" Value="0" />
+          <DataValueMember Name="OperOperReq" DataType="BOOL" Value="0" />
+          <DataValueMember Name="OperStartReq" DataType="BOOL" Value="0" />
+          <DataValueMember Name="OperStopReq" DataType="BOOL" Value="0" />
+          <DataValueMember Name="OperResetReq" DataType="BOOL" Value="0" />
+          <DataValueMember Name="ProgValueReset" DataType="BOOL" Value="0" />
+          <DataValueMember Name="TimingMode" DataType="DINT" Radix="Decimal" Value="0" />
+          <DataValueMember Name="OversampleDT" DataType="REAL" Radix="Float" Value="0.0" />
+          <DataValueMember Name="RTSTime" DataType="DINT" Radix="Decimal" Value="1" />
+          <DataValueMember Name="RTSTimeStamp" DataType="DINT" Radix="Decimal" Value="0" />
+          <DataValueMember Name="EnableOut" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Total" DataType="REAL" Radix="Float" Value="0.0" />
+          <DataValueMember Name="OldTotal" DataType="REAL" Radix="Float" Value="0.0" />
+          <DataValueMember Name="ProgOper" DataType="BOOL" Value="0" />
+          <DataValueMember Name="RunStop" DataType="BOOL" Value="0" />
+          <DataValueMember Name="ProgResetDone" DataType="BOOL" Value="0" />
+          <DataValueMember Name="TargetFlag" DataType="BOOL" Value="0" />
+          <DataValueMember Name="TargetDev1Flag" DataType="BOOL" Value="0" />
+          <DataValueMember Name="TargetDev2Flag" DataType="BOOL" Value="0" />
+          <DataValueMember Name="LowInCutoffFlag" DataType="BOOL" Value="0" />
+          <DataValueMember Name="DeltaT" DataType="REAL" Radix="Float" Value="0.0" />
+          <DataValueMember Name="Status" DataType="DINT" Radix="Hex" Value="16#0000_0000" />
+          <DataValueMember Name="InstructFault" DataType="BOOL" Value="0" />
+          <DataValueMember Name="InFaulted" DataType="BOOL" Value="0" />
+          <DataValueMember Name="TimeBaseInv" DataType="BOOL" Value="0" />
+          <DataValueMember Name="TimingModeInv" DataType="BOOL" Value="0" />
+          <DataValueMember Name="RTSMissed" DataType="BOOL" Value="0" />
+          <DataValueMember Name="RTSTimeInv" DataType="BOOL" Value="0" />
+          <DataValueMember Name="RTSTimeStampInv" DataType="BOOL" Value="0" />
+          <DataValueMember Name="DeltaTInv" DataType="BOOL" Value="0" />
+        </Structure>
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="TOT_MOVE1" DataType="TOT_MOVE" ExternalAccess="None">
+      <DefaultData Format="L5K"><![CDATA[[1,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0,0,0,0,[0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000],[0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000],[0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000]]]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <Structure DataType="TOT_MOVE">
+          <DataValueMember Name="EnableIn" DataType="BOOL" Value="1" />
+          <DataValueMember Name="EnableOut" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Today_Tot" DataType="REAL" Radix="Float" Value="0.0" />
+          <DataValueMember Name="Yesterday_Tot" DataType="REAL" Radix="Float" Value="0.0" />
+          <DataValueMember Name="This_Month" DataType="REAL" Radix="Float" Value="0.0" />
+          <DataValueMember Name="Last_Month" DataType="REAL" Radix="Float" Value="0.0" />
+          <DataValueMember Name="Hour" DataType="DINT" Radix="Decimal" Value="0" />
+          <DataValueMember Name="Minutes" DataType="DINT" Radix="Decimal" Value="0" />
+          <DataValueMember Name="Seconds" DataType="DINT" Radix="Decimal" Value="0" />
+          <DataValueMember Name="Day" DataType="DINT" Radix="Decimal" Value="0" />
+          <DataValueMember Name="Reset" DataType="BOOL" Value="0" />
+        </Structure>
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="SEL_THISMONTH1" DataType="SELECT" ExternalAccess="None">
+      <DefaultData Format="L5K"><![CDATA[[1,0.00000000e+000,0.00000000e+000,0,0.00000000e+000,5.60519386e-045]]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <Structure DataType="SELECT">
+          <DataValueMember Name="EnableIn" DataType="BOOL" Value="1" />
+          <DataValueMember Name="In1" DataType="REAL" Radix="Float" Value="0.0" />
+          <DataValueMember Name="In2" DataType="REAL" Radix="Float" Value="0.0" />
+          <DataValueMember Name="SelectorIn" DataType="BOOL" Value="0" />
+          <DataValueMember Name="EnableOut" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Out" DataType="REAL" Radix="Float" Value="0.0" />
+        </Structure>
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="TONR_01" DataType="FBD_TIMER" ExternalAccess="None">
+      <DefaultData Format="L5K"><![CDATA[[1,0,0,0,0,0,0,0,0,4,0,0]]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <Structure DataType="FBD_TIMER">
+          <DataValueMember Name="EnableIn" DataType="BOOL" Value="1" />
+          <DataValueMember Name="TimerEnable" DataType="BOOL" Value="0" />
+          <DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="0" />
+          <DataValueMember Name="Reset" DataType="BOOL" Value="0" />
+          <DataValueMember Name="EnableOut" DataType="BOOL" Value="0" />
+          <DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="0" />
+          <DataValueMember Name="EN" DataType="BOOL" Value="0" />
+          <DataValueMember Name="TT" DataType="BOOL" Value="0" />
+          <DataValueMember Name="DN" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Status" DataType="DINT" Radix="Hex" Value="16#0000_0000" />
+          <DataValueMember Name="InstructFault" DataType="BOOL" Value="0" />
+          <DataValueMember Name="PresetInv" DataType="BOOL" Value="0" />
+        </Structure>
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="RESD_01" DataType="DOMINANT_RESET" ExternalAccess="None">
+      <DefaultData Format="L5K"><![CDATA[[1,0,5.60519386e-045]]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <Structure DataType="DOMINANT_RESET">
+          <DataValueMember Name="EnableIn" DataType="BOOL" Value="1" />
+          <DataValueMember Name="Set" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Reset" DataType="BOOL" Value="0" />
+          <DataValueMember Name="EnableOut" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Out" DataType="BOOL" Value="0" />
+          <DataValueMember Name="OutNot" DataType="BOOL" Value="0" />
+        </Structure>
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="TOT_MOVE_01" DataType="TOT_MOVE" ExternalAccess="Read/Write">
+      <DefaultData Format="L5K"><![CDATA[[1,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0,0,0,0,[0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000],[0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000],[0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000]]]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <Structure DataType="TOT_MOVE">
+          <DataValueMember Name="EnableIn" DataType="BOOL" Value="1" />
+          <DataValueMember Name="EnableOut" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Today_Tot" DataType="REAL" Radix="Float" Value="0.0" />
+          <DataValueMember Name="Yesterday_Tot" DataType="REAL" Radix="Float" Value="0.0" />
+          <DataValueMember Name="This_Month" DataType="REAL" Radix="Float" Value="0.0" />
+          <DataValueMember Name="Last_Month" DataType="REAL" Radix="Float" Value="0.0" />
+          <DataValueMember Name="Hour" DataType="DINT" Radix="Decimal" Value="0" />
+          <DataValueMember Name="Minutes" DataType="DINT" Radix="Decimal" Value="0" />
+          <DataValueMember Name="Seconds" DataType="DINT" Radix="Decimal" Value="0" />
+          <DataValueMember Name="Day" DataType="DINT" Radix="Decimal" Value="0" />
+          <DataValueMember Name="Reset" DataType="BOOL" Value="0" />
+        </Structure>
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="BAND_01" DataType="FBD_BOOLEAN_AND" ExternalAccess="None">
+      <DefaultData Format="L5K"><![CDATA[[511,0,5.60519386e-045]]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <Structure DataType="FBD_BOOLEAN_AND">
+          <DataValueMember Name="EnableIn" DataType="BOOL" Value="1" />
+          <DataValueMember Name="In1" DataType="BOOL" Value="1" />
+          <DataValueMember Name="In2" DataType="BOOL" Value="1" />
+          <DataValueMember Name="In3" DataType="BOOL" Value="1" />
+          <DataValueMember Name="In4" DataType="BOOL" Value="1" />
+          <DataValueMember Name="In5" DataType="BOOL" Value="1" />
+          <DataValueMember Name="In6" DataType="BOOL" Value="1" />
+          <DataValueMember Name="In7" DataType="BOOL" Value="1" />
+          <DataValueMember Name="In8" DataType="BOOL" Value="1" />
+          <DataValueMember Name="EnableOut" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Out" DataType="BOOL" Value="0" />
+        </Structure>
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="EQU_02" DataType="FBD_COMPARE" ExternalAccess="None">
+      <DefaultData Format="L5K"><![CDATA[[1,0.00000000e+000,0.00000000e+000]]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <Structure DataType="FBD_COMPARE">
+          <DataValueMember Name="EnableIn" DataType="BOOL" Value="1" />
+          <DataValueMember Name="SourceA" DataType="REAL" Radix="Float" Value="0.0" />
+          <DataValueMember Name="SourceB" DataType="REAL" Radix="Float" Value="0.0" />
+          <DataValueMember Name="EnableOut" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Dest" DataType="BOOL" Value="0" />
+        </Structure>
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="SEL_Reset_01" DataType="SELECT" ExternalAccess="None">
+      <DefaultData Format="L5K"><![CDATA[[1,0.00000000e+000,0.00000000e+000,0,0.00000000e+000,5.60519386e-045]]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <Structure DataType="SELECT">
+          <DataValueMember Name="EnableIn" DataType="BOOL" Value="1" />
+          <DataValueMember Name="In1" DataType="REAL" Radix="Float" Value="0.0" />
+          <DataValueMember Name="In2" DataType="REAL" Radix="Float" Value="0.0" />
+          <DataValueMember Name="SelectorIn" DataType="BOOL" Value="0" />
+          <DataValueMember Name="EnableOut" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Out" DataType="REAL" Radix="Float" Value="0.0" />
+        </Structure>
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="Cfg_EU" DataType="STRING" ExternalAccess="Read/Write">
+      <DefaultData Format="L5K"><![CDATA[[0,'$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00']]]></DefaultData>
+      <DefaultData Format="String" Length="0"><![CDATA['']]></DefaultData>
+    </LocalTag>
+    <LocalTag Name="Cfg_Label" DataType="STRING" ExternalAccess="Read/Write">
+      <DefaultData Format="L5K"><![CDATA[[0,'$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00']]]></DefaultData>
+      <DefaultData Format="String" Length="0"><![CDATA['']]></DefaultData>
+    </LocalTag>
+    <LocalTag Name="RESD_02" DataType="DOMINANT_RESET" ExternalAccess="None">
+      <DefaultData Format="L5K"><![CDATA[[1,0,5.60519386e-045]]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <Structure DataType="DOMINANT_RESET">
+          <DataValueMember Name="EnableIn" DataType="BOOL" Value="1" />
+          <DataValueMember Name="Set" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Reset" DataType="BOOL" Value="0" />
+          <DataValueMember Name="EnableOut" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Out" DataType="BOOL" Value="0" />
+          <DataValueMember Name="OutNot" DataType="BOOL" Value="0" />
+        </Structure>
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="TONR_02" DataType="FBD_TIMER" ExternalAccess="None">
+      <DefaultData Format="L5K"><![CDATA[[1,0,0,0,0,0,0,0,0,4,0,0]]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <Structure DataType="FBD_TIMER">
+          <DataValueMember Name="EnableIn" DataType="BOOL" Value="1" />
+          <DataValueMember Name="TimerEnable" DataType="BOOL" Value="0" />
+          <DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="0" />
+          <DataValueMember Name="Reset" DataType="BOOL" Value="0" />
+          <DataValueMember Name="EnableOut" DataType="BOOL" Value="0" />
+          <DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="0" />
+          <DataValueMember Name="EN" DataType="BOOL" Value="0" />
+          <DataValueMember Name="TT" DataType="BOOL" Value="0" />
+          <DataValueMember Name="DN" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Status" DataType="DINT" Radix="Hex" Value="16#0000_0000" />
+          <DataValueMember Name="InstructFault" DataType="BOOL" Value="0" />
+          <DataValueMember Name="PresetInv" DataType="BOOL" Value="0" />
+        </Structure>
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="EQU_03" DataType="FBD_COMPARE" ExternalAccess="None">
+      <DefaultData Format="L5K"><![CDATA[[1,0.00000000e+000,0.00000000e+000]]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <Structure DataType="FBD_COMPARE">
+          <DataValueMember Name="EnableIn" DataType="BOOL" Value="1" />
+          <DataValueMember Name="SourceA" DataType="REAL" Radix="Float" Value="0.0" />
+          <DataValueMember Name="SourceB" DataType="REAL" Radix="Float" Value="0.0" />
+          <DataValueMember Name="EnableOut" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Dest" DataType="BOOL" Value="0" />
+        </Structure>
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="Cfg_Desc" DataType="STRING" ExternalAccess="Read/Write">
+      <DefaultData Format="L5K"><![CDATA[[0,'$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00']]]></DefaultData>
+      <DefaultData Format="String" Length="0"><![CDATA['']]></DefaultData>
+    </LocalTag>
+    <LocalTag Name="Cfg_Tag" DataType="STRING" ExternalAccess="Read/Write">
+      <DefaultData Format="L5K"><![CDATA[[0,'$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00']]]></DefaultData>
+      <DefaultData Format="String" Length="0"><![CDATA['']]></DefaultData>
+    </LocalTag>
+    <LocalTag Name="Cfg_EU_Tot" DataType="STRING" ExternalAccess="Read/Write">
+      <DefaultData Format="L5K"><![CDATA[[0,'$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00']]]></DefaultData>
+      <DefaultData Format="String" Length="0"><![CDATA['']]></DefaultData>
+    </LocalTag>
+  </LocalTags>
+  <Routines />
+  <Dependencies>
+    <Dependency Type="AddOnInstructionDefinition" Name="TOT_MOVE" />
+  </Dependencies>
+</AddOnInstructionDefinition>

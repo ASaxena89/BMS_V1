@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Module Name="DLINK" CatalogNumber="1756-EN2TR" Vendor="1" ProductType="12" ProductCode="200" Major="12" Minor="2" ParentModule="Local" ParentModPortId="1" Inhibited="false" MajorFault="false" DataExchangeId="{B77AAC8B-3CB2-4656-8E6D-E45AB65EB1D3}">
+  <EKey State="CompatibleModule" />
+  <Ports>
+    <Port Id="1" Address="2" Type="ICP" Upstream="true" />
+    <Port Id="2" Address="172.16.2.1" Type="Ethernet" Upstream="false">
+      <Bus />
+    </Port>
+  </Ports>
+  <Communications CommMethod="536870914">
+    <Connections />
+  </Communications>
+  <ExtendedProperties>
+    <public>
+      <Vendor>Rockwell Automation/Allen-Bradley</Vendor>
+      <CatNum>1756-EN2TR</CatNum>
+      <ConfigID>4325481</ConfigID>
+    </public>
+  </ExtendedProperties>
+</Module>

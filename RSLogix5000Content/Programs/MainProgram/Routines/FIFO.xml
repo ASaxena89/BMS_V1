@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Routine Name="FIFO" Type="RLL">
+  <RLLContent>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(ESD.Alm_Alm)ONS(ONS_1)FFL(INTLK_NO[1],FI_NO_L1[0],Control_1,?,?);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(SOFT_ESD)ONS(ONS_2)FFL(INTLK_NO[2],FI_NO_L1[0],Control_1,?,?);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(XS_102.Alm_Alm)ONS(ONS_3)FFL(INTLK_NO[3],FI_NO_L1[0],Control_1,?,?);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(LSLL_101A.Alm_Alm)ONS(ONS_4)FFL(INTLK_NO[4],FI_NO_L1[0],Control_1,?,?);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(LSL_101.Alm_Alm)ONS(ONS_5)FFL(INTLK_NO[5],FI_NO_L1[0],Control_1,?,?);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(LIT_103.Alm_HiHi)ONS(ONS_6)FFL(INTLK_NO[6],FI_NO_L1[0],Control_1,?,?);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(PIT_103.Alm_LoLo)ONS(ONS_7)FFL(INTLK_NO[7],FI_NO_L1[0],Control_1,?,?);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(LIT_105.Alm_LoLo)ONS(ONS_8)FFL(INTLK_NO[8],FI_NO_L1[0],Control_1,?,?);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(TIT_105.Alm_HiHi)ONS(ONS_9)FFL(INTLK_NO[9],FI_NO_L1[0],Control_1,?,?);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(LIT_106.Alm_LoLo)ONS(ONS_10)FFL(INTLK_NO[10],FI_NO_L1[0],Control_1,?,?);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(VSH_101.Alm_Alm)ONS(ONS_11)FFL(INTLK_NO[11],FI_NO_L1[0],Control_1,?,?);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(VSH_102.Alm_Alm)ONS(ONS_12)FFL(INTLK_NO[12],FI_NO_L1[0],Control_1,?,?);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(LIT_101.Alm_HiHi)ONS(ONS_13)FFL(INTLK_NO[13],FI_NO_L1[0],Control_1,?,?);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(LIT_103.Alm_LoLo)ONS(ONS_14)FFL(INTLK_NO[14],FI_NO_L1[0],Control_1,?,?);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(LIT_102.Alm_LoLo)ONS(ONS_15)FFL(INTLK_NO[15],FI_NO_L1[0],Control_1,?,?);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(LDLSA_154.Alm_Alm)ONS(ONS_16)FFL(INTLK_NO[16],FI_NO_L1[0],Control_1,?,?);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(FO_Reset)[MOVE(0,FI_NO_L1[0]) ,MOVE(0,Control_1.POS) ];]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIO(ESD.Alm_Alm)XIO(LDLSA_154.Alm_Alm)XIO(LIT_102.Alm_LoLo)XIO(LIT_103.Alm_LoLo)XIO(LIT_101.Alm_HiHi)XIO(VSH_102.Alm_Alm)XIO(VSH_101.Alm_Alm)XIO(LIT_106.Alm_LoLo)XIO(TIT_105.Alm_HiHi)XIO(LIT_105.Alm_LoLo)XIO(PIT_103.Alm_LoLo)XIO(LIT_103.Alm_HiHi)XIO(LSL_101.Alm_Alm)XIO(LSLL_101A.Alm_Alm)XIO(XS_102.Alm_Alm)XIO(SOFT_ESD)OTE(Common_Trip);]]></Text>
+    </Rung>
+  </RLLContent>
+</Routine>

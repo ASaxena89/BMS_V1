@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Tag Name="E101_RHRS" TagType="Base" DataType="RUN_HRS" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+  <Description><![CDATA[E_101 INLET COOLER MOTOR RUN HOUR]]></Description>
+  <Data Format="L5K"><![CDATA[[3,5.47870000e+004,0.00000000e+000,[2761473,1000,0],[0,1000,0],0.00000000e+000,0.00000000e+000,0]]]></Data>
+  <Data Format="Decorated">
+    <Structure DataType="RUN_HRS">
+      <DataValueMember Name="EnableIn" DataType="BOOL" Value="1" />
+      <DataValueMember Name="EnableOut" DataType="BOOL" Value="1" />
+      <DataValueMember Name="RunI" DataType="BOOL" Value="0" />
+      <DataValueMember Name="PUMP_RESET_SEC" DataType="REAL" Radix="Float" Value="54787.0" />
+      <DataValueMember Name="PUMP_RESET_RHR_CMD" DataType="BOOL" Value="0" />
+      <DataValueMember Name="PUMP_NRESET_SEC" DataType="REAL" Radix="Float" Value="0.0" />
+      <DataValueMember Name="RESET_ALL" DataType="BOOL" Value="0" />
+    </Structure>
+  </Data>
+</Tag>

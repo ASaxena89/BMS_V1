@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Routine Name="DI" Type="RLL">
+  <RLLContent>
+    <Rung Type="N">
+      <Text><![CDATA[IPA_DI(ESD,HMI_RESET,Global_Ack,PCS_IO_Rack01:1:I.Pt00.Data,PCS_IO_Rack01:1:I.Pt00.Fault,1);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[IPA_DI(RESET,HMI_RESET,Global_Ack,PCS_IO_Rack01:1:I.Pt01.Data,PCS_IO_Rack01:1:I.Pt01.Fault,1);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(PCS_IO_Rack01:1:I.Pt02.Data)OTE(FQS_101);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(PCS_IO_Rack01:1:I.Pt03.Data)OTE(P100A_RS);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(PCS_IO_Rack01:1:I.Pt04.Data)OTE(P101A_RS);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[IPA_DI(PCS_001_PSU01,HMI_RESET,Global_Ack,PCS_IO_Rack01:1:I.Pt05.Data,PCS_IO_Rack01:1:I.Pt05.Fault,1);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[IPA_DI(PCS_001_ENETSW,HMI_RESET,Global_Ack,PCS_IO_Rack01:1:I.Pt06.Data,PCS_IO_Rack01:1:I.Pt06.Fault,1);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[IPA_DI(LSL_101,HMI_RESET,Global_Ack,PCS_IO_Rack01:1:I.Pt08.Data,PCS_IO_Rack01:1:I.Pt08.Fault,1);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(PCS_IO_Rack01:2:I.Pt00.Data)OTE(E101_RS);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(PCS_IO_Rack01:2:I.Pt01.Data)OTE(E102_RS);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(PCS_IO_Rack01:2:I.Pt02.Data)OTE(FQS_102);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[IPA_DI(VSH_101,HMI_RESET,Global_Ack,PCS_IO_Rack01:2:I.Pt03.Data,PCS_IO_Rack01:2:I.Pt03.Fault,1);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[IPA_DI(VSH_102,HMI_RESET,Global_Ack,PCS_IO_Rack01:2:I.Pt04.Data,PCS_IO_Rack01:2:I.Pt04.Fault,1);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[IPA_DI(LSLL_101A,HMI_RESET,Global_Ack,PCS_IO_Rack01:2:I.Pt05.Data,PCS_IO_Rack01:2:I.Pt05.Fault,1);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[IPA_DI(_2201_JTA_XA_101,HMI_RESET,Global_Ack,PCS_IO_Rack01:3:I.Pt10.Data,PCS_IO_Rack01:3:I.Pt10.Fault,1);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[IPA_DI(_2201_JTA_XA_102,HMI_RESET,Global_Ack,PCS_IO_Rack01:3:I.Pt11.Data,PCS_IO_Rack01:3:I.Pt11.Fault,1);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[IPA_DI(HDLA_153,HMI_RESET,Global_Ack,PCS_IO_Rack01:2:I.Pt08.Data,PCS_IO_Rack01:2:I.Pt08.Fault,1);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[IPA_DI(LDLSA_154,HMI_RESET,Global_Ack,PCS_IO_Rack01:2:I.Pt09.Data,PCS_IO_Rack01:2:I.Pt09.Fault,1);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[IPA_DI(LLA_721,HMI_RESET,Global_Ack,PCS_IO_Rack01:2:I.Pt10.Data,PCS_IO_Rack01:2:I.Pt10.Fault,1);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[IPA_DI(HLA_721,HMI_RESET,Global_Ack,PCS_IO_Rack01:2:I.Pt11.Data,PCS_IO_Rack01:2:I.Pt11.Fault,1);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[IPA_DI(XS_102,HMI_RESET,Global_Ack,PCS_IO_Rack01:2:I.Pt12.Data,PCS_IO_Rack01:2:I.Pt12.Fault,1);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(PCS_IO_Rack01:3:I.Pt00.Data)OTE(P100B_RS);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(PCS_IO_Rack01:3:I.Pt01.Data)OTE(P101B_RS);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[IPA_DI(_2201_PCS_001_PSU02,HMI_RESET,Global_Ack,PCS_IO_Rack01:3:I.Pt02.Data,PCS_IO_Rack01:3:I.Pt02.Fault,1);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[IPA_DI(_2201_PCS_001_AUX,HMI_RESET,Global_Ack,PCS_IO_Rack01:3:I.Pt03.Data,PCS_IO_Rack01:3:I.Pt03.Fault,1);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[IPA_DI(_2209_NET_001_ENETSW,HMI_RESET,Global_Ack,PCS_IO_Rack01:3:I.Pt04.Data,PCS_IO_Rack01:3:I.Pt04.Fault,1);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[IPA_DI(_2209_NET_001_AUX,HMI_RESET,Global_Ack,PCS_IO_Rack01:3:I.Pt05.Data,PCS_IO_Rack01:3:I.Pt05.Fault,1);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[IPA_DI(_2209_NET_001_PSU,HMI_RESET,Global_Ack,PCS_IO_Rack01:3:I.Pt06.Data,PCS_IO_Rack01:3:I.Pt06.Fault,1);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[IPA_DI(_2201_PCS_001_AFS,HMI_RESET,Global_Ack,PCS_IO_Rack01:3:I.Pt08.Data,PCS_IO_Rack01:3:I.Pt08.Fault,1);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[IPA_DI(_2201_JTA_001_AFS,HMI_RESET,Global_Ack,PCS_IO_Rack01:3:I.Pt09.Data,PCS_IO_Rack01:3:I.Pt09.Fault,1);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[SUB(TIT_102D.Val,TIT_102A.Val,TDI1_Result)GE(TDI1_Result,15)OTE(TDI1_Alm_Invert);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIO(TDI1_Alm_Invert)OTE(TDI1_Alm);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[IPA_DI(TDI1_DI,HMI_RESET,Global_Ack,TDI1_Alm,0,1);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(_7318_MC_921.Alm_Lo)OTE(MC921_Alm);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[[XIC(_7318_MC_921.Alm_HiHi) ,XIC(_7318_MC_921.Alm_LoLo) ]OTE(MC921_IOFault);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[IPA_DI(MC921_DI,HMI_RESET,Global_Ack,MC921_Alm,MC921_IOFault,0);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(_7318_SD939A.Alm_Lo)OTE(SD939A_Alm);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[[XIC(_7318_SD939A.Alm_HiHi) ,XIC(_7318_SD939A.Alm_LoLo) ]OTE(SD939A_IOFault);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[IPA_DI(SD939A_DI,HMI_RESET,Global_Ack,SD939A_Alm,SD939A_IOFault,0);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(_7318_SD939B.Alm_Lo)OTE(SD939B_Alm);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[[XIC(_7318_SD939B.Alm_HiHi) ,XIC(_7318_SD939B.Alm_LoLo) ]OTE(SD939B_IOFault);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[IPA_DI(SD939B_DI,HMI_RESET,Global_Ack,SD939B_Alm,SD939B_IOFault,0);]]></Text>
+    </Rung>
+  </RLLContent>
+</Routine>

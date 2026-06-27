@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Routine Name="MainRoutine" Type="RLL">
+  <RLLContent>
+    <Rung Type="N">
+      <Text><![CDATA[JSR(AI,0);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[JSR(Pumps,0);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[JSR(AO,0);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[JSR(DI,0);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[JSR(DOUT,0);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[JSR(Diagnostics,0);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[JSR(Cause_and_Effect,0);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[JSR(Alarms,0);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[JSR(SplitRangeScale,0);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[JSR(FIFO,0);]]></Text>
+    </Rung>
+  </RLLContent>
+</Routine>

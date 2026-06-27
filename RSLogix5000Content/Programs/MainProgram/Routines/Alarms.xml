@@ -1,0 +1,365 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Routine Name="Alarms" Type="RLL">
+  <RLLContent>
+    <Rung Type="N">
+      <Comment><![CDATA[DI Alarms Section]]></Comment>
+      <Text><![CDATA[XIC(ESD.Alm_Alm)ALMD(ESD_Alm,Global_Ack,HMI_RESET,0,0);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(ESD.Alm_IOFault)ALMD(ESD_IOAlm,Global_Ack,HMI_RESET,0,0);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(LSL_101.Alm_Alm)ALMD(LSL101_Alm,Global_Ack,HMI_RESET,0,0);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(LSL_101.Alm_IOFault)ALMD(LSL101_IOAlm,Global_Ack,HMI_RESET,0,0);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(SOFT_ESD)ALMD(SOFTWARE_ESD,Global_Ack,HMI_RESET,0,0);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(VSH_101.Alm_Alm)ALMD(VSH101,Global_Ack,HMI_RESET,0,0);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(VSH_101.Inp_IOFault)ALMD(VSH101_IOAlm,Global_Ack,HMI_RESET,0,0);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(VSH_102.Alm_Alm)ALMD(VSH102,Global_Ack,HMI_RESET,0,0);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(VSH_102.Inp_IOFault)ALMD(VSH102_IOAlm,Global_Ack,HMI_RESET,0,0);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(LDLSA_154.Alm_Alm)ALMD(LDLSA154,Global_Ack,HMI_RESET,0,0);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(LDLSA_154.Inp_IOFault)ALMD(LDLSA154_IOAlm,Global_Ack,HMI_RESET,0,0);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(XS_102.Alm_Alm)ALMD(XS102,Global_Ack,HMI_RESET,0,0);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[MOVE(XS_102.Cfg_AlmSeverity,XS102.Severity);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(XS_102.Sts_AlmShelved)OTL(XS102.OperShelve);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(XS_102.Alm_IOFault)ALMD(XS102_IOAlm,Global_Ack,HMI_RESET,0,0);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(LSLL_101A.Alm_Alm)ALMD(LSLL101A_Alm,Global_Ack,HMI_RESET,0,0);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(LSLL_101A.Alm_IOFault)ALMD(LSLL101A_IOAlm,Global_Ack,HMI_RESET,0,0);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(TDI1_DI.Alm_Alm)ALMD(TD1,Global_Ack,HMI_RESET,0,0);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[DO Alarms Section]]></Comment>
+      <Text><![CDATA[XIC(P100A_SD.Out_Q)ALMD(P100A_SDn,Global_Ack,HMI_RESET,0,0);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(PCS_IO_Rack01:5:I.Pt00.Fault)ALMD(P100A_SDnIOAlm,Global_Ack,HMI_RESET,0,0);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(P101A_CTRL.Out_Q)ALMD(P101ACTRL,Global_Ack,HMI_RESET,0,0);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(PCS_IO_Rack01:5:I.Pt01.Fault)ALMD(P101A_CTRLIOAlm,Global_Ack,HMI_RESET,0,0);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(P101A_SD.Out_Q)ALMD(P101A_SDn,Global_Ack,HMI_RESET,0,0);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(PCS_IO_Rack01:5:I.Pt02.Fault)ALMD(P101A_SDnIOAlm,Global_Ack,HMI_RESET,0,0);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(E101_SD.Out_Q)ALMD(E101SD,Global_Ack,HMI_RESET,0,0);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(PCS_IO_Rack01:5:I.Pt03.Fault)ALMD(E101SD_IOAlm,Global_Ack,HMI_RESET,0,0);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(P100B_SD.Out_Q)ALMD(P100B_SDn,Global_Ack,HMI_RESET,0,0);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(PCS_IO_Rack01:6:I.Pt00.Fault)ALMD(P100B_SDnIOAlm,Global_Ack,HMI_RESET,0,0);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(P101B_CTRL.Out_Q)ALMD(P101BCTRL,Global_Ack,HMI_RESET,0,0);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(PCS_IO_Rack01:6:I.Pt01.Fault)ALMD(P101B_CTRLIOAlm,Global_Ack,HMI_RESET,0,0);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(P101B_SD.Out_Q)ALMD(P101B_SDn,Global_Ack,HMI_RESET,0,0);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(PCS_IO_Rack01:6:I.Pt02.Fault)ALMD(P101B_SDnIOAlm,Global_Ack,HMI_RESET,0,0);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(E102_SD.Out_Q)ALMD(E102SD,Global_Ack,HMI_RESET,0,0);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(PCS_IO_Rack01:6:I.Pt03.Fault)ALMD(E102SD_IOAlm,Global_Ack,HMI_RESET,0,0);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(BMS105_SD.Out_Q)ALMD(BMS105SD,Global_Ack,HMI_RESET,0,0);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(PCS_IO_Rack01:6:I.Pt04.Fault)ALMD(BMS105SD_IOAlm,Global_Ack,HMI_RESET,0,0);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(XA_103.Out_Q)ALMD(XA103,Global_Ack,HMI_RESET,0,0);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(PCS_IO_Rack01:7:I.Pt00.Fault)ALMD(XA103_IOAlm,Global_Ack,HMI_RESET,0,0);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(SD_CMD_V101_INLET.Out_Q)ALMD(SDCMD_V101_INLET,Global_Ack,HMI_RESET,0,0);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(PCS_IO_Rack01:7:I.Pt01.Fault)ALMD(SDCMD_V101_INLET_IOAlm,Global_Ack,HMI_RESET,0,0);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(SYV_102.Out)ALMD(SYV102,Global_Ack,HMI_RESET,0,0);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(PCS_IO_Rack01:7:I.Pt02.Fault)ALMD(SYV102_IOAlm,Global_Ack,HMI_RESET,0,0);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(SYV_103.Out)ALMD(SYV103,Global_Ack,HMI_RESET,0,0);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(PCS_IO_Rack01:7:I.Pt03.Fault)ALMD(SYV103_IOAlm,Global_Ack,HMI_RESET,0,0);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(SYV_154.Out)ALMD(SYV154,Global_Ack,HMI_RESET,0,0);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(PCS_IO_Rack01:8:I.Pt00.Fault)ALMD(SYV154_IOAlm,Global_Ack,HMI_RESET,0,0);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(_7318_XA2201.Out_Q)ALMD(_7318XA2201,Global_Ack,HMI_RESET,0,0);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(PCS_IO_Rack01:8:I.Pt01.Fault)ALMD(_7318XA2201_IOAlm,Global_Ack,HMI_RESET,0,0);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(P100A_RS)ALMD(P100A_RSS,Global_Ack,HMI_RESET,0,0);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[AI ALARMS]]></Comment>
+      <Text><![CDATA[XIC(LIT_101.Alm_HiHi)ALMD(LIT_101_HiHi,Global_Ack,HMI_RESET,0,0);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(LIT_101.Alm_Hi)ALMD(LIT_101_Hi,Global_Ack,HMI_RESET,0,0);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(LIT_101.Alm_Lo)ALMD(LIT_101_Lo,Global_Ack,HMI_RESET,0,0);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(LIT_101.Alm_LoLo)ALMD(LIT_101_LoLo,Global_Ack,HMI_RESET,0,0);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(LIT_101.Alm_IOFault)ALMD(LIT_101_PVBad,Global_Ack,HMI_RESET,0,0);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(PIT_101.Alm_IOFault)ALMD(PIT_101_PVBad,Global_Ack,HMI_RESET,0,0);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(TIT_101A.Alm_IOFault)ALMD(TIT_101A_PVBad,Global_Ack,HMI_RESET,0,0);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(LIT_102.Alm_Hi)ALMD(LIT_102_Hi,Global_Ack,HMI_RESET,0,0);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(LIT_102.Alm_Lo)ALMD(LIT_102_Lo,Global_Ack,HMI_RESET,0,0);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(LIT_102.Alm_LoLo)ALMD(LIT_102_LoLo,Global_Ack,HMI_RESET,0,0);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(LIT_102.Alm_HiHi)ALMD(LIT_102_HiHi,Global_Ack,HMI_RESET,0,0);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(LIT_102.Alm_IOFault)ALMD(LIT_102_PVBad,Global_Ack,HMI_RESET,0,0);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(PIT_102A.Alm_IOFault)ALMD(PIT_102A_PVBad,Global_Ack,HMI_RESET,0,0);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(TIT_102A.Alm_IOFault)ALMD(TIT_102A_PVBad,Global_Ack,HMI_RESET,0,0);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(LIT_103.Alm_IOFault)ALMD(LIT_103_PVBad,Global_Ack,HMI_RESET,0,0);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(LIT_103.Alm_HiHi)ALMD(LIT_103_HiHi,Global_Ack,HMI_RESET,0,0);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(LIT_103.Alm_Hi)ALMD(LIT_103_Hi,Global_Ack,HMI_RESET,0,0);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(LIT_103.Alm_Lo)ALMD(LIT_103_Lo,Global_Ack,HMI_RESET,0,0);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(LIT_103.Alm_LoLo)ALMD(LIT_103_LoLo,Global_Ack,HMI_RESET,0,0);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(AIT_101.Alm_IOFault)ALMD(AIT_101_PVBad,Global_Ack,HMI_RESET,0,0);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(FIT_102.Alm_IOFault)ALMD(FIT_102_PVBad,Global_Ack,HMI_RESET,0,0);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(_7318_MC_921.Alm_HiHi)ALMD(MC_921_OCAlm,Global_Ack,HMI_RESET,0,0);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(_7318_MC_921.Alm_LoLo)ALMD(MC_921_SCAlm,Global_Ack,HMI_RESET,0,0);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(_7318_MC_921.Alm_IOFault)ALMD(MC_921_IOAlm,Global_Ack,HMI_RESET,0,0);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(_7318_MC_921.Alm_Lo)ALMD(MC_921_Alm,Global_Ack,HMI_RESET,0,0);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(_7318_SD939A.Alm_HiHi)ALMD(SD939A_OCAlm,Global_Ack,HMI_RESET,0,0);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(_7318_SD939A.Alm_LoLo)ALMD(SD939A_SCAlm,Global_Ack,HMI_RESET,0,0);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(_7318_SD939A.Alm_IOFault)ALMD(SD939A_IOAlm,Global_Ack,HMI_RESET,0,0);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(_7318_SD939A.Alm_Lo)ALMD(SD939A_FAlm,Global_Ack,HMI_RESET,0,0);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(_7318_SD939B.Alm_HiHi)ALMD(SD939B_OCAlm,Global_Ack,HMI_RESET,0,0);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(_7318_SD939B.Alm_LoLo)ALMD(SD939B_SCAlm,Global_Ack,HMI_RESET,0,0);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(_7318_SD939B.Alm_IOFault)ALMD(SD939B_IOAlm,Global_Ack,HMI_RESET,0,0);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(_7318_SD939B.Alm_Lo)ALMD(SD939B_FAlm,Global_Ack,HMI_RESET,0,0);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(PIT_102B.Alm_Hi)ALMD(PIT_102B_Hi,Global_Ack,HMI_RESET,0,0);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(PIT_102B.Alm_IOFault)ALMD(PIT_102B_PVBad,Global_Ack,HMI_RESET,0,0);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(TIT_102B.Alm_IOFault)ALMD(TIT_102B_PVBad,Global_Ack,HMI_RESET,0,0);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(TIT_102D.Alm_IOFault)ALMD(TIT_102D_PVBad,Global_Ack,HMI_RESET,0,0);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(DPIT_101.Alm_Hi)ALMD(DPIT_101_Hi,Global_Ack,HMI_RESET,0,0);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(DPIT_101.Alm_IOFault)ALMD(DPIT_101_PVBad,Global_Ack,HMI_RESET,0,0);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(_2201_PCS_001_TIT.Alm_Hi)ALMD(_2201_PCS_001_TIT_Hi,Global_Ack,HMI_RESET,0,0);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(_2201_PCS_001_TIT.Alm_HiHi)ALMD(_2201_PCS_001_TIT_HiHi,Global_Ack,HMI_RESET,0,0);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(_2201_PCS_001_TIT.Alm_IOFault)ALMD(_2201_PCS_001_TIT_PVBad,Global_Ack,HMI_RESET,0,0);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(FQIT_101.Alm_IOFault)ALMD(FQIT_101_PVBad,Global_Ack,HMI_RESET,0,0);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(DPIT_102.Alm_Hi)ALMD(DPIT_102_Hi,Global_Ack,HMI_RESET,0,0);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(DPIT_102.Alm_IOFault)ALMD(DPIT_102_PVBad,Global_Ack,HMI_RESET,0,0);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(FQIT_102.Alm_IOFault)ALMD(FQIT_102_PVBad,Global_Ack,HMI_RESET,0,0);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(PIT_103.Alm_IOFault)ALMD(PIT_103_PVBad,Global_Ack,HMI_RESET,0,0);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(PIT_103.Alm_Lo)ALMD(PIT_103_Lo,Global_Ack,HMI_RESET,0,0);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(PIT_103.Alm_LoLo)ALMD(PIT_103_LoLo,Global_Ack,HMI_RESET,0,0);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(TIT_103.Alm_IOFault)ALMD(TIT_103_PVBad,Global_Ack,HMI_RESET,0,0);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(TIT_103.Alm_IOFault)ALMD(TIT_103_PVBad,Global_Ack,HMI_RESET,0,0);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(PIT_102C.Alm_IOFault)ALMD(PIT_102C_PVBad,Global_Ack,HMI_RESET,0,0);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(LIT_104.Alm_IOFault)ALMD(LIT_104_PVBad,Global_Ack,HMI_RESET,0,0);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(LIT_104.Alm_Lo)ALMD(LIT_104_Lo,Global_Ack,HMI_RESET,0,0);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(LIT_105.Alm_Lo)ALMD(LIT_105_Lo,Global_Ack,HMI_RESET,0,0);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(LIT_105.Alm_LoLo)ALMD(LIT_105_LoLo,Global_Ack,HMI_RESET,0,0);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(LIT_105.Alm_IOFault)ALMD(LIT_105_PVBad,Global_Ack,HMI_RESET,0,0);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(TIT_104.Alm_IOFault)ALMD(TIT_104_PVBad,Global_Ack,HMI_RESET,0,0);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(TIT_105.Alm_IOFault)ALMD(TIT_105_PVBad,Global_Ack,HMI_RESET,0,0);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(TIT_105.Alm_HiHi)ALMD(TIT_105_HiHi,Global_Ack,HMI_RESET,0,0);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(TIT_105.Alm_Hi)ALMD(TIT_105_Hi,Global_Ack,HMI_RESET,0,0);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(LIT_106.Alm_IOFault)ALMD(LIT_106_PVBad,Global_Ack,HMI_RESET,0,0);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(LIT_106.Alm_Hi)ALMD(LIT_106_Hi,Global_Ack,HMI_RESET,0,0);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(LIT_106.Alm_Lo)ALMD(LIT_106_Lo,Global_Ack,HMI_RESET,0,0);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(LIT_106.Alm_LoLo)ALMD(LIT_106_LoLo,Global_Ack,HMI_RESET,0,0);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(TDI1_DI.Alm_Alm)ALMD(TDI_102_Alm,Global_Ack,HMI_RESET,0,0);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(P101A.Alm_FailStart)ALMD(P101A_FailStart,Global_Ack,HMI_RESET,0,0);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(P101A.Alm_FailStop)ALMD(P101A_FailStop,Global_Ack,HMI_RESET,0,0);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(P101B.Alm_FailStart)ALMD(P101B_FailStart,Global_Ack,HMI_RESET,0,0);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(P101B.Alm_FailStop)ALMD(P101B_FailStop,Global_Ack,HMI_RESET,0,0);]]></Text>
+    </Rung>
+  </RLLContent>
+</Routine>

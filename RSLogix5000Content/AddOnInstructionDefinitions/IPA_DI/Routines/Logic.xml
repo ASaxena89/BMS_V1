@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Routine Name="Logic" Type="RLL">
+  <RLLContent>
+    <Rung Type="N">
+      <Text><![CDATA[JMP(SkipText)LOWER(Cfg_Desc,Cfg_Label)LOWER(Cfg_Tag,Cfg_Tag);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[The following two rungs handle the out of Service Command from the HMI]]></Comment>
+      <Text><![CDATA[LBL(SkipText)XIC(OCmd_OoSOn)[OTL(OoS) ,OTU(OCmd_OoSOn) ,XIC(OoS) OTE(Alm.Inp_OoS) ,XIC(OoS) OTE(IOFault.Inp_OoS) ];]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(OCmd_OoSOff)[OTU(OoS) ,OTU(OCmd_OoSOff) ];]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[============================================================
+ALARM RESET COMMAND HANDLING
+============================================================
+This rung handles the Alarm Reset Input and Commands]]></Comment>
+      <Text><![CDATA[[XIC(OCmd_Reset) ,XIC(OCmd_ResetAckAll) ][OTL(Alm.OCmd_Reset) ,OTL(IOFault.OCmd_Reset) ]OTU(OCmd_Reset);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[[XIC(OCmd_Ack) ,XIC(OCmd_ResetAckAll) ][ONS(Ack_ONS) [OTL(OCmd_AlarmAck) ,OTL(OCmd_IOFaultAck) ] ,TON(Ack_Tmr,?,?) ,XIC(Ack_Tmr.DN) OTU(OCmd_Ack) OTU(OCmd_ResetAckAll) ];]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[MOVE(Startup_Inhibit_PRESET,Startup_Inhibit_TMR.PRE);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(Startup_Inhibit)TOF(Startup_Inhibit_TMR,?,?);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[The discrete alarm routine takes the raw status of the discrete point (.flag parameter) and processes it based on the setpoints and status of the other parameters associated with the tag data structure.
+
+
+
+In the next four rungs, the input type is defined from the object block. If the value for Input Signal Type is set as 1 from the object block then the input signal is a normally high signal. If the value of Input Signal Type is set as 0 then the signal type is a normally low signal. The .active bit is the value after the raw value (.flag)  passes through a de-bounce timer which can be configured from the HMI.  The Active bit is then used to set the latch bit if the device is in service .  Once the latch bit is set, it will remain latched until the alarm clears AND the alarm is acknowledged.]]></Comment>
+      <Text><![CDATA[[XIO(Inp_PV) XIC(Inp_Target) ,XIC(Inp_PV) XIO(Inp_Target) ]OTE(Flag);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[CPT(Alm_Debounce.PRE,Cfg_Debounce*1000);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(Flag)XIO(OoS)XIO(Startup_Inhibit_TMR.DN)TON(Alm_Debounce,?,?);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(Alm_Debounce.DN)OTE(Sts_Alm);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[IPA_Alarm(Alm);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[**************************************************************************
+Diagnostic Trip Handling
+***************************************************************************]]></Comment>
+      <Text><![CDATA[[XIC(Inp_IOFault) ,XIC(Program_Keyswitch) ]XIO(OoS)XIO(Startup_Inhibit_TMR.DN)OTE(DiagAlmFlag);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(DiagAlmFlag)TON(Diag_Debounce,?,?);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(Diag_Debounce.DN)OTE(Sts_IOFault);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[IPA_Alarm(IOFault);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[If ANY alarm is Disabled, Inhibited or Suppressed, set the Alarm Inhibit
+summary status bit]]></Comment>
+      <Text><![CDATA[[XIC(Alm.Sts_AlmInh) ,XIC(IOFault.Sts_AlmInh) ]OTE(Sts_AlmInh);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[============================================================
+NOTIFICATION VALUE
+============================================================
+Indicate the current alarm notification level as the max of any of the alarms,
+and set the low-order bit for reset or ack required:
+0 = Not in alarm, acknowledged
+1 = Not in alarm, unacknowledged or reset required
+2 = Low severity alarm, acknowledged
+3 = Low severity alarm, unacknowledged
+4 = Medium severity alarm, acknowledged
+5 = Medium severity alarm, unacknowledged
+6 = High severity alarm, acknowledged
+7 = High severity alarm, unacknowledged
+8 = Urgent severity alarm, acknowledged
+9 = Urgent severity alarm, unacknowledged
+
+#####  V4.00.00  2018-06-25:  Added Val_NotifyAll and Val_UnackAlmC to roll up alarm  #####
+#####  priority / ack status and unack. alarm count.  #####
+#####  Added I/O Fault alarm.  #####]]></Comment>
+      <Text><![CDATA[[CLR(Wrk_Notify) CLR(Wrk_UnackAlmC) OTU(Wrk_Notify.0) ,GT(Alm.Val_Notify,Wrk_Notify) MOVE(Alm.Val_Notify,Wrk_Notify) ,GT(IOFault.Val_Notify,Wrk_Notify) MOVE(IOFault.Val_Notify,Wrk_Notify) ,[XIC(Alm.Val_Notify.0) ADD(Wrk_UnackAlmC,1,Wrk_UnackAlmC) ,XIC(IOFault.Val_Notify.0) ADD(Wrk_UnackAlmC,1,Wrk_UnackAlmC) ] OTL(Wrk_Notify.0) ,MOVE(Wrk_Notify,Val_Notify) MOVE(Wrk_UnackAlmC,Val_UnackAlmC) MOVE(Wrk_Notify,Val_NotifyAll) ];]]></Text>
+    </Rung>
+  </RLLContent>
+</Routine>

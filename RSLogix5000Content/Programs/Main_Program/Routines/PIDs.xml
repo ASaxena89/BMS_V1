@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Routine Name="PIDs" Type="RLL">
+  <RLLContent>
+    <Rung Type="N">
+      <Text><![CDATA[[XIC(LIT_101.OutOfRange) ,XIC(LIT_101.OoS) ,XIC(LIT_101.Inp_PVBad) ]OTE(LIC_101.Inp_PVBad);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[GT(LIT_101.Inp_PV,12)OTE(LIC_101.Inp_PVBad);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[IPA_PID(LIC_101,LIT_101.Inp_PV,LIC_101_Output,LIT_101.Cfg_PVEUMax,LIT_101.Cfg_PVEUMin);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[[XIC(LIT_102.OutOfRange) ,XIC(LIT_102.OoS) ,XIC(LIT_102.Inp_PVBad) ]OTE(LIC_102.Inp_PVBad);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[IPA_PID(LIC_102,LIT_102.Val,LY_102.Inp_CV,LIT_102.Cfg_PVEUMax,LIT_102.Cfg_PVEUMin);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[[XIC(LIT_103.OutOfRange) ,XIC(LIT_103.OoS) ,XIC(LIT_103.Inp_PVBad) ]OTE(LIC_103.Inp_PVBad);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[IPA_PID(LIC_103,LIT_103.Val,LY_103.Inp_CV,LIT_103.Cfg_PVEUMax,LIT_103.Cfg_PVEUMin);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[[XIC(PIT_102B.OutOfRange) ,XIC(PIT_102B.OoS) ,XIC(PIT_102B.Inp_PVBad) ]OTE(PIC_102B.Inp_PVBad);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[IPA_PID(PIC_102B,PIT_102B.Val,PY_102.Inp_CV,PIT_102B.Cfg_PVEUMax,PIT_102B.Cfg_PVEUMin);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[[XIC(LIT_104.OutOfRange) ,XIC(LIT_104.OoS) ,XIC(LIT_104.Inp_PVBad) ]OTE(LIC_104.Inp_PVBad);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[IPA_PID(LIC_104,LIT_104.Val,LY_104.Inp_CV,LIT_104.Cfg_PVEUMax,LIT_104.Cfg_PVEUMin);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[[XIC(LIT_105.OutOfRange) ,XIC(LIT_105.OoS) ,XIC(LIT_105.Inp_PVBad) ]OTE(LIC_105.Inp_PVBad);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[IPA_PID(LIC_105,LIT_105.Val,LY_105.Inp_CV,LIT_105.Cfg_PVEUMax,LIT_105.Cfg_PVEUMin);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[IPA_PID(TIC_105,TIT_105.Val,TY_101,TIT_105.Cfg_PVEUMax,TIT_105.Cfg_PVEUMin);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[MOVE(TY_101,TY_105A.Inp_CV);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[MOVE(TY_101,TY_105B.Inp_CV);]]></Text>
+    </Rung>
+  </RLLContent>
+</Routine>

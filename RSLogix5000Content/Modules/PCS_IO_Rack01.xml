@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Module Name="PCS_IO_Rack01" CatalogNumber="5094-AEN2TR/A" Vendor="1" ProductType="12" ProductCode="322" Major="5" Minor="12" ParentModule="DLINK" ParentModPortId="2" Inhibited="false" MajorFault="false" SafetyEnabled="false" DataExchangeId="{012D5B88-6357-4788-A6E2-CCDF707C4AC4}">
+  <EKey State="CompatibleModule" />
+  <Ports>
+    <Port Id="1" Address="0" Type="5094" Upstream="false">
+      <Bus Size="17" />
+    </Port>
+    <Port Id="2" Address="172.16.2.3" Type="Ethernet" Upstream="true" />
+  </Ports>
+  <ExtendedProperties>
+    <public>
+      <Vendor>Rockwell Automation/Allen-Bradley</Vendor>
+      <CatNum>5094-AEN2TR</CatNum>
+      <TimeSyncEnabled />
+      <ConfigID>4325281</ConfigID>
+    </public>
+  </ExtendedProperties>
+</Module>

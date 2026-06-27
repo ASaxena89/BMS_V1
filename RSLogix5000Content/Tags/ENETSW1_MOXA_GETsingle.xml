@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Tag Name="ENETSW1_MOXA_GETsingle" TagType="Base" DataType="MESSAGE" ExternalAccess="Read/Write" OpcUaAccess="None">
+  <Data Format="Message">
+    <MessageParameters MessageType="CIP Generic" RequestedLength="0" ConnectedFlag="2" ConnectionPath="ENETSW1" CommTypeCode="0" ServiceCode="16#000e" ObjectType="16#00f6" TargetObject="5" AttributeNumber="16#0070" LocalIndex="0" DestinationTag="ENETSW1_MOXA_singlestorage[0]" LargePacketUsage="false" />
+  </Data>
+</Tag>

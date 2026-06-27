@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Tag Name="P101A_RHRS" TagType="Base" DataType="RUN_HRS" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+  <Description><![CDATA[ P-101A GLYCOL INJECTION PUMP RUN HOURS]]></Description>
+  <Data Format="L5K"><![CDATA[[3,1.57444000e+005,4.78400000e+003,[2333240,1000,0],[0,1000,0],0.00000000e+000,0.00000000e+000,0]]]></Data>
+  <Data Format="Decorated">
+    <Structure DataType="RUN_HRS">
+      <DataValueMember Name="EnableIn" DataType="BOOL" Value="1" />
+      <DataValueMember Name="EnableOut" DataType="BOOL" Value="1" />
+      <DataValueMember Name="RunI" DataType="BOOL" Value="0" />
+      <DataValueMember Name="PUMP_RESET_SEC" DataType="REAL" Radix="Float" Value="157444.0" />
+      <DataValueMember Name="PUMP_RESET_RHR_CMD" DataType="BOOL" Value="0" />
+      <DataValueMember Name="PUMP_NRESET_SEC" DataType="REAL" Radix="Float" Value="4784.0" />
+      <DataValueMember Name="RESET_ALL" DataType="BOOL" Value="0" />
+    </Structure>
+  </Data>
+</Tag>

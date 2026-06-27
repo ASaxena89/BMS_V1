@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Routine Name="Logic" Type="RLL">
+  <RLLContent>
+    <Rung Type="N">
+      <Text><![CDATA[JMP(SkipText)LOWER(Cfg_Desc,Cfg_Label)LOWER(Cfg_Tag,Cfg_Tag);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[
+]]></Comment>
+      <Text><![CDATA[LBL(SkipText)XIO(Cfg_HasRunFbk)OTE(Sts_NoRunFdbk);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[[XIC(OCmd_Prog) ,XIO(Sts_Hand) XIC(HistSts_Prog) ONS(HandProg_ONS) ][OTL(Sts_Prog) ,OTU(Sts_Oper) ,OTU(OCmd_Prog) ,OTU(HistSts_Prog) ];]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[[XIC(OCmd_Oper) ,XIO(Sts_Hand) XIC(HistSts_Oper) ONS(HandOper_ONS) ][OTL(Sts_Oper) ,OTU(Sts_Prog) ,OTU(OCmd_Oper) ,OTU(HistSts_Oper) ];]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(Inp_Hand)ONS(ModeHist_ONS)[XIC(Sts_Prog) OTL(HistSts_Prog) ,XIC(Sts_Oper) OTL(HistSts_Oper) ];]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(Inp_Hand)[OTU(Sts_Oper) ,OTU(Sts_Prog) ,OTU(OCmd_Oper) ,OTU(OCmd_Prog) ,OTE(Sts_Hand) ];]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[
+ Check for All Permissives and Interlocks
+ 
+]]></Comment>
+      <Text><![CDATA[[XIO(Inp_RunFdbk) ,XIC(Sts_NoRunFdbk) ]XIO(Out)OTE(Latch);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(Latch)XIO(Alm_FailStart)XIO(Alm_FailStop)XIC(Inp_IntlkOK)XIC(Inp_PermOK)OTE(Sts_Ready);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[[XIC(Alm_FailStart) ,XIC(Alm_FailStop) ,XIO(Inp_IntlkOK) ,XIO(Inp_PermOK) ]OTE(Sts_NotRdy);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[
+Valve Open and Close Control
+ 
+]]></Comment>
+      <Text><![CDATA[[XIC(Sts_Oper) [XIC(OCmd_Start) XIC(Sts_Ready) ,XIC(Out) ] XIO(OCmd_Stop) XIO(Alm_FailStart) XIO(Alm_FailStop) ,XIC(Sts_Prog) [XIC(PCmd_Start) XIC(Sts_Ready) ,XIC(Out) ] XIO(PCmd_Stop) XIO(Alm_FailStart) XIO(Alm_FailStop) ]XIC(Inp_IntlkOK)XIO(Sts_Hand)OTE(Out);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[MUL(Cfg_FailStartT,1000,FStrt_Timer.PRE);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[[XIC(Out) ,XIC(FStrt_Timer.TT) XIO(OCmd_Stop) ]XIO(Inp_RunFdbk)XIO(Sts_NoRunFdbk)XIO(Sts_Hand)TON(FStrt_Timer,?,?);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(FStrt_Timer.DN)OTE(Sts_FailStart);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(Sts_FailStart)XIC(Inp_RunFdbk)OTU(StartLatch);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[IPA_Alarm(FailStart);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[MUL(Cfg_FailStopT,1000,FStop_Timer.PRE);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[
+ Generation of FC Alarm
+]]></Comment>
+      <Text><![CDATA[[XIO(Out) ,XIC(FStop_Timer.TT) XIO(OCmd_Start) ]XIC(Inp_RunFdbk)XIO(Sts_NoRunFdbk)XIO(Sts_Hand)TON(FStop_Timer,?,?);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(FStop_Timer.DN)OTE(Sts_FailStop);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(Sts_FailStop)XIO(Inp_RunFdbk)OTU(StopLatch);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[IPA_Alarm(FailStop);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[If ANY alarm is Disabled, Inhibited or Suppressed, set the Alarm Inhibit
+summary status bit (which puts the "I" box on the graphic symbol).]]></Comment>
+      <Text><![CDATA[[XIC(FailStop.Sts_AlmInh) ,XIC(FailStart.Sts_AlmInh) ]OTE(Sts_AlmInh);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[
+ Unlatching of Open and Close Commands from HMI
+]]></Comment>
+      <Text><![CDATA[[XIC(OCmd_Start) ,XIC(OCmd_Stop) ,XIC(PCmd_Stop) ,XIC(PCmd_Start) ][OTU(OCmd_Start) ,OTU(OCmd_Stop) ,OTU(PCmd_Start) ,OTU(PCmd_Stop) ];]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[============================================================
+ALARM RESET COMMAND HANDLING
+============================================================
+This rung handles the Alarm Reset Input and Commands]]></Comment>
+      <Text><![CDATA[[XIC(OCmd_Reset) ,XIC(OCmd_ResetAckAll) ][OTL(FailStop.OCmd_Reset) ,OTL(FailStart.OCmd_Reset) ,TON(Reset_TMR,?,?) ,XIC(Reset_TMR.DN) OTU(OCmd_Reset) OTU(OCmd_ResetAckAll) ];]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[[XIC(OCmd_Ack) ,XIC(OCmd_ResetAckAll) ][OTL(OCmd_FailStartAck) ,OTL(OCmd_FailStopAck) ,TON(Ack_Tmr,?,?) ,XIC(Ack_Tmr.DN) OTU(OCmd_Ack) OTU(OCmd_ResetAckAll) ];]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[
+
+Status Bit Generation for HMI]]></Comment>
+      <Text><![CDATA[[XIO(Sts_Hand) [XIC(Cfg_HasRunFbk) XIC(Inp_RunFdbk) ,XIO(Cfg_HasRunFbk) XIC(Out) ] ,XIC(Sts_Hand) XIC(Cfg_HasRunFbk) XIC(Inp_RunFdbk) ]MOVE(1,Val_Sts);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[[XIO(Sts_Hand) [XIC(Cfg_HasRunFbk) XIO(Inp_RunFdbk) ,XIO(Cfg_HasRunFbk) XIO(Out) ] ,XIC(Sts_Hand) XIC(Cfg_HasRunFbk) XIO(Inp_RunFdbk) ]MOVE(0,Val_Sts);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[[XIO(Sts_Hand) [XIC(Cfg_HasRunFbk) XIO(Inp_RunFdbk) XIC(Out) ,XIC(Cfg_HasRunFbk) XIC(Inp_RunFdbk) XIO(Out) ] ,XIC(Sts_Hand) XIO(Cfg_HasRunFbk) ]MOVE(2,Val_Sts);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[============================================================
+NOTIFICATION VALUE
+============================================================
+Indicate the current alarm notification level as the max of any of the alarms,
+and set the low-order bit for reset or ack required:
+0 = Not in alarm, acknowledged
+1 = Not in alarm, unacknowledged or reset required
+2 = Low severity alarm, acknowledged
+3 = Low severity alarm, unacknowledged
+4 = Medium severity alarm, acknowledged
+5 = Medium severity alarm, unacknowledged
+6 = High severity alarm, acknowledged
+7 = High severity alarm, unacknowledged
+8 = Urgent severity alarm, acknowledged
+9 = Urgent severity alarm, unacknowledged
+#####  V4.00.00  2018-07-16:  Added Val_NotifyAll and Val_UnackAlmC to roll up alarm  #####
+#####  priority / ack status and unack. alarm count.  #####]]></Comment>
+      <Text><![CDATA[[CLR(Wrk_Notify) CLR(Wrk_UnackAlmC) ,GT(FailStop.Val_Notify,Wrk_Notify) MOVE(FailStop.Val_Notify,Wrk_Notify) ,GT(FailStart.Val_Notify,Wrk_Notify) MOVE(FailStart.Val_Notify,Wrk_Notify) ,[XIC(FailStop.Val_Notify.0) ADD(Wrk_UnackAlmC,1,Wrk_UnackAlmC) ,XIC(FailStart.Val_Notify.0) ADD(Wrk_UnackAlmC,1,Wrk_UnackAlmC) ] OTE(Wrk_Notify.0) ,MOVE(Wrk_Notify,Val_Notify) MOVE(Wrk_Notify,Val_NotifyAll) MOVE(Wrk_UnackAlmC,Val_UnackAlmC) ];]]></Text>
+    </Rung>
+  </RLLContent>
+</Routine>

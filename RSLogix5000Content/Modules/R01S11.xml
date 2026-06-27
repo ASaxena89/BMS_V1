@@ -1,0 +1,686 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Module Name="R01S11" CatalogNumber="5094-SERIAL/A" Vendor="1" ProductType="12" ProductCode="328" Major="2" Minor="11" ParentModule="PCS_IO_Rack01" ParentModPortId="1" Inhibited="false" MajorFault="false" SafetyEnabled="false" DataExchangeId="{54BEDA0A-AE67-48DC-B6A6-6C765FFE64BE}">
+  <EKey State="CompatibleModule" />
+  <Ports>
+    <Port Id="1" Address="11" Type="5094" Upstream="true" />
+  </Ports>
+  <Communications>
+    <ConfigData ConfigSize="3484">
+      <Data Format="L5K"><![CDATA[[3488,191,1,0,0,1,262912,0,0,0,256,0,1,0,0,1,262912,0,0,0,256,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+		,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,1,262912,3500,200,200
+		,0,256,1,0,0,256,1,0,0,256,1,0,0,256,1,0,0,256,1,0,0,256,1,0,0,256,1,0,0,256,1,0,0,256,1,0,0,256,1,0,0,256,1,0,0,256,1,0,0,256,1,0,0,256
+		,1,0,0,256,1,0,0,256,1,0,0,256,1,0,0,256,1,0,0,256,1,0,0,256,1,0,0,256,1,0,0,256,1,0,0,256,1,0,0,256,1,0,0,256,1,0,0,256,1,0,0,256,1,0,0
+		,256,1,0,0,256,1,0,0,256,1,0,0,256,1,0,0,256,1,0,0,256,1,0,0,256,1,0,0,256,1,0,0,256,1,0,0,256,1,0,0,256,1,0,0,256,1,0,0,256,1,0,0,256
+		,1,0,0,256,1,0,0,256,1,0,0,256,1,0,0,256,1,0,0,256,1,0,0,256,1,0,0,256,1,0,0,256,1,0,0,256,1,0,0,1,786456,0,513,524801,0,0,0,0,0,0,0
+		,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+		,0,0,0,0,0,0,0,0,0,0,2,0,0,1,262912,3500,200,200,0,196865,1,0,0,197121,1,0,0,256,1,0,0,256,1,0,0,256,1,0,0,256,1,0,0,256,1,0,0,256
+		,1,0,0,256,1,0,0,256,1,0,0,256,1,0,0,256,1,0,0,256,1,0,0,256,1,0,0,256,1,0,0,256,1,0,0,256,1,0,0,256,1,0,0,256,1,0,0,256,1,0,0,256,1,0,0
+		,256,1,0,0,256,1,0,0,256,1,0,0,256,1,0,0,256,1,0,0,256,1,0,0,256,1,0,0,256,1,0,0,256,1,0,0,256,1,0,0,256,1,0,0,256,1,0,0,256,1,0,0,256
+		,1,0,0,256,1,0,0,256,1,0,0,256,1,0,0,256,1,0,0,256,1,0,0,256,1,0,0,256,1,0,0,256,1,0,0,256,1,0,0,256,1,0,0,256,1,0,0,256,1,0,0,256,1,0,0
+		,256,1,0,0,256,1,0,0,3,0,0,1,17040128,3500,0,1,0,0,1,0,0,1,0,0,1,0,0,1,0,0,1,0,0,1,0,0,1,0,0,1,0,0,1,0,0,1,0,0,1,0,0,1,0,0,1,0,0,1,0,0,1,0,0,1,0,0,1
+		,0,0,1,0,0,1,0,0,1,0,0,1,0,0,1,0,0,1,0,0,1,0,0,1,0,0,1,0,0,1,0,0,1,0,0,1,0,3,0,0,1,17040128,3500,0,1,0,0,1,0,0,1,0,0,1,0,0,1,0,0,1,0,0,1,0,0,1,0,0,1,0,0
+		,1,0,0,1,0,0,1,0,0,1,0,0,1,0,0,1,0,0,1,0,0,1,0,0,1,0,0,1,0,0,1,0,0,1,0,0,1,0,0,1,0,0,1,0,0,1,0,0,1,0,0,1,0,0,1,0,0,1,0,0,1,0,4,0,0,1,1027,50528257,168624178
+		,5,0,0,1,1027,196865,5,50,0,6,0,0,1,1027,196608769,7,0,0,0,1027,1,0,8,0,0,1,1029,18808835]]]></Data>
+    </ConfigData>
+    <ConfigScript Size="1444">
+      <Data Format="L5K"><![CDATA[[-96,5,0,0,4,0,0,0,0,0,0,0,0,0,0,0,-115,5,0,0,11,0,0,0,0,1,0,0,0,2,0,0,0,50,0,0,0,16,4,32,4,37,0,101,3,48,3,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,3,4,0,0
+		,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,64,1,0,0,0,0,0,0,80,0,0,0,2,0,0,0,-90,1,0,0,16,4,32,4,37,0,104,3,48,3,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+		,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+		,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+		,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+		,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+		,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,-32,12,0,0,-128,41
+		,0,0,80,0,0,0,2,0,0,0,-66,1,0,0,16,4,32,4,37,0,106,3,48,3,2,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,3,4,0,-84,13,0,0,-56,0,0,0,-56,0,0,0,0,0,0,0,0,1,0,0,1
+		,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0
+		,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0
+		,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0
+		,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0
+		,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,-96,13,0,0,96
+		,54,0,0,80,0,0,0,2,0,0,0,-102,1,0,0,16,4,32,4,37,0,108,3,48,3,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0
+		,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0
+		,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0
+		,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0
+		,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0
+		,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,-128,12,0,0,0,68,0,0,80,0,0,0,0,0,0]]]></Data>
+    </ConfigScript>
+    <Connections>
+      <Connection Name="Channel0ASCII" RPI="80000" Type="StandardDataDriven" OutputSize="264" InputSize="272" EventID="0" ProgrammaticallySendEventTrigger="false" Priority="Scheduled" InputConnectionType="Multicast" InputProductionTrigger="Cyclic" ConnectionPath="20 04 24 bf 2c 79 2d 00 5f 03" InputTagSuffix="I0" OutputTagSuffix="O0">
+        <InputTag ExternalAccess="Read/Write" OpcUaAccess="None">
+          <Data Format="Decorated">
+            <Structure DataType="AB:5000_ASCII:I:1">
+              <DataValueMember Name="RunMode" DataType="BOOL" Value="1" />
+              <DataValueMember Name="ConnectionFaulted" DataType="BOOL" Value="0" />
+              <DataValueMember Name="DiagnosticActive" DataType="BOOL" Value="0" />
+              <DataValueMember Name="DiagnosticSequenceCount" DataType="SINT" Radix="Decimal" Value="0" />
+              <StructureMember Name="ASCII" DataType="AB:5000_ASCII_Channel:I:1">
+                <DataValueMember Name="Fault" DataType="BOOL" Value="1" />
+                <DataValueMember Name="Uncertain" DataType="BOOL" Value="0" />
+                <DataValueMember Name="TxDataLost" DataType="BOOL" Value="0" />
+                <DataValueMember Name="RxDataLost" DataType="BOOL" Value="0" />
+                <DataValueMember Name="ParityError" DataType="BOOL" Value="0" />
+                <DataValueMember Name="TxFIFOEmpty" DataType="BOOL" Value="1" />
+                <DataValueMember Name="RxFIFOEmpty" DataType="BOOL" Value="1" />
+                <DataValueMember Name="NonDelimitedRecord" DataType="BOOL" Value="0" />
+                <DataValueMember Name="HandshakeError" DataType="BOOL" Value="0" />
+                <DataValueMember Name="NewData" DataType="BOOL" Value="0" />
+                <DataValueMember Name="TxDataSent" DataType="BOOL" Value="0" />
+                <DataValueMember Name="TxDataLengthInvalid" DataType="BOOL" Value="0" />
+                <DataValueMember Name="RxDataLengthInvalid" DataType="BOOL" Value="0" />
+                <DataValueMember Name="FramingError" DataType="BOOL" Value="0" />
+                <DataValueMember Name="BufferOverrun" DataType="BOOL" Value="0" />
+                <DataValueMember Name="CTS" DataType="BOOL" Value="1" />
+                <DataValueMember Name="RTS" DataType="BOOL" Value="0" />
+                <DataValueMember Name="DSR" DataType="BOOL" Value="1" />
+                <DataValueMember Name="DCD" DataType="BOOL" Value="1" />
+                <DataValueMember Name="DTR" DataType="BOOL" Value="1" />
+                <DataValueMember Name="XOFF" DataType="BOOL" Value="0" />
+                <DataValueMember Name="BREAK" DataType="BOOL" Value="0" />
+                <DataValueMember Name="TxAck" DataType="SINT" Radix="Decimal" Value="0" />
+                <DataValueMember Name="RxID" DataType="SINT" Radix="Decimal" Value="0" />
+                <DataValueMember Name="RxDataLength" DataType="INT" Radix="Decimal" Value="0" />
+                <ArrayMember Name="RxData" DataType="SINT" Dimensions="256" Radix="Decimal">
+                  <Element Index="[0]" Value="0" />
+                  <Element Index="[1]" Value="0" />
+                  <Element Index="[2]" Value="0" />
+                  <Element Index="[3]" Value="0" />
+                  <Element Index="[4]" Value="0" />
+                  <Element Index="[5]" Value="0" />
+                  <Element Index="[6]" Value="0" />
+                  <Element Index="[7]" Value="0" />
+                  <Element Index="[8]" Value="0" />
+                  <Element Index="[9]" Value="0" />
+                  <Element Index="[10]" Value="0" />
+                  <Element Index="[11]" Value="0" />
+                  <Element Index="[12]" Value="0" />
+                  <Element Index="[13]" Value="0" />
+                  <Element Index="[14]" Value="0" />
+                  <Element Index="[15]" Value="0" />
+                  <Element Index="[16]" Value="0" />
+                  <Element Index="[17]" Value="0" />
+                  <Element Index="[18]" Value="0" />
+                  <Element Index="[19]" Value="0" />
+                  <Element Index="[20]" Value="0" />
+                  <Element Index="[21]" Value="0" />
+                  <Element Index="[22]" Value="0" />
+                  <Element Index="[23]" Value="0" />
+                  <Element Index="[24]" Value="0" />
+                  <Element Index="[25]" Value="0" />
+                  <Element Index="[26]" Value="0" />
+                  <Element Index="[27]" Value="0" />
+                  <Element Index="[28]" Value="0" />
+                  <Element Index="[29]" Value="0" />
+                  <Element Index="[30]" Value="0" />
+                  <Element Index="[31]" Value="0" />
+                  <Element Index="[32]" Value="0" />
+                  <Element Index="[33]" Value="0" />
+                  <Element Index="[34]" Value="0" />
+                  <Element Index="[35]" Value="0" />
+                  <Element Index="[36]" Value="0" />
+                  <Element Index="[37]" Value="0" />
+                  <Element Index="[38]" Value="0" />
+                  <Element Index="[39]" Value="0" />
+                  <Element Index="[40]" Value="0" />
+                  <Element Index="[41]" Value="0" />
+                  <Element Index="[42]" Value="0" />
+                  <Element Index="[43]" Value="0" />
+                  <Element Index="[44]" Value="0" />
+                  <Element Index="[45]" Value="0" />
+                  <Element Index="[46]" Value="0" />
+                  <Element Index="[47]" Value="0" />
+                  <Element Index="[48]" Value="0" />
+                  <Element Index="[49]" Value="0" />
+                  <Element Index="[50]" Value="0" />
+                  <Element Index="[51]" Value="0" />
+                  <Element Index="[52]" Value="0" />
+                  <Element Index="[53]" Value="0" />
+                  <Element Index="[54]" Value="0" />
+                  <Element Index="[55]" Value="0" />
+                  <Element Index="[56]" Value="0" />
+                  <Element Index="[57]" Value="0" />
+                  <Element Index="[58]" Value="0" />
+                  <Element Index="[59]" Value="0" />
+                  <Element Index="[60]" Value="0" />
+                  <Element Index="[61]" Value="0" />
+                  <Element Index="[62]" Value="0" />
+                  <Element Index="[63]" Value="0" />
+                  <Element Index="[64]" Value="0" />
+                  <Element Index="[65]" Value="0" />
+                  <Element Index="[66]" Value="0" />
+                  <Element Index="[67]" Value="0" />
+                  <Element Index="[68]" Value="0" />
+                  <Element Index="[69]" Value="0" />
+                  <Element Index="[70]" Value="0" />
+                  <Element Index="[71]" Value="0" />
+                  <Element Index="[72]" Value="0" />
+                  <Element Index="[73]" Value="0" />
+                  <Element Index="[74]" Value="0" />
+                  <Element Index="[75]" Value="0" />
+                  <Element Index="[76]" Value="0" />
+                  <Element Index="[77]" Value="0" />
+                  <Element Index="[78]" Value="0" />
+                  <Element Index="[79]" Value="0" />
+                  <Element Index="[80]" Value="0" />
+                  <Element Index="[81]" Value="0" />
+                  <Element Index="[82]" Value="0" />
+                  <Element Index="[83]" Value="0" />
+                  <Element Index="[84]" Value="0" />
+                  <Element Index="[85]" Value="0" />
+                  <Element Index="[86]" Value="0" />
+                  <Element Index="[87]" Value="0" />
+                  <Element Index="[88]" Value="0" />
+                  <Element Index="[89]" Value="0" />
+                  <Element Index="[90]" Value="0" />
+                  <Element Index="[91]" Value="0" />
+                  <Element Index="[92]" Value="0" />
+                  <Element Index="[93]" Value="0" />
+                  <Element Index="[94]" Value="0" />
+                  <Element Index="[95]" Value="0" />
+                  <Element Index="[96]" Value="0" />
+                  <Element Index="[97]" Value="0" />
+                  <Element Index="[98]" Value="0" />
+                  <Element Index="[99]" Value="0" />
+                  <Element Index="[100]" Value="0" />
+                  <Element Index="[101]" Value="0" />
+                  <Element Index="[102]" Value="0" />
+                  <Element Index="[103]" Value="0" />
+                  <Element Index="[104]" Value="0" />
+                  <Element Index="[105]" Value="0" />
+                  <Element Index="[106]" Value="0" />
+                  <Element Index="[107]" Value="0" />
+                  <Element Index="[108]" Value="0" />
+                  <Element Index="[109]" Value="0" />
+                  <Element Index="[110]" Value="0" />
+                  <Element Index="[111]" Value="0" />
+                  <Element Index="[112]" Value="0" />
+                  <Element Index="[113]" Value="0" />
+                  <Element Index="[114]" Value="0" />
+                  <Element Index="[115]" Value="0" />
+                  <Element Index="[116]" Value="0" />
+                  <Element Index="[117]" Value="0" />
+                  <Element Index="[118]" Value="0" />
+                  <Element Index="[119]" Value="0" />
+                  <Element Index="[120]" Value="0" />
+                  <Element Index="[121]" Value="0" />
+                  <Element Index="[122]" Value="0" />
+                  <Element Index="[123]" Value="0" />
+                  <Element Index="[124]" Value="0" />
+                  <Element Index="[125]" Value="0" />
+                  <Element Index="[126]" Value="0" />
+                  <Element Index="[127]" Value="0" />
+                  <Element Index="[128]" Value="0" />
+                  <Element Index="[129]" Value="0" />
+                  <Element Index="[130]" Value="0" />
+                  <Element Index="[131]" Value="0" />
+                  <Element Index="[132]" Value="0" />
+                  <Element Index="[133]" Value="0" />
+                  <Element Index="[134]" Value="0" />
+                  <Element Index="[135]" Value="0" />
+                  <Element Index="[136]" Value="0" />
+                  <Element Index="[137]" Value="0" />
+                  <Element Index="[138]" Value="0" />
+                  <Element Index="[139]" Value="0" />
+                  <Element Index="[140]" Value="0" />
+                  <Element Index="[141]" Value="0" />
+                  <Element Index="[142]" Value="0" />
+                  <Element Index="[143]" Value="0" />
+                  <Element Index="[144]" Value="0" />
+                  <Element Index="[145]" Value="0" />
+                  <Element Index="[146]" Value="0" />
+                  <Element Index="[147]" Value="0" />
+                  <Element Index="[148]" Value="0" />
+                  <Element Index="[149]" Value="0" />
+                  <Element Index="[150]" Value="0" />
+                  <Element Index="[151]" Value="0" />
+                  <Element Index="[152]" Value="0" />
+                  <Element Index="[153]" Value="0" />
+                  <Element Index="[154]" Value="0" />
+                  <Element Index="[155]" Value="0" />
+                  <Element Index="[156]" Value="0" />
+                  <Element Index="[157]" Value="0" />
+                  <Element Index="[158]" Value="0" />
+                  <Element Index="[159]" Value="0" />
+                  <Element Index="[160]" Value="0" />
+                  <Element Index="[161]" Value="0" />
+                  <Element Index="[162]" Value="0" />
+                  <Element Index="[163]" Value="0" />
+                  <Element Index="[164]" Value="0" />
+                  <Element Index="[165]" Value="0" />
+                  <Element Index="[166]" Value="0" />
+                  <Element Index="[167]" Value="0" />
+                  <Element Index="[168]" Value="0" />
+                  <Element Index="[169]" Value="0" />
+                  <Element Index="[170]" Value="0" />
+                  <Element Index="[171]" Value="0" />
+                  <Element Index="[172]" Value="0" />
+                  <Element Index="[173]" Value="0" />
+                  <Element Index="[174]" Value="0" />
+                  <Element Index="[175]" Value="0" />
+                  <Element Index="[176]" Value="0" />
+                  <Element Index="[177]" Value="0" />
+                  <Element Index="[178]" Value="0" />
+                  <Element Index="[179]" Value="0" />
+                  <Element Index="[180]" Value="0" />
+                  <Element Index="[181]" Value="0" />
+                  <Element Index="[182]" Value="0" />
+                  <Element Index="[183]" Value="0" />
+                  <Element Index="[184]" Value="0" />
+                  <Element Index="[185]" Value="0" />
+                  <Element Index="[186]" Value="0" />
+                  <Element Index="[187]" Value="0" />
+                  <Element Index="[188]" Value="0" />
+                  <Element Index="[189]" Value="0" />
+                  <Element Index="[190]" Value="0" />
+                  <Element Index="[191]" Value="0" />
+                  <Element Index="[192]" Value="0" />
+                  <Element Index="[193]" Value="0" />
+                  <Element Index="[194]" Value="0" />
+                  <Element Index="[195]" Value="0" />
+                  <Element Index="[196]" Value="0" />
+                  <Element Index="[197]" Value="0" />
+                  <Element Index="[198]" Value="0" />
+                  <Element Index="[199]" Value="0" />
+                  <Element Index="[200]" Value="0" />
+                  <Element Index="[201]" Value="0" />
+                  <Element Index="[202]" Value="0" />
+                  <Element Index="[203]" Value="0" />
+                  <Element Index="[204]" Value="0" />
+                  <Element Index="[205]" Value="0" />
+                  <Element Index="[206]" Value="0" />
+                  <Element Index="[207]" Value="0" />
+                  <Element Index="[208]" Value="0" />
+                  <Element Index="[209]" Value="0" />
+                  <Element Index="[210]" Value="0" />
+                  <Element Index="[211]" Value="0" />
+                  <Element Index="[212]" Value="0" />
+                  <Element Index="[213]" Value="0" />
+                  <Element Index="[214]" Value="0" />
+                  <Element Index="[215]" Value="0" />
+                  <Element Index="[216]" Value="0" />
+                  <Element Index="[217]" Value="0" />
+                  <Element Index="[218]" Value="0" />
+                  <Element Index="[219]" Value="0" />
+                  <Element Index="[220]" Value="0" />
+                  <Element Index="[221]" Value="0" />
+                  <Element Index="[222]" Value="0" />
+                  <Element Index="[223]" Value="0" />
+                  <Element Index="[224]" Value="0" />
+                  <Element Index="[225]" Value="0" />
+                  <Element Index="[226]" Value="0" />
+                  <Element Index="[227]" Value="0" />
+                  <Element Index="[228]" Value="0" />
+                  <Element Index="[229]" Value="0" />
+                  <Element Index="[230]" Value="0" />
+                  <Element Index="[231]" Value="0" />
+                  <Element Index="[232]" Value="0" />
+                  <Element Index="[233]" Value="0" />
+                  <Element Index="[234]" Value="0" />
+                  <Element Index="[235]" Value="0" />
+                  <Element Index="[236]" Value="0" />
+                  <Element Index="[237]" Value="0" />
+                  <Element Index="[238]" Value="0" />
+                  <Element Index="[239]" Value="0" />
+                  <Element Index="[240]" Value="0" />
+                  <Element Index="[241]" Value="0" />
+                  <Element Index="[242]" Value="0" />
+                  <Element Index="[243]" Value="0" />
+                  <Element Index="[244]" Value="0" />
+                  <Element Index="[245]" Value="0" />
+                  <Element Index="[246]" Value="0" />
+                  <Element Index="[247]" Value="0" />
+                  <Element Index="[248]" Value="0" />
+                  <Element Index="[249]" Value="0" />
+                  <Element Index="[250]" Value="0" />
+                  <Element Index="[251]" Value="0" />
+                  <Element Index="[252]" Value="0" />
+                  <Element Index="[253]" Value="0" />
+                  <Element Index="[254]" Value="0" />
+                  <Element Index="[255]" Value="0" />
+                </ArrayMember>
+              </StructureMember>
+            </Structure>
+          </Data>
+        </InputTag>
+        <OutputTag ExternalAccess="Read/Write" OpcUaAccess="None">
+          <Data Format="L5K"><![CDATA[[[0,0,0,0,0,0,[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+		,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+		,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+		,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]]]]]></Data>
+          <Data Format="Decorated">
+            <Structure DataType="AB:5000_ASCII:O:0">
+              <StructureMember Name="ASCII" DataType="AB:5000_ASCII_Channel:O:0">
+                <DataValueMember Name="TxID" DataType="SINT" Radix="Decimal" Value="0" />
+                <DataValueMember Name="RxID" DataType="SINT" Radix="Decimal" Value="0" />
+                <DataValueMember Name="TxDataLength" DataType="INT" Radix="Decimal" Value="0" />
+                <DataValueMember Name="ClearBuffer" DataType="BOOL" Value="0" />
+                <DataValueMember Name="DTR" DataType="BOOL" Value="0" />
+                <DataValueMember Name="RTS" DataType="BOOL" Value="0" />
+                <DataValueMember Name="EXEC" DataType="BOOL" Value="0" />
+                <DataValueMember Name="RxDataLength" DataType="INT" Radix="Decimal" Value="0" />
+                <ArrayMember Name="TxData" DataType="SINT" Dimensions="256" Radix="Decimal">
+                  <Element Index="[0]" Value="0" />
+                  <Element Index="[1]" Value="0" />
+                  <Element Index="[2]" Value="0" />
+                  <Element Index="[3]" Value="0" />
+                  <Element Index="[4]" Value="0" />
+                  <Element Index="[5]" Value="0" />
+                  <Element Index="[6]" Value="0" />
+                  <Element Index="[7]" Value="0" />
+                  <Element Index="[8]" Value="0" />
+                  <Element Index="[9]" Value="0" />
+                  <Element Index="[10]" Value="0" />
+                  <Element Index="[11]" Value="0" />
+                  <Element Index="[12]" Value="0" />
+                  <Element Index="[13]" Value="0" />
+                  <Element Index="[14]" Value="0" />
+                  <Element Index="[15]" Value="0" />
+                  <Element Index="[16]" Value="0" />
+                  <Element Index="[17]" Value="0" />
+                  <Element Index="[18]" Value="0" />
+                  <Element Index="[19]" Value="0" />
+                  <Element Index="[20]" Value="0" />
+                  <Element Index="[21]" Value="0" />
+                  <Element Index="[22]" Value="0" />
+                  <Element Index="[23]" Value="0" />
+                  <Element Index="[24]" Value="0" />
+                  <Element Index="[25]" Value="0" />
+                  <Element Index="[26]" Value="0" />
+                  <Element Index="[27]" Value="0" />
+                  <Element Index="[28]" Value="0" />
+                  <Element Index="[29]" Value="0" />
+                  <Element Index="[30]" Value="0" />
+                  <Element Index="[31]" Value="0" />
+                  <Element Index="[32]" Value="0" />
+                  <Element Index="[33]" Value="0" />
+                  <Element Index="[34]" Value="0" />
+                  <Element Index="[35]" Value="0" />
+                  <Element Index="[36]" Value="0" />
+                  <Element Index="[37]" Value="0" />
+                  <Element Index="[38]" Value="0" />
+                  <Element Index="[39]" Value="0" />
+                  <Element Index="[40]" Value="0" />
+                  <Element Index="[41]" Value="0" />
+                  <Element Index="[42]" Value="0" />
+                  <Element Index="[43]" Value="0" />
+                  <Element Index="[44]" Value="0" />
+                  <Element Index="[45]" Value="0" />
+                  <Element Index="[46]" Value="0" />
+                  <Element Index="[47]" Value="0" />
+                  <Element Index="[48]" Value="0" />
+                  <Element Index="[49]" Value="0" />
+                  <Element Index="[50]" Value="0" />
+                  <Element Index="[51]" Value="0" />
+                  <Element Index="[52]" Value="0" />
+                  <Element Index="[53]" Value="0" />
+                  <Element Index="[54]" Value="0" />
+                  <Element Index="[55]" Value="0" />
+                  <Element Index="[56]" Value="0" />
+                  <Element Index="[57]" Value="0" />
+                  <Element Index="[58]" Value="0" />
+                  <Element Index="[59]" Value="0" />
+                  <Element Index="[60]" Value="0" />
+                  <Element Index="[61]" Value="0" />
+                  <Element Index="[62]" Value="0" />
+                  <Element Index="[63]" Value="0" />
+                  <Element Index="[64]" Value="0" />
+                  <Element Index="[65]" Value="0" />
+                  <Element Index="[66]" Value="0" />
+                  <Element Index="[67]" Value="0" />
+                  <Element Index="[68]" Value="0" />
+                  <Element Index="[69]" Value="0" />
+                  <Element Index="[70]" Value="0" />
+                  <Element Index="[71]" Value="0" />
+                  <Element Index="[72]" Value="0" />
+                  <Element Index="[73]" Value="0" />
+                  <Element Index="[74]" Value="0" />
+                  <Element Index="[75]" Value="0" />
+                  <Element Index="[76]" Value="0" />
+                  <Element Index="[77]" Value="0" />
+                  <Element Index="[78]" Value="0" />
+                  <Element Index="[79]" Value="0" />
+                  <Element Index="[80]" Value="0" />
+                  <Element Index="[81]" Value="0" />
+                  <Element Index="[82]" Value="0" />
+                  <Element Index="[83]" Value="0" />
+                  <Element Index="[84]" Value="0" />
+                  <Element Index="[85]" Value="0" />
+                  <Element Index="[86]" Value="0" />
+                  <Element Index="[87]" Value="0" />
+                  <Element Index="[88]" Value="0" />
+                  <Element Index="[89]" Value="0" />
+                  <Element Index="[90]" Value="0" />
+                  <Element Index="[91]" Value="0" />
+                  <Element Index="[92]" Value="0" />
+                  <Element Index="[93]" Value="0" />
+                  <Element Index="[94]" Value="0" />
+                  <Element Index="[95]" Value="0" />
+                  <Element Index="[96]" Value="0" />
+                  <Element Index="[97]" Value="0" />
+                  <Element Index="[98]" Value="0" />
+                  <Element Index="[99]" Value="0" />
+                  <Element Index="[100]" Value="0" />
+                  <Element Index="[101]" Value="0" />
+                  <Element Index="[102]" Value="0" />
+                  <Element Index="[103]" Value="0" />
+                  <Element Index="[104]" Value="0" />
+                  <Element Index="[105]" Value="0" />
+                  <Element Index="[106]" Value="0" />
+                  <Element Index="[107]" Value="0" />
+                  <Element Index="[108]" Value="0" />
+                  <Element Index="[109]" Value="0" />
+                  <Element Index="[110]" Value="0" />
+                  <Element Index="[111]" Value="0" />
+                  <Element Index="[112]" Value="0" />
+                  <Element Index="[113]" Value="0" />
+                  <Element Index="[114]" Value="0" />
+                  <Element Index="[115]" Value="0" />
+                  <Element Index="[116]" Value="0" />
+                  <Element Index="[117]" Value="0" />
+                  <Element Index="[118]" Value="0" />
+                  <Element Index="[119]" Value="0" />
+                  <Element Index="[120]" Value="0" />
+                  <Element Index="[121]" Value="0" />
+                  <Element Index="[122]" Value="0" />
+                  <Element Index="[123]" Value="0" />
+                  <Element Index="[124]" Value="0" />
+                  <Element Index="[125]" Value="0" />
+                  <Element Index="[126]" Value="0" />
+                  <Element Index="[127]" Value="0" />
+                  <Element Index="[128]" Value="0" />
+                  <Element Index="[129]" Value="0" />
+                  <Element Index="[130]" Value="0" />
+                  <Element Index="[131]" Value="0" />
+                  <Element Index="[132]" Value="0" />
+                  <Element Index="[133]" Value="0" />
+                  <Element Index="[134]" Value="0" />
+                  <Element Index="[135]" Value="0" />
+                  <Element Index="[136]" Value="0" />
+                  <Element Index="[137]" Value="0" />
+                  <Element Index="[138]" Value="0" />
+                  <Element Index="[139]" Value="0" />
+                  <Element Index="[140]" Value="0" />
+                  <Element Index="[141]" Value="0" />
+                  <Element Index="[142]" Value="0" />
+                  <Element Index="[143]" Value="0" />
+                  <Element Index="[144]" Value="0" />
+                  <Element Index="[145]" Value="0" />
+                  <Element Index="[146]" Value="0" />
+                  <Element Index="[147]" Value="0" />
+                  <Element Index="[148]" Value="0" />
+                  <Element Index="[149]" Value="0" />
+                  <Element Index="[150]" Value="0" />
+                  <Element Index="[151]" Value="0" />
+                  <Element Index="[152]" Value="0" />
+                  <Element Index="[153]" Value="0" />
+                  <Element Index="[154]" Value="0" />
+                  <Element Index="[155]" Value="0" />
+                  <Element Index="[156]" Value="0" />
+                  <Element Index="[157]" Value="0" />
+                  <Element Index="[158]" Value="0" />
+                  <Element Index="[159]" Value="0" />
+                  <Element Index="[160]" Value="0" />
+                  <Element Index="[161]" Value="0" />
+                  <Element Index="[162]" Value="0" />
+                  <Element Index="[163]" Value="0" />
+                  <Element Index="[164]" Value="0" />
+                  <Element Index="[165]" Value="0" />
+                  <Element Index="[166]" Value="0" />
+                  <Element Index="[167]" Value="0" />
+                  <Element Index="[168]" Value="0" />
+                  <Element Index="[169]" Value="0" />
+                  <Element Index="[170]" Value="0" />
+                  <Element Index="[171]" Value="0" />
+                  <Element Index="[172]" Value="0" />
+                  <Element Index="[173]" Value="0" />
+                  <Element Index="[174]" Value="0" />
+                  <Element Index="[175]" Value="0" />
+                  <Element Index="[176]" Value="0" />
+                  <Element Index="[177]" Value="0" />
+                  <Element Index="[178]" Value="0" />
+                  <Element Index="[179]" Value="0" />
+                  <Element Index="[180]" Value="0" />
+                  <Element Index="[181]" Value="0" />
+                  <Element Index="[182]" Value="0" />
+                  <Element Index="[183]" Value="0" />
+                  <Element Index="[184]" Value="0" />
+                  <Element Index="[185]" Value="0" />
+                  <Element Index="[186]" Value="0" />
+                  <Element Index="[187]" Value="0" />
+                  <Element Index="[188]" Value="0" />
+                  <Element Index="[189]" Value="0" />
+                  <Element Index="[190]" Value="0" />
+                  <Element Index="[191]" Value="0" />
+                  <Element Index="[192]" Value="0" />
+                  <Element Index="[193]" Value="0" />
+                  <Element Index="[194]" Value="0" />
+                  <Element Index="[195]" Value="0" />
+                  <Element Index="[196]" Value="0" />
+                  <Element Index="[197]" Value="0" />
+                  <Element Index="[198]" Value="0" />
+                  <Element Index="[199]" Value="0" />
+                  <Element Index="[200]" Value="0" />
+                  <Element Index="[201]" Value="0" />
+                  <Element Index="[202]" Value="0" />
+                  <Element Index="[203]" Value="0" />
+                  <Element Index="[204]" Value="0" />
+                  <Element Index="[205]" Value="0" />
+                  <Element Index="[206]" Value="0" />
+                  <Element Index="[207]" Value="0" />
+                  <Element Index="[208]" Value="0" />
+                  <Element Index="[209]" Value="0" />
+                  <Element Index="[210]" Value="0" />
+                  <Element Index="[211]" Value="0" />
+                  <Element Index="[212]" Value="0" />
+                  <Element Index="[213]" Value="0" />
+                  <Element Index="[214]" Value="0" />
+                  <Element Index="[215]" Value="0" />
+                  <Element Index="[216]" Value="0" />
+                  <Element Index="[217]" Value="0" />
+                  <Element Index="[218]" Value="0" />
+                  <Element Index="[219]" Value="0" />
+                  <Element Index="[220]" Value="0" />
+                  <Element Index="[221]" Value="0" />
+                  <Element Index="[222]" Value="0" />
+                  <Element Index="[223]" Value="0" />
+                  <Element Index="[224]" Value="0" />
+                  <Element Index="[225]" Value="0" />
+                  <Element Index="[226]" Value="0" />
+                  <Element Index="[227]" Value="0" />
+                  <Element Index="[228]" Value="0" />
+                  <Element Index="[229]" Value="0" />
+                  <Element Index="[230]" Value="0" />
+                  <Element Index="[231]" Value="0" />
+                  <Element Index="[232]" Value="0" />
+                  <Element Index="[233]" Value="0" />
+                  <Element Index="[234]" Value="0" />
+                  <Element Index="[235]" Value="0" />
+                  <Element Index="[236]" Value="0" />
+                  <Element Index="[237]" Value="0" />
+                  <Element Index="[238]" Value="0" />
+                  <Element Index="[239]" Value="0" />
+                  <Element Index="[240]" Value="0" />
+                  <Element Index="[241]" Value="0" />
+                  <Element Index="[242]" Value="0" />
+                  <Element Index="[243]" Value="0" />
+                  <Element Index="[244]" Value="0" />
+                  <Element Index="[245]" Value="0" />
+                  <Element Index="[246]" Value="0" />
+                  <Element Index="[247]" Value="0" />
+                  <Element Index="[248]" Value="0" />
+                  <Element Index="[249]" Value="0" />
+                  <Element Index="[250]" Value="0" />
+                  <Element Index="[251]" Value="0" />
+                  <Element Index="[252]" Value="0" />
+                  <Element Index="[253]" Value="0" />
+                  <Element Index="[254]" Value="0" />
+                  <Element Index="[255]" Value="0" />
+                </ArrayMember>
+              </StructureMember>
+            </Structure>
+          </Data>
+        </OutputTag>
+      </Connection>
+      <Connection Name="Channel1ModbusMaster" RPI="80000" Type="StandardDataDriven" OutputSize="12" InputSize="24" EventID="0" ProgrammaticallySendEventTrigger="false" Priority="Scheduled" InputConnectionType="Multicast" InputProductionTrigger="Cyclic" ConnectionPath="20 04 24 bf 2d 00 f4 03 2d 00 19 04" InputTagSuffix="I10" OutputTagSuffix="O10">
+        <InputTag ExternalAccess="Read/Write" OpcUaAccess="None">
+          <Data Format="Decorated">
+            <Structure DataType="AB:5000_ModbusMaster_Status_1C100B9F:I:1">
+              <DataValueMember Name="RunMode" DataType="BOOL" Value="1" />
+              <DataValueMember Name="ConnectionFaulted" DataType="BOOL" Value="0" />
+              <DataValueMember Name="DiagnosticActive" DataType="BOOL" Value="0" />
+              <DataValueMember Name="DiagnosticSequenceCount" DataType="SINT" Radix="Decimal" Value="0" />
+              <DataValueMember Name="Fault" DataType="BOOL" Value="1" />
+              <DataValueMember Name="Uncertain" DataType="BOOL" Value="0" />
+              <DataValueMember Name="LastExecutedCommand" DataType="SINT" Radix="Decimal" Value="-1" />
+              <StructureMember Name="Command00" DataType="AB:5000_Modbus_R_I400000_001_Struct:I:1">
+                <DataValueMember Name="Fault" DataType="BOOL" Value="0" />
+                <DataValueMember Name="Uncertain" DataType="BOOL" Value="0" />
+                <DataValueMember Name="Disabled" DataType="BOOL" Value="0" />
+                <DataValueMember Name="ParityError" DataType="BOOL" Value="0" />
+                <DataValueMember Name="ResponseTimeout" DataType="BOOL" Value="0" />
+                <DataValueMember Name="FramingError" DataType="BOOL" Value="0" />
+                <DataValueMember Name="BufferOverrun" DataType="BOOL" Value="0" />
+                <DataValueMember Name="SlaveErrorCode" DataType="SINT" Radix="Decimal" Value="0" />
+                <DataValueMember Name="ExecutionCount" DataType="SINT" Radix="Decimal" Value="0" />
+                <DataValueMember Name="Data400000" DataType="INT" Radix="Decimal" Value="0" />
+              </StructureMember>
+              <StructureMember Name="Command01" DataType="AB:5000_Modbus_R_I400000_001_Struct:I:1">
+                <DataValueMember Name="Fault" DataType="BOOL" Value="0" />
+                <DataValueMember Name="Uncertain" DataType="BOOL" Value="0" />
+                <DataValueMember Name="Disabled" DataType="BOOL" Value="0" />
+                <DataValueMember Name="ParityError" DataType="BOOL" Value="0" />
+                <DataValueMember Name="ResponseTimeout" DataType="BOOL" Value="0" />
+                <DataValueMember Name="FramingError" DataType="BOOL" Value="0" />
+                <DataValueMember Name="BufferOverrun" DataType="BOOL" Value="0" />
+                <DataValueMember Name="SlaveErrorCode" DataType="SINT" Radix="Decimal" Value="0" />
+                <DataValueMember Name="ExecutionCount" DataType="SINT" Radix="Decimal" Value="0" />
+                <DataValueMember Name="Data400000" DataType="INT" Radix="Decimal" Value="0" />
+              </StructureMember>
+            </Structure>
+          </Data>
+        </InputTag>
+        <OutputTag ExternalAccess="Read/Write" OpcUaAccess="None">
+          <Data Format="L5K"><![CDATA[[0,0,0,0,0]]]></Data>
+          <Data Format="Decorated">
+            <Structure DataType="AB:5000_ModbusMaster_Run_BBA6808A:O:1">
+              <DataValueMember Name="Run" DataType="BOOL" Value="0" />
+              <DataValueMember Name="Command00Disable" DataType="BOOL" Value="0" />
+              <DataValueMember Name="Command01Disable" DataType="BOOL" Value="0" />
+            </Structure>
+          </Data>
+        </OutputTag>
+      </Connection>
+    </Connections>
+  </Communications>
+  <ExtendedProperties>
+    <public>
+      <Vendor></Vendor>
+      <CatNum></CatNum>
+      <ConfigID>113</ConfigID>
+      <InputSize00>8</InputSize00>
+      <OutputSize00>12</OutputSize00>
+      <InputSize01>24</InputSize01>
+      <OutputSize01>12</OutputSize01>
+      <ChannelData>&lt;Data&gt;A0 0D 00 00 BF 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 03 04 00 00 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 03 04 00 00 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 02 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 03 04 00 AC 0D 00 00 C8 00 00 00 C8 00 00 00 00 00 00 00 00 01 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 18 00 0C 00 00 00 00 00 01 02 00 00 01 02 08 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 02 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 03 04 00 AC 0D 00 00 C8 00 00 00 C8 00 00 00 00 00 00 00 01 01 03 00 01 00 00 00 00 00 00 00 00 00 00 00 01 02 03 00 01 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 03 04 01 AC 0D 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 03 04 01 AC 0D 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 04 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 03 04 00 00 01 00 03 03 32 00 0D 0A 05 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 03 04 00 00 01 01 03 00 05 00 00 00 32 00 00 00 00 00 00 00 06 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 03 04 00 00 01 03 B8 0B 07 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 03 04 00 00 01 00 00 00 00 00 00 00 08 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 05 04 00 00 03 00 1F 01&lt;/Data&gt;
+</ChannelData>
+    </public>
+  </ExtendedProperties>
+</Module>

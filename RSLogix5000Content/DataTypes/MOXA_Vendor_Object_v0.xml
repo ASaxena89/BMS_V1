@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DataType Name="MOXA_Vendor_Object_v0" Family="NoFamily" Class="User">
+  <Description><![CDATA[class 0x404]]></Description>
+  <Members>
+    <Member Name="System_Firmware_Version" DataType="DINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Switch Firmware Version]]></Description>
+    </Member>
+    <Member Name="System_Fault_Status" DataType="DINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Switch Fault Status]]></Description>
+    </Member>
+    <Member Name="Switch_Port_Number" DataType="SINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Switch max port number]]></Description>
+    </Member>
+    <Member Name="Port_Exist" DataType="DINT" Dimension="2" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[switch per port exist]]></Description>
+    </Member>
+    <Member Name="Port_Enbale" DataType="DINT" Dimension="2" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Switch Per Port Exist
+0:Enable
+1:Disable]]></Description>
+    </Member>
+    <Member Name="Port_Link_Status" DataType="DINT" Dimension="2" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Switch Per Port Link Status]]></Description>
+    </Member>
+    <Member Name="IGMP_Snooping" DataType="SINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[IGMP Snooping Enable:
+0: disable
+1: enable]]></Description>
+    </Member>
+    <Member Name="Query_Interval" DataType="DINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Query Interval range from 20~600 sec]]></Description>
+    </Member>
+    <Member Name="IGMP_Enhanced_Mode" DataType="SINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[IGMP Enhanced Mode 
+0: Disable (default)
+1: Enable]]></Description>
+    </Member>
+    <Member Name="Relay_1" DataType="SINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Override relay warning setting
+0:Disable (default)
+1: Enable]]></Description>
+    </Member>
+    <Member Name="Relay_2" DataType="SINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Override relay warning setting
+0:Disable (default)
+1: Enable]]></Description>
+    </Member>
+    <Member Name="Power_1_Relay_Warning" DataType="SINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Power input 1 failure (on -> off)
+0: Disable (default)
+1: Enable(relay 1)
+2: Enable(relay 2)]]></Description>
+    </Member>
+    <Member Name="Power_2_Relay_Warning" DataType="SINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Power input 2 failure (on -> off)
+0: Disable (default)
+1: Enable(relay 1)
+2: Enable(relay 2)]]></Description>
+    </Member>
+    <Member Name="DI_1_Off_Relay_Warning" DataType="SINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[DI 1 (off)
+0: disable (default)
+1: enable(relay 1)
+2: enable(relay 2)]]></Description>
+    </Member>
+    <Member Name="DI_1_On_Relay_Warning" DataType="SINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[DI 1 (on)
+0: disable (default)
+1: enable(relay 1)
+2: enable(relay 2)]]></Description>
+    </Member>
+    <Member Name="DI_2_Off_Relay_Warning" DataType="SINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[DI 2 (off)
+0: disable (default)
+1: enable(relay 1)
+2: enable(relay 2)]]></Description>
+    </Member>
+    <Member Name="DI_2_On_Relay_Warning" DataType="SINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[DI 2 (on)
+0: disable (default)
+1: enable(relay 1)
+2: enable(relay 2)]]></Description>
+    </Member>
+    <Member Name="Turbo_Ring_Break_Relay_Warning" DataType="SINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Turbo Ring Break (Ring MAster Only )
+0: diable (default)
+1: enable (relay 1)
+2:enable (relay 2)]]></Description>
+    </Member>
+    <Member Name="CPU_Usage" DataType="SINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Percent of usage (0-100)]]></Description>
+    </Member>
+    <Member Name="Device_Up_Time" DataType="DINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Number of seconds since device was powered up.]]></Description>
+    </Member>
+    <Member Name="Reset_Mib_Counter" DataType="SINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Reset port MIB counters.]]></Description>
+    </Member>
+    <Member Name="Redundant_Device_Mode" DataType="DINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Bit 0: RSTP
+Bit 1: turbo ring
+Bit 2: turbo ring v2
+Bit 3: turbo chain
+Bit 4: MSTP]]></Description>
+    </Member>
+  </Members>
+</DataType>

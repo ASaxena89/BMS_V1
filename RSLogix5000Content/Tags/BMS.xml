@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Tag Name="BMS" TagType="Base" DataType="MESSAGE" ExternalAccess="Read/Write" OpcUaAccess="None">
+  <Data Format="Message">
+    <MessageParameters MessageType="CIP Generic" RequestedLength="1" ConnectedFlag="2" ConnectionPath="1, 1, 2, 172.16.2.3, 1, 10" CommTypeCode="0" ServiceCode="16#0000" ObjectType="16#0000" TargetObject="0" AttributeNumber="16#0000" LocalIndex="0" LocalElement="BMSA_State_BITS" LargePacketUsage="false" />
+  </Data>
+</Tag>

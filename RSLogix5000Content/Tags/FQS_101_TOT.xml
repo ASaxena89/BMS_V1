@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Tag Name="FQS_101_TOT" TagType="Base" DataType="TOT_PULSE" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+  <Description><![CDATA[F-101 FILTER OUTLET RICH TEG FLOW PULSE TOTALIZER]]></Description>
+  <Data Format="L5K"><![CDATA[[39,3,39,3.00000000e+000,0.00000000e+000,0.00000000e+000,3.00000000e+000,4.60000000e+001,0.00000000e+000
+		,0.00000000e+000,0.00000000e+000,5.20000000e+001,6,54,0,0,[0,30000,52],5.20000000e+001,0.00000000e+000
+		,[0,30000,0],0]]]></Data>
+  <Data Format="Decorated">
+    <Structure DataType="TOT_PULSE">
+      <DataValueMember Name="EnableIn" DataType="BOOL" Value="1" />
+      <DataValueMember Name="EnableOut" DataType="BOOL" Value="1" />
+      <DataValueMember Name="SYSTEM_HOUR" DataType="DINT" Radix="Decimal" Value="3" />
+      <DataValueMember Name="SYSTEM_MIN" DataType="DINT" Radix="Decimal" Value="39" />
+      <DataValueMember Name="TOT_INP" DataType="BOOL" Value="1" />
+      <DataValueMember Name="TOT_6D_AGO" DataType="REAL" Radix="Float" Value="3.0" />
+      <DataValueMember Name="TOT_1D_AGO" DataType="REAL" Radix="Float" Value="0.0" />
+      <DataValueMember Name="TOT_ACCUMPULS_TDAY" DataType="REAL" Radix="Float" Value="0.0" />
+      <DataValueMember Name="TOT_7D_AGO" DataType="REAL" Radix="Float" Value="3.0" />
+      <DataValueMember Name="TOT_5D_AGO" DataType="REAL" Radix="Float" Value="46.0" />
+      <DataValueMember Name="TOT_4D_AGO" DataType="REAL" Radix="Float" Value="0.0" />
+      <DataValueMember Name="TOT_3D_AGO" DataType="REAL" Radix="Float" Value="0.0" />
+      <DataValueMember Name="TOT_2D_AGO" DataType="REAL" Radix="Float" Value="0.0" />
+      <DataValueMember Name="TOT_ACCUM_PULSE" DataType="REAL" Radix="Float" Value="52.0" />
+      <DataValueMember Name="HOUR_Inp" DataType="DINT" Radix="Decimal" Value="6" />
+      <DataValueMember Name="MINS_Inp" DataType="DINT" Radix="Decimal" Value="54" />
+      <DataValueMember Name="SYSTEM_DATE" DataType="DINT" Radix="Decimal" Value="0" />
+      <DataValueMember Name="SYSTEM_MONTH" DataType="DINT" Radix="Decimal" Value="0" />
+    </Structure>
+  </Data>
+</Tag>

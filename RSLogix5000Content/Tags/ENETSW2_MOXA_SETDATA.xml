@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Tag Name="ENETSW2_MOXA_SETDATA" TagType="Base" DataType="INT" Dimensions="2" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+  <Data Format="L5K"><![CDATA[[0,0]]]></Data>
+  <Data Format="Decorated">
+    <Array DataType="INT" Dimensions="2" Radix="Decimal">
+      <Element Index="[0]" Value="0" />
+      <Element Index="[1]" Value="0" />
+    </Array>
+  </Data>
+</Tag>

@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Routine Name="Logic" Type="FBD">
+  <FBDContent SheetSize="A3 - 297 x 420 mm" SheetOrientation="Landscape">
+    <Sheet Number="1">
+      <Description><![CDATA[Auto / Manual Selection]]></Description>
+      <IRef ID="0" X="240" Y="780" Operand="1000" HideDesc="false" />
+      <IRef ID="1" X="300" Y="640" Operand="1000" HideDesc="false" />
+      <IRef ID="2" X="140" Y="220" Operand="AutoHMI" HideDesc="false" />
+      <IRef ID="3" X="140" Y="500" Operand="AutoHMI" HideDesc="false" />
+      <IRef ID="4" X="140" Y="260" Operand="ManHMI" HideDesc="false" />
+      <IRef ID="5" X="140" Y="480" Operand="ManHMI" HideDesc="false" />
+      <IRef ID="6" X="180" Y="140" Operand="OCmd_Auto" HideDesc="false" />
+      <IRef ID="7" X="300" Y="620" Operand="OCmd_Auto" HideDesc="false" />
+      <IRef ID="8" X="180" Y="360" Operand="OCmd_Man" HideDesc="false" />
+      <IRef ID="9" X="240" Y="760" Operand="OCmd_Man" HideDesc="false" />
+      <IRef ID="10" X="180" Y="380" Operand="PV_Fault" HideDesc="false" />
+      <ORef ID="11" X="920" Y="140" Operand="AutoHMI" HideDesc="false" />
+      <ORef ID="12" X="920" Y="360" Operand="ManHMI" HideDesc="false" />
+      <ORef ID="13" X="820" Y="640" Operand="OCmd_Auto" HideDesc="false" />
+      <ORef ID="14" X="770" Y="780" Operand="OCmd_Man" HideDesc="false" />
+      <Block Type="BOR" ID="15" X="280" Y="300" Operand="BOR_04" VisiblePins="In1 In2 Out" HideDesc="false" />
+      <Block Type="BOR" ID="16" X="300" Y="180" Operand="BOR_07" VisiblePins="In1 In2 Out" HideDesc="false" />
+      <Block Type="BOR" ID="17" X="260" Y="420" Operand="BOR_08" VisiblePins="In1 In2 Out" HideDesc="false" />
+      <Block Type="OSRI" ID="18" X="680" Y="80" Operand="OSRI_02" VisiblePins="InputBit OutputBit" HideDesc="false" />
+      <Block Type="OSRI" ID="19" X="680" Y="300" Operand="OSRI_03" VisiblePins="InputBit OutputBit" HideDesc="false" />
+      <Block Type="RESD" ID="20" X="460" Y="80" Operand="AUTO_COMMAND" VisiblePins="Set Reset Out" HideDesc="false" />
+      <Block Type="RESD" ID="21" X="460" Y="300" Operand="MANUAL_COMMAND" VisiblePins="Set Reset Out" HideDesc="false" />
+      <Block Type="TONR" ID="22" X="420" Y="560" Operand="TONR_01" VisiblePins="TimerEnable PRE Reset ACC TT DN" HideDesc="false" />
+      <Block Type="TONR" ID="23" X="420" Y="700" Operand="TONR_02" VisiblePins="TimerEnable PRE Reset ACC TT DN" HideDesc="false" />
+      <Wire FromID="0" ToID="23" ToParam="PRE" />
+      <Wire FromID="1" ToID="22" ToParam="PRE" />
+      <Wire FromID="2" ToID="16" ToParam="In1" />
+      <Wire FromID="3" ToID="17" ToParam="In2" />
+      <Wire FromID="4" ToID="16" ToParam="In2" />
+      <Wire FromID="5" ToID="17" ToParam="In1" />
+      <Wire FromID="6" ToID="20" ToParam="Set" />
+      <Wire FromID="7" ToID="22" ToParam="TimerEnable" />
+      <Wire FromID="8" ToID="15" ToParam="In1" />
+      <Wire FromID="9" ToID="23" ToParam="TimerEnable" />
+      <Wire FromID="10" ToID="15" ToParam="In2" />
+      <Wire FromID="15" FromParam="Out" ToID="21" ToParam="Set" />
+      <Wire FromID="16" FromParam="Out" ToID="20" ToParam="Reset" />
+      <Wire FromID="17" FromParam="Out" ToID="21" ToParam="Reset" />
+      <Wire FromID="18" FromParam="OutputBit" ToID="11" />
+      <Wire FromID="19" FromParam="OutputBit" ToID="12" />
+      <Wire FromID="20" FromParam="Out" ToID="18" ToParam="InputBit" />
+      <Wire FromID="21" FromParam="Out" ToID="19" ToParam="InputBit" />
+      <Wire FromID="22" FromParam="TT" ToID="13" />
+      <Wire FromID="23" FromParam="TT" ToID="14" />
+    </Sheet>
+    <Sheet Number="2">
+      <Description><![CDATA[PID Logic]]></Description>
+      <IRef ID="24" X="1200" Y="780" Operand="0" HideDesc="false" />
+      <IRef ID="25" X="1200" Y="840" Operand="1" HideDesc="false" />
+      <IRef ID="26" X="740" Y="700" Operand="100" HideDesc="false" />
+      <IRef ID="27" X="1200" Y="760" Operand="100" HideDesc="false" />
+      <IRef ID="28" X="340" Y="540" Operand="AutoHMI" HideDesc="false" />
+      <IRef ID="29" X="320" Y="360" Operand="Cfg_CVEUMax" HideDesc="false" />
+      <IRef ID="30" X="320" Y="380" Operand="Cfg_CVEUMin" HideDesc="false" />
+      <IRef ID="31" X="800" Y="100" Operand="Cfg_CVEUMin" HideDesc="false" />
+      <IRef ID="32" X="1200" Y="800" Operand="Cfg_CVMaxRaw" HideDesc="false" />
+      <IRef ID="33" X="1200" Y="820" Operand="Cfg_CVMinRaw" HideDesc="false" />
+      <IRef ID="34" X="320" Y="400" Operand="Cfg_CtrlAction" HideDesc="false" />
+      <IRef ID="35" X="320" Y="460" Operand="Cfg_DGain" HideDesc="false" />
+      <IRef ID="36" X="140" Y="700" Operand="Cfg_DevSP" HideDesc="false" />
+      <IRef ID="37" X="320" Y="440" Operand="Cfg_IGain" HideDesc="false" />
+      <IRef ID="38" X="320" Y="300" Operand="Cfg_MaxSP" HideDesc="false" />
+      <IRef ID="39" X="320" Y="320" Operand="Cfg_MinSP" HideDesc="false" />
+      <IRef ID="40" X="740" Y="680" Operand="Cfg_OutAction" HideDesc="false" />
+      <IRef ID="41" X="1060" Y="700" Operand="Cfg_OutAction" HideDesc="false" />
+      <IRef ID="42" X="320" Y="420" Operand="Cfg_PGain" HideDesc="false" />
+      <IRef ID="43" X="320" Y="240" Operand="Cfg_PVEUMax" HideDesc="false" />
+      <IRef ID="44" X="320" Y="260" Operand="Cfg_PVEUMin" HideDesc="false" />
+      <IRef ID="45" X="320" Y="480" Operand="Cfg_PVTrack" HideDesc="false" />
+      <IRef ID="46" X="320" Y="220" Operand="Inp_PV" HideDesc="false" />
+      <IRef ID="47" X="700" Y="440" Operand="Inp_PVBad" HideDesc="false" />
+      <IRef ID="48" X="340" Y="560" Operand="ManHMI" HideDesc="false" />
+      <IRef ID="49" X="320" Y="340" Operand="OSet_CV" HideDesc="false" />
+      <IRef ID="50" X="260" Y="780" Operand="OSet_SP" HideDesc="false" />
+      <IRef ID="51" X="320" Y="280" Operand="OSet_SP" HideDesc="false" />
+      <IRef ID="52" X="260" Y="120" Operand="PV_Fault" HideDesc="false" />
+      <IRef ID="53" X="260" Y="140" Operand="Sts_Man" HideDesc="false" />
+      <IRef ID="54" X="740" Y="720" Operand="Val_CVPercent" HideDesc="false" />
+      <IRef ID="55" X="1060" Y="660" Operand="Val_CVPercent" HideDesc="false" />
+      <ORef ID="56" X="680" Y="300" Operand="Alm_DevHi" HideDesc="false" />
+      <ORef ID="57" X="680" Y="280" Operand="Alm_DevLo" HideDesc="false" />
+      <ORef ID="58" X="1030" Y="80" Operand="OSet_CV" HideDesc="false" />
+      <ORef ID="59" X="670" Y="260" Operand="OSet_SP" HideDesc="false" />
+      <ORef ID="60" X="1460" Y="740" Operand="Out_CV" HideDesc="false" />
+      <ORef ID="61" X="970" Y="420" Operand="PV_Fault" HideDesc="false" />
+      <ORef ID="62" X="670" Y="320" Operand="Sts_Auto" HideDesc="false" />
+      <ORef ID="63" X="670" Y="340" Operand="Sts_Man" HideDesc="false" />
+      <ORef ID="64" X="660" Y="220" Operand="Val_CVOut" HideDesc="false" />
+      <ORef ID="65" X="660" Y="240" Operand="Val_CVPercent" HideDesc="false" />
+      <ICon ID="66" X="180" Y="500" Name="DevHi" />
+      <ICon ID="67" X="180" Y="540" Name="DevLo" />
+      <OCon ID="68" X="510" Y="740" Name="DevHi" />
+      <OCon ID="69" X="520" Y="860" Name="DevLo" />
+      <Block Type="ADD" ID="70" X="340" Y="680" Operand="ADD_03" VisiblePins="SourceA SourceB Dest" HideDesc="false" />
+      <Block Type="BAND" ID="71" X="320" Y="60" Operand="BAND_02" VisiblePins="In1 In2 Out" HideDesc="false" />
+      <Block Type="BOR" ID="72" X="760" Y="360" Operand="BOR_03" VisiblePins="In1 In2 Out" HideDesc="false" />
+      <Block Type="OSRI" ID="73" X="420" Y="60" Operand="OSRI_01" VisiblePins="InputBit OutputBit" HideDesc="false" />
+      <Block Type="PIDE" ID="74" X="420" Y="160" Operand="PIDE_CALC" VisiblePins="PV PVEUMax PVEUMin SPOper SPHLimit SPLLimit CVOper CVEUMax CVEUMin ControlAction PGain IGain DGain PVTracking DevHLimit DevLLimit OperAutoReq OperManualReq CVEU CV SP DevHAlarm DevLAlarm Auto Manual PVFaulted" HideDesc="false" />
+      <Block Type="SCL" ID="75" X="1300" Y="680" Operand="SCL_OUT1" VisiblePins="In InRawMax InRawMin InEUMax InEUMin Limiting Out" HideDesc="false" />
+      <Block Type="SEL" ID="76" X="860" Y="20" Operand="SEL_03" VisiblePins="In1 In2 SelectorIn Out" HideDesc="false" />
+      <Block Type="SEL" ID="77" X="1100" Y="600" Operand="SEL_SCALE_OUT11" VisiblePins="In1 In2 SelectorIn Out" HideDesc="false" />
+      <Block Type="SUB" ID="78" X="340" Y="800" Operand="SUB_03" VisiblePins="SourceA SourceB Dest" HideDesc="false" />
+      <Block Type="SUB" ID="79" X="780" Y="620" Operand="SUB_REV11" VisiblePins="EnableIn SourceA SourceB Dest" HideDesc="false" />
+      <Wire FromID="24" ToID="75" ToParam="InRawMin" />
+      <Wire FromID="25" ToID="75" ToParam="Limiting" />
+      <Wire FromID="26" ToID="79" ToParam="SourceA" />
+      <Wire FromID="27" ToID="75" ToParam="InRawMax" />
+      <Wire FromID="28" ToID="74" ToParam="OperAutoReq" />
+      <Wire FromID="29" ToID="74" ToParam="CVEUMax" />
+      <Wire FromID="30" ToID="74" ToParam="CVEUMin" />
+      <Wire FromID="31" ToID="76" ToParam="In2" />
+      <Wire FromID="32" ToID="75" ToParam="InEUMax" />
+      <Wire FromID="33" ToID="75" ToParam="InEUMin" />
+      <Wire FromID="34" ToID="74" ToParam="ControlAction" />
+      <Wire FromID="35" ToID="74" ToParam="DGain" />
+      <Wire FromID="36" ToID="70" ToParam="SourceA" />
+      <Wire FromID="36" ToID="78" ToParam="SourceB" />
+      <Wire FromID="37" ToID="74" ToParam="IGain" />
+      <Wire FromID="38" ToID="74" ToParam="SPHLimit" />
+      <Wire FromID="39" ToID="74" ToParam="SPLLimit" />
+      <Wire FromID="40" ToID="79" ToParam="EnableIn" />
+      <Wire FromID="41" ToID="77" ToParam="SelectorIn" />
+      <Wire FromID="42" ToID="74" ToParam="PGain" />
+      <Wire FromID="43" ToID="74" ToParam="PVEUMax" />
+      <Wire FromID="44" ToID="74" ToParam="PVEUMin" />
+      <Wire FromID="45" ToID="74" ToParam="PVTracking" />
+      <Wire FromID="46" ToID="74" ToParam="PV" />
+      <Wire FromID="47" ToID="72" ToParam="In2" />
+      <Wire FromID="48" ToID="74" ToParam="OperManualReq" />
+      <Wire FromID="49" ToID="74" ToParam="CVOper" />
+      <Wire FromID="50" ToID="70" ToParam="SourceB" />
+      <Wire FromID="50" ToID="78" ToParam="SourceA" />
+      <Wire FromID="51" ToID="74" ToParam="SPOper" />
+      <Wire FromID="52" ToID="71" ToParam="In1" />
+      <Wire FromID="53" ToID="71" ToParam="In2" />
+      <Wire FromID="54" ToID="79" ToParam="SourceB" />
+      <Wire FromID="55" ToID="77" ToParam="In1" />
+      <Wire FromID="66" ToID="74" ToParam="DevHLimit" />
+      <Wire FromID="67" ToID="74" ToParam="DevLLimit" />
+      <Wire FromID="70" FromParam="Dest" ToID="68" />
+      <Wire FromID="71" FromParam="Out" ToID="73" ToParam="InputBit" />
+      <Wire FromID="72" FromParam="Out" ToID="61" />
+      <Wire FromID="73" FromParam="OutputBit" ToID="76" ToParam="SelectorIn" />
+      <Wire FromID="74" FromParam="DevLAlarm" ToID="56" />
+      <Wire FromID="74" FromParam="DevHAlarm" ToID="57" />
+      <Wire FromID="74" FromParam="SP" ToID="59" />
+      <Wire FromID="74" FromParam="Auto" ToID="62" />
+      <Wire FromID="74" FromParam="Manual" ToID="63" />
+      <Wire FromID="74" FromParam="CVEU" ToID="64" />
+      <Wire FromID="74" FromParam="CV" ToID="65" />
+      <Wire FromID="74" FromParam="PVFaulted" ToID="72" ToParam="In1" />
+      <Wire FromID="74" FromParam="CVEU" ToID="76" ToParam="In1" />
+      <Wire FromID="75" FromParam="Out" ToID="60" />
+      <Wire FromID="76" FromParam="Out" ToID="58" />
+      <Wire FromID="77" FromParam="Out" ToID="75" ToParam="In" />
+      <Wire FromID="78" FromParam="Dest" ToID="69" />
+      <Wire FromID="79" FromParam="Dest" ToID="77" ToParam="In2" />
+    </Sheet>
+  </FBDContent>
+</Routine>

@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Module Name="R02S10" CatalogNumber="5094-SERIAL/A" Vendor="1" ProductType="12" ProductCode="328" Major="2" Minor="11" ParentModule="PCS_IO_Rack02" ParentModPortId="1" Inhibited="false" MajorFault="false" SafetyEnabled="false" DataExchangeId="{575449FC-3BB7-4707-89AB-F875FE87DE6E}">
+  <EKey State="CompatibleModule" />
+  <Ports>
+    <Port Id="1" Address="10" Type="5094" Upstream="true" />
+  </Ports>
+  <ExtendedProperties>
+    <public>
+      <Vendor></Vendor>
+      <CatNum></CatNum>
+      <ConfigID>4325481</ConfigID>
+    </public>
+  </ExtendedProperties>
+</Module>

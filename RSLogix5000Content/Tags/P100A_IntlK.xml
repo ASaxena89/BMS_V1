@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Tag Name="P100A_IntlK" TagType="Base" DataType="IPA_Intlk" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+  <Data Format="L5K"><![CDATA[[67,0,3,3,[[3,'ESD$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00'],[4,'ESD2$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00'
+		],[0,'$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00'],[0,'$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00'
+		],[0,'$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00'],[0,'$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00'
+		],[0,'$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00'],[0,'$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00'
+		],[0,'$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00'],[0,'$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00'
+		],[0,'$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00'],[0,'$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00'
+		],[0,'$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00'],[0,'$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00'
+		],[0,'$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00'],[0,'$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00'
+		]],3,3,3,3,3,[3,'ESD$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00'],[3,'ESD$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00'
+		],[3,'ESD$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00'
+		],[3,'ESD$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00']]]]></Data>
+  <Data Format="Decorated">
+    <Structure DataType="IPA_Intlk">
+      <DataValueMember Name="EnableIn" DataType="BOOL" Value="1" />
+      <DataValueMember Name="EnableOut" DataType="BOOL" Value="1" />
+      <DataValueMember Name="Inp_Intlk00" DataType="BOOL" Value="1" />
+      <DataValueMember Name="Inp_Intlk01" DataType="BOOL" Value="1" />
+      <DataValueMember Name="Inp_Intlk02" DataType="BOOL" Value="0" />
+      <DataValueMember Name="Inp_Intlk03" DataType="BOOL" Value="0" />
+      <DataValueMember Name="Inp_Intlk04" DataType="BOOL" Value="0" />
+      <DataValueMember Name="Inp_Intlk05" DataType="BOOL" Value="0" />
+      <DataValueMember Name="Inp_Intlk06" DataType="BOOL" Value="0" />
+      <DataValueMember Name="Inp_Intlk07" DataType="BOOL" Value="0" />
+      <DataValueMember Name="Inp_Intlk08" DataType="BOOL" Value="0" />
+      <DataValueMember Name="Inp_Intlk09" DataType="BOOL" Value="0" />
+      <DataValueMember Name="Inp_Intlk10" DataType="BOOL" Value="0" />
+      <DataValueMember Name="Inp_Intlk11" DataType="BOOL" Value="0" />
+      <DataValueMember Name="Inp_Intlk12" DataType="BOOL" Value="0" />
+      <DataValueMember Name="Inp_Intlk13" DataType="BOOL" Value="0" />
+      <DataValueMember Name="Inp_Intlk14" DataType="BOOL" Value="0" />
+      <DataValueMember Name="Inp_Intlk15" DataType="BOOL" Value="0" />
+      <DataValueMember Name="Inp_Reset" DataType="BOOL" Value="0" />
+      <DataValueMember Name="Cfg_OKState" DataType="INT" Radix="Binary" Value="2#0000_0000_0000_0000" />
+      <DataValueMember Name="Sts_IntlkOK" DataType="BOOL" Value="0" />
+      <DataValueMember Name="Sts_Intlk" DataType="INT" Radix="Binary" Value="2#0000_0000_0000_0011" />
+      <DataValueMember Name="Sts_FirstOut" DataType="INT" Radix="Binary" Value="2#0000_0000_0000_0011" />
+      <DataValueMember Name="OCmd_Reset" DataType="BOOL" Value="0" />
+    </Structure>
+  </Data>
+</Tag>

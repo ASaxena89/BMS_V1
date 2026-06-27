@@ -1,0 +1,237 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<AddOnInstructionDefinition Name="IPA_CV" Revision="2.0" Vendor="INTECH Process Automation, Inc" ExecutePrescan="false" ExecutePostscan="false" ExecuteEnableInFalse="false" CreatedDate="2009-11-12T18:31:04.551Z" CreatedBy="INTECHWW\AParis" EditedDate="2020-09-18T14:07:41.051Z" EditedBy="INTECHWW\Omer.Khan" SoftwareRevision="v31.01">
+  <CustomProperties>
+    <Provider ID="ACM" Ext="0">
+      <Header xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Maj="1" Min="0" OExt="-1" UExt="1">
+        <Libs>
+          <LibHdr CatalogNumber="PID_Object" Guid="8C954DBF-D716-4AE4-AB2A-9609964D4B10" />
+        </Libs>
+      </Header>
+    </Provider>
+    <Provider ID="ACM" Ext="1">
+      <Data xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Maj="3" Min="0" OExt="-1">
+        <Val><![CDATA[<DecoratedData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" MajorRev="1" MinorRev="0" CRC="ToDo">
+  <Private xsi:type="AoiPrivateData" Guid="8C954DBF-D716-4AE4-AB2A-9609964D4B10" ContentType="Routine">
+    <Attrib />
+    <Subs />
+  </Private>
+</DecoratedData>]]></Val>
+      </Data>
+    </Provider>
+  </CustomProperties>
+  <Description><![CDATA[Object for Control Valve]]></Description>
+  <RevisionNote><![CDATA[Version 2.0
+- ISA-18.2 Alarms]]></RevisionNote>
+  <AdditionalHelpText><![CDATA[1. The CVin will be between 0 to 100 and will come from the Output of PCS_PID block
+2.The CVOut will be between 4 to 20 and will be provided directly to an Alias tag. Thus the AO card shall be configured for Engineering range 4 to 20
+3.Position feedback from the control valve is required. probably Via Hart data only if the field instrument has this capability. if not available use CVIn for this purpose]]></AdditionalHelpText>
+  <Parameters>
+    <Parameter Name="EnableIn" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read Only">
+      <Description><![CDATA[Enable Input - System Defined Parameter]]></Description>
+    </Parameter>
+    <Parameter Name="EnableOut" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read Only">
+      <Description><![CDATA[Enable Output - System Defined Parameter]]></Description>
+    </Parameter>
+    <Parameter Name="Inp_CV" TagType="Base" DataType="REAL" Usage="Input" Radix="Float" Required="false" Visible="true" ExternalAccess="Read/Write">
+      <Description><![CDATA[Command from External Logic/Routine/Object]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0.00000000e+000]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="REAL" Radix="Float" Value="0.0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="Inp_Position" TagType="Base" DataType="REAL" Usage="Input" Radix="Float" Required="true" Visible="true" ExternalAccess="Read/Write">
+      <Description><![CDATA[Input Valve Position]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0.00000000e+000]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="REAL" Radix="Float" Value="0.0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="Cfg_OutAction" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="true" Visible="true" ExternalAccess="Read/Write">
+      <Description><![CDATA[0=Valve is Fail Close
+1=Valve is Fail Open]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="BOOL" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="Cfg_ResponseTime" TagType="Base" DataType="DINT" Usage="Input" Radix="Decimal" Required="false" Visible="true" ExternalAccess="Read/Write">
+      <Description><![CDATA[Valve response Time in mS]]></Description>
+      <DefaultData Format="L5K"><![CDATA[5000]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="DINT" Radix="Decimal" Value="5000" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="Inp_DevSP" TagType="Base" DataType="REAL" Usage="Input" Radix="Float" Required="false" Visible="true" ExternalAccess="Read/Write">
+      <Description><![CDATA[|Inp_CV- Inp_Position|]]></Description>
+      <DefaultData Format="L5K"><![CDATA[5.00000000e+000]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="REAL" Radix="Float" Value="5.0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="Alm_Dev" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="true" ExternalAccess="Read Only">
+      <Description><![CDATA[if |Inp_CV - Inp_Position| >= SP_Deviation]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="BOOL" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="Cfg_AOMaxRaw" TagType="Base" DataType="REAL" Usage="Input" Radix="Float" Required="false" Visible="true" ExternalAccess="Read/Write">
+      <Description><![CDATA[Max AO Channel Units]]></Description>
+      <DefaultData Format="L5K"><![CDATA[2.00000000e+004]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="REAL" Radix="Float" Value="20000.0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="Cfg_AOMinRaw" TagType="Base" DataType="REAL" Usage="Input" Radix="Float" Required="false" Visible="true" ExternalAccess="Read/Write">
+      <Description><![CDATA[Min AO Channel Units]]></Description>
+      <DefaultData Format="L5K"><![CDATA[4.00000000e+003]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="REAL" Radix="Float" Value="4000.0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="Val_CVOut" TagType="Base" DataType="REAL" Usage="Output" Radix="Float" Required="false" Visible="false" ExternalAccess="Read Only">
+      <Description><![CDATA[Valve Open Percentage (Shown on HMI)]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0.00000000e+000]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="REAL" Radix="Float" Value="0.0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="Out_CV" TagType="Base" DataType="REAL" Usage="Output" Radix="Float" Required="true" Visible="true" ExternalAccess="Read Only">
+      <Description><![CDATA[Output to the AO card between AOMinRaw an AOMaxRaw]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0.00000000e+000]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="REAL" Radix="Float" Value="0.0" />
+      </DefaultData>
+    </Parameter>
+  </Parameters>
+  <LocalTags>
+    <LocalTag Name="SUB_01" DataType="FBD_MATH" ExternalAccess="Read/Write">
+      <DefaultData Format="L5K"><![CDATA[[1,0.00000000e+000,0.00000000e+000,0.00000000e+000]]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <Structure DataType="FBD_MATH">
+          <DataValueMember Name="EnableIn" DataType="BOOL" Value="1" />
+          <DataValueMember Name="SourceA" DataType="REAL" Radix="Float" Value="0.0" />
+          <DataValueMember Name="SourceB" DataType="REAL" Radix="Float" Value="0.0" />
+          <DataValueMember Name="EnableOut" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Dest" DataType="REAL" Radix="Float" Value="0.0" />
+        </Structure>
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="ABS_01" DataType="FBD_MATH_ADVANCED" ExternalAccess="Read/Write">
+      <DefaultData Format="L5K"><![CDATA[[1,0.00000000e+000,0.00000000e+000]]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <Structure DataType="FBD_MATH_ADVANCED">
+          <DataValueMember Name="EnableIn" DataType="BOOL" Value="1" />
+          <DataValueMember Name="Source" DataType="REAL" Radix="Float" Value="0.0" />
+          <DataValueMember Name="EnableOut" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Dest" DataType="REAL" Radix="Float" Value="0.0" />
+        </Structure>
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="GEQ_01" DataType="FBD_COMPARE" ExternalAccess="Read/Write">
+      <DefaultData Format="L5K"><![CDATA[[1,0.00000000e+000,0.00000000e+000]]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <Structure DataType="FBD_COMPARE">
+          <DataValueMember Name="EnableIn" DataType="BOOL" Value="1" />
+          <DataValueMember Name="SourceA" DataType="REAL" Radix="Float" Value="0.0" />
+          <DataValueMember Name="SourceB" DataType="REAL" Radix="Float" Value="0.0" />
+          <DataValueMember Name="EnableOut" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Dest" DataType="BOOL" Value="0" />
+        </Structure>
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="SCL_OUT" DataType="SCALE" ExternalAccess="Read/Write">
+      <DefaultData Format="L5K"><![CDATA[[1,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0,0.00000000e+000,0,5.60519386e-045,0.00000000e+000,0.00000000e+000,0.00000000e+000]]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <Structure DataType="SCALE">
+          <DataValueMember Name="EnableIn" DataType="BOOL" Value="1" />
+          <DataValueMember Name="In" DataType="REAL" Radix="Float" Value="0.0" />
+          <DataValueMember Name="InRawMax" DataType="REAL" Radix="Float" Value="0.0" />
+          <DataValueMember Name="InRawMin" DataType="REAL" Radix="Float" Value="0.0" />
+          <DataValueMember Name="InEUMax" DataType="REAL" Radix="Float" Value="0.0" />
+          <DataValueMember Name="InEUMin" DataType="REAL" Radix="Float" Value="0.0" />
+          <DataValueMember Name="Limiting" DataType="BOOL" Value="0" />
+          <DataValueMember Name="EnableOut" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Out" DataType="REAL" Radix="Float" Value="0.0" />
+          <DataValueMember Name="MaxAlarm" DataType="BOOL" Value="0" />
+          <DataValueMember Name="MinAlarm" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Status" DataType="DINT" Radix="Hex" Value="16#0000_0000" />
+          <DataValueMember Name="InstructFault" DataType="BOOL" Value="0" />
+          <DataValueMember Name="InRawRangeInv" DataType="BOOL" Value="0" />
+        </Structure>
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="TONR_01" DataType="FBD_TIMER" ExternalAccess="Read/Write">
+      <DefaultData Format="L5K"><![CDATA[[1,0,0,0,0,0,0,0,0,4,0,0]]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <Structure DataType="FBD_TIMER">
+          <DataValueMember Name="EnableIn" DataType="BOOL" Value="1" />
+          <DataValueMember Name="TimerEnable" DataType="BOOL" Value="0" />
+          <DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="0" />
+          <DataValueMember Name="Reset" DataType="BOOL" Value="0" />
+          <DataValueMember Name="EnableOut" DataType="BOOL" Value="0" />
+          <DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="0" />
+          <DataValueMember Name="EN" DataType="BOOL" Value="0" />
+          <DataValueMember Name="TT" DataType="BOOL" Value="0" />
+          <DataValueMember Name="DN" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Status" DataType="DINT" Radix="Hex" Value="16#0000_0000" />
+          <DataValueMember Name="InstructFault" DataType="BOOL" Value="0" />
+          <DataValueMember Name="PresetInv" DataType="BOOL" Value="0" />
+        </Structure>
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="SEL_Compare" DataType="SELECT" ExternalAccess="Read/Write">
+      <DefaultData Format="L5K"><![CDATA[[1,0.00000000e+000,0.00000000e+000,0,0.00000000e+000,5.60519386e-045]]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <Structure DataType="SELECT">
+          <DataValueMember Name="EnableIn" DataType="BOOL" Value="1" />
+          <DataValueMember Name="In1" DataType="REAL" Radix="Float" Value="0.0" />
+          <DataValueMember Name="In2" DataType="REAL" Radix="Float" Value="0.0" />
+          <DataValueMember Name="SelectorIn" DataType="BOOL" Value="0" />
+          <DataValueMember Name="EnableOut" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Out" DataType="REAL" Radix="Float" Value="0.0" />
+        </Structure>
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="SUB_REV" DataType="FBD_MATH" ExternalAccess="Read/Write">
+      <DefaultData Format="L5K"><![CDATA[[1,0.00000000e+000,0.00000000e+000,0.00000000e+000]]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <Structure DataType="FBD_MATH">
+          <DataValueMember Name="EnableIn" DataType="BOOL" Value="1" />
+          <DataValueMember Name="SourceA" DataType="REAL" Radix="Float" Value="0.0" />
+          <DataValueMember Name="SourceB" DataType="REAL" Radix="Float" Value="0.0" />
+          <DataValueMember Name="EnableOut" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Dest" DataType="REAL" Radix="Float" Value="0.0" />
+        </Structure>
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="Cfg_Desc" DataType="STRING_40" ExternalAccess="Read/Write">
+      <DefaultData Format="L5K"><![CDATA[[11,'Description$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00']]]></DefaultData>
+      <DefaultData Format="String" Length="11"><![CDATA['Description']]></DefaultData>
+    </LocalTag>
+    <LocalTag Name="Cfg_Label" DataType="STRING_20" ExternalAccess="Read/Write">
+      <DefaultData Format="L5K"><![CDATA[[13,'Control Valve$00$00$00$00$00$00$00']]]></DefaultData>
+      <DefaultData Format="String" Length="13"><![CDATA['Control Valve']]></DefaultData>
+    </LocalTag>
+    <LocalTag Name="Cfg_Tag" DataType="STRING_20" ExternalAccess="Read/Write">
+      <DefaultData Format="L5K"><![CDATA[[6,'CV Tag$00$00$00$00$00$00$00$00$00$00$00$00$00$00']]]></DefaultData>
+      <DefaultData Format="String" Length="6"><![CDATA['CV Tag']]></DefaultData>
+    </LocalTag>
+    <LocalTag Name="Cfg_EU" DataType="STRING_8" ExternalAccess="Read/Write">
+      <DefaultData Format="L5K"><![CDATA[[1,'%$00$00$00$00$00$00$00']]]></DefaultData>
+      <DefaultData Format="String" Length="1"><![CDATA['%']]></DefaultData>
+    </LocalTag>
+    <LocalTag Name="Cfg_DecPlcs" DataType="DINT" Radix="Decimal" ExternalAccess="Read/Write">
+      <DefaultData Format="L5K"><![CDATA[2]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="DINT" Radix="Decimal" Value="2" />
+      </DefaultData>
+    </LocalTag>
+  </LocalTags>
+  <Routines />
+  <Dependencies>
+    <Dependency Type="DataType" Name="STRING_40" />
+    <Dependency Type="DataType" Name="STRING_8" />
+    <Dependency Type="DataType" Name="STRING_20" />
+  </Dependencies>
+</AddOnInstructionDefinition>

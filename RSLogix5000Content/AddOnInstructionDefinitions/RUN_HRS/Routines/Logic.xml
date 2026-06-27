@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Routine Name="Logic" Type="RLL">
+  <RLLContent>
+    <Rung Type="N">
+      <Comment><![CDATA[RUN HOUR COUNTERS]]></Comment>
+      <Text><![CDATA[XIC(RunI)XIO(PUMP_1SEC_TMR.DN)TON(PUMP_1SEC_TMR,?,?);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(PUMP_1SEC_TMR.DN)ADD(PUMP_RESET_SEC,1,PUMP_RESET_SEC);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(PUMP_RESET_RHR_CMD)[OSR(StorageBit1,OutputBit1) XIC(OutputBit1) MOVE(PUMP_RESET_SEC,PUMP_NRESET_SEC_INTER) MOVE(0,PUMP_RESET_SEC) ADD(PUMP_NRESET_SEC_INTER,PUMP_NRESET_SEC,PUMP_NRESET_SEC) ,OSR(StorageBit2,OutputBit2) XIC(OutputBit2) MOVE(0,PUMP_NRESET_SEC_INTER) ];]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(RESET_ALL)MOVE(0,PUMP_NRESET_SEC)MOVE(0,PUMP_RESET_SEC);]]></Text>
+    </Rung>
+  </RLLContent>
+</Routine>

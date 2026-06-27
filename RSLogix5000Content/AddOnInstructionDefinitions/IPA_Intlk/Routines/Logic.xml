@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Routine Name="Logic" Type="RLL">
+  <Description><![CDATA[Check Interlock Conditions]]></Description>
+  <RLLContent>
+    <Rung Type="N">
+      <Text><![CDATA[JMP(SkipText)[LOWER(Cfg_Desc,Cfg_Label) LOWER(Cfg_Tag,Val_FirstOutTxt) ,LOWER(Cfg_CondTxt[0],Cfg_CondTxt[1]) LOWER(Cfg_CondTxt[2],Cfg_CondTxt[3]) LOWER(Cfg_CondTxt[4],Cfg_CondTxt[5]) LOWER(Cfg_CondTxt[6],Cfg_CondTxt[7]) ,LOWER(Cfg_CondTxt[8],Cfg_CondTxt[9]) LOWER(Cfg_CondTxt[10],Cfg_CondTxt[11]) LOWER(Cfg_CondTxt[12],Cfg_CondTxt[13]) LOWER(Cfg_CondTxt[14],Cfg_CondTxt[15]) ];]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[============================================================
+INPUT GATHERING
+============================================================
+This object uses word-wise logic.  The 16 interlock inputs are aliased
+to the Wrk_Inp word, so no logic is needed to collect the individual
+conditions.  We can immediately start processing the interlock logic.
+============================================================
+HANDLE "OK STATE" INVERSIONS
+============================================================
+This rung inverts the Input bits whose "OK State" is 1 (0 to Stop).
+The resulting Wrk_Inp word is ZERO if all interlock inputs are "OK".]]></Comment>
+      <Text><![CDATA[LBL(SkipText)XOR(Wrk_Inp,Cfg_OKState,Wrk_InpInv);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[============================================================
+COMMAND PROCESSING
+============================================================
+On receipt of a Reset Command, the output
+Interlock Status (internal copy, actually) is cleared.
+(Later logic may fill this in again if some Interlock conditions are true...)
+
+NOTE:  This object is "Modeless" -- Operator and Program Commands
+are accepted at any time.]]></Comment>
+      <Text><![CDATA[[XIC(OCmd_Reset) OTU(OCmd_Reset) ,XIC(Inp_Reset) ,XIC(Cfg_AutoReset) ]CLR(Wrk_Sts);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[============================================================
+INTERLOCK PROCESSING
+============================================================
+This rung clears any bits in the stored Interlock status for which the
+Input bit is OFF and the bit is NOT configured as Latched.
+
+If the LatchDefeat input in OFF, set the internal Latch Enable work bit.
+If this bit is ON, don't clear any latched bits with this rung (keep them latched).
+If this bit is OFF, clear any bits that are NOT on in the input, whether
+configured for latching or not!
+
+This rung SETS Interlock status bits for any Interlock condition Input that is true.]]></Comment>
+      <Text><![CDATA[OR(Wrk_Sts,Wrk_InpInv,Wrk_Sts);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[Clear the First Out status and text when the Latch Defeat input turns off (One-Shot).
+This generally occurs when the downstream device STARTS.
+]]></Comment>
+      <Text><![CDATA[EQ(Wrk_Sts,0)ONS(Wrk_NonIntlkStop)CLR(Wrk_FirstOut)FLL(0,Val_FirstOutTxt,1);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[If an interlock condition occurs (which interlocks depends on the
+bypass status!) and the Latch Defeat input is NOT set,
+the equipment is running and will be shut down.
+If this happens, record the First Out status.]]></Comment>
+      <Text><![CDATA[NE(Wrk_Sts,0)ONS(Wrk_SetFirstOut)[CPT(Wrk_FirstOut,(Wrk_Sts)AND(NOT(Wrk_PrevSts))) ,NE(Wrk_FirstOut,0) [XIC(Wrk_FirstOut.15) COP(Cfg_CondTxt[15],Val_FirstOutTxt,1) ,XIC(Wrk_FirstOut.14) COP(Cfg_CondTxt[14],Val_FirstOutTxt,1) ,XIC(Wrk_FirstOut.13) COP(Cfg_CondTxt[13],Val_FirstOutTxt,1) ,XIC(Wrk_FirstOut.12) COP(Cfg_CondTxt[12],Val_FirstOutTxt,1) ,XIC(Wrk_FirstOut.11) COP(Cfg_CondTxt[11],Val_FirstOutTxt,1) ,XIC(Wrk_FirstOut.10) COP(Cfg_CondTxt[10],Val_FirstOutTxt,1) ,XIC(Wrk_FirstOut.9) COP(Cfg_CondTxt[9],Val_FirstOutTxt,1) ,XIC(Wrk_FirstOut.8) COP(Cfg_CondTxt[8],Val_FirstOutTxt,1) ,XIC(Wrk_FirstOut.7) COP(Cfg_CondTxt[7],Val_FirstOutTxt,1) ,XIC(Wrk_FirstOut.6) COP(Cfg_CondTxt[6],Val_FirstOutTxt,1) ,XIC(Wrk_FirstOut.5) COP(Cfg_CondTxt[5],Val_FirstOutTxt,1) ,XIC(Wrk_FirstOut.4) COP(Cfg_CondTxt[4],Val_FirstOutTxt,1) ,XIC(Wrk_FirstOut.3) COP(Cfg_CondTxt[3],Val_FirstOutTxt,1) ,XIC(Wrk_FirstOut.2) COP(Cfg_CondTxt[2],Val_FirstOutTxt,1) ,XIC(Wrk_FirstOut.1) COP(Cfg_CondTxt[1],Val_FirstOutTxt,1) ,XIC(Wrk_FirstOut.0) COP(Cfg_CondTxt[0],Val_FirstOutTxt,1) ] ];]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[The value used for "First Out" generation this scan is stored
+as the "previous" value for use in the above logic next scan.]]></Comment>
+      <Text><![CDATA[MOVE(Wrk_Sts,Wrk_PrevSts);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[============================================================
+STATUS GENERATION
+============================================================
+This rung generates the public Status for this object.
+If all the Interlock Status bits are zero, there is no condition to
+shut down the affected equipment.  In that case, show the Interlock Status as "OK"
+
+Similar logic applies for the Non-Bypassable Interlocks OK Status.
+
+Also show the individual Interlock Status bits and the First Out Status bits.
+
+NOTE:  Working registers are used to prevent outside writes to the Sts_xxx
+parameters from affecting the state of this object!]]></Comment>
+      <Text><![CDATA[[EQ(Wrk_Sts,0) OTE(Sts_IntlkOK) ,MOVE(Wrk_Sts,Sts_Intlk) ,MOVE(Wrk_FirstOut,Sts_FirstOut) ];]]></Text>
+    </Rung>
+  </RLLContent>
+</Routine>

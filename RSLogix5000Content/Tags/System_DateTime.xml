@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Tag Name="System_DateTime" TagType="Base" DataType="DINT" Dimensions="7" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+  <Data Format="L5K"><![CDATA[[1998,1,2,3,39,7,904649]]]></Data>
+  <Data Format="Decorated">
+    <Array DataType="DINT" Dimensions="7" Radix="Decimal">
+      <Element Index="[0]" Value="1998" />
+      <Element Index="[1]" Value="1" />
+      <Element Index="[2]" Value="2" />
+      <Element Index="[3]" Value="3" />
+      <Element Index="[4]" Value="39" />
+      <Element Index="[5]" Value="7" />
+      <Element Index="[6]" Value="904649" />
+    </Array>
+  </Data>
+</Tag>

@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Routine Name="Cause_and_Effect" Type="RLL">
+  <RLLContent>
+    <Rung Type="N">
+      <Comment><![CDATA[RESET PHILOSOPHY: RESET CAN BE DONE EITHER FROM HARDWIRED BUTTON ON CONTROL PANEL OR THROUGH HMI SOFT PUSH BUTTON AFTER ALL CAUSES HAVE BECOME HEALTHY
+]]></Comment>
+      <Text><![CDATA[[XIC(RESET.Inp_PV) ,XIC(HMI_RESET) ]OTE(RESET_C);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[ESD CAN BE ACTIVATED BY EITHER HARDWIRED ESD OR SOFTWARE ESD ACTIVATED THROUGH HMI
+ESD GETS LATCHED ONCE BOTH OF THEM GETS ACTIVATED ONCE]]></Comment>
+      <Text><![CDATA[[XIC(ESD.Alm_Alm) ,XIC(SOFT_ESD) ]OTL(ESD_C);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[BOTH ESD GET RESET WHEN GETS NORMALISED]]></Comment>
+      <Text><![CDATA[XIC(RESET_C)XIO(ESD.Alm_Alm)XIO(SOFT_ESD)OTU(ESD_C);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[P100A SHUTDOWN ACTIVATION
+(DE-ENERGISED)]]></Comment>
+      <Text><![CDATA[[XIC(ESD_C) ,XIC(XS_102.Alm_Alm) ,XIC(LSLL_101A.Alm_Alm) ,XIC(LSL_101.Alm_Alm) ][OTE(P100A_SD.PCmd_Off) ,OTU(P100A_SD.Inp_IntlkOK) ,OTU(P100A.Inp_IntlkOK) ];]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[P100A SHUTDOWN DEACTIVATION
+(ENERGISED)]]></Comment>
+      <Text><![CDATA[XIO(ESD_C)XIO(XS_102.Alm_Alm)XIO(LSLL_101A.Alm_Alm)XIO(LSL_101.Alm_Alm)XIC(RESET_C)[OTE(P100A_SD.PCmd_On) ,OTL(P100A_SD.Inp_IntlkOK) ,OTL(P100A.Inp_IntlkOK) ,OTE(P100A.PCmd_Start) ];]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[P101A SHUTDOWN ACTIVATION
+(DE-ENERGISED)]]></Comment>
+      <Text><![CDATA[[XIC(ESD_C) ,XIC(XS_102.Alm_Alm) ,XIC(LSL_101.Alm_Alm) ,XIC(LIT_103.Alm_HiHi) ,XIC(PIT_103.Alm_LoLo) ,XIC(LIT_105.Alm_LoLo) ,XIC(TIT_105.Alm_HiHi) ,XIC(LIT_106.Alm_LoLo) TON(SD_DelayP101,?,?) XIC(SD_DelayP101.DN) ][OTE(P101A_SD.PCmd_Off) ,OTU(P101A_SD.Inp_IntlkOK) ,OTU(P101A.Inp_IntlkOK) ,OTE(P101A_CTRL.PCmd_Off) ];]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[CPT(HMI_TD_ENTRY,HMI_TD_ENTRY_RAW*1000)MOVE(HMI_TD_ENTRY,SD_DelayP101.PRE);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[P101A SHUTDOWN DEACTIVATION (ENERGISED) & PUMP AUTO-START]]></Comment>
+      <Text><![CDATA[XIO(ESD_C)XIO(XS_102.Alm_Alm)XIO(LSL_101.Alm_Alm)XIO(LIT_103.Alm_HiHi)XIO(PIT_103.Alm_LoLo)XIO(LIT_105.Alm_LoLo)XIO(TIT_105.Alm_HiHi)XIO(LIT_106.Alm_LoLo)XIC(RESET_C)[OTE(P101A_SD.PCmd_On) ,OTL(P101A_SD.Inp_IntlkOK) ,OTL(P101A.Inp_IntlkOK) ,OTE(P101A.PCmd_Start) ];]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[E101 SHUTDOWN ACTIVATION
+(DE-ENERGISED)]]></Comment>
+      <Text><![CDATA[[XIC(ESD_C) ,XIC(XS_102.Alm_Alm) ,XIC(LSL_101.Alm_Alm) ,XIC(VSH_101.Alm_Alm) ][OTE(E101_SD.PCmd_Off) ,OTU(E101_SD.Inp_IntlkOK) ,OTU(E101.Inp_IntlkOK) ];]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[E101 SHUTDOWN DEACTIVATION
+(ENERGISED)]]></Comment>
+      <Text><![CDATA[XIO(ESD_C)XIO(XS_102.Alm_Alm)XIO(VSH_101.Alm_Alm)XIO(LSL_101.Alm_Alm)XIC(RESET_C)[OTE(E101_SD.PCmd_On) ,OTL(E101_SD.Inp_IntlkOK) ,OTL(E101.Inp_IntlkOK) ,OTE(E101.PCmd_Start) ];]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[P100B SHUTDOWN ACTIVATION
+(DE-ENERGISED)]]></Comment>
+      <Text><![CDATA[[XIC(ESD_C) ,XIC(XS_102.Alm_Alm) ,XIC(LSLL_101A.Alm_Alm) ,XIC(LSL_101.Alm_Alm) ][OTE(P100B_SD.PCmd_Off) ,OTU(P100B_SD.Inp_IntlkOK) ,OTU(P100B.Inp_IntlkOK) ];]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[P100B SHUTDOWN DEACTIVATION
+(ENERGISED)]]></Comment>
+      <Text><![CDATA[XIO(ESD_C)XIO(XS_102.Alm_Alm)XIO(LSLL_101A.Alm_Alm)XIO(LSL_101.Alm_Alm)XIC(RESET_C)[OTE(P100B_SD.PCmd_On) ,OTL(P100B_SD.Inp_IntlkOK) ,OTL(P100B.Inp_IntlkOK) ,OTE(P100B.PCmd_Start) ];]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[P101B SHUTDOWN ACTIVATION
+(DE-ENERGISED)]]></Comment>
+      <Text><![CDATA[[XIC(ESD_C) ,XIC(XS_102.Alm_Alm) ,XIC(LSL_101.Alm_Alm) ,XIC(LIT_103.Alm_HiHi) ,XIC(PIT_103.Alm_LoLo) ,XIC(LIT_105.Alm_LoLo) ,XIC(TIT_105.Alm_HiHi) ,XIC(LIT_106.Alm_LoLo) XIC(SD_DelayP101.DN) ][OTE(P101B_SD.PCmd_Off) ,OTU(P101B_SD.Inp_IntlkOK) ,OTU(P101B.Inp_IntlkOK) ,OTE(P101B_CTRL.PCmd_Off) ];]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[P101B SHUTDOWN DEACTIVATION (ENERGISED) & PUMP AUTO-START]]></Comment>
+      <Text><![CDATA[XIO(ESD_C)XIO(XS_102.Alm_Alm)XIO(LSL_101.Alm_Alm)XIO(LIT_103.Alm_HiHi)XIO(PIT_103.Alm_LoLo)XIO(LIT_105.Alm_LoLo)XIO(TIT_105.Alm_HiHi)XIO(LIT_106.Alm_LoLo)XIC(RESET_C)[OTE(P101B_SD.PCmd_On) ,OTL(P101B_SD.Inp_IntlkOK) ,OTL(P101B.Inp_IntlkOK) ,OTE(P101B.PCmd_Start) ];]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[E102 SHUTDOWN ACTIVATION
+(DE-ENERGISED)]]></Comment>
+      <Text><![CDATA[[XIC(ESD_C) ,XIC(XS_102.Alm_Alm) ,XIC(LSL_101.Alm_Alm) ,XIC(VSH_102.Alm_Alm) ][OTE(E102_SD.PCmd_Off) ,OTU(E102_SD.Inp_IntlkOK) ,OTU(E102.Inp_IntlkOK) ];]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[E102 SHUTDOWN DEACTIVATION
+(ENERGISED)]]></Comment>
+      <Text><![CDATA[XIO(ESD_C)XIO(XS_102.Alm_Alm)XIO(VSH_102.Alm_Alm)XIO(LSL_101.Alm_Alm)XIC(RESET_C)[OTE(E102_SD.PCmd_On) ,OTL(E102_SD.Inp_IntlkOK) ,OTL(E102.Inp_IntlkOK) ,OTE(E102.PCmd_Start) ];]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[BMS105_SD SHUTDOWN ACTIVATION
+(DE-ENERGISED)]]></Comment>
+      <Text><![CDATA[[XIC(ESD_C) ,XIC(XS_102.Alm_Alm) ,XIC(LSL_101.Alm_Alm) ,XIC(LIT_103.Alm_HiHi) ,XIC(LIT_103.Alm_LoLo) ,XIC(TIT_105.Alm_HiHi) ][OTE(BMS105_SD.PCmd_Off) ,OTU(BMS105_SD.Inp_IntlkOK) ];]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[BMS105_SD SHUTDOWN DEACTIVATION
+(ENERGISED)]]></Comment>
+      <Text><![CDATA[XIO(ESD_C)XIO(XS_102.Alm_Alm)XIO(LSL_101.Alm_Alm)XIO(LIT_103.Alm_HiHi)XIO(LIT_103.Alm_LoLo)XIO(TIT_105.Alm_HiHi)XIC(RESET_C)[OTE(BMS105_SD.PCmd_On) ,OTL(BMS105_SD.Inp_IntlkOK) ];]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[SD_CMD_V101_INLET SHUTDOWN ACTIVATION
+(DE-ENERGISED)]]></Comment>
+      <Text><![CDATA[[XIC(LIT_101.Alm_HiHi) ,XIC(LIT_103.Alm_HiHi) ,XIC(LIT_103.Alm_LoLo) ,XIC(TIT_105.Alm_HiHi) ][OTE(SD_CMD_V101_INLET.PCmd_Off) ,OTU(SD_CMD_V101_INLET.Inp_IntlkOK) ];]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[SD_CMD_V101_INLET SHUTDOWN DEACTIVATION
+(ENERGISED)]]></Comment>
+      <Text><![CDATA[XIO(LIT_101.Alm_HiHi)XIO(LIT_103.Alm_HiHi)XIO(LIT_103.Alm_LoLo)XIO(TIT_105.Alm_HiHi)XIC(RESET_C)[OTE(SD_CMD_V101_INLET.PCmd_On) ,OTL(SD_CMD_V101_INLET.Inp_IntlkOK) ];]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[XA-103TO CUSTOMER PLC ESD STATUS ACTIVATION
+(DE-ENERGISED)]]></Comment>
+      <Text><![CDATA[[XIC(ESD_C) ,XIC(LSL_101.Alm_Alm) ,XIC(XS_102.Alm_Alm) ][OTE(XA_103.PCmd_Off) ,OTU(XA_103.Inp_IntlkOK) ];]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[XA-103TO CUSTOMER PLC ESD STATUS  DEACTIVATION
+(ENERGISED)]]></Comment>
+      <Text><![CDATA[XIO(ESD_C)XIO(LSL_101.Alm_Alm)XIO(XS_102.Alm_Alm)XIC(RESET_C)[OTE(XA_103.PCmd_On) ,OTL(XA_103.Inp_IntlkOK) ];]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[SYV-102 SHUTDOWN ACTIVATION
+(DE-ENERGISED)]]></Comment>
+      <Text><![CDATA[[XIC(ESD_C) ,XIC(LSL_101.Alm_Alm) ,XIC(XS_102.Alm_Alm) ,XIC(LIT_102.Alm_LoLo) ][OTE(SYV_102.PCmd_Close) ,OTU(SYV_102.Inp_IntlkOK) ];]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[SYV-102 SHUTDOWN DEACTIVATION
+(ENERGISED)]]></Comment>
+      <Text><![CDATA[XIO(ESD_C)XIO(XS_102.Alm_Alm)XIO(LSL_101.Alm_Alm)XIO(LIT_102.Alm_LoLo)XIC(RESET_C)[OTE(SYV_102.PCmd_Open) ,OTL(SYV_102.Inp_IntlkOK) ];]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[SYV-103 SHUTDOWN ACTIVATION
+(DE-ENERGISED)]]></Comment>
+      <Text><![CDATA[[XIC(ESD_C) ,XIC(LSL_101.Alm_Alm) ,XIC(XS_102.Alm_Alm) ,XIC(LIT_103.Alm_LoLo) ][OTE(SYV_103.PCmd_Close) ,OTU(SYV_103.Inp_IntlkOK) ];]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[SYV-103  SHUTDOWN DEACTIVATION
+(ENERGISED)]]></Comment>
+      <Text><![CDATA[XIO(ESD_C)XIO(XS_102.Alm_Alm)XIO(LSL_101.Alm_Alm)XIO(LIT_103.Alm_LoLo)XIC(RESET_C)[OTE(SYV_103.PCmd_Open) ,OTL(SYV_103.Inp_IntlkOK) ];]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[SYV-154 SHUTDOWN ACTIVATION
+(DEENERGISED)]]></Comment>
+      <Text><![CDATA[XIC(LDLSA_154.Alm_Alm)[OTE(SYV_154.PCmd_Close) ,OTU(SYV_154.Inp_IntlkOK) ];]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[SYV-154 SHUTDOWN DEACTIVATION
+(ENERGISED)]]></Comment>
+      <Text><![CDATA[XIO(LDLSA_154.Alm_Alm)XIC(RESET_C)[OTE(SYV_154.PCmd_Open) ,OTL(SYV_154.Inp_IntlkOK) ];]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[7318-XA-2201 SOUNDER BEACON ACTIVATION
+(ENERGISED)]]></Comment>
+      <Text><![CDATA[[XIC(_7318_MC_921.Alm_HiHi) ,XIC(_7318_MC_921.Alm_LoLo) ,XIC(_7318_MC_921.Alm_Lo) ,XIC(_7318_SD939A.Alm_HiHi) ,XIC(_7318_SD939A.Alm_LoLo) ,XIC(_7318_SD939A.Alm_Lo) ,XIC(_7318_SD939B.Alm_HiHi) ,XIC(_7318_SD939B.Alm_LoLo) ,XIC(_7318_SD939B.Alm_Lo) ][OTE(_7318_XA2201.PCmd_On) ,OTL(_7318_XA2201.Inp_IntlkOK) ];]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[7318-XA-2201 SOUNDER BEACON DEACTIVATION
+(DEENERGISED)]]></Comment>
+      <Text><![CDATA[XIO(_7318_MC_921.Alm_HiHi)XIO(_7318_MC_921.Alm_LoLo)XIO(_7318_MC_921.Alm_Lo)XIO(_7318_SD939A.Alm_HiHi)XIO(_7318_SD939A.Alm_LoLo)XIO(_7318_SD939A.Alm_Lo)XIO(_7318_SD939B.Alm_HiHi)XIO(_7318_SD939B.Alm_LoLo)XIO(_7318_SD939B.Alm_Lo)XIC(RESET_C)[OTE(_7318_XA2201.PCmd_Off) ,OTU(_7318_XA2201.Inp_IntlkOK) ];]]></Text>
+    </Rung>
+  </RLLContent>
+</Routine>

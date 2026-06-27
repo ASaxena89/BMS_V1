@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DataType Name="MOXA_TCPIP_Interface_Object_v0" Family="NoFamily" Class="User">
+  <Description><![CDATA[class 0xf5]]></Description>
+  <Members>
+    <Member Name="Status" DataType="DINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Interface Status:]]></Description>
+    </Member>
+    <Member Name="Configuration_Capability" DataType="DINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Interface 
+capability flags]]></Description>
+    </Member>
+    <Member Name="Configuration_Control" DataType="DINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Interface control 
+flags]]></Description>
+    </Member>
+    <Member Name="Path_Size" DataType="INT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Size of Path]]></Description>
+    </Member>
+    <Member Name="Object_Path_1" DataType="INT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Logical segments 
+identifying the 
+physical link 
+object]]></Description>
+    </Member>
+    <Member Name="Object_Path_2" DataType="INT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Logical segments 
+identifying the 
+physical link 
+object]]></Description>
+    </Member>
+    <Member Name="IP_Address" DataType="DINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[The device’s IP 
+address.]]></Description>
+    </Member>
+    <Member Name="Network_Mask" DataType="DINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[The device’s 
+network mask]]></Description>
+    </Member>
+    <Member Name="Gateway_Address" DataType="DINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Default gateway 
+address]]></Description>
+    </Member>
+    <Member Name="Name_Server_1" DataType="DINT" Dimension="0" Radix="Hex" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Primary name 
+server]]></Description>
+    </Member>
+    <Member Name="Name_Server_2" DataType="DINT" Dimension="0" Radix="Hex" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Secondary name 
+server]]></Description>
+    </Member>
+    <Member Name="Domain_Name" DataType="STRING" Dimension="0" Radix="NullType" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Default domain 
+name]]></Description>
+    </Member>
+    <Member Name="Host_Name" DataType="STRING" Dimension="0" Radix="NullType" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Host Name]]></Description>
+    </Member>
+  </Members>
+</DataType>

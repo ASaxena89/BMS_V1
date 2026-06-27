@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Tag Name="SCL_03" TagType="Base" DataType="SCALE" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+  <Data Format="L5K"><![CDATA[[3,0.00000000e+000,5.00000000e+001,0.00000000e+000,1.00000000e+002,0.00000000e+000,1,0.00000000e+000
+		,0,0.00000000e+000,5.00000000e+001,1.99999996e-002,0.00000000e+000]]]></Data>
+  <Data Format="Decorated">
+    <Structure DataType="SCALE">
+      <DataValueMember Name="EnableIn" DataType="BOOL" Value="1" />
+      <DataValueMember Name="In" DataType="REAL" Radix="Float" Value="0.0" />
+      <DataValueMember Name="InRawMax" DataType="REAL" Radix="Float" Value="50.0" />
+      <DataValueMember Name="InRawMin" DataType="REAL" Radix="Float" Value="0.0" />
+      <DataValueMember Name="InEUMax" DataType="REAL" Radix="Float" Value="100.0" />
+      <DataValueMember Name="InEUMin" DataType="REAL" Radix="Float" Value="0.0" />
+      <DataValueMember Name="Limiting" DataType="BOOL" Value="1" />
+      <DataValueMember Name="EnableOut" DataType="BOOL" Value="1" />
+      <DataValueMember Name="Out" DataType="REAL" Radix="Float" Value="0.0" />
+      <DataValueMember Name="MaxAlarm" DataType="BOOL" Value="0" />
+      <DataValueMember Name="MinAlarm" DataType="BOOL" Value="0" />
+      <DataValueMember Name="Status" DataType="DINT" Radix="Hex" Value="16#0000_0000" />
+      <DataValueMember Name="InstructFault" DataType="BOOL" Value="0" />
+      <DataValueMember Name="InRawRangeInv" DataType="BOOL" Value="0" />
+    </Structure>
+  </Data>
+</Tag>

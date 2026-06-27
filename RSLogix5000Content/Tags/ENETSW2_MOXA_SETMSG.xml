@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Tag Name="ENETSW2_MOXA_SETMSG" TagType="Base" DataType="MESSAGE" ExternalAccess="Read/Write" OpcUaAccess="None">
+  <Data Format="Message">
+    <MessageParameters MessageType="Unconfigured" RequestedLength="1" CommTypeCode="0" LocalIndex="0" />
+  </Data>
+</Tag>

@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DataType Name="MOXA_HMI_Set_Object_v0" Family="NoFamily" Class="User">
+  <Members>
+    <Member Name="Control_Bits" DataType="INT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write" />
+    <Member Name="Speed_Duplex" DataType="SINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write" />
+    <Member Name="Port_Enable" DataType="SINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[1=enable, 2=disable]]></Description>
+    </Member>
+    <Member Name="ZZZZZZZZZZMOXA_HMI_S3" DataType="SINT" Dimension="0" Radix="Decimal" Hidden="true" ExternalAccess="Read/Write" />
+    <Member Name="Enter_Port_Enable" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZMOXA_HMI_S3" BitNumber="0" ExternalAccess="Read/Write">
+      <Description><![CDATA[Set to 1 to trigger port enable/disable change]]></Description>
+    </Member>
+    <Member Name="Reset_mib_counter" DataType="SINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[reset mib counter]]></Description>
+    </Member>
+    <Member Name="Reset_to_default" DataType="SINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Restart and reset to default]]></Description>
+    </Member>
+    <Member Name="Select_Port" DataType="INT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[current port select on FT View]]></Description>
+    </Member>
+    <Member Name="ZZZZZZZZZZMOXA_HMI_S8" DataType="SINT" Dimension="0" Radix="Decimal" Hidden="true" ExternalAccess="Read/Write" />
+    <Member Name="Enter_Port_Setting" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZMOXA_HMI_S8" BitNumber="0" ExternalAccess="Read/Write" />
+    <Member Name="Enter_Reset_Setting" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZMOXA_HMI_S8" BitNumber="1" ExternalAccess="Read/Write" />
+  </Members>
+</DataType>
