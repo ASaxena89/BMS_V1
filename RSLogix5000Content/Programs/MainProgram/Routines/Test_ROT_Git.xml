@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Routine Name="Test_ROT_Git" Type="RLL">
+  <RLLContent>
+    <Rung Type="N">
+      <Text><![CDATA[MOVE(GIT_1,GIT_2);]]></Text>
+    </Rung>
+  </RLLContent>
+</Routine>
