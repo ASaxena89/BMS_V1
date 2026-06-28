@@ -93,7 +93,10 @@
       <Text><![CDATA[IPA_TOT(LIT_101_TOT,LIT_101.Inp_PV,0,5,5,5,5,0);]]></Text>
     </Rung>
     <Rung Type="N">
-      <Text><![CDATA[XIC(Test_TAG_In)OTE(Test_TAG_Out);]]></Text>
+      <Text><![CDATA[XIC(Test_TAG_In)OTE(Test_TAG_In2);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[MOVE(Test_TAG_2,Aman);]]></Text>
     </Rung>
   </RLLContent>
 </Routine>
